@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
+		<LangVersion>8.0</LangVersion>
+		<Version>1.0.0-preview1</Version>
+		<NoWarn>1591</NoWarn>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>SKIT.FlurlHttpClient.Baidu.SmartApp</PackageId>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageProjectUrl>https://github.com/code-jar/SKIT.FlurlHttpClient.Baidu</PackageProjectUrl>
+		<PackageTags>百度智能小程序 第三方平台</PackageTags>
+		<Description>百度智能小程序第三方平台SDK</Description>
+		<Authors>code-jar</Authors>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>https://github.com/code-jar/SKIT.FlurlHttpClient.Baidu.git</RepositoryUrl>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SKIT.FlurlHttpClient.Common" Version="2.5.0" />
+	</ItemGroup>
+
+</Project>
