@@ -183,5 +183,86 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp
 
             return await client.SendRequestWithJsonAsync<AppGradeResponse>(flurlReq, data: null, cancellationToken: cancellationToken);
         }
+
+        /// <summary>
+        /// 修改小程序名称
+        /// <para>异步调用 [POST] rest/2.0/smartapp/app/setnicknamewithqual 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/info/modify_app_name_with_qualification </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<SetNickNameWithQualResponse> ExecuteSmartAppSetNickNameWithQualAsync(this SmartAppThirdPartyClient client, SetNickNameWithQualRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "app", "setnicknamewithqual")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("nick_name", request.NickName)
+                .SetQueryParam("qual_materials", request.QualMaterials);
+
+            return await client.SendRequestWithJsonAsync<SetNickNameWithQualResponse>(flurlReq, data: null, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// 小程序名称检测
+        /// <para>异步调用 [GET] rest/2.0/smartapp/app/checknamewithqual 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/info/app_name_check </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<CheckNameWithQualResponse> ExecuteSmartAppCheckNameWithQualAsync(this SmartAppThirdPartyClient client, CheckNameWithQualRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "app", "checknamewithqual")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("app_name", request.AppName)
+                .SetQueryParam("qual_materials", request.QualMaterials);
+
+            return await client.SendRequestWithJsonAsync<CheckNameWithQualResponse>(flurlReq, data: null, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// 修改小程序icon
+        /// <para>异步调用 [POST] rest/2.0/smartapp/app/modifyheadimage 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/info/modify_app_icon </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<ModifyHeadImageResponse> ExecuteSmartAppModifyHeadImageAsync(this SmartAppThirdPartyClient client, ModifyHeadImageRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "app", "modifyheadimage")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("image_url", request.ImageUrl);
+
+            return await client.SendRequestWithJsonAsync<ModifyHeadImageResponse>(flurlReq, data: null, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// 修改小程序简介
+        /// <para>异步调用 [POST] rest/2.0/smartapp/app/modifysignature 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/info/modify_app_desc </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<ModifySignatureResponse> ExecuteSmartAppModifySignatureAsync(this SmartAppThirdPartyClient client, ModifySignatureRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "app", "modifysignature")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("signature", request.Signature);
+
+            return await client.SendRequestWithJsonAsync<ModifySignatureResponse>(flurlReq, data: null, cancellationToken: cancellationToken);
+        }
+
+
+
     }
 }
