@@ -25,7 +25,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp
         public static async Task<UploadImageResponse> ExecuteSmartAppUploadImageAsync(this SmartAppThirdPartyClient client, UploadImageRequest request, CancellationToken cancellationToken = default)
         {
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "file", "2.0", "smartapp", "upload", "image")
+                .CreateRequest(request, HttpMethod.Post, "file", "2.0", "smartapp", "upload", "image")
                 .SetQueryParam("access_token", request.AccessToken);
 
             var content = new MultipartFormDataContent
