@@ -1,26 +1,46 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net6.0;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>net461; netstandard2.0; net6.0</TargetFrameworks>
 		<LangVersion>8.0</LangVersion>
-		<Version>0.0.2</Version>
-		<NoWarn>1591</NoWarn>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Nullable>enable</Nullable>
+		<NullableReferenceTypes>true</NullableReferenceTypes>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<PackageId>SKIT.FlurlHttpClient.Baidu.SmartApp</PackageId>
+		<PackageIcon>LOGO.png</PackageIcon>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<PackageProjectUrl>https://github.com/code-jar/SKIT.FlurlHttpClient.Baidu</PackageProjectUrl>
-		<PackageTags>百度智能小程序 第三方平台</PackageTags>
-		<Description>百度智能小程序第三方平台SDK</Description>
-		<Authors>code-jar</Authors>
+		<PackageProjectUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu</PackageProjectUrl>
+		<PackageTags>Flurl.Http Baidu 百度 百度智能小程序 百度小程序 SmartApp SmartProgram</PackageTags>
+		<Version></Version>
+		<Description>基于 Flurl.Http 的百度智能小程序开放平台 API 客户端。</Description>
+		<Authors>Fu Diwei, code-jar</Authors>
 		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/code-jar/SKIT.FlurlHttpClient.Baidu.git</RepositoryUrl>
+		<RepositoryUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu.git</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+		<Deterministic>true</Deterministic>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="SKIT.FlurlHttpClient.Common" Version="2.5.0" />
+		<None Include="../../LOGO.png" Pack="true" PackagePath="/" />
+		<None Include="README.md" Pack="true" PackagePath="/" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="System.Web" Condition="'$(TargetFramework)' == 'net461'" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="SKIT.FlurlHttpClient.Common" Version="2.6.0" />
 	</ItemGroup>
 
 </Project>
