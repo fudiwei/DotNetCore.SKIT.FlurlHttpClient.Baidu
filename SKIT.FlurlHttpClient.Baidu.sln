@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKIT.FlurlHttpClient.Baidu.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4AAE98CC-03C2-4318-B05D-07B1E2F80BC1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTest", "test\SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTest\SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTest.csproj", "{D5A92E08-C0F4-4513-8D08-BDBD13C0CD8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTests", "test\SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTests\SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTests.csproj", "{D5A92E08-C0F4-4513-8D08-BDBD13C0CD8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
