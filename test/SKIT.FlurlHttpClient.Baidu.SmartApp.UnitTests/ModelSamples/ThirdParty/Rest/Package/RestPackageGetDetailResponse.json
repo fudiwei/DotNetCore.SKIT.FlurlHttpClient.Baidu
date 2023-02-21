@@ -1,0 +1,14 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "version": "d0.0.0.2",
+        "remark": "",
+        "msg": "",
+        "committer": "--",
+        "status": 4,
+        "commit_time": "1970/01/19 02:19:13",
+        "version_desc": "dddd123",
+        "package_id": 201
+    }
+}

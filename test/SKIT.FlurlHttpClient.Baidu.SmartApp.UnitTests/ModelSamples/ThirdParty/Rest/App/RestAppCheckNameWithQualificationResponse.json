@@ -1,0 +1,14 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "checkResult": 5,
+        "checkWords": [
+            "手机百度"
+        ],
+        "requiredFields": [
+            1
+        ],
+        "optionalFields": []
+    }
+}

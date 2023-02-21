@@ -1,0 +1,8 @@
+{
+    "appId": 15263713,
+    "tpAppId": 14242323,
+    "eventTime": "2019-01-14 12:45:10",
+    "event": "APPLY_APP_MOBILE_AUTH_REJECT",
+    "reason": "审核失败原因"
+}
+

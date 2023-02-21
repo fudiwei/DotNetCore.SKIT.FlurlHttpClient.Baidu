@@ -1,0 +1,9 @@
+{
+    "appId": 1452365,
+    "tpAppId": 17328232,
+    "eventTime": "2019-01-14 12:45:10",
+    "event": "PACKAGE_AUDIT_FAIL",
+    "reason": "名称过长（名称控制在10个字以内）。名称与实际打开后的名称不符。",
+    "packageId": 745815,
+    "packageVersion": "1.3.46"
+}

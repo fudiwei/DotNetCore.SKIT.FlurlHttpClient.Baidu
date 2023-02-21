@@ -1,0 +1,9 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "access_token": "42.12835b16c449ae00f7d9a61570516b4f.2592000.1535536744.aPk4Eh420Yt-2JdTBB_F-34gJWz93WxN4e9rQhN",
+        "expires_in": 2592000,
+        "scope": "smartapp_tp_smtapp_common public"
+    }
+}

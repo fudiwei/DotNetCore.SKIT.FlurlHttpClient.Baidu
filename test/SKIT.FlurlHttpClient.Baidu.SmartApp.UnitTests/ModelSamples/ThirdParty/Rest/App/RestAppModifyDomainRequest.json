@@ -1,0 +1,7 @@
+{
+    "action": "set",
+    "download_domain": "https://www.baidu.com",
+    "request_domain": "https://www.baidu.com",
+    "socket_domain": "https://www.baidu.com",
+    "upload_domain": "https://www.baidu.com"
+}

@@ -1,0 +1,8 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "pre_auth_code": "c210YXBwMjAzMTQxODMzMThiMDlhMzhlZmEzMGM2MjAzY2NjMGQ5MTBlNGNmZWI1",
+        "expires_in": 1200
+    }
+}

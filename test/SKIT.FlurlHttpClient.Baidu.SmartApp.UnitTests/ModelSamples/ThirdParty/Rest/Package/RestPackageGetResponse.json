@@ -1,0 +1,24 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": [
+        {
+            "version": "1.2.6",
+            "remark": "",
+            "msg": "审核通过",
+            "committer": "--",
+            "status": 1,
+            "commit_time": "2018/09/04 17:13:59",
+            "version_desc": "desc",
+            "package_id": 1,
+            "rollback_version": "v1.2.5"
+        },
+        {
+            "version": "1.2.7",
+            "commit_time": "2018/09/06 15:32:38",
+            "version_desc": "desc",
+            "upload_status": 1,
+            "upload_status_desc": "上传中"
+        }
+    ]
+}
