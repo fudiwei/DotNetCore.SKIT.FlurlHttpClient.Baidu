@@ -1,0 +1,8 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "authorization_code": "f5a09b58eb2dc01c728182d097808145",
+        "expires_in": 18000
+    }
+}

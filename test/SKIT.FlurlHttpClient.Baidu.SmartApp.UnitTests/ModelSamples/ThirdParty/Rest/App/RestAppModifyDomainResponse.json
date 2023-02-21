@@ -1,0 +1,10 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "request_domain": "https://www.baidu.com,https://www.baidu.com",
+        "socket_domain": "wss://www.baidu.com,wss://www.baidu.com",
+        "download_domain": "wss://www.baidu.com,wss://www.baidu.com",
+        "upload_domain": "wss://www.baidu.com,wss://www.baidu.com"
+    }
+}

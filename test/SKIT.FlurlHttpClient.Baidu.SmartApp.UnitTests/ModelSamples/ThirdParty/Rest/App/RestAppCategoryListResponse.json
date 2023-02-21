@@ -1,0 +1,26 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": [
+        {
+            "id": 1,
+            "category_name": "快递业与邮政",
+            "category_type": 2,
+            "sub_items": {
+                "2": {
+                    "id": "2",
+                    "category_name": "快递",
+                    "category_type": 2,
+                    "need_quali": 1,
+                    "category_quali": "{\"desc\":\"请上传《快递业务经营许可证》\",\"list\":[{\"id\":1,\"must\":1,\"name\":\"快递业务经营许可证\",\"desc\":\"\"}]}"
+                },
+                "3": {
+                    "id": "3",
+                    "category_name": "邮政",
+                    "category_type": 2,
+                    "need_quali": 0
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "appId": "小程序appid",
+    "appName": "TP名称拒审改名0503_审核失败_1589544087240",
+    "tpAppId": "第三方平台appid",
+    "eventTime": "2019-01-14 12:45:10",
+    "event": "APP_NAME_AUDIT_FAIL",
+    "reason": "名称过长（名称控制在10个字以内）。"
+}

@@ -1,0 +1,83 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "app_id": 111111,
+        "app_name": "小程序",
+        "app_key": "1eQayZtM6Vg5C9E3vAgg2IOYjugXqNj2",
+        "app_desc": "1531812276",
+        "photo_addr": "[{\"cover\": \"https://b.bdstatic.com/searchbox/mappconsole/image/20180416/1523870283-34303.jpg\"}]",
+        "qualification": {
+            "name": "",
+            "type": 1,
+            "status": 1,
+            "ad_type": 1,
+            "ad_status": 1
+        },
+        "modify_count": {
+            "name_modify_used": 4,
+            "name_modify_quota": 5,
+            "signature_modify_used": 0,
+            "signature_modify_quota": 5,
+            "image_modify_used": 0,
+            "image_modify_quota": 5,
+            "category_modify_used": 0,
+            "category_modify_quota": 3
+        },
+        "category": [
+            {
+                "category_id": 1,
+                "category_name": "电商",
+                "category_desc": "电商",
+                "reason": "失败原因",
+                "audit_status": 1,
+                "parent": {
+                    "category_id": 2,
+                    "category_name": "电商",
+                    "category_desc": "电商"
+                }
+            }
+        ],
+        "audit_info": {
+            "audit_app_name_status": 1,
+            "audit_app_name": "测试中名称",
+            "audit_app_name_reason": "名称审核审核失败原因",
+            "audit_app_desc_status": 3,
+            "audit_app_desc": "测试中描述",
+            "audit_app_desc_reason": "审核审核失败原因",
+            "audit_photo_addr_status": 1,
+            "audit_photo_addr": "xxx",
+            "audit_photo_addr_reason": "头像审核失败原因"
+        },
+        "auth_info": [
+            {
+                "scope_name": "数据权限",
+                "type": 0
+            },
+            {
+                "scope_name": "账号管理权限",
+                "type": 0
+            },
+            {
+                "scope_name": "推广权限",
+                "type": 0
+            }
+        ],
+        "annual_review_info": {
+            "annual_review_status": 2,
+            "annual_review_overdue_time": 1542688104
+        },
+        "app_offline_info": [
+            {
+                "offline_reason": 1,
+                "illegal_fields": "appName"
+            },
+            {
+                "offline_reason": 2
+            }
+        ],
+        "min_swan_version": "1.6.17",
+        "status": 1,
+        "web_status": 1
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "quota_type": 2,
+        "quota_times": 3,
+        "remain_times": 1
+    }
+}

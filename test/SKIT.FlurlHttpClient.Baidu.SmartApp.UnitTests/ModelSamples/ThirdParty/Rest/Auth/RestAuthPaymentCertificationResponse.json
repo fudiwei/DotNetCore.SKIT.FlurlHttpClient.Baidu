@@ -1,0 +1,7 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "url": "https://auth.baidu.com/thrones/auth/acctcheck?officialid=OFFICIALID&appkey=APPKEY&token=TOKEN"
+    }
+}
