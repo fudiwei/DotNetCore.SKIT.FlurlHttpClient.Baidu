@@ -1,0 +1,7 @@
+{
+    "appId": "小程序appid",
+    "appName": "小程序名称",
+    "tpAppId": "第三方平台appid",
+    "eventTime": "2019-01-14 12:45:10",
+    "event": "APP_NAME_AUDIT_PASS"
+}

@@ -1,0 +1,23 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "count": 53,
+        "list": [
+            {
+                "user_version": "2.2.2.2",
+                "user_desc": "",
+                "create_time": 1531812276,
+                "template_id": 7,
+                "web_status": true
+            },
+            {
+                "user_version": "2.2.2.2",
+                "user_desc": "",
+                "create_time": 1531812305,
+                "template_id": 8,
+                "web_status": false
+            }
+        ]
+    }
+}

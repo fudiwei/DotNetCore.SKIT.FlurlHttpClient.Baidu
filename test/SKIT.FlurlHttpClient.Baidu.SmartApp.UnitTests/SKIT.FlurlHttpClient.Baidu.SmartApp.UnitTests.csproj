@@ -19,13 +19,12 @@
 			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 		</Content>
 		<Content Include="ModelSamples/**/*.json" />
+		<Content Include="EventSamples/**/*.json" />
+		<Content Include="EventSamples/**/*.xml" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="coverlet.collector" Version="3.1.2" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
-		<PackageReference Include="MSTest.TestAdapter" Version="2.2.8" />
-		<PackageReference Include="MSTest.TestFramework" Version="2.2.8" />
 		<PackageReference Include="SKIT.FlurlHttpClient.Tools.CodeAnalyzer" Version="0.1.0-alpha.1" />
 		<PackageReference Include="xunit" Version="2.4.2" />
 		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
@@ -35,7 +34,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-        <ProjectReference Include="..\..\src\SKIT.FlurlHttpClient.Baidu.SmartApp\SKIT.FlurlHttpClient.Baidu.SmartApp.csproj" />
+		<ProjectReference Include="..\..\src\SKIT.FlurlHttpClient.Baidu.SmartApp\SKIT.FlurlHttpClient.Baidu.SmartApp.csproj" />
 	</ItemGroup>
 
 </Project>
