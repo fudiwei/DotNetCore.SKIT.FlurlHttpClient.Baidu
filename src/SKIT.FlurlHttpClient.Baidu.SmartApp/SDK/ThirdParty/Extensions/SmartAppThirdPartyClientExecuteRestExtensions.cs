@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -750,6 +751,132 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
                 .SetQueryParam("template_id", request.TemplateId);
 
             return await client.SendRequestWithJsonAsync<Models.RestTemplateDeleteTemplateResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
+        #region TemplateMessage
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/template/library/list 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/message_template/template_list/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateLibraryListResponse> ExecuteRestTemplateLibraryListAsync(this BaiduSmartAppThirdPartyClient client, Models.RestTemplateLibraryListRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "template", "library", "list")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("offset", request.Offset)
+                .SetQueryParam("count", request.PageSize);
+
+            return await client.SendRequestWithJsonAsync<Models.RestTemplateLibraryListResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/template/library/get 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/message_template/word_lib/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateLibraryGetResponse> ExecuteRestTemplateLibraryGetAsync(this BaiduSmartAppThirdPartyClient client, Models.RestTemplateLibraryGetRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "template", "library", "get")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("id", request.Id);
+
+            return await client.SendRequestWithJsonAsync<Models.RestTemplateLibraryGetResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/template/list 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/message_template/get_template_list/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateListResponse> ExecuteRestTemplateListAsync(this BaiduSmartAppThirdPartyClient client, Models.RestTemplateListRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "template", "list")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("offset", request.Offset)
+                .SetQueryParam("count", request.PageSize);
+
+            return await client.SendRequestWithJsonAsync<Models.RestTemplateListResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/template/add 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/message_template/add_template/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateAddResponse> ExecuteRestTemplateAddAsync(this BaiduSmartAppThirdPartyClient client, Models.RestTemplateAddRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "template", "add")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("id", request.Id)
+                .SetQueryParam("keyword_id_list", client.JsonSerializer.Serialize(request.KeywordIdList));
+
+            return await client.SendRequestWithJsonAsync<Models.RestTemplateAddResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/template/del 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/message_template/delete_template/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateDeleteResponse> ExecuteRestTemplateDeleteAsync(this BaiduSmartAppThirdPartyClient client, Models.RestTemplateDeleteRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "template", "del")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("template_id", request.TemplateId);
+
+            return await client.SendRequestWithJsonAsync<Models.RestTemplateDeleteResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/template/sendmessage 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/message_template/template_push/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateSendMessageResponse> ExecuteRestTemplateSendMessageAsync(this BaiduSmartAppThirdPartyClient client, Models.RestTemplateSendMessageRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "template", "sendmessage")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("template_id", request.TemplateId)
+                .SetQueryParam("touser_openId", request.ToUserOpenId);
+
+            if (request.Data != null)
+                flurlReq.SetQueryParam("data", client.JsonSerializer.Serialize(request.Data));
+
+            if (request.PagePath != null)
+                flurlReq.SetQueryParam("page", request.PagePath);
+
+            if (request.SceneId != null)
+                flurlReq.SetQueryParam("scene_id", request.SceneId);
+
+            if (request.SceneType != null)
+                flurlReq.SetQueryParam("scene_type", request.SceneType);
+
+            return await client.SendRequestWithJsonAsync<Models.RestTemplateSendMessageResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
         #endregion
     }
