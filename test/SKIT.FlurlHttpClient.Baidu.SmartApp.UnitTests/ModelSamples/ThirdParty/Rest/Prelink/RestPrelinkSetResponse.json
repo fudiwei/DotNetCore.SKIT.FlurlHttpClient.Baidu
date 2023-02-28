@@ -1,0 +1,21 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "status": 1,
+        "checkResult": {
+            "https://baike.baidu.com": {
+                "status": 1,
+                "failReason": [
+                    "prelink域名必须存在于服务request域名中，请检查服务器request域名配置"
+                ]
+            },
+            "https://www.baidu.com": {
+                "status": 1,
+                "failReason": [
+                    "prelink域名必须存在于服务request域名中，请检查服务器request域名配置"
+                ]
+            }
+        }
+    }
+}

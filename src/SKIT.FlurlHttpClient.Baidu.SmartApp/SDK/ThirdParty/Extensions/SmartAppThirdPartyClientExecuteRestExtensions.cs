@@ -677,6 +677,43 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         }
         #endregion
 
+        #region Prelink
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/prelink/set 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/optimization/prelink_submit/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPrelinkSetResponse> ExecuteRestPrelinkSetAsync(this BaiduSmartAppThirdPartyClient client, Models.RestPrelinkSetRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "prelink", "set")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("prelink_url", string.Join(",", request.PrelinkUrlList));
+
+            return await client.SendRequestWithJsonAsync<Models.RestPrelinkSetResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/prelink/get 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/optimization/prelink_get/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPrelinkGetResponse> ExecuteRestPrelinkGetAsync(this BaiduSmartAppThirdPartyClient client, Models.RestPrelinkGetRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "prelink", "get")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithJsonAsync<Models.RestPrelinkGetResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region Template
         /// <summary>
         /// <para>异步调用 [GET] /rest/2.0/smartapp/template/gettemplatedraftlist 接口。</para>
