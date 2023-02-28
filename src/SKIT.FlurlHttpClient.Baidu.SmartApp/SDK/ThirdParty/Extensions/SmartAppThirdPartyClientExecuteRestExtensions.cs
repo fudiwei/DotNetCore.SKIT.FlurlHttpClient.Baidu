@@ -812,6 +812,39 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         }
         #endregion
 
+        #region PushMessage
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/pushmsg/getmsg 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/push/find_push_list/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPushMessageGetMessageResponse> ExecuteRestPushMessageGetMessageAsync(this BaiduSmartAppThirdPartyClient client, Models.RestPushMessageGetMessageRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pushmsg", "getmsg")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("offset", request.Offset)
+                .SetQueryParam("count", request.PageSize);
+
+            if (request.StartTimestamp != null)
+                flurlReq.SetQueryParam("start", request.StartTimestamp.Value);
+
+            if (request.EndTimestamp != null)
+                flurlReq.SetQueryParam("end", request.EndTimestamp.Value);
+
+            if (request.PushType != null)
+                flurlReq.SetQueryParam("push_type", request.PushType.Value);
+
+            if (request.EventMessageIdList != null)
+                flurlReq.SetQueryParam("id_list", string.Join(",", request.EventMessageIdList));
+
+            return await client.SendRequestWithJsonAsync<Models.RestPushMessageGetMessageResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region Template
         /// <summary>
         /// <para>异步调用 [GET] /rest/2.0/smartapp/template/gettemplatedraftlist 接口。</para>
