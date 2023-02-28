@@ -19,6 +19,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data")]
         [System.Text.Json.Serialization.JsonPropertyName("data")]
-        public T Data { get; set; } = default!;
+        public virtual T Data { get; set; } = default!;
     }
 }

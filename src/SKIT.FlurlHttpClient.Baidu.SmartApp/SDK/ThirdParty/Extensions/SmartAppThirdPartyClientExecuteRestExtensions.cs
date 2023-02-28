@@ -519,6 +519,76 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         }
         #endregion
 
+        #region Domain
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/tp/modifydomain 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/domain/set_server/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestThirdPartyModifyDomainResponse> ExecuteRestThirdPartyModifyDomainAsync(this BaiduSmartAppThirdPartyClient client, Models.RestThirdPartyModifyDomainRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "tp", "modifydomain")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("action", request.Action);
+
+            if (request.RequestDomainList != null)
+                flurlReq.SetQueryParam("request_domain", string.Join(",", request.RequestDomainList));
+
+            if (request.UploadDomainList != null)
+                flurlReq.SetQueryParam("upload_domain", string.Join(",", request.UploadDomainList));
+
+            if (request.DownloadDomainList != null)
+                flurlReq.SetQueryParam("download_domain", string.Join(",", request.DownloadDomainList));
+
+            if (request.SocketDomainList != null)
+                flurlReq.SetQueryParam("socket_domain", string.Join(",", request.SocketDomainList));
+
+            return await client.SendRequestWithJsonAsync<Models.RestThirdPartyModifyDomainResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/tp/modifywebviewdomain 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/domain/set_biz/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestThirdPartyModifyWebviewDomainResponse> ExecuteRestThirdPartyModifyWebviewDomainAsync(this BaiduSmartAppThirdPartyClient client, Models.RestThirdPartyModifyWebviewDomainRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "tp", "modifywebviewdomain")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("action", request.Action);
+
+            if (request.WebViewDomainList != null)
+                flurlReq.SetQueryParam("web_view_domain", string.Join(",", request.WebViewDomainList));
+
+            return await client.SendRequestWithJsonAsync<Models.RestThirdPartyModifyWebviewDomainResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/tp/download/domaincer 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/domain/download/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestThirdPartyDownloadDomaincerResponse> ExecuteRestThirdPartyDownloadDomaincerAsync(this BaiduSmartAppThirdPartyClient client, Models.RestThirdPartyDownloadDomaincerRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "tp", "download", "domaincer")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithJsonAsync<Models.RestThirdPartyDownloadDomaincerResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region Package
         /// <summary>
         /// <para>异步调用 [POST] /rest/2.0/smartapp/package/upload 接口。</para>
