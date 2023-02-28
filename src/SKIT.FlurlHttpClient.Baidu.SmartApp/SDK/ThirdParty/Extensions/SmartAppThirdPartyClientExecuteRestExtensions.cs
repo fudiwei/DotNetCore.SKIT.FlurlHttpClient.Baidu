@@ -366,6 +366,46 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         }
         #endregion
 
+        #region App/Offline
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/app/offline/update 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/offline/updateinfo/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestAppOfflineUpdateResponse> ExecuteRestAppOfflineUpdateAsync(this BaiduSmartAppThirdPartyClient client, Models.RestAppOfflineUpdateRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "app", "offline", "update")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("app_name", request.AppName)
+                .SetQueryParam("app_desc", request.AppDescription)
+                .SetQueryParam("photo_addr", request.HeadImageUrl)
+                .SetQueryParam("app_name_material", request.AppNameMaterial);
+
+            return await client.SendRequestWithJsonAsync<Models.RestAppOfflineUpdateResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/app/violation 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/offline/violationinfo/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestAppViolationResponse> ExecuteRestAppViolationAsync(this BaiduSmartAppThirdPartyClient client, Models.RestAppViolationRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "app", "violation")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithJsonAsync<Models.RestAppViolationResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region App/Phone
         /// <summary>
         /// <para>异步调用 [POST] /rest/2.0/smartapp/app/apply/mobileauth 接口。</para>

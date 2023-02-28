@@ -1,0 +1,9 @@
+{
+    "appId": "小程序appid",
+    "tpAppId": "第三方平台appid",
+    "eventTime": "2019-01-14 12:45:10",
+    "event": "APP_FORCE_OFFLINE",
+    "reason": "强制下线原因",
+    "offlineReason": 3,
+    "illegalFields": "appName,photoAddr,appDesc"
+}

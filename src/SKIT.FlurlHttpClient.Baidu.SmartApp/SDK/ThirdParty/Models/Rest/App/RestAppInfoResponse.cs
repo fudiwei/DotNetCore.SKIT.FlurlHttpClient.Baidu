@@ -277,7 +277,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("app_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("app_id")]
-                public int AppId { get; set; } = default!;
+                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.NumericalStringReadOnlyConverter))]
+                public string AppId { get; set; } = default!;
 
                 /// <summary>
                 /// 获取或设置小程序名称。

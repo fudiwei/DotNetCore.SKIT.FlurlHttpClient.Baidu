@@ -1,0 +1,36 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "appId": 1482676776,
+        "problemDetails": [
+            {
+                "taskId": 8,
+                "status": 0,
+                "problemDesc": "页面流量关闭-代码包-一般违规。",
+                "problemPath": "https://0wshu7.smartapps.cn/pages/102610224?a=1322",
+                "screenShot": "[\"https://b.bdstatic.com/batserver/192.168.1.233:5555-1602829093953.png\"]",
+                "auditReason": "",
+                "auditShot": "[]"
+            },
+            {
+                "taskId": 5,
+                "status": 0,
+                "problemDesc": "名称涉及侵权，且未在规定时间内申诉或修改。",
+                "problemPath": "",
+                "screenShot": "[]",
+                "auditReason": "",
+                "auditShot": "[]"
+            },
+            {
+                "taskId": 5,
+                "status": 0,
+                "problemDesc": "限时整改-热更新-立即下线-严重违规。",
+                "problemPath": "https://0wshu7.smartapps.cn/pages/102610224?a=1322",
+                "screenShot": "[\"https://b.bdstatic.com/batserver/192.168.1.233:5555-1602829093953.png\"]",
+                "auditReason": "",
+                "auditShot": "[]"
+            }
+        ]
+    }
+}
