@@ -1,0 +1,8 @@
+{
+    "data": {
+        "refundBatchId": "0",
+        "refundPayMoney": 0
+    },
+    "errno": 0,
+    "msg": "string"
+}

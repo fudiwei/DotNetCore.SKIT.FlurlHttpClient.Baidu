@@ -1,0 +1,15 @@
+{
+    "app_name": "app_name",
+    "service_phone": "11420527252",
+    "bank_account": "百度",
+    "bank_card": "14127077727825",
+    "bank_phone_number": "14756418115",
+    "bank_name": "招商银行",
+    "bank_branch": "招商银行北京上地支行",
+    "open_province": "广东省",
+    "open_city": "深圳市",
+    "commission_rate": 6,
+    "payment_days": 7,
+    "pool_cash_pledge": 162,
+    "day_max_frozen_amount": 16016
+}

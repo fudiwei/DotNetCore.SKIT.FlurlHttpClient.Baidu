@@ -1,0 +1,6 @@
+{
+    "tp_public_key": "MIGfMA7GCSqGSIb1DQEBAQUAA5GNADCBiQKBgQC8ZbnSK2EeCMFq1KUdp0hyd5ExvfPYy14berLkjm4eKX7swDq8nF+bpCtM07+8pssRuoypaBIOTP0nf+Qpd2p5yP2kMQF0GbUy4t1kZzs1lqpGe0RZ/5ehVKIyLlCEgm0cUMFGKyLH26XL2QcQkqAJjinbjgYjtvt6Ms+VCmmolwIDAQAB",
+    "pay_notify_url": "https://www.baidu.com",
+    "refund_audit_url": "https://www.baidu.com",
+    "refund_succ_url": "https://www.baidu.com"
+}

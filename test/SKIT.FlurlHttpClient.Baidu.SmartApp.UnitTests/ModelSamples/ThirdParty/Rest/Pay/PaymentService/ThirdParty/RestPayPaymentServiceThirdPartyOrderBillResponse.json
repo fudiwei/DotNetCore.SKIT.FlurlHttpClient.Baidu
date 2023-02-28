@@ -1,0 +1,14 @@
+{
+    "data": {
+        "data": [
+            {
+                "downloadName": "string",
+                "exportStatus": 0,
+                "url": "string"
+            }
+        ],
+        "totalCount": 0
+    },
+    "errno": 0,
+    "msg": "string"
+}

@@ -1,3 +1,4 @@
+using System;
 using Flurl;
 
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
@@ -14,6 +15,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         /// <returns></returns>
         public static string GenerateParameterizedUrlForThirdPartyAuth(this BaiduSmartAppThirdPartyClient client, string preAuthCode, string redirectUrl)
         {
+            if (client == null) throw new ArgumentNullException(nameof(client));
+
             return new Url("https://smartprogram.baidu.com/developer/tpservice.html")
                 .SetQueryParam("client_id", client.Credentials.AppKey)
                 .SetQueryParam("pre_auth_code", preAuthCode)

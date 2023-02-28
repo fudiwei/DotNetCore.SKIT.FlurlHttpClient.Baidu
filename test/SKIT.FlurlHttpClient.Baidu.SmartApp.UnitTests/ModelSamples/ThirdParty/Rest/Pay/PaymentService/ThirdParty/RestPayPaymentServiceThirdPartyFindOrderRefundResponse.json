@@ -1,0 +1,13 @@
+{
+    "data": [
+        {
+            "bizRefundBatchId": "string",
+            "orderId": 0,
+            "refundBatchId": 0,
+            "refundStatus": 0,
+            "userId": 0
+        }
+    ],
+    "errno": 0,
+    "msg": "string"
+}

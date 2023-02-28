@@ -1,0 +1,6 @@
+{
+    "appId": "小程序appid",
+    "tpAppId": "第三方平台appid",
+    "eventTime": "2019-01-14 12:45:10",
+    "event": "APP_PAYMENT_CREATE_ACCOUNT_PASS"
+}

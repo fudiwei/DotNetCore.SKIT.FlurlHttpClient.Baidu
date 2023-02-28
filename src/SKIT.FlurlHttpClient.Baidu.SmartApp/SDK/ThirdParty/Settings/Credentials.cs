@@ -29,6 +29,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Settings
         /// </summary>
         public string? PushEncodingAESKey { get; set; }
 
+        /// <summary>
+        /// 初始化客户端时 <see cref="BaiduSmartAppThirdPartyClientOptions.PaymentServiceAppKey"/> 的副本。
+        /// </summary>
+        public string? PaymentServiceAppKey { get; set; }
+
         internal Credentials(BaiduSmartAppThirdPartyClientOptions options)
         {
             if (options == null) throw new ArgumentNullException(nameof(options));
@@ -38,6 +43,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Settings
             AppSecret = options.AppSecret;
             PushToken = options.PushToken;
             PushEncodingAESKey = options.PushEncodingAESKey;
+            PaymentServiceAppKey = options.PaymentServiceAppKey;
         }
     }
 }

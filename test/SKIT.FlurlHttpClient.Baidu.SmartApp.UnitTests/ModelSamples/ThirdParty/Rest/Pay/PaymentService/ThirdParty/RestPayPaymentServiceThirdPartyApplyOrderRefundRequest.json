@@ -1,0 +1,12 @@
+{
+    "applyRefundMoney": 168,
+    "bizRefundBatchId": "",
+    "isSkipAudit": 1,
+    "orderId": 0,
+    "refundReason": "refund",
+    "refundType": 1,
+    "tpOrderId": "",
+    "userId": 0,
+    "refundNotifyUrl": "",
+    "pmAppKey": ""
+}

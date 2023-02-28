@@ -1,0 +1,38 @@
+{
+    "data": {
+        "province_list": [
+            {
+                "provinceId": 0,
+                "provinceName": "澳门",
+                "cities": [
+                    {
+                        "cityId": 0,
+                        "cityName": "澳门"
+                    }
+                ]
+            }
+        ],
+        "bank_list": [
+            {
+                "character": "B",
+                "banks": [
+                    {
+                        "bankId": 0,
+                        "bankName": "北京银行",
+                        "logoUrl": "https://e.hiphotos.baidu.com/nuomi/pic/item/adaf2edda3cc7cd926e5c5ff3301213fb90e91c8.jpg"
+                    }
+                ]
+            }
+        ],
+        "commissionRate": {
+            "6": "千分之六",
+            "10": "百分之一"
+        },
+        "paymentDays": {
+            "1": "T+1",
+            "7": "T+7",
+            "14": "T+14",
+            "28": "T+28"
+        }
+    }
+}

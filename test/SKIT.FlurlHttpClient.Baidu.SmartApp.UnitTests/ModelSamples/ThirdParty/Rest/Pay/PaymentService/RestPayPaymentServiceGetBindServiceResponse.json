@@ -1,0 +1,24 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "pm_app_id": 10896,
+        "app_name": "测试",
+        "pm_app_key": "XXX",
+        "platform_public_key": "XXX",
+        "deal_id": "1292243105",
+        "service_phone": "1351431XXXX",
+        "bank_account": "北京百度网讯科技有限公司",
+        "bank_card": "110902160610510",
+        "bank_name": "招商银行",
+        "bank_branch": "招商银行股份有限公司北京双榆树支行",
+        "open_province": "北京市",
+        "open_city": "海淀区",
+        "payment_days": 1,
+        "commission_rate": 6,
+        "pool_cash_pledge": 1,
+        "day_max_frozen_amount": 10000,
+        "open_status": 2,
+        "fail_reason": ""
+    }
+}

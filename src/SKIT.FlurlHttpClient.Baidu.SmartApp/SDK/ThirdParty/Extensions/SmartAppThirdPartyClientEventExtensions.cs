@@ -29,7 +29,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             where TEvent : BaiduSmartAppThirdPartyEvent
         {
             if (client == null) throw new ArgumentNullException(nameof(client));
-            if (string.IsNullOrEmpty(callbackJson)) throw new ArgumentNullException(callbackJson);
+            if (callbackJson == null) throw new ArgumentNullException(callbackJson);
 
             try
             {

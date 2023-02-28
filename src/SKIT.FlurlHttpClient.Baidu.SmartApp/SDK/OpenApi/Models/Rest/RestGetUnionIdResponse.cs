@@ -1,7 +1,7 @@
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi.Models
 {
     /// <summary>
-    /// <para>表示 [GET] /rest/2.0/smartapp/getunionid 接口的响应。</para>
+    /// <para>表示 [POST] /rest/2.0/smartapp/getunionid 接口的响应。</para>
     /// </summary>
     public class RestGetUnionIdResponse : BaiduSmartAppOpenApiResponse<RestGetUnionIdResponse.Types.Data>
     {

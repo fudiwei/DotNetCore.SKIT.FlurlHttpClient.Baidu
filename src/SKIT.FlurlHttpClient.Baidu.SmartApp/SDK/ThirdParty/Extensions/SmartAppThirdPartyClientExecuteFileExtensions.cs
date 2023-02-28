@@ -19,6 +19,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         /// <returns></returns>
         public static async Task<Models.FileUploadImageResponse> ExecuteFileUploadImageAsync(this BaiduSmartAppThirdPartyClient client, Models.FileUploadImageRequest request, CancellationToken cancellationToken = default)
         {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "file", "2.0", "smartapp", "upload", "image")
                 .SetQueryParam("access_token", request.AccessToken);

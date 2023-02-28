@@ -1,3 +1,4 @@
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +19,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
         /// <returns></returns>
         public static async Task<Models.OAuthTokenResponse> ExecuteOAuthTokenAsync(this BaiduSmartAppOpenApiClient client, Models.OAuthTokenRequest request, CancellationToken cancellationToken = default)
         {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "oauth", "2.0", "token")
                 .SetQueryParam("grant_type", request.GrantType)

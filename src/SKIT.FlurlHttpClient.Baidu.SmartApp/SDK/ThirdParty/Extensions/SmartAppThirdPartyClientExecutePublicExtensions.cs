@@ -1,3 +1,4 @@
+using System;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +19,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         /// <returns></returns>
         public static async Task<Models.PublicAuthThirdPartyTokenResponse> ExecutePublicAuthThirdPartyTokenAsync(this BaiduSmartAppThirdPartyClient client, Models.PublicAuthThirdPartyTokenRequest request, CancellationToken cancellationToken = default)
         {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "public", "2.0", "smartapp", "auth", "tp", "token")
                 .SetQueryParam("client_id", client.Credentials.AppKey)

@@ -1,0 +1,56 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "expense_count": 5,
+        "data": [
+            {
+                "money": "-0.02",
+                "operate_time": "2019-06-12 00:00:00",
+                "start_time": "2019-06-12 00:00:00",
+                "type_id": "自动打款",
+                "end_time": "2019-06-13 00:00:00",
+                "pay_status": "成功",
+                "task_id": 12688777319
+            },
+            {
+                "money": "-0.01",
+                "operate_time": "2019-06-11 00:00:00",
+                "start_time": "2019-06-11 00:00:00",
+                "type_id": "自动打款",
+                "end_time": "2019-06-12 00:00:00",
+                "pay_status": "成功",
+                "task_id": 12688615470
+            },
+            {
+                "money": "-0.01",
+                "operate_time": "2019-06-07 00:00:00",
+                "start_time": "2019-06-07 00:00:00",
+                "type_id": "自动打款",
+                "end_time": "2019-06-08 00:00:00",
+                "pay_status": "成功",
+                "task_id": 12687927678
+            },
+            {
+                "money": "-0.01",
+                "operate_time": "2019-06-05 00:00:00",
+                "start_time": "2019-06-05 00:00:00",
+                "type_id": "自动打款",
+                "end_time": "2019-06-06 00:00:00",
+                "pay_status": "成功",
+                "task_id": 12687583307
+            },
+            {
+                "money": "-0.05",
+                "operate_time": "2019-05-22 00:00:00",
+                "start_time": "2019-05-22 00:00:00",
+                "type_id": "自动打款",
+                "end_time": "2019-05-23 00:00:00",
+                "pay_status": "成功",
+                "task_id": 11683911985
+            }
+        ],
+        "expense_money": "-0.10",
+        "total_count": 5
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "current_page": 1,
+        "page_size": 10,
+        "total_count": 101,
+        "total_page": 1,
+        "data": [
+            {
+                "deal_id": "2055275011",
+                "deal_title": "sandbox-test-one",
+                "order_id": "80048556607063",
+                "tp_order_id": "TEST345671234",
+                "phone": "未登录用户",
+                "create_time": "2019-05-30 21:37:53",
+                "update_time": "2019-05-30 21:37:53",
+                "sub_status": "1",
+                "total_money": "20",
+                "pay_money": "20",
+                "segment_refunded_money": null,
+                "channel": null
+            },
+            {
+                "deal_id": "2055275011",
+                "deal_title": "一清测试订单xxxx",
+                "order_id": "80049190777835",
+                "tp_order_id": "ZD1559221562189606834",
+                "phone": "178****2684",
+                "create_time": "2019-05-30 21:06:08",
+                "update_time": "2019-05-30 21:06:12",
+                "sub_status": "1",
+                "total_money": "1",
+                "pay_money": "1",
+                "segment_refunded_money": null,
+                "channel": null
+            }
+        ]
+    }
+}

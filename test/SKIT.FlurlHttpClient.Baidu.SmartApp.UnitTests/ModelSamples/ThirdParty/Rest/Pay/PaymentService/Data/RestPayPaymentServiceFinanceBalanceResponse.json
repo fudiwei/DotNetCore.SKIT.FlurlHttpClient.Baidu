@@ -1,0 +1,50 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "period": 1,
+        "data": [
+            {
+                "income": "0.02",
+                "operate_time": "2019-06-11",
+                "adjust_amount": "0.00",
+                "others": "0.00"
+            },
+            {
+                "income": "0.01",
+                "operate_time": "2019-06-10",
+                "adjust_amount": "0.00",
+                "others": "0.00"
+            },
+            {
+                "income": "0.01",
+                "operate_time": "2019-06-06",
+                "adjust_amount": "0.00",
+                "others": "0.00"
+            },
+            {
+                "income": "0.01",
+                "operate_time": "2019-06-04",
+                "adjust_amount": "0.00",
+                "others": "0.00"
+            },
+            {
+                "income": "0.18",
+                "operate_time": "2019-05-21",
+                "adjust_amount": "0.00",
+                "others": "-0.01"
+            },
+            {
+                "income": "0.09",
+                "operate_time": "2019-05-20",
+                "adjust_amount": "0.00",
+                "others": "-0.01"
+            }
+        ],
+        "free_balance": "1.00",
+        "payment_due": "2019-06-13 00:00:00",
+        "page_size": 10,
+        "total_count": 6,
+        "current_page": 1
+    }
+}

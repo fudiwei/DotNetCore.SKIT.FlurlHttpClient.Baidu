@@ -1,0 +1,27 @@
+{
+    "data": {
+        "bizInfo": "string",
+        "count": 0,
+        "createTime": 0,
+        "dealId": 0,
+        "orderId": 0,
+        "oriPrice": 0,
+        "parentOrderId": 0,
+        "parentType": 0,
+        "payMoney": 0,
+        "settlePrice": 0,
+        "status": 0,
+        "subStatus": 0,
+        "totalMoney": 0,
+        "tpId": 0,
+        "tpOrderId": "string",
+        "tradeNo": "string",
+        "type": 0,
+        "openId": "",
+        "appKey": "",
+        "appId": 0,
+        "userId": 0
+    },
+    "errno": 0,
+    "msg": "string"
+}

@@ -1,0 +1,8 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "status": 4,
+        "verify_message": "审核通过"
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "data": [
+        {
+            "industryId": 1,
+            "industryList": [
+                {
+                    "industryId": 4,
+                    "industryList": [
+                        {
+                            "industryId": 38,
+                            "industryName": "线上商超",
+                            "needPermit": 1,
+                            "parentIndustryId": 4,
+                            "permitDesc": "若涉及餐饮、医疗、药品，需提供餐饮、医疗、药品流通销售资质"
+                        }
+                    ],
+                    "industryName": "电商/团购",
+                    "needPermit": 0,
+                    "parentIndustryId": 1,
+                    "permitDesc": ""
+                }
+            ],
+            "industryName": "事业单位",
+            "needPermit": 0,
+            "parentIndustryId": 0,
+            "permitDesc": ""
+        }
+    ],
+    "errno": 0,
+    "msg": "成功"
+}
