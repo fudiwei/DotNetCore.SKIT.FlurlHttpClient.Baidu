@@ -589,6 +589,34 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         }
         #endregion
 
+        #region MessageCustom
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/message/custom/sendbytp 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/customer/sendmsg/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestMessageCustomSendByThirdPartyResponse> ExecuteRestMessageCustomSendByThirdPartyAsync(this BaiduSmartAppThirdPartyClient client, Models.RestMessageCustomSendByThirdPartyRequest request, CancellationToken cancellationToken = default)
+        {
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "message", "custom", "sendbytp")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("user_type", request.UserType)
+                .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("msg_type", request.MessageType);
+
+            if (request.Content != null)
+                flurlReq.SetQueryParam("content", request.Content);
+
+            if (request.PictureUrl != null)
+                flurlReq.SetQueryParam("pic_url", request.PictureUrl);
+
+            return await client.SendRequestWithJsonAsync<Models.RestMessageCustomSendByThirdPartyResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region Package
         /// <summary>
         /// <para>异步调用 [POST] /rest/2.0/smartapp/package/upload 接口。</para>

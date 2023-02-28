@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
 {
@@ -79,6 +80,29 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
 
         /// <summary>
         /// <para>验证回调通知事件签名。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/customer/customerability/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="callbackTimestamp">百度回调通知中的 "timestamp" 查询参数。</param>
+        /// <param name="callbackNonce">百度回调通知中的 "nonce" 查询参数。</param>
+        /// <param name="callbackSignature">百度回调通知中的 "signature" 查询参数。</param>
+        /// <returns></returns>
+        public static bool VerifyEventSignatureForEcho(this BaiduSmartAppThirdPartyClient client, string callbackTimestamp, string callbackNonce, string callbackSignature)
+        {
+            if (client == null) throw new ArgumentNullException(nameof(client));
+            if (callbackTimestamp == null) throw new ArgumentNullException(nameof(callbackTimestamp));
+            if (callbackNonce == null) throw new ArgumentNullException(nameof(callbackNonce));
+            if (callbackSignature == null) throw new ArgumentNullException(nameof(callbackSignature));
+
+            List<string> lstParams = new List<string>() { client.Credentials.PushToken!, callbackTimestamp, callbackNonce };
+            lstParams.Sort(StringComparer.Ordinal);
+
+            string sign = Utilities.SHA1Utility.Hash(string.Concat(lstParams));
+            return string.Equals(sign, callbackSignature, StringComparison.OrdinalIgnoreCase);
+        }
+
+        /// <summary>
+        /// <para>验证回调通知事件签名。</para>
         /// <para>REF: https://smartprogram.baidu.com/docs/third/push/encryption/ </para>
         /// </summary>
         /// <param name="client"></param>
@@ -91,7 +115,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
 
             try
             {
-                var encryptedEvent = client.JsonSerializer.Deserialize<InnerEncryptedEvent>(callbackJson);
+                InnerEncryptedEvent encryptedEvent = client.JsonSerializer.Deserialize<InnerEncryptedEvent>(callbackJson);
                 return Utilities.BaiduMsgCryptor.VerifySignature(
                     sToken: client.Credentials.PushToken!,
                     sTimestamp: encryptedEvent.TimestampString,
