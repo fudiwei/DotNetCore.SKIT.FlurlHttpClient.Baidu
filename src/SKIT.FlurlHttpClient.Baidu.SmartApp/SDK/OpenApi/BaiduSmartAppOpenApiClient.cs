@@ -135,10 +135,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
                     flurlRequest.WithHeader(Constants.HttpHeaders.ContentType, "application/x-www-form-urlencoded");
                 }
 
-                IDictionary<string, string> dictFormData = formdata
+                IDictionary<string, string> tmpDict = formdata
                     .Where(e => e.Value != null)
                     .ToDictionary(k => k.Key, v => v.Value!.ToString()!);
-                httpContent = new FormUrlEncodedContent(dictFormData);
+                httpContent = new FormUrlEncodedContent(tmpDict);
             }
 
             try
@@ -173,9 +173,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
             }
             else
             {
-                // TODO: 增加单元测试用例
-                string json = JsonSerializer.Serialize(data);
-                IDictionary<string, IConvertible?> formdata = JsonSerializer.Deserialize<IDictionary<string, IConvertible?>>(json);
+                string tmpJson = JsonSerializer.Serialize(data);
+                IDictionary<string, IConvertible?> formdata = new FlurlNewtonsoftJsonSerializer()
+                    .Deserialize<IDictionary<string, string?>>(tmpJson)
+                    .ToDictionary(k => k.Key, v => v.Value as IConvertible);
                 return await SendRequestWithFormUrlEncodedAsync<T>(flurlRequest, formdata, cancellationToken);
             }
         }

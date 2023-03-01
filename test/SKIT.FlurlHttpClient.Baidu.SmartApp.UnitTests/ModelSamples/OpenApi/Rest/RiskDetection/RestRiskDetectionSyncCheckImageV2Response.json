@@ -1,0 +1,24 @@
+{
+    "errno": 82593,
+    "msg": "check fail",
+    "data": {
+        "retrieveId": "1635412421323",
+        "res": [
+            {
+                "type": "porn",
+                "errno": 0,
+                "msg": "pass"
+            },
+            {
+                "type": "ocr-word",
+                "errno": 82593,
+                "msg": "check fail"
+            },
+            {
+                "type": "ocr-lead",
+                "errno": 0,
+                "msg": "pass"
+            }
+        ]
+    }
+}

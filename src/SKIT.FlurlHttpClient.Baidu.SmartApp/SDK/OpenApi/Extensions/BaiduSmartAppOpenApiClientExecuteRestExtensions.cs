@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Flurl;
@@ -93,6 +93,93 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
 
             return await client.SendRequestWithFormUrlEncodedAsync<Models.RestQrcodeGetUnlimitedV2Response>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
+        #endregion
+
+        #region RiskDetection
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/riskDetection/v2/syncCheckText 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/text_security_detection/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestRiskDetectionSyncCheckTextV2Response> ExecuteRestRiskDetectionSyncCheckTextV2Async(this BaiduSmartAppOpenApiClient client, Models.RestRiskDetectionSyncCheckTextV2Request request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "riskDetection", "v2", "syncCheckText")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithJsonAsync<Models.RestRiskDetectionSyncCheckTextV2Response>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/riskDetection/v2/syncCheckImage 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/picture_security_check/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestRiskDetectionSyncCheckImageV2Response> ExecuteRestRiskDetectionSyncCheckImageV2Async(this BaiduSmartAppOpenApiClient client, Models.RestRiskDetectionSyncCheckImageV2Request request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "riskDetection", "v2", "syncCheckImage")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: "image.jpg", fileBytes: request.ImageFileBytes, fileContentType: "image/jpeg", formDataName: "image");
+            if (request.TypeList != null)
+                httpContent.Add(new StringContent(string.Join(",", request.TypeList), Encoding.UTF8), "type");
+
+            return await client.SendRequestAsync<Models.RestRiskDetectionSyncCheckImageV2Response>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/riskDetection/v2/asyncCheckPath 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/content_security_check/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestRiskDetectionAsyncCheckPathV2Response> ExecuteRestRiskDetectionAsyncCheckPathV2Async(this BaiduSmartAppOpenApiClient client, Models.RestRiskDetectionAsyncCheckPathV2Request request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "riskDetection", "v2", "asyncCheckPath")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithJsonAsync<Models.RestRiskDetectionAsyncCheckPathV2Response>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/riskDetection/misjudgeFeedback 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/result_misjudgment_feedback/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestRiskDetectionMisjudgeFeedbackResponse> ExecuteRestRiskDetectionMisjudgeFeedbackAsync(this BaiduSmartAppOpenApiClient client, Models.RestRiskDetectionMisjudgeFeedbackRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "riskDetection", "misjudgeFeedback")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestRiskDetectionMisjudgeFeedbackResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
         #endregion
     }
 }

@@ -1,0 +1,19 @@
+{
+    "errno": 82512,
+    "msg": "potential risk",
+    "data": {
+        "retrieveId": "1635390693997",
+        "res": [
+            {
+                "type": "risk",
+                "errno": 82512,
+                "msg": "potential risk"
+            },
+            {
+                "type": "lead",
+                "errno": 0,
+                "msg": "pass"
+            }
+        ]
+    }
+}
