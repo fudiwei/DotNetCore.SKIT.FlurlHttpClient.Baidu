@@ -1,0 +1,25 @@
+{
+    "Data": [
+        {
+            "CateID": 2,
+            "BizAPPID": "a392qXwK8L5GDUWhFoC01cKwoy7tmehg",
+            "ResourceID": "2221554346520",
+            "EXT": { 
+                "SubsOrder": { 
+                    "Status": 0,
+                    "Items": [
+                        {
+                            "SubOrderID": "onlyOne",
+                            "SubStatus": 400
+                        },
+                        {
+                            "SubOrderID": "onlyOne",
+                            "SubStatus": 400
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
+

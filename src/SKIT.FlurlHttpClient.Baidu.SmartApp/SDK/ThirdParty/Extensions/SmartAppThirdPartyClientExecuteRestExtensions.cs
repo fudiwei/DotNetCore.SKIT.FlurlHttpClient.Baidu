@@ -1235,6 +1235,188 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         }
         #endregion
 
+        #region OrderCenter
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/ordercenter/add/main/info 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/order/add_order/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestOrderCenterAddMainInfoResponse> ExecuteRestOrderCenterAddMainInfoAsync(this BaiduSmartAppThirdPartyClient client, Models.RestOrderCenterAddMainInfoRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.ServiceAppKey == null)
+                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "add", "main", "info")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pm_app_key", request.ServiceAppKey)
+                .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("scene_id", request.SceneId)
+                .SetQueryParam("scene_type", request.SceneType);
+
+            if (request.HostName != null)
+                flurlReq.SetQueryParams("hostname", request.HostName);
+
+            return await client.SendRequestWithJsonAsync<Models.RestOrderCenterAddMainInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/ordercenter/update/main/info 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/order/update_order_info/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestOrderCenterUpdateMainInfoResponse> ExecuteRestOrderCenterUpdateMainInfoAsync(this BaiduSmartAppThirdPartyClient client, Models.RestOrderCenterUpdateMainInfoRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.ServiceAppKey == null)
+                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "update", "main", "info")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pm_app_key", request.ServiceAppKey)
+                .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("scene_id", request.SceneId)
+                .SetQueryParam("scene_type", request.SceneType);
+
+            if (request.HostName != null)
+                flurlReq.SetQueryParams("hostname", request.HostName);
+
+            return await client.SendRequestWithJsonAsync<Models.RestOrderCenterUpdateMainInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/ordercenter/update/main/status 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/order/update_order_status/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestOrderCenterUpdateMainStatusResponse> ExecuteRestOrderCenterUpdateMainStatusAsync(this BaiduSmartAppThirdPartyClient client, Models.RestOrderCenterUpdateMainStatusRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.ServiceAppKey == null)
+                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "update", "main", "status")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pm_app_key", request.ServiceAppKey)
+                .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("scene_id", request.SceneId)
+                .SetQueryParam("scene_type", request.SceneType);
+
+            if (request.HostName != null)
+                flurlReq.SetQueryParams("hostname", request.HostName);
+
+            return await client.SendRequestWithJsonAsync<Models.RestOrderCenterUpdateMainStatusResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/ordercenter/append/sub/info 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/order/add_post_order/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestOrderCenterAppendSubInfoResponse> ExecuteRestOrderCenterAppendSubInfoAsync(this BaiduSmartAppThirdPartyClient client, Models.RestOrderCenterAppendSubInfoRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.ServiceAppKey == null)
+                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "append", "sub", "info")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pm_app_key", request.ServiceAppKey)
+                .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("scene_id", request.SceneId)
+                .SetQueryParam("scene_type", request.SceneType);
+
+            if (request.HostName != null)
+                flurlReq.SetQueryParams("hostname", request.HostName);
+
+            return await client.SendRequestWithJsonAsync<Models.RestOrderCenterAppendSubInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/ordercenter/update/sub/info 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/order/update_post_order_info/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestOrderCenterUpdateSubInfoResponse> ExecuteRestOrderCenterUpdateSubInfoAsync(this BaiduSmartAppThirdPartyClient client, Models.RestOrderCenterUpdateSubInfoRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.ServiceAppKey == null)
+                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "update", "sub", "info")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pm_app_key", request.ServiceAppKey)
+                .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("scene_id", request.SceneId)
+                .SetQueryParam("scene_type", request.SceneType);
+
+            if (request.HostName != null)
+                flurlReq.SetQueryParams("hostname", request.HostName);
+
+            return await client.SendRequestWithJsonAsync<Models.RestOrderCenterUpdateSubInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/ordercenter/update/sub/status 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/order/update_post_order_status/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestOrderCenterUpdateSubStatusResponse> ExecuteRestOrderCenterUpdateSubStatusAsync(this BaiduSmartAppThirdPartyClient client, Models.RestOrderCenterUpdateSubStatusRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.ServiceAppKey == null)
+                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "update", "sub", "status")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pm_app_key", request.ServiceAppKey)
+                .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("scene_id", request.SceneId)
+                .SetQueryParam("scene_type", request.SceneType);
+
+            if (request.HostName != null)
+                flurlReq.SetQueryParams("hostname", request.HostName);
+
+            return await client.SendRequestWithJsonAsync<Models.RestOrderCenterUpdateSubStatusResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region Package
         /// <summary>
         /// <para>异步调用 [POST] /rest/2.0/smartapp/package/upload 接口。</para>

@@ -1,0 +1,12 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": [
+        {
+            "biz_app_id": "IGRshW1EovxlMIoeLXQZkQiGcGGyjsPX",
+            "cate_id": "1",
+            "resource_id": "aa",
+            "rows_affected": "0"
+        }
+    ]
+}

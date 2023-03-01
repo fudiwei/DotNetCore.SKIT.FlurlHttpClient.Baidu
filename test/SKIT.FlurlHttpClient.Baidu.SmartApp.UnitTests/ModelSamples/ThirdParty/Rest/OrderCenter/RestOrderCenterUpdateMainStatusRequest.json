@@ -1,0 +1,17 @@
+{
+    "Data": [
+        {
+            "CateID": 2,
+            "BizAPPID": "a392qXwK8L5GDUWhFoC01cKwoy7tmehg",
+            "ResourceID": "2221554346520",
+            "Status": 200
+        },
+        {
+            "CateID": 2,
+            "BizAPPID": "a392qXwK8L5GDUWhFoC01cKwoy7tmehg",
+            "ResourceID": "3221554346520",
+            "Status": 200
+        }
+    ]
+}
+
