@@ -7,7 +7,7 @@ using Flurl.Http;
 
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
 {
-    public static class SmartAppOpenApiClientExecuteOAuthExtensions
+    public static class BaiduSmartAppOpenApiClientExecuteOAuthExtensions
     {
         /// <summary>
         /// <para>异步调用 [GET] /oauth/2.0/token 接口。</para>

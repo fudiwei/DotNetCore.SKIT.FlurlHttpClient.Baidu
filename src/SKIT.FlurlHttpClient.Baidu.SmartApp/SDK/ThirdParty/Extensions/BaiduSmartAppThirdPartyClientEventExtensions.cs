@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
 {
-    public static class SmartAppThirdPartyClientEventExtensions
+    public static class BaiduSmartAppThirdPartyClientEventExtensions
     {
         private class InnerEncryptedEvent
         {
@@ -79,13 +79,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         }
 
         /// <summary>
-        /// <para>验证回调通知事件签名。</para>
+        /// <para>验证消息推送事件签名。</para>
         /// <para>REF: https://smartprogram.baidu.com/docs/third/customer/customerability/ </para>
         /// </summary>
         /// <param name="client"></param>
-        /// <param name="callbackTimestamp">百度回调通知中的 "timestamp" 查询参数。</param>
-        /// <param name="callbackNonce">百度回调通知中的 "nonce" 查询参数。</param>
-        /// <param name="callbackSignature">百度回调通知中的 "signature" 查询参数。</param>
+        /// <param name="callbackTimestamp">百度消息推送中的 "timestamp" 查询参数。</param>
+        /// <param name="callbackNonce">百度消息推送中的 "nonce" 查询参数。</param>
+        /// <param name="callbackSignature">百度消息推送中的 "signature" 查询参数。</param>
         /// <returns></returns>
         public static bool VerifyEventSignatureForEcho(this BaiduSmartAppThirdPartyClient client, string callbackTimestamp, string callbackNonce, string callbackSignature)
         {
@@ -102,11 +102,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         }
 
         /// <summary>
-        /// <para>验证回调通知事件签名。</para>
+        /// <para>验证消息推送事件签名。</para>
         /// <para>REF: https://smartprogram.baidu.com/docs/third/push/encryption/ </para>
         /// </summary>
         /// <param name="client"></param>
-        /// <param name="callbackJson">百度回调通知中请求正文（JSON 格式）。</param>
+        /// <param name="callbackJson">百度消息推送中请求正文（JSON 格式）。</param>
         /// <returns></returns>
         public static bool VerifyEventSignature(this BaiduSmartAppThirdPartyClient client, string callbackJson)
         {

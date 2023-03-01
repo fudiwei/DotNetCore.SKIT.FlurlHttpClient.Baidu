@@ -71,7 +71,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Models
         public long UserId { get; set; }
 
         /// <summary>
-        /// 获取或设置退款回调通知 URL。
+        /// 获取或设置退款消息推送 URL。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("refundNotifyUrl")]
         [System.Text.Json.Serialization.JsonPropertyName("refundNotifyUrl")]

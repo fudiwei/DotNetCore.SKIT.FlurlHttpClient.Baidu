@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Flurl;
@@ -8,7 +9,7 @@ using Flurl.Http;
 
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
 {
-    public static class SmartAppThirdPartyClientExecuteRestExtensions
+    public static class BaiduSmartAppThirdPartyClientExecuteRestExtensions
     {
         /// <summary>
         /// <para>异步调用 [GET] /rest/2.0/oauth/token 接口。</para>
@@ -2404,7 +2405,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
                 .SetQueryParam("template_id", request.TemplateId);
 
             using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: "robots.txt", fileBytes: request.RobotsFileBytes, fileContentType: "text/plain", formDataName: "robots");
-            httpContent.Add(new StringContent(request.TemplateId.ToString()), "template_id");
+            httpContent.Add(new StringContent(request.TemplateId.ToString(), Encoding.UTF8), "template_id");
             return await client.SendRequestAsync<Models.RestRobotsTemplateUploadResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
         }
         #endregion

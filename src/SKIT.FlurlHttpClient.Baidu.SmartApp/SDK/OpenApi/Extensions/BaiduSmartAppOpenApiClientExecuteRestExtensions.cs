@@ -8,7 +8,7 @@ using Flurl.Http;
 
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
 {
-    public static class SmartAppOpenApiClientExecuteRestExtensions
+    public static class BaiduSmartAppOpenApiClientExecuteRestExtensions
     {
         /// <summary>
         /// <para>异步调用 [GET] /rest/2.0/smartapp/getsessionkey 接口。</para>

@@ -3,7 +3,7 @@ using Flurl;
 
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
 {
-    public static class SmartAppThirdPartyClientParameterExtensions
+    public static class BaiduSmartAppThirdPartyClientParameterExtensions
     {
         /// <summary>
         /// <para>生成第三方平台进行授权 URL。</para>

@@ -7,7 +7,7 @@ using Flurl.Http;
 
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
 {
-    public static class SmartAppThirdPartyClientExecuteFileExtensions
+    public static class BaiduSmartAppThirdPartyClientExecuteFileExtensions
     {
         /// <summary>
         /// <para>异步调用 [POST] /file/2.0/smartapp/upload/image 接口。</para>
@@ -31,7 +31,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
                 request.ImageFileName = Guid.NewGuid().ToString("N").ToLower() + ".jpg";
 
             using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: request.ImageFileName, fileBytes: request.ImageFileBytes, fileContentType: "image/jpeg", formDataName: "multipartFile");
-            httpContent.Add(new StringContent(request.ImageType.ToString()), "type");
+            httpContent.Add(new StringContent(request.ImageType.ToString(), Encoding.UTF8), "type");
             return await client.SendRequestAsync<Models.FileUploadImageResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
         }
     }
