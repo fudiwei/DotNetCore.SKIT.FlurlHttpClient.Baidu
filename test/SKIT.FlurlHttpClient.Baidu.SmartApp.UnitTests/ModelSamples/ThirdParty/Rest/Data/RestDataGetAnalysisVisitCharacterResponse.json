@@ -1,0 +1,45 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "time_span": "2019/04/10 - 2019/04/15",
+        "offset": 0,
+        "total": 6,
+        "sum": {
+            "user_count": 7179,
+            "user_count_ratio": 100
+        },
+        "data_list": [
+            {
+                "name": "1-2次",
+                "user_count": 7102,
+                "user_count_ratio": 98.93
+            },
+            {
+                "name": "3-5次",
+                "user_count": 68,
+                "user_count_ratio": 0.95
+            },
+            {
+                "name": "6-9次",
+                "user_count": 6,
+                "user_count_ratio": 0.08
+            },
+            {
+                "name": "10-19次",
+                "user_count": 3,
+                "user_count_ratio": 0.04
+            },
+            {
+                "name": "20-49次",
+                "user_count": 0,
+                "user_count_ratio": 0
+            },
+            {
+                "name": "50次以上",
+                "user_count": 0,
+                "user_count_ratio": 0
+            }
+        ]
+    }
+}

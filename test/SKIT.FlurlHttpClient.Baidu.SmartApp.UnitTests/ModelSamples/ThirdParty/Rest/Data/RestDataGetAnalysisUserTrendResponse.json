@@ -1,0 +1,44 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "time_span": "2019/04/10 - 2019/04/15",
+        "offset": 0,
+        "total": 6,
+        "sum": {
+            "new_user_count": 5620,
+            "new_user_ratio": 82.19,
+            "old_user_count": 1218,
+            "old_user_ratio": 17.81,
+            "user_count": 6838,
+            "session_count": 7727,
+            "average_session_time": 54,
+            "session_time_per_person": 61
+        },
+        "data_list": [
+            {
+                "name": "2019/04/15",
+                "new_user_count": 1150,
+                "new_user_ratio": 78.02,
+                "old_user_count": 324,
+                "old_user_ratio": 21.98,
+                "user_count": 1474,
+                "session_count": 1570,
+                "average_session_time": 44,
+                "session_time_per_person": 47
+            },
+            {
+                "name": "2019/04/14",
+                "new_user_count": 1243,
+                "new_user_ratio": 78.67,
+                "old_user_count": 337,
+                "old_user_ratio": 21.33,
+                "user_count": 1580,
+                "session_count": 1687,
+                "average_session_time": 56,
+                "session_time_per_person": 60
+            }
+        ]
+    }
+}
+

@@ -1,0 +1,35 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "time_span": "2019/04/10 - 2019/04/15",
+        "offset": 0,
+        "total": 11,
+        "data_list": [
+            {
+                "sceneId": "11010020",
+                "source": "39",
+                "name": "原生",
+                "new_user_count": 4476,
+                "new_user_scale": 79.64,
+                "user_count": 5576,
+                "user_scale": 80.58,
+                "session_scale": 78.4,
+                "session_count_per_user": 1.09,
+                "average_session_time": 29
+            },
+            {
+                "sceneId": "11010018",
+                "source": "39",
+                "name": "闪投",
+                "new_user_count": 52,
+                "new_user_scale": 0.93,
+                "user_count": 55,
+                "user_scale": 0.79,
+                "session_scale": 0.91,
+                "session_count_per_user": 1.27,
+                "average_session_time": 58
+            }
+        ]
+    }
+}

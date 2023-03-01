@@ -1,0 +1,21 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "offset": 0,
+        "total": 4,
+        "result": [
+            {
+                "data": "20190301",
+                "tp_day_user_count": "122000",
+                "tp_day_session_count": "122333"
+            },
+            {
+                "data": "20190302",
+                "tp_day_user_count": "23333",
+                "tp_day_session_count": "36666"
+            }
+        ]
+    }
+}
+

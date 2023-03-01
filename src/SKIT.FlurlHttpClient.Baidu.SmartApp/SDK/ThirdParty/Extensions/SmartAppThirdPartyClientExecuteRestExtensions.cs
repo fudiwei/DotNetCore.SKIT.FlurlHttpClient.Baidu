@@ -598,6 +598,249 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         }
         #endregion
 
+        #region Data
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/data/getanalysisusertrend 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/data/getanalysisusertrend/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestDataGetAnalysisUserTrendResponse> ExecuteRestDataGetAnalysisUserTrendAsync(this BaiduSmartAppThirdPartyClient client, Models.RestDataGetAnalysisUserTrendRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisusertrend")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_date", request.StartDateString)
+                .SetQueryParam("end_date", request.EndDateString)
+                .SetQueryParam("gran", request.Granularity);
+
+            return await client.SendRequestWithJsonAsync<Models.RestDataGetAnalysisUserTrendResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/data/getanalysisactivityuser 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/data/getanalysisactivityuser/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestDataGetAnalysisActivityUserResponse> ExecuteRestDataGetAnalysisActivityUserAsync(this BaiduSmartAppThirdPartyClient client, Models.RestDataGetAnalysisActivityUserRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisactivityuser")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_date", request.StartDateString)
+                .SetQueryParam("end_date", request.EndDateString);
+
+            return await client.SendRequestWithJsonAsync<Models.RestDataGetAnalysisActivityUserResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/data/getanalysisretaineduser 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/data/getanalysisretaineduser/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestDataGetAnalysisRetainedUserResponse> ExecuteRestDataGetAnalysisRetainedUserAsync(this BaiduSmartAppThirdPartyClient client, Models.RestDataGetAnalysisRetainedUserRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisretaineduser")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_date", request.StartDateString)
+                .SetQueryParam("end_date", request.EndDateString)
+                .SetQueryParam("gran", request.Granularity)
+                .SetQueryParam("report_type", request.ReportType);
+
+            return await client.SendRequestWithJsonAsync<Models.RestDataGetAnalysisRetainedUserResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/data/getanalysisvisitattribute 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/data/getanalysisvisitattribute/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestDataGetAnalysisVisitAttributeResponse> ExecuteRestDataGetAnalysisVisitAttributeAsync(this BaiduSmartAppThirdPartyClient client, Models.RestDataGetAnalysisVisitAttributeRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisvisitattribute")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("start_date", request.StartDateString)
+                .SetQueryParam("end_date", request.EndDateString);
+
+            return await client.SendRequestWithJsonAsync<Models.RestDataGetAnalysisVisitAttributeResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/data/getanalysisregion 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/data/getanalysisregion/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestDataGetAnalysisRegionResponse> ExecuteRestDataGetAnalysisRegionAsync(this BaiduSmartAppThirdPartyClient client, Models.RestDataGetAnalysisRegionRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisregion")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_date", request.StartDateString)
+                .SetQueryParam("end_date", request.EndDateString);
+
+            return await client.SendRequestWithJsonAsync<Models.RestDataGetAnalysisRegionResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/data/getanalysisterminal 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/data/getanalysisterminal/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestDataGetAnalysisTerminalResponse> ExecuteRestDataGetAnalysisTerminalAsync(this BaiduSmartAppThirdPartyClient client, Models.RestDataGetAnalysisTerminalRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisterminal")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_date", request.StartDateString)
+                .SetQueryParam("end_date", request.EndDateString)
+                .SetQueryParam("terminal_type", request.TerminalDataType);
+
+            return await client.SendRequestWithJsonAsync<Models.RestDataGetAnalysisTerminalResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/data/getanalysisvisitpage 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/data/getanalysisvisitpage/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestDataGetAnalysisVisitPageResponse> ExecuteRestDataGetAnalysisVisitPageAsync(this BaiduSmartAppThirdPartyClient client, Models.RestDataGetAnalysisVisitPageRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisvisitpage")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_date", request.StartDateString)
+                .SetQueryParam("end_date", request.EndDateString);
+
+            return await client.SendRequestWithJsonAsync<Models.RestDataGetAnalysisVisitPageResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/data/getanalysisvisitcharacter 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/data/getanalysisvisitcharacter/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestDataGetAnalysisVisitCharacterResponse> ExecuteRestDataGetAnalysisVisitCharacterAsync(this BaiduSmartAppThirdPartyClient client, Models.RestDataGetAnalysisVisitCharacterRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisvisitcharacter")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_date", request.StartDateString)
+                .SetQueryParam("end_date", request.EndDateString)
+                .SetQueryParam("character_type", request.CharacterType);
+
+            return await client.SendRequestWithJsonAsync<Models.RestDataGetAnalysisVisitCharacterResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/data/getanalysissource 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/data/getanalysissource/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestDataGetAnalysisSourceResponse> ExecuteRestDataGetAnalysisSourceAsync(this BaiduSmartAppThirdPartyClient client, Models.RestDataGetAnalysisSourceRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysissource")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_date", request.StartDateString)
+                .SetQueryParam("end_date", request.EndDateString);
+
+            return await client.SendRequestWithJsonAsync<Models.RestDataGetAnalysisSourceResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/data/gettpdata 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/data/gettpdata/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestDataGetThirdPartyDataResponse> ExecuteRestDataGetThirdPartyDataAsync(this BaiduSmartAppThirdPartyClient client, Models.RestDataGetThirdPartyDataRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "gettpdata")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("max_results", request.PageSize)
+                .SetQueryParam("start_date", request.StartDateString)
+                .SetQueryParam("end_date", request.EndDateString);
+
+            if (request.SceneId != null)
+                flurlReq.SetQueryParam("scene", request.SceneId);
+
+            if (request.Metrics != null)
+                flurlReq.SetQueryParam("metrics", request.Metrics);
+
+            return await client.SendRequestWithJsonAsync<Models.RestDataGetThirdPartyDataResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region Domain
         /// <summary>
         /// <para>异步调用 [POST] /rest/2.0/smartapp/tp/modifydomain 接口。</para>

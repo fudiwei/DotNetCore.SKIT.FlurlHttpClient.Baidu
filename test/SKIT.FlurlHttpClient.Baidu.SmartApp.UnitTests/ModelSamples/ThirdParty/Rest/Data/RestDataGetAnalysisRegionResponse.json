@@ -1,0 +1,34 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "time_span": "2019/04/10 - 2019/04/15",
+        "offset": 0,
+        "total": 34,
+        "sum": {
+            "session_count_district": 7718,
+            "session_count_district_ratio": 100,
+            "new_user_count_district_ratio": 100,
+            "user_count_district_ratio": 100,
+            "average_session_time_district": 54
+        },
+        "data_list": [
+            {
+                "name": "重庆",
+                "session_count_district": 1180,
+                "session_count_district_ratio": 15.29,
+                "new_user_count_district_ratio": 15.28,
+                "user_count_district_ratio": 15.72,
+                "average_session_time_district": 27
+            },
+            {
+                "name": "广东",
+                "session_count_district": 1145,
+                "session_count_district_ratio": 14.84,
+                "new_user_count_district_ratio": 14.67,
+                "user_count_district_ratio": 14.71,
+                "average_session_time_district": 49
+            }
+        ]
+    }
+}

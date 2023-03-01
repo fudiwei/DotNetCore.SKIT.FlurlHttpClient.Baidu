@@ -1,0 +1,111 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "data_list": [
+            {
+                "age": [
+                    {
+                        "attribute_id": "13539008165231256741",
+                        "name": "18岁以下",
+                        "count_ratio": 0.1
+                    },
+                    {
+                        "attribute_id": "3615607858952929332",
+                        "name": "18-24岁",
+                        "count_ratio": 6.06
+                    },
+                    {
+                        "attribute_id": "3687662158750941236",
+                        "name": "25-34岁",
+                        "count_ratio": 22.4
+                    },
+                    {
+                        "attribute_id": "3759719757083836468",
+                        "name": "35-44岁",
+                        "count_ratio": 36.12
+                    },
+                    {
+                        "attribute_id": "3831777355416731700",
+                        "name": "45-54岁",
+                        "count_ratio": 30.74
+                    },
+                    {
+                        "attribute_id": "3903834953749626932",
+                        "name": "55-64岁",
+                        "count_ratio": 4.49
+                    },
+                    {
+                        "attribute_id": "13539004888154432677",
+                        "name": "65岁以上",
+                        "count_ratio": 0.09
+                    }
+                ],
+                "sex": [
+                    {
+                        "attribute_id": "51673640596406272",
+                        "name": "男",
+                        "count_ratio": 13.24
+                    },
+                    {
+                        "attribute_id": "50566423797301248",
+                        "name": "女",
+                        "count_ratio": 86.76
+                    }
+                ],
+                "interest": [
+                    {
+                        "attribute_id": "1817285150070878431",
+                        "name": "软件应用",
+                        "count_ratio": 8.48
+                    },
+                    {
+                        "attribute_id": "16754716521762172846",
+                        "name": "资讯",
+                        "count_ratio": 8.25
+                    },
+                    {
+                        "attribute_id": "2013145566775166121",
+                        "name": "影视音乐",
+                        "count_ratio": 7.36
+                    },
+                    {
+                        "attribute_id": "1916599189664044924",
+                        "name": "医疗健康",
+                        "count_ratio": 6.4
+                    },
+                    {
+                        "attribute_id": "1926856852155349220",
+                        "name": "书籍阅读",
+                        "count_ratio": 5.5
+                    },
+                    {
+                        "attribute_id": "1887137221346444591",
+                        "name": "教育培训",
+                        "count_ratio": 5.42
+                    },
+                    {
+                        "attribute_id": "1915893612878190809",
+                        "name": "餐饮美食",
+                        "count_ratio": 5.05
+                    },
+                    {
+                        "attribute_id": "1981319425202935271",
+                        "name": "建材家居",
+                        "count_ratio": 4.97
+                    },
+                    {
+                        "attribute_id": "1773684818352659311",
+                        "name": "旅游酒店",
+                        "count_ratio": 4.52
+                    },
+                    {
+                        "attribute_id": "1988066904813920250",
+                        "name": "母婴亲子",
+                        "count_ratio": 3.69
+                    }
+                ]
+            }
+        ]
+    }
+}

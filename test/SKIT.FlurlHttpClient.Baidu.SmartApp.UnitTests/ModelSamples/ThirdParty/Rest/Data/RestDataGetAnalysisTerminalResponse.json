@@ -1,0 +1,34 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "time_span": "2019/04/10 - 2019/04/15",
+        "offset": 0,
+        "total": 32,
+        "sum": {
+            "accumulative_session_count": "7727",
+            "accumulative_session_count_ratio": "100",
+            "accumulative_new_user_count_ratio": "100",
+            "accumulative_user_count_ratio": "100",
+            "average_use_time": 54
+        },
+        "data_list": [
+            {
+                "name": "Android 8",
+                "accumulative_session_count": "1646",
+                "accumulative_session_count_ratio": "21.3",
+                "accumulative_new_user_count_ratio": "21.64",
+                "accumulative_user_count_ratio": "21.79",
+                "average_use_time": "48"
+            },
+            {
+                "name": "Android 8.1",
+                "accumulative_session_count": "1502",
+                "accumulative_session_count_ratio": "19.44",
+                "accumulative_new_user_count_ratio": "20.07",
+                "accumulative_user_count_ratio": "20.09",
+                "average_use_time": "36"
+            }
+        ]
+    }
+}

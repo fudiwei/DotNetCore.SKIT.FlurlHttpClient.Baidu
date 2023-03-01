@@ -1,0 +1,47 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "time_span": "2019/04/10 - 2019/04/15",
+        "offset": 0,
+        "total": 8,
+        "sum": {
+            "pv_count": 14706,
+            "pv_ratio": 100,
+            "pv_user_count": 8790,
+            "average_stay_time": 24,
+            "stay_time_ratio": 100,
+            "bounce_ratio": 52.4,
+            "entry_count": 7706,
+            "exit_count": 7706
+        },
+        "data_list": [
+            {
+                "pageId": "10811489425798243863",
+                "pageName": "pages/yuyue/yuyue",
+                "pageAlias": "",
+                "pv_count": 7157,
+                "pv_ratio": 48.67,
+                "pv_user_count": 6175,
+                "average_stay_time": 18,
+                "stay_time_ratio": 36.96,
+                "bounce_ratio": 81.68,
+                "entry_count": 6120,
+                "exit_count": 5846
+            },
+            {
+                "pageId": "14078778733382177142",
+                "pageName": "pages/index/list/list",
+                "pageAlias": "",
+                "pv_count": 3864,
+                "pv_ratio": 26.27,
+                "pv_user_count": 1496,
+                "average_stay_time": 17,
+                "stay_time_ratio": 18.86,
+                "bounce_ratio": 36.21,
+                "entry_count": 1444,
+                "exit_count": 1399
+            }
+        ]
+    }
+}
