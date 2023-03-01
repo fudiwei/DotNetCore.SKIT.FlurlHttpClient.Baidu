@@ -1,0 +1,13 @@
+{
+    "app_id": "183",
+    "body": "爱说唱是一款基于百度语音技术的智能小程序。即便你对嘻哈音乐一窍不通，只需对它说上几句话，便可智能合成最酷的嘻哈音乐。同时还支持歌词查看和等功能，在线即可完成rap单曲的创作和分享。来吧，让我们在嘻哈的世界肆意妄为，一起Freestyle吧！",
+    "ext": "{\"publish_time\": \"2022年3月1日\"}",
+    "feed_sub_type": "明星八卦",
+    "feed_type": "娱乐",
+    "images": "[\"https://b.bdstatic.com/miniapp/resource/image/demo0.png\", \"https://b.bdstatic.com/miniapp/resource/image/demo1.png\"]",
+    "mapp_sub_type": 1732,
+    "mapp_type": 1452,
+    "path": "/pages/detail/detail?id=865544",
+    "tags": "电影,吴亦凡",
+    "title": "百度智能小程序，给你全新的智能体验"
+}

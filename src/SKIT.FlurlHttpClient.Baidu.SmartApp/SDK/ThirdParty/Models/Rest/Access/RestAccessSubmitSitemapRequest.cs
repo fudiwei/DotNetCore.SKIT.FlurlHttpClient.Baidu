@@ -12,7 +12,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type")]
         [System.Text.Json.Serialization.JsonPropertyName("type")]
-        public int Type { get; set; }
+        public int UploadType { get; set; }
 
         /// <summary>
         /// 获取或设置 URL 列表。

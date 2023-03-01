@@ -114,10 +114,118 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "submit", "sitemap")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("type", request.Type)
+                .SetQueryParam("type", request.UploadType)
                 .SetQueryParam("url_list", string.Join(",", request.UrlList));
 
             return await client.SendRequestWithJsonAsync<Models.RestAccessSubmitSitemapResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/access/sitemap/submit 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/sitemap/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestAccessSitemapSubmitResponse> ExecuteRestAccessSitemapSubmitAsync(this BaiduSmartAppThirdPartyClient client, Models.RestAccessSitemapSubmitRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "sitemap", "submit")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("type", request.ActionType)
+                .SetQueryParam("frequency", request.FrequencyType)
+                .SetQueryParam("desc", request.Description)
+                .SetQueryParam("url", request.SitemapUrl);
+
+            if (request.AppId != null)
+                flurlReq.SetQueryParam("app_id", request.AppId);
+
+            return await client.SendRequestWithJsonAsync<Models.RestAccessSitemapSubmitResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/access/sitemap/delete 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/feed/del_sitemap/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestAccessSitemapDeleteResponse> ExecuteRestAccessSitemapDeleteAsync(this BaiduSmartAppThirdPartyClient client, Models.RestAccessSitemapDeleteRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "sitemap", "delete")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("url", request.SitemapUrl);
+
+            if (request.AppId != null)
+                flurlReq.SetQueryParam("app_id", request.AppId);
+
+            return await client.SendRequestWithJsonAsync<Models.RestAccessSitemapDeleteResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/access/resource/submit 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/feed/submit_materiel/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestAccessResourceSubmitResponse> ExecuteRestAccessResourceSubmitAsync(this BaiduSmartAppThirdPartyClient client, Models.RestAccessResourceSubmitRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "resource", "submit")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("title", request.Title)
+                .SetQueryParam("body", request.Body)
+                .SetQueryParam("ext", request.ExtraJson)
+                .SetQueryParam("feed_type", request.FeedType)
+                .SetQueryParam("feed_sub_type", request.FeedSubType)
+                .SetQueryParam("mapp_type", request.ResourceType)
+                .SetQueryParam("mapp_sub_type", request.ResourceSubType)
+                .SetQueryParam("images", client.JsonSerializer.Serialize(request.ImageUrlList))
+                .SetQueryParam("tags", string.Join(",", request.TagList))
+                .SetQueryParam("path", request.PagePath);
+
+            if (request.AppId != null)
+                flurlReq.SetQueryParam("app_id", request.AppId);
+
+            return await client.SendRequestWithJsonAsync<Models.RestAccessResourceSubmitResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/access/resource/delete 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/feed/del_materiel/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestAccessResourceDeleteResponse> ExecuteRestAccessResourceDeleteAsync(this BaiduSmartAppThirdPartyClient client, Models.RestAccessResourceDeleteRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "resource", "delete")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("path", request.PagePath);
+
+            if (request.AppId != null)
+                flurlReq.SetQueryParam("app_id", request.AppId);
+
+            return await client.SendRequestWithJsonAsync<Models.RestAccessResourceDeleteResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
         #endregion
 
