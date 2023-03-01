@@ -97,6 +97,30 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             return await client.SendRequestWithJsonAsync<Models.RestThirdPartyCreatePreAuthCodeResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
 
+        #region Access
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/access/submit/sitemap 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/sitemap/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestAccessSubmitSitemapResponse> ExecuteRestAccessSubmitSitemapAsync(this BaiduSmartAppThirdPartyClient client, Models.RestAccessSubmitSitemapRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "submit", "sitemap")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("type", request.Type)
+                .SetQueryParam("url_list", string.Join(",", request.UrlList));
+
+            return await client.SendRequestWithJsonAsync<Models.RestAccessSubmitSitemapResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region App
         /// <summary>
         /// <para>异步调用 [GET] /rest/2.0/smartapp/app/info 接口。</para>
@@ -398,6 +422,27 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             return await client.SendRequestWithJsonAsync<Models.RestAppModifyWebviewDomainResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
 
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/app/modifywebstatus 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/web/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestAppModifyWebStatusResponse> ExecuteRestAppModifyWebStatusAsync(this BaiduSmartAppThirdPartyClient client, Models.RestAppModifyWebStatusRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "app", "modifywebstatus")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("web_status", request.WebStatus);
+
+            return await client.SendRequestWithJsonAsync<Models.RestAppModifyWebStatusResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
         #region App/Grade
         /// <summary>
         /// <para>异步调用 [GET] /rest/2.0/smartapp/app/grade 接口。</para>
@@ -415,7 +460,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "app", "grade")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("page", request.Page)
+                .SetQueryParam("page", request.PageNumber)
                 .SetQueryParam("pageSize", request.PageSize);
 
             return await client.SendRequestWithJsonAsync<Models.RestAppGradeResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -615,7 +660,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisusertrend")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString)
                 .SetQueryParam("gran", request.Granularity);
@@ -639,7 +684,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisactivityuser")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString);
 
@@ -662,7 +707,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisretaineduser")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString)
                 .SetQueryParam("gran", request.Granularity)
@@ -709,7 +754,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisregion")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString);
 
@@ -732,7 +777,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisterminal")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString)
                 .SetQueryParam("terminal_type", request.TerminalDataType);
@@ -756,7 +801,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisvisitpage")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString);
 
@@ -779,7 +824,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisvisitcharacter")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString)
                 .SetQueryParam("character_type", request.CharacterType);
@@ -803,7 +848,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysissource")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString);
 
@@ -826,7 +871,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "gettpdata")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.Offset)
+                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("max_results", request.PageSize)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString);
@@ -917,6 +962,137 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
                 .SetQueryParam("access_token", request.AccessToken);
 
             return await client.SendRequestWithJsonAsync<Models.RestThirdPartyDownloadDomaincerResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
+        #region Flow
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/flow/bindsite 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/flow/site_h5_bind/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestFlowBindSiteResponse> ExecuteRestFlowBindSiteAsync(this BaiduSmartAppThirdPartyClient client, Models.RestFlowBindSiteRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "flow", "bindsite")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("sites", string.Join(",", request.SiteList));
+
+            return await client.SendRequestWithJsonAsync<Models.RestFlowBindSiteResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/flow/getbindsite 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/flow/site_h5_query/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestFlowGetBindSiteResponse> ExecuteRestFlowGetBindSiteAsync(this BaiduSmartAppThirdPartyClient client, Models.RestFlowGetBindSiteRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "flow", "getbindsite")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("page_num", request.PageNumber)
+                .SetQueryParam("page_size", request.PageSize);
+
+            return await client.SendRequestWithJsonAsync<Models.RestFlowGetBindSiteResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/flow/saveurlmapping 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/flow/tp_rank_url_submit/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestFlowSaveUrlMappingResponse> ExecuteRestFlowSaveUrlMappingAsync(this BaiduSmartAppThirdPartyClient client, Models.RestFlowSaveUrlMappingRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "flow", "saveurlmapping")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("content", client.JsonSerializer.Serialize(request.RuleList))
+                .SetQueryParam("create_method", request.CreateMethod);
+
+            return await client.SendRequestWithJsonAsync<Models.RestFlowSaveUrlMappingResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/flow/queryurlmapping 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/flow/tp_rank_url_query/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestFlowQueryUrlMappingResponse> ExecuteRestFlowQueryUrlMappingAsync(this BaiduSmartAppThirdPartyClient client, Models.RestFlowQueryUrlMappingRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "flow", "queryurlmapping")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("page_num", request.PageNumber)
+                .SetQueryParam("page_size", request.PageSize);
+
+            return await client.SendRequestWithJsonAsync<Models.RestFlowQueryUrlMappingResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/flow/geturlmappingdetail 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/flow/tp_rank_url_detail/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestFlowGetUrlMappingDetailResponse> ExecuteRestFlowGetUrlMappingDetailAsync(this BaiduSmartAppThirdPartyClient client, Models.RestFlowGetUrlMappingDetailRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "flow", "geturlmappingdetail")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("rule_id", request.RuleId);
+
+            return await client.SendRequestWithJsonAsync<Models.RestFlowGetUrlMappingDetailResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/flow/delurlmapping 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/flow/tp_rank_url_delete/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestFlowDeleteUrlMappingResponse> ExecuteRestFlowDeleteUrlMappingAsync(this BaiduSmartAppThirdPartyClient client, Models.RestFlowDeleteUrlMappingRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "flow", "delurlmapping")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("del_rule_id", request.RuleId);
+
+            return await client.SendRequestWithJsonAsync<Models.RestFlowDeleteUrlMappingResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
         #endregion
 
@@ -1427,7 +1603,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
                 .SetQueryParam("status", request.Status)
                 .SetQueryParam("start_time", request.StartTimestamp)
                 .SetQueryParam("end_time", request.EndTimestamp)
-                .SetQueryParam("current_page", request.Page)
+                .SetQueryParam("current_page", request.PageNumber)
                 .SetQueryParam("page_size", request.PageSize);
 
             return await client.SendRequestWithJsonAsync<Models.RestPayPaymentServiceOrderListResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -1451,7 +1627,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("start_time", request.StartDateString)
                 .SetQueryParam("end_time", request.EndDateString)
-                .SetQueryParam("current_page", request.Page)
+                .SetQueryParam("current_page", request.PageNumber)
                 .SetQueryParam("page_size", request.PageSize);
 
             return await client.SendRequestWithJsonAsync<Models.RestPayPaymentServiceFinanceBalanceResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -1474,7 +1650,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "financebalance", "incomedetail")
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("start_time", request.StartDateString)
-                .SetQueryParam("current_page", request.Page)
+                .SetQueryParam("current_page", request.PageNumber)
                 .SetQueryParam("page_size", request.PageSize);
 
             return await client.SendRequestWithJsonAsync<Models.RestPayPaymentServiceFinanceBalanceIncomeDetailResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -1498,7 +1674,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("start_time", request.StartDateString)
                 .SetQueryParam("end_time", request.EndDateString)
-                .SetQueryParam("current_page", request.Page)
+                .SetQueryParam("current_page", request.PageNumber)
                 .SetQueryParam("page_size", request.PageSize);
 
             return await client.SendRequestWithJsonAsync<Models.RestPayPaymentServiceFinanceBalanceOtherDetailResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -1522,7 +1698,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("start_time", request.StartDateString)
                 .SetQueryParam("end_time", request.EndDateString)
-                .SetQueryParam("current_page", request.Page)
+                .SetQueryParam("current_page", request.PageNumber)
                 .SetQueryParam("page_size", request.PageSize);
 
             return await client.SendRequestWithJsonAsync<Models.RestPayPaymentServiceFinanceExpenseResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -1791,6 +1967,76 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         }
         #endregion
 
+        #region Promotion
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/promotion/sitemap/getanalysisctr 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/data/thumb_up_statistics/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPromotionSitemapGetAnalysisCTRResponse> ExecuteRestPromotionSitemapGetAnalysisCTRAsync(this BaiduSmartAppThirdPartyClient client, Models.RestPromotionSitemapGetAnalysisCTRRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "promotion", "sitemap", "getanalysisctr")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("time_span", request.TimeSpan);
+
+            return await client.SendRequestWithJsonAsync<Models.RestPromotionSitemapGetAnalysisCTRResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/promotion/topquery/info 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/data/page_flow_info/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPromotionTopQueryInfoResponse> ExecuteRestPromotionTopQueryInfoAsync(this BaiduSmartAppThirdPartyClient client, Models.RestPromotionTopQueryInfoRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "promotion", "topquery", "info")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("time_span", request.TimeSpan)
+                .SetQueryParam("page_num", request.PageNumber)
+                .SetQueryParam("page_size", request.PageSize);
+
+            return await client.SendRequestWithJsonAsync<Models.RestPromotionTopQueryInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/promotion/topquery/keyword 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/data/page_flow_key_words/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPromotionTopQueryKeywordResponse> ExecuteRestPromotionTopQueryKeywordAsync(this BaiduSmartAppThirdPartyClient client, Models.RestPromotionTopQueryKeywordRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "promotion", "topquery", "keyword")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("time_span", request.TimeSpan)
+                .SetQueryParam("web_url", request.WebUrl)
+                .SetQueryParam("page_num", request.PageNumber)
+                .SetQueryParam("page_size", request.PageSize);
+
+            return await client.SendRequestWithJsonAsync<Models.RestPromotionTopQueryKeywordResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region PushMessage
         /// <summary>
         /// <para>异步调用 [GET] /rest/2.0/smartapp/pushmsg/getmsg 接口。</para>
@@ -1808,7 +2054,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pushmsg", "getmsg")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("offset", request.Offset)
+                .SetQueryParam("offset", request.PageOffset)
                 .SetQueryParam("count", request.PageSize);
 
             if (request.StartTimestamp != null)
@@ -1824,6 +2070,215 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
                 flurlReq.SetQueryParam("id_list", string.Join(",", request.EventMessageIdList));
 
             return await client.SendRequestWithJsonAsync<Models.RestPushMessageGetMessageResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
+        #region Robots
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/robots/app/upload 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/page_for_miniapp/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestRobotsAppUploadResponse> ExecuteRestRobotsAppUploadAsync(this BaiduSmartAppThirdPartyClient client, Models.RestRobotsAppUploadRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "robots", "app", "upload")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: "robots.txt", fileBytes: request.RobotsFileBytes, fileContentType: "text/plain", formDataName: "robots");
+            return await client.SendRequestAsync<Models.RestRobotsAppUploadResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/robots/template/upload 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/page_for_miniapp/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestRobotsTemplateUploadResponse> ExecuteRestRobotsTemplateUploadAsync(this BaiduSmartAppThirdPartyClient client, Models.RestRobotsTemplateUploadRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "robots", "template", "upload")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("template_id", request.TemplateId);
+
+            using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: "robots.txt", fileBytes: request.RobotsFileBytes, fileContentType: "text/plain", formDataName: "robots");
+            httpContent.Add(new StringContent(request.TemplateId.ToString()), "template_id");
+            return await client.SendRequestAsync<Models.RestRobotsTemplateUploadResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
+        }
+        #endregion
+
+        #region Subchain
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/subchain/add 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/subchain/add_subchain/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestSubchainAddResponse> ExecuteRestSubchainAddAsync(this BaiduSmartAppThirdPartyClient client, Models.RestSubchainAddRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "subchain", "add")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("chain_name", request.SubchainName)
+                .SetQueryParam("chain_desc", request.SubchainDescription);
+
+            if (request.PagePath != null)
+                flurlReq.SetQueryParam("chain_name", request.PagePath);
+
+            if (request.PhoneNumber != null)
+                flurlReq.SetQueryParam("telephone", request.PhoneNumber);
+
+            return await client.SendRequestWithJsonAsync<Models.RestSubchainAddResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/subchain/delete 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/subchain/add_subchain/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestSubchainDeleteResponse> ExecuteRestSubchainDeleteAsync(this BaiduSmartAppThirdPartyClient client, Models.RestSubchainDeleteRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "subchain", "delete")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("subchain_id", request.SubchainId);
+
+            return await client.SendRequestWithJsonAsync<Models.RestSubchainDeleteResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/subchain/update 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/subchain/add_subchain/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestSubchainUpdateResponse> ExecuteRestSubchainUpdateAsync(this BaiduSmartAppThirdPartyClient client, Models.RestSubchainUpdateRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "subchain", "update")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("subchain_id", request.SubchainId)
+                .SetQueryParam("chain_name", request.SubchainName)
+                .SetQueryParam("chain_desc", request.SubchainDescription);
+
+            if (request.PagePath != null)
+                flurlReq.SetQueryParam("chain_name", request.PagePath);
+
+            if (request.PhoneNumber != null)
+                flurlReq.SetQueryParam("telephone", request.PhoneNumber);
+
+            return await client.SendRequestWithJsonAsync<Models.RestSubchainUpdateResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/subchain/getall 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/subchain/obtain_all_subchain/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestSubchainGetAllResponse> ExecuteRestSubchainGetAllAsync(this BaiduSmartAppThirdPartyClient client, Models.RestSubchainGetAllRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "subchain", "getall")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithJsonAsync<Models.RestSubchainGetAllResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/subchain/rank 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/subchain/reorder_subchain/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestSubchainRankResponse> ExecuteRestSubchainRankAsync(this BaiduSmartAppThirdPartyClient client, Models.RestSubchainRankRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "subchain", "rank")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("subchain_ranklist", string.Join(",", request.SubchainIdList));
+
+            return await client.SendRequestWithJsonAsync<Models.RestSubchainRankResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/subchain/stop 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/subchain/block_up_subchain/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestSubchainStopResponse> ExecuteRestSubchainStopAsync(this BaiduSmartAppThirdPartyClient client, Models.RestSubchainStopRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "subchain", "stop")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("subchain_id", request.SubchainId);
+
+            return await client.SendRequestWithJsonAsync<Models.RestSubchainStopResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/subchain/restart 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/third/search/subchain/start_subchain/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestSubchainRestartResponse> ExecuteRestSubchainRestartAsync(this BaiduSmartAppThirdPartyClient client, Models.RestSubchainRestartRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "subchain", "restart")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("subchain_id", request.SubchainId);
+
+            return await client.SendRequestWithJsonAsync<Models.RestSubchainRestartResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
         #endregion
 
@@ -1844,7 +2299,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "template", "gettemplatedraftlist")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("page", request.Page)
+                .SetQueryParam("page", request.PageNumber)
                 .SetQueryParam("page_size", request.PageSize);
 
             return await client.SendRequestWithJsonAsync<Models.RestTemplateGetTemplateDraftListResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -1866,7 +2321,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "template", "gettemplatelist")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("page", request.Page)
+                .SetQueryParam("page", request.PageNumber)
                 .SetQueryParam("page_size", request.PageSize);
 
             return await client.SendRequestWithJsonAsync<Models.RestTemplateGetTemplateListResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -1933,7 +2388,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "template", "library", "list")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("offset", request.Offset)
+                .SetQueryParam("offset", request.PageOffset)
                 .SetQueryParam("count", request.PageSize);
 
             return await client.SendRequestWithJsonAsync<Models.RestTemplateLibraryListResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -1976,7 +2431,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "template", "list")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("offset", request.Offset)
+                .SetQueryParam("offset", request.PageOffset)
                 .SetQueryParam("count", request.PageSize);
 
             return await client.SendRequestWithJsonAsync<Models.RestTemplateListResponse>(flurlReq, data: request, cancellationToken: cancellationToken);

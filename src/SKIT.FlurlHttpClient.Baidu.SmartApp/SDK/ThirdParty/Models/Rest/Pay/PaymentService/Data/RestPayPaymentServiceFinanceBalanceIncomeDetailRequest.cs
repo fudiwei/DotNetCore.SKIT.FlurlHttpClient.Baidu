@@ -18,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public int Page { get; set; } = 1;
+        public int PageNumber { get; set; } = 1;
 
         /// <summary>
         /// 获取或设置分页每页数量。

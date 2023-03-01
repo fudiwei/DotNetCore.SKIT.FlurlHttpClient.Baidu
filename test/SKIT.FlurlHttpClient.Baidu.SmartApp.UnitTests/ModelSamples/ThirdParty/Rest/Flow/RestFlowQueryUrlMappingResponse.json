@@ -1,0 +1,20 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "totalAdapterNum": 1,
+        "ruleTotalNum": 10,
+        "ruleRemainingNum": 1,
+        "ruleDetailList": [
+            {
+                "ruleId": 1,
+                "h5Rule": "http://h5.com/xx",
+                "appRule": "/path/xx",
+                "submitTime": "2021-4-05",
+                "status": 1,
+                "msg": "部分生效",
+                "createMethod": 1
+            }
+        ]
+    }
+}

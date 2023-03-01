@@ -121,7 +121,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("offset")]
                 [System.Text.Json.Serialization.JsonPropertyName("offset")]
-                public int Offset { get; set; }
+                public int PageOffset { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。

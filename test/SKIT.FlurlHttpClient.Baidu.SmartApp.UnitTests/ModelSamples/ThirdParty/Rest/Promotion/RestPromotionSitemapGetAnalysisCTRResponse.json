@@ -1,0 +1,17 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "total_click_count": 100,
+        "total_display_count": 100,
+        "click_display_ratio": "100.00%",
+        "traffic_data": [
+            {
+                "date": "2020-01-01",
+                "click_count": 100,
+                "display_count": 100,
+                "click_view_ratio": "100.00%"
+            }
+        ]
+    }
+}

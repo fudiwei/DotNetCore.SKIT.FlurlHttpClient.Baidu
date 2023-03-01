@@ -1,0 +1,21 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "detail": [
+            {
+                "query": "word one",
+                "click_count": 5,
+                "display_count": 10,
+                "rate": "50.00%"
+            },
+            {
+                "query": "word two",
+                "click_count": 10,
+                "display_count": 10,
+                "rate": "100.00%"
+            }
+        ],
+        "total_num": 1
+    }
+}

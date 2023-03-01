@@ -1,0 +1,26 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "total_click_count": 15,
+        "total_display_count": 20,
+        "rate": "75.00%",
+        "detail": [
+            {
+                "path": "/path/one",
+                "web_url": "https://baidu.com/path/one",
+                "click_count": 5,
+                "display_count": 10,
+                "rate": "50.00%"
+            },
+            {
+                "path": "/path/two",
+                "web_url": "https://baidu.com/path/two",
+                "click_count": 10,
+                "display_count": 10,
+                "rate": "100.00%"
+            }
+        ],
+        "total_num": 1
+    }
+}

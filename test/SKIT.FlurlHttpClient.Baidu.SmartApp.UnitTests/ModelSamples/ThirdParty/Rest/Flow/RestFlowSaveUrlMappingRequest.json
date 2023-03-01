@@ -1,0 +1,4 @@
+{
+    "content": "[{\"h0Pattern\":\"http://www.baidu.com/(d+).html\",\"appPattern\":\"/path/abc/${2}\",\"urlPairs\":[{\"h8Url\":\"http://www.baidu.com/234.html\",\"appUrl\":\"/page/abc/014\"}]}]",
+    "create_method": 18
+}

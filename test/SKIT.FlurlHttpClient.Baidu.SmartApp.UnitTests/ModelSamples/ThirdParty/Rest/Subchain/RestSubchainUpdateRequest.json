@@ -1,0 +1,7 @@
+{
+    "subchain_id": 170,
+    "chain_name": "4-10个字符，说明子链的功能",
+    "chain_desc": "8-16个字符，辅助描述子链的功能",
+    "chain_path": "以“/”开头的子链对应的path路径",
+    "telephone": "SA类型的客服电话子链"
+}

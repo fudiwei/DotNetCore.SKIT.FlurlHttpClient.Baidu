@@ -1,0 +1,21 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": [
+        {
+            "ruleId": 1,
+            "h5Pattern": "http://h5.com/xx",
+            "appPattern": "/path/xx",
+            "isFetch": true,
+            "matchNum": 10,
+            "adapterNum": 1,
+            "coverNum": 1,
+            "urlRate": 20,
+            "adapterStatus": 1,
+            "submitTime": "2021-4-05",
+            "status": 1,
+            "msg": "部分生效",
+            "createMethod": 1
+        }
+    ]
+}

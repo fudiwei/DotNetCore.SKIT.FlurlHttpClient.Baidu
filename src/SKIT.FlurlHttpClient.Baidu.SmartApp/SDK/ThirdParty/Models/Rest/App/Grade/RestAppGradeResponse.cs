@@ -42,7 +42,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("pageNo")]
                 [System.Text.Json.Serialization.JsonPropertyName("pageNo")]
-                public int Page { get; set; }
+                public int PageNumber { get; set; }
 
                 /// <summary>
                 /// 获取或设置分页每页数量。

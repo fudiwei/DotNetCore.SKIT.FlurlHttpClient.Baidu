@@ -46,7 +46,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi.Models
 
         public override bool IsSuccessful()
         {
-            return base.IsSuccessful() && string.IsNullOrEmpty(Error);
+            return base.IsSuccessful() && (string.IsNullOrEmpty(Error) || "success".Equals(Error) || "ok".Equals(Error));
         }
     }
 }

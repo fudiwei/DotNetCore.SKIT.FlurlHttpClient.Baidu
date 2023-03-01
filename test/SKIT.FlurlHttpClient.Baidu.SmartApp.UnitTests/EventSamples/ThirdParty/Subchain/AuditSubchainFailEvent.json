@@ -1,0 +1,8 @@
+{
+    "appId": "小程序appid",
+    "tpAppId": "第三方平台appid",
+    "eventTime": "2019-01-14 12:45:10",
+    "event": "AUDIT_SUB_CHAIN_FAILED",
+    "subchainId": 13234,
+    "reason": "失败原因"
+}

@@ -1,0 +1,48 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "app_level": 1,
+        "sub_chain_prior_number": 3,
+        "sub_chain_info_list": [
+            {
+                "id": 249,
+                "app_id": 1482656741,
+                "app_name": "小程序B",
+                "customer_id": 197,
+                "customer_name": "先锋德高(北京)信息技术有限公司",
+                "chain_name": "haifei2",
+                "chain_desc": "desc desc2",
+                "chain_path": "/path/2",
+                "path_md5": "1e7e9b06cda51fc95a933c727d6a9772",
+                "status": 1,
+                "chain_rank": 1,
+                "create_time": 1566219603,
+                "update_time": 1566224567,
+                "audit_time": 0,
+                "audit_desc": "",
+                "subchain_type": 1,
+                "show_status": 1
+            },
+            {
+                "id": 248,
+                "app_id": 1482656741,
+                "app_name": "小程序B",
+                "customer_id": 197,
+                "customer_name": "先锋德高(北京)信息技术有限公司",
+                "chain_name": "NAME1",
+                "chain_desc": "haifei desc1",
+                "chain_path": "/path/1",
+                "path_md5": "b6329bb3c3420e46c33b9bc0beb858e1",
+                "status": 1,
+                "chain_rank": 2,
+                "create_time": 1566219583,
+                "update_time": 1566224567,
+                "audit_time": 0,
+                "audit_desc": "",
+                "subchain_type": 1,
+                "show_status": 1
+            }
+        ]
+    }
+}

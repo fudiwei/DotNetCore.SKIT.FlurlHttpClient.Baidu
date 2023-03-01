@@ -24,14 +24,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "file", "2.0", "smartapp", "upload", "image")
-                .SetQueryParam("access_token", request.AccessToken);
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("type", request.ImageType);
 
             if (request.ImageFileName == null)
                 request.ImageFileName = Guid.NewGuid().ToString("N").ToLower() + ".jpg";
 
             using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: request.ImageFileName, fileBytes: request.ImageFileBytes, fileContentType: "image/jpeg", formDataName: "multipartFile");
-            httpContent.Add(new ByteArrayContent(Encoding.UTF8.GetBytes(request.ImageType.ToString())), "type");
-
+            httpContent.Add(new StringContent(request.ImageType.ToString()), "type");
             return await client.SendRequestAsync<Models.FileUploadImageResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
         }
     }
