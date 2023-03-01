@@ -65,9 +65,24 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
         /// <summary>
         /// 获取百度智能小程序 API 返回的错误描述。
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("msg")]
-        [System.Text.Json.Serialization.JsonPropertyName("msg")]
+        [Newtonsoft.Json.JsonProperty("errmsg")]
+        [System.Text.Json.Serialization.JsonPropertyName("errmsg")]
         public virtual string? ErrorMessage { get; set; }
+
+        /// <summary>
+        /// 获取或设置请求标识。
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("request_id")]
+        [System.Text.Json.Serialization.JsonPropertyName("request_id")]
+        public virtual string? RequestId { get; set; }
+
+        /// <summary>
+        /// 获取或设置请求时间戳。
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("timestamp")]
+        [System.Text.Json.Serialization.JsonPropertyName("timestamp")]
+        [System.Text.Json.Serialization.JsonNumberHandling(System.Text.Json.Serialization.JsonNumberHandling.AllowReadingFromString)]
+        public virtual long? RequestTimestamp { get; set; }
 
         /// <summary>
         /// 获取一个值，该值指示调用百度智能小程序 API 是否成功（即 HTTP 状态码为 200、且 errno 值为 0）。

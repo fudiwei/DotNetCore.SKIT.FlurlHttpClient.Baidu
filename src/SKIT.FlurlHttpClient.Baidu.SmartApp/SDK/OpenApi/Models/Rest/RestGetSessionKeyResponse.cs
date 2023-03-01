@@ -24,19 +24,5 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi.Models
                 public string SessionKey { get; set; } = default!;
             }
         }
-
-        /// <summary>
-        /// <inheritdoc/>
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("errmsg")]
-        [System.Text.Json.Serialization.JsonPropertyName("errmsg")]
-        public override string? ErrorMessage { get; set; }
-
-        /// <summary>
-        /// 获取或设置请求标识。
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("request_id")]
-        [System.Text.Json.Serialization.JsonPropertyName("request_id")]
-        public string RequestId { get; set; } = default!;
     }
 }
