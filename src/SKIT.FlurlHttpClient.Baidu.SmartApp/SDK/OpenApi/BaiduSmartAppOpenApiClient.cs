@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -109,6 +111,72 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
             catch (FlurlHttpException ex)
             {
                 throw new BaiduSmartAppException(ex.Message, ex);
+            }
+        }
+
+        /// <summary>
+        /// 异步发起请求。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="flurlRequest"></param>
+        /// <param name="formdata"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<T> SendRequestWithFormUrlEncodedAsync<T>(IFlurlRequest flurlRequest, IDictionary<string, IConvertible?>? formdata = null, CancellationToken cancellationToken = default)
+            where T : BaiduSmartAppOpenApiResponse, new()
+        {
+            if (flurlRequest == null) throw new ArgumentNullException(nameof(flurlRequest));
+
+            HttpContent? httpContent = null;
+            if (formdata != null)
+            {
+                if (!flurlRequest.Headers.Contains(Constants.HttpHeaders.ContentType))
+                {
+                    flurlRequest.WithHeader(Constants.HttpHeaders.ContentType, "application/x-www-form-urlencoded");
+                }
+
+                IDictionary<string, string> dictFormData = formdata
+                    .Where(e => e.Value != null)
+                    .ToDictionary(k => k.Key, v => v.Value!.ToString()!);
+                httpContent = new FormUrlEncodedContent(dictFormData);
+            }
+
+            try
+            {
+                using IFlurlResponse flurlResponse = await base.SendRequestAsync(flurlRequest, httpContent, cancellationToken).ConfigureAwait(false);
+                return await WrapResponseWithJsonAsync<T>(flurlResponse).ConfigureAwait(false);
+            }
+            catch (FlurlHttpException ex)
+            {
+                throw new BaiduSmartAppException(ex.Message, ex);
+            }
+        }
+
+        /// <summary>
+        /// 异步发起请求。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="flurlRequest"></param>
+        /// <param name="data"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<T> SendRequestWithFormUrlEncodedAsync<T>(IFlurlRequest flurlRequest, object? data = null, CancellationToken cancellationToken = default)
+            where T : BaiduSmartAppOpenApiResponse, new()
+        {
+            bool isSimpleRequest = data == null ||
+                flurlRequest.Verb == HttpMethod.Get ||
+                flurlRequest.Verb == HttpMethod.Head ||
+                flurlRequest.Verb == HttpMethod.Options;
+            if (isSimpleRequest)
+            {
+                return await SendRequestWithJsonAsync<T>(flurlRequest, null, cancellationToken);
+            }
+            else
+            {
+                // TODO: 增加单元测试用例
+                string json = JsonSerializer.Serialize(data);
+                IDictionary<string, IConvertible?> formdata = JsonSerializer.Deserialize<IDictionary<string, IConvertible?>>(json);
+                return await SendRequestWithFormUrlEncodedAsync<T>(flurlRequest, formdata, cancellationToken);
             }
         }
     }

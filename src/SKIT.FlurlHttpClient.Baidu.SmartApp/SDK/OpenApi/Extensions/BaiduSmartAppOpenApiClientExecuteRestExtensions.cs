@@ -50,11 +50,49 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("openid", request.OpenId);
 
-            using var httpContent = new FormUrlEncodedContent(new Dictionary<string, string?>()
-            {
-                { "openid", request.OpenId }
-            });
-            return await client.SendRequestAsync<Models.RestGetUnionIdResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestGetUnionIdResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
+
+        #region Qrcode
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/qrcode/getv2 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/get_qrcode/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestQrcodeGetV2Response> ExecuteRestQrcodeGetV2Async(this BaiduSmartAppOpenApiClient client, Models.RestQrcodeGetV2Request request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "qrcode", "getv2")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestQrcodeGetV2Response>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/qrcode/getunlimitedv2 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/get_qrcode/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestQrcodeGetUnlimitedV2Response> ExecuteRestQrcodeGetUnlimitedV2Async(this BaiduSmartAppOpenApiClient client, Models.RestQrcodeGetUnlimitedV2Request request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "qrcode", "getunlimitedv2")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestQrcodeGetUnlimitedV2Response>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
     }
 }
