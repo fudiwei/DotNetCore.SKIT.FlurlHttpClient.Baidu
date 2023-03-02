@@ -1250,19 +1250,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
-
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "add", "main", "info")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pm_app_key", request.ServiceAppKey)
                 .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
                 .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName != null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
 
             return await client.SendRequestWithJsonAsync<Models.RestOrderCenterAddMainInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
@@ -1280,19 +1274,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
-
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "update", "main", "info")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pm_app_key", request.ServiceAppKey)
                 .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
                 .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName != null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
 
             return await client.SendRequestWithJsonAsync<Models.RestOrderCenterUpdateMainInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
@@ -1310,19 +1298,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
-
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "update", "main", "status")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pm_app_key", request.ServiceAppKey)
                 .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
                 .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName != null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
 
             return await client.SendRequestWithJsonAsync<Models.RestOrderCenterUpdateMainStatusResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
@@ -1340,19 +1322,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
-
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "append", "sub", "info")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pm_app_key", request.ServiceAppKey)
                 .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
                 .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName != null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
 
             return await client.SendRequestWithJsonAsync<Models.RestOrderCenterAppendSubInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
@@ -1370,19 +1346,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
-
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "update", "sub", "info")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pm_app_key", request.ServiceAppKey)
                 .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
                 .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName != null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
 
             return await client.SendRequestWithJsonAsync<Models.RestOrderCenterUpdateSubInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
@@ -1400,19 +1370,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
-
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "update", "sub", "status")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pm_app_key", request.ServiceAppKey)
                 .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
                 .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName != null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
 
             return await client.SendRequestWithJsonAsync<Models.RestOrderCenterUpdateSubStatusResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
@@ -2031,13 +1995,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "tp", "findByTpOrderId")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pmAppKey", request.ServiceAppKey)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
                 .SetQueryParam("tpOrderId", request.OutOrderId);
 
             return await client.SendRequestWithJsonAsync<Models.RestPayPaymentServiceThirdPartyFindByOutOrderIdResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -2056,13 +2020,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "tp", "cancelOrder")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pmAppKey", request.ServiceAppKey)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
                 .SetQueryParam("orderId", request.OrderId);
 
             return await client.SendRequestWithJsonAsync<Models.RestPayPaymentServiceThirdPartyCancelOrderResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -2081,13 +2045,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "pay", "paymentservice", "tp", "applyOrderRefund")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pmAppKey", request.ServiceAppKey)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
                 .SetQueryParam("tpOrderId", request.OutOrderId)
                 .SetQueryParam("orderId", request.OrderId)
                 .SetQueryParam("bizRefundBatchId", request.OutRefundBatchId)
@@ -2100,7 +2064,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
 
             using var httpContent = new FormUrlEncodedContent(new Dictionary<string, string?>()
             {
-                { "pmAppKey", request.ServiceAppKey },
+                { "pmAppKey", request.PaymentServiceAppKey },
                 { "tpOrderId", request.OutOrderId },
                 { "orderId", request.OrderId.ToString() },
                 { "bizRefundBatchId", request.OutRefundBatchId },
@@ -2127,13 +2091,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "tp", "findOrderRefund")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pmAppKey", request.ServiceAppKey)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
                 .SetQueryParam("tpOrderId", request.OutOrderId)
                 .SetQueryParam("userId", request.UserId);
 
@@ -2153,13 +2117,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "tp", "orderBill")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pmAppKey", request.ServiceAppKey)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
                 .SetQueryParam("billTime", request.BillDateString);
 
             return await client.SendRequestWithJsonAsync<Models.RestPayPaymentServiceThirdPartyOrderBillResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
@@ -2178,13 +2142,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
             if (client is null) throw new ArgumentNullException(nameof(client));
             if (request is null) throw new ArgumentNullException(nameof(request));
 
-            if (request.ServiceAppKey == null)
-                request.ServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
 
             IFlurlRequest flurlReq = client
                 .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "tp", "capitaBill")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("pmAppKey", request.ServiceAppKey)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
                 .SetQueryParam("billTime", request.BillDateString);
 
             return await client.SendRequestWithJsonAsync<Models.RestPayPaymentServiceThirdPartyCapitaBillResponse>(flurlReq, data: request, cancellationToken: cancellationToken);

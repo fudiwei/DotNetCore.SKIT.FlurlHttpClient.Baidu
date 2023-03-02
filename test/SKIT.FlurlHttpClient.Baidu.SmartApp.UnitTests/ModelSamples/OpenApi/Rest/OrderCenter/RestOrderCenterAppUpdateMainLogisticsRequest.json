@@ -1,0 +1,21 @@
+{
+    "Data": [
+        {
+            "CateID": 2,
+            "BizAPPID": "a392qXwK8L5GDUWhFoC01cKwoy7tmehg",
+            "ResourceID": "2221554346520",
+            "EXT": {
+                "MainOrder": {
+                    "Express": [
+                        {
+                            "ID": "1014093064",
+                            "Name": "顺丰快递",
+                            "Code": "SFEXPRESS",
+                            "Type": 1
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

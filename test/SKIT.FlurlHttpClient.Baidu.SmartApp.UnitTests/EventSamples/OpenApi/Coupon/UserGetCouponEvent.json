@@ -1,0 +1,10 @@
+{
+    "ToUserName": "app_id",
+    "FromUserName": "open_id",
+    "CreateTime": "1472551036",
+    "MsgType": "event",
+    "Event": "user_get_coupon",
+    "CouponId": "pZI8Fjwsy5fVPRBeD78J4RmqVvBc",
+    "UserCouponCode": "226009850808",
+    "CouponTakeId": "xxxxx"
+}

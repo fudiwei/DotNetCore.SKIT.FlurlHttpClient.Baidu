@@ -1,0 +1,19 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": {
+        "pageNo": 1,
+        "total": 1,
+        "dataList": [
+            {
+                "bannerId": 23830865,
+                "couponId": "23830866",
+                "title": "titletest",
+                "picUrl": "picUrlTest",
+                "appRedirectPath": "destUrlTest",
+                "createTime": 1574396789,
+                "updateTime": 1574396788
+            }
+        ]
+    }
+}

@@ -41,5 +41,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
         /// 获取或设置百度智能小程序消息加解密密钥。
         /// </summary>
         public string? PushEncodingAESKey { get; set; }
+
+        /// <summary>
+        /// 获取或设置百度收银台支付服务的 AppKey。
+        /// </summary>
+        public string? PaymentServiceAppKey { get; set; }
     }
 }

@@ -1,0 +1,25 @@
+{
+    "couponType": "GENERAL",
+    "leastCost": 100,
+    "reduceCost": 50,
+    "discount": 30,
+    "baseInfo": {
+        "title": "卡券标题",
+        "color": "B080",
+        "getLimit": 3,
+        "codeType": 2,
+        "quantity": 1000000,
+        "dateInfo": {
+            "getStartTimestamp": 1574952776,
+            "getEndTimestamp": 1577544776,
+            "type": 1,
+            "beginTimestamp": 1574952776,
+            "endTimestamp": 1577544776,
+            "timeUnit": 1,
+            "timeValue": 22
+        },
+        "appRedirectPath": "/pages/index/index"
+    },
+    "description": "使用描述",
+    "callbackUrl": "卡券事件回调地址"
+}

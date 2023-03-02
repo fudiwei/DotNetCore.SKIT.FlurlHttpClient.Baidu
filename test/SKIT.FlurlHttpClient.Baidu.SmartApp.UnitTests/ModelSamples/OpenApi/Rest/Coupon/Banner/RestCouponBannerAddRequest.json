@@ -1,0 +1,6 @@
+{
+    "couponId": "xxx",
+    "picUrl": "/index/index",
+    "title": "卡券标题",
+    "appRedirectPath": "跳转的小程序页面路径"
+}

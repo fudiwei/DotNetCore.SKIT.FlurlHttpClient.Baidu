@@ -22,9 +22,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTests
                     WorkSubDirectoryForApiModels = "SDK/OpenApi/Models",
                     WorkSubDirectoryForApiEvents = "SDK/OpenApi/Events",
                     WorkSubDirectoryForApiModelSamples = "ModelSamples/OpenApi",
-                    WorkSubDirectoryForApiEventSamples = "EventSamples/OpenApi",
-                    AllowNotFoundEventTypes = true,
-                    AllowNotFoundEventSamples = true
+                    WorkSubDirectoryForApiEventSamples = "EventSamples/OpenApi"
                 };
                 CodeAnalyzer analyzer = new CodeAnalyzer(options);
                 analyzer.Start();

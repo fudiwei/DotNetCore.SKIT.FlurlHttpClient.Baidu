@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string? ServiceAppKey { get; set; }
+        public string? PaymentServiceAppKey { get; set; }
 
         /// <summary>
         /// 获取或设置对账单日期字符串（格式：yyyy-MM-dd）。

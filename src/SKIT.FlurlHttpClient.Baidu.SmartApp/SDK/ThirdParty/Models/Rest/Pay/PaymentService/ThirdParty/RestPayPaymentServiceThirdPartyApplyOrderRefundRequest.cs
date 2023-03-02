@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("pmAppKey")]
         [System.Text.Json.Serialization.JsonPropertyName("pmAppKey")]
-        public string? ServiceAppKey { get; set; }
+        public string? PaymentServiceAppKey { get; set; }
 
         /// <summary>
         /// 获取或设置订单 ID。

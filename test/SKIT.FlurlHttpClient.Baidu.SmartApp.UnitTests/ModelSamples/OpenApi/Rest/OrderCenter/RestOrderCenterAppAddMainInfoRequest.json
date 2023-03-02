@@ -1,0 +1,69 @@
+{
+    "Data": [
+        {
+            "CateID": 1,
+            "BizAPPID": "a392qXwK8L5GDUWhFoC01cKwoy7tmehg",
+            "Title": "test",
+            "ResourceID": "2221554346520",
+            "Ctime": 1233212343,
+            "Mtime": 1233212343,
+            "Status": 200,
+            "EXT": {
+                "MainOrder": {
+                    "Products": [
+                        {
+                            "ID": "1014093064",
+                            "Name": "四川大凉山丑苹果脆甜红将军盐源丑苹果",
+                            "Desc": "四川大凉山丑苹果脆甜:5斤小果25个左右偏小;",
+                            "Quantity": 1,
+                            "Price": 2390,
+                            "PayPrice": 2390,
+                            "ImgList": [
+                                "https://imagelib.cdn.bcebos.com/cip_ml_picbc34db9a-7e10-4a96-bf8e-1c690640c6a4.jpeg"
+                            ],
+                            "DetailPage": {
+                                "Status": 2,
+                                "SwanSchema": "baiduboxapp://swan/B3GF3AWvCSr59myIs61uqaoYz7pPCSY1/wjz/bdxd/order-detail/order-detail?orderId=159259079195"
+                            },
+                            "SkuAttr": [
+                                {
+                                    "Name": "四川大凉山丑苹果脆甜",
+                                    "Value": "5斤小果25个左右偏小"
+                                }
+                            ],
+                            "ExtInfo": "{}"
+                        }
+                    ],
+                    "Payment": {
+                        "Time": 0,
+                        "Method": 1,
+                        "Amount": 2390,
+                        "IsPayment": false,
+                        "PreferentialInfo": [
+                            {
+                                "Name": "优惠券使用",
+                                "Value": 100,
+                                "Quantity": 1
+                            }
+                        ],
+                        "PaymentInfo": [
+                            {
+                                "Name": "运费",
+                                "Value": 100,
+                                "Quantity": 1
+                            }
+                        ]
+                    },
+                    "Appraise": {
+                        "Status": 0,
+                        "SwanSchema": "baiduboxapp://swan/B3GF3AWvCSr59myIs61uqaoYz7pPCSY1/wjz/bdxd/order-detail/order-detail?orderId=159259079195"
+                    },
+                    "OrderDetail": {
+                        "Status": 2,
+                        "SwanSchema": "baiduboxapp://swan/B3GF3AWvCSr59myIs61uqaoYz7pPCSY1/wjz/bdxd/order-detail/order-detail?orderId=159259079195"
+                    }
+                }
+            }
+        }
+    ]
+}

@@ -21,7 +21,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("url")]
                 [System.Text.Json.Serialization.JsonPropertyName("url")]
-                public string? QrcodeUrl { get; set; } = default!;
+                public string? QrcodeUrl { get; set; }
             }
         }
     }

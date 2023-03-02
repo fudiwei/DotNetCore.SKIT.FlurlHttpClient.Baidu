@@ -177,32 +177,33 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Models
         }
 
         /// <summary>
-        /// 获取或设置支付服务 AppKey。如果不指定将使用构造 <see cref="BaiduSmartAppThirdPartyClient"/> 时的 <see cref="BaiduSmartAppThirdPartyClientOptions.PaymentServiceAppKey"/> 参数.
+        /// 获取或设置用户 OpenId。与字段 <see cref="SwanId"/> 二选一。
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("pmAppKey")]
-        [System.Text.Json.Serialization.JsonPropertyName("pmAppKey")]
-        public string? ServiceAppKey { get; set; }
+        [Newtonsoft.Json.JsonIgnore]
+        [System.Text.Json.Serialization.JsonIgnore]
+        public string? OpenId { get; set; }
 
         /// <summary>
-        /// 获取或设置用户 OpenId。
+        /// 获取或设置未登录用户标识。与字段 <see cref="OpenId"/> 二选一。
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("open_id")]
-        [System.Text.Json.Serialization.JsonPropertyName("open_id")]
-        public string OpenId { get; set; } = string.Empty;
+        [Newtonsoft.Json.JsonIgnore]
+        [System.Text.Json.Serialization.JsonIgnore]
+        public string? SwanId { get; set; }
 
         /// <summary>
         /// 获取或设置场景 ID。
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("scene_id")]
-        [System.Text.Json.Serialization.JsonPropertyName("scene_id")]
+        [Newtonsoft.Json.JsonIgnore]
+        [System.Text.Json.Serialization.JsonIgnore]
         public string SceneId { get; set; } = string.Empty;
 
         /// <summary>
         /// 获取或设置场景类型。
+        /// <para>默认值：2</para>
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("scene_type")]
-        [System.Text.Json.Serialization.JsonPropertyName("scene_type")]
-        public int SceneType { get; set; }
+        [Newtonsoft.Json.JsonIgnore]
+        [System.Text.Json.Serialization.JsonIgnore]
+        public int SceneType { get; set; } = 2;
 
         /// <summary>
         /// 获取或设置订单列表。
@@ -210,12 +211,5 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Models
         [Newtonsoft.Json.JsonProperty("Data")]
         [System.Text.Json.Serialization.JsonPropertyName("Data")]
         public IList<Types.Order> OrderList { get; set; } = new List<Types.Order>();
-
-        /// <summary>
-        /// 获取或设置宿主标识。
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("hostname")]
-        [System.Text.Json.Serialization.JsonPropertyName("hostname")]
-        public string? HostName { get; set; }
     }
 }

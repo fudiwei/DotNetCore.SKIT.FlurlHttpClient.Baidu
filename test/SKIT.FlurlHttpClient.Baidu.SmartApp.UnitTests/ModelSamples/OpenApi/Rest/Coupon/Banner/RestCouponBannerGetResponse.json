@@ -1,0 +1,15 @@
+{
+    "errno": 0,
+    "msg": "success",
+    "data": [
+        {
+            "bannerId": 23830865,
+            "couponId": "23830866",
+            "title": "titletest",
+            "picUrl": "picUrlTest",
+            "appRedirectPath": "destUrlTest",
+            "createTime": 1574396789,
+            "updateTime": 1574396788
+        }
+    ]
+}
