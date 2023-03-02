@@ -8,7 +8,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi.Models
     public class RestDetectRiskRequest : BaiduSmartAppOpenApiRequest
     {
         /// <summary>
-        /// 获取或设置小程序 AppKey。如果不指定将使用构造 <see cref="BaiduSmartAppOpenApiClient"/> 时的 <see cref="BaiduSmartAppOpenApiClientOptions.AppKey"/> 参数.
+        /// 获取或设置小程序 AppKey。如果不指定将使用构造 <see cref="BaiduSmartAppOpenApiClient"/> 时的 <see cref="BaiduSmartAppOpenApiClientOptions.AppKey"/> 参数。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("appkey")]
         [System.Text.Json.Serialization.JsonPropertyName("appkey")]
