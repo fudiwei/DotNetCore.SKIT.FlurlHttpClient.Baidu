@@ -149,6 +149,28 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
 
             return await client.SendRequestWithFormUrlEncodedAsync<Models.RestAccessDeleteSitemapResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/access/submitsitemap/api 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/operations/flow/configurable/rank_api/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestAccessSubmitSitemapApiResponse> ExecuteRestAccessSubmitSitemapApiAsync(this BaiduSmartAppOpenApiClient client, Models.RestAccessSubmitSitemapApiRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "submitsitemap", "api")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("type", request.UploadType)
+                .SetQueryParam("url_list", string.Join(",", request.UrlList));
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestAccessSubmitSitemapApiResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
         #endregion
 
         #region Coupon
@@ -794,6 +816,167 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
                 flurlReq.SetQueryParam("host_name", request.HostName);
 
             return await client.SendRequestWithJsonAsync<Models.RestOSSPublisherUGCLikeCountResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
+        #region Pay
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/pay/paymentservice/findByTpOrderId 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/function/tune_up_queryorderdetail_2.0/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPayPaymentServiceFindByOutOrderIdResponse> ExecuteRestPayPaymentServiceFindByOutOrderIdAsync(this BaiduSmartAppOpenApiClient client, Models.RestPayPaymentServiceFindByOutOrderIdRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "findByTpOrderId")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
+                .SetQueryParam("tpOrderId", request.OutOrderId);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestPayPaymentServiceFindByOutOrderIdResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/pay/paymentservice/cancelOrder 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/function/tune_up_rest_2.0/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPayPaymentServiceCancelOrderResponse> ExecuteRestPayPaymentServiceCancelOrderAsync(this BaiduSmartAppOpenApiClient client, Models.RestPayPaymentServiceCancelOrderRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "cancelOrder")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
+                .SetQueryParam("orderId", request.OrderId);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestPayPaymentServiceCancelOrderResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/pay/paymentservice/applyOrderRefund 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/function/tune_up_applyorderrefund_2.0/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPayPaymentServiceApplyOrderRefundResponse> ExecuteRestPayPaymentServiceApplyOrderRefundAsync(this BaiduSmartAppOpenApiClient client, Models.RestPayPaymentServiceApplyOrderRefundRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "pay", "paymentservice", "applyOrderRefund")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
+                .SetQueryParam("tpOrderId", request.OutOrderId)
+                .SetQueryParam("orderId", request.OrderId)
+                .SetQueryParam("bizRefundBatchId", request.OutRefundBatchId)
+                .SetQueryParam("applyRefundMoney", request.RefundAmount)
+                .SetQueryParam("isSkipAudit", request.IsSkipAudit ? 1 : 0)
+                .SetQueryParam("refundReason", request.RefundReason)
+                .SetQueryParam("refundType", request.RefundType)
+                .SetQueryParam("userId", request.UserId)
+                .SetQueryParam("refundNotifyUrl", request.RefundNotifyUrl);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestPayPaymentServiceApplyOrderRefundResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/pay/paymentservice/findOrderRefund 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/function/tune_up_examine_2.0/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPayPaymentServiceFindOrderRefundResponse> ExecuteRestPayPaymentServiceFindOrderRefundAsync(this BaiduSmartAppOpenApiClient client, Models.RestPayPaymentServiceFindOrderRefundRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "findOrderRefund")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
+                .SetQueryParam("tpOrderId", request.OutOrderId)
+                .SetQueryParam("userId", request.UserId);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestPayPaymentServiceFindOrderRefundResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/pay/paymentservice/orderBill 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/function/tune_up_orderBill_2.0/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPayPaymentServiceOrderBillResponse> ExecuteRestPayPaymentServiceOrderBillAsync(this BaiduSmartAppOpenApiClient client, Models.RestPayPaymentServiceOrderBillRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "orderBill")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
+                .SetQueryParam("billTime", request.BillDateString);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestPayPaymentServiceOrderBillResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/pay/paymentservice/capitaBill 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/function/tune_up_capitaBill_2.0/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestPayPaymentServiceCapitaBillResponse> ExecuteRestPayPaymentServiceCapitaBillAsync(this BaiduSmartAppOpenApiClient client, Models.RestPayPaymentServiceCapitaBillRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.PaymentServiceAppKey == null)
+                request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "capitaBill")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("pmAppKey", request.PaymentServiceAppKey)
+                .SetQueryParam("billTime", request.BillDateString);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestPayPaymentServiceCapitaBillResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
         #endregion
 
