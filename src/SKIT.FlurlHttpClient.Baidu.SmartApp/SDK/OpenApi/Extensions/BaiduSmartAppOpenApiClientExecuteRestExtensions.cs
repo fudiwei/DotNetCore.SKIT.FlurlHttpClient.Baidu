@@ -208,5 +208,135 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
             return await client.SendRequestWithFormUrlEncodedAsync<Models.RestRiskDetectionMisjudgeFeedbackResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
         #endregion
+
+        #region TemplateMessage
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/template/librarylist 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/getTemplateLibraryList/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateLibraryListResponse> ExecuteRestTemplateLibraryListAsync(this BaiduSmartAppOpenApiClient client, Models.RestTemplateLibraryListRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "template", "librarylist")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("offset", request.PageOffset)
+                .SetQueryParam("count", request.PageSize);
+
+            return await client.SendRequestWithJsonAsync<Models.RestTemplateLibraryListResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/template/libraryget 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/getTemplateLibraryById/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateLibraryGetResponse> ExecuteRestTemplateLibraryGetAsync(this BaiduSmartAppOpenApiClient client, Models.RestTemplateLibraryGetRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "template", "libraryget")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("id", request.Id);
+
+            return await client.SendRequestWithJsonAsync<Models.RestTemplateLibraryGetResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [GET] /rest/2.0/smartapp/template/templatelist 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/getTemplateList/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateListResponse> ExecuteRestTemplateListAsync(this BaiduSmartAppOpenApiClient client, Models.RestTemplateListRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "template", "templatelist")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("offset", request.PageOffset)
+                .SetQueryParam("count", request.PageSize);
+
+            return await client.SendRequestWithJsonAsync<Models.RestTemplateListResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/template/templateadd 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/addTemplate/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateAddResponse> ExecuteRestTemplateAddAsync(this BaiduSmartAppOpenApiClient client, Models.RestTemplateAddRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "template", "templateadd")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("id", request.Id)
+                .SetQueryParam("keyword_id_list", client.JsonSerializer.Serialize(request.KeywordIdList));
+
+            return await client.SendRequestWithJsonAsync<Models.RestTemplateAddResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/template/templatedel 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/deleteTemplate/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateDeleteResponse> ExecuteRestTemplateDeleteAsync(this BaiduSmartAppOpenApiClient client, Models.RestTemplateDeleteRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "template", "templatedel")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("template_id", request.TemplateId);
+
+            return await client.SendRequestWithJsonAsync<Models.RestTemplateDeleteResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/template/send 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/sendTemplateMessage/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateSendResponse> ExecuteRestTemplateSendAsync(this BaiduSmartAppOpenApiClient client, Models.RestTemplateSendRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "template", "send")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestTemplateSendResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
     }
 }

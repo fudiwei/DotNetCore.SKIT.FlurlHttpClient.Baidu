@@ -1,0 +1,8 @@
+{
+    "template_id": "aa09b81adc3e4ab1b8fd0ae2e853257c",
+    "touser_openId": "open_id",
+    "data": "{\"keyword1\": {\"value\": \"2018-09-06\"},\"keyword2\": {\"value\": \"kfc\"}}",
+    "page": "index?foo=bar",
+    "scene_id": "report-submit",
+    "scene_type": 1
+}

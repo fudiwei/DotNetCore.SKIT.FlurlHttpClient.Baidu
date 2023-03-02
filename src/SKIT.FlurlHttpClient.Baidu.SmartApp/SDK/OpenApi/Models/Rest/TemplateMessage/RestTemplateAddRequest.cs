@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 
-namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty.Models
+namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi.Models
 {
     /// <summary>
-    /// <para>表示 [POST] /rest/2.0/smartapp/template/add 接口的请求。</para>
+    /// <para>表示 [POST] /rest/2.0/smartapp/template/templateadd 接口的请求。</para>
     /// </summary>
-    public class RestTemplateAddRequest : BaiduSmartAppThirdPartyRequest
+    public class RestTemplateAddRequest : BaiduSmartAppOpenApiRequest
     {
         internal static class Converters
         {
