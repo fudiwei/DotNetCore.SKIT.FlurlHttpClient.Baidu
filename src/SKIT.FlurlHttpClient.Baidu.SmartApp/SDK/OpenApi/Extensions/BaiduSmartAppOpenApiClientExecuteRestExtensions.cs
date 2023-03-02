@@ -337,6 +337,26 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
 
             return await client.SendRequestWithFormUrlEncodedAsync<Models.RestTemplateSendResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/template/message/subscribe/send 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/subscribe_msg_send/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestTemplateMessageSubscribeSendResponse> ExecuteRestTemplateMessageSubscribeSendAsync(this BaiduSmartAppOpenApiClient client, Models.RestTemplateMessageSubscribeSendRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "template", "message", "subscribe", "send")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestTemplateMessageSubscribeSendResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
         #endregion
     }
 }

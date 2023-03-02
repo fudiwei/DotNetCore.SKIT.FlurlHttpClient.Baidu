@@ -14,6 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("msg_key")]
                 [System.Text.Json.Serialization.JsonPropertyName("msg_key")]
+                [System.Text.Json.Serialization.JsonNumberHandling(System.Text.Json.Serialization.JsonNumberHandling.AllowReadingFromString)]
                 public long MessageId { get; set; }
             }
         }
