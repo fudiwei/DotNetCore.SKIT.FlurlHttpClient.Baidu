@@ -470,6 +470,60 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
         #endregion
         #endregion
 
+        #region MA
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/ma/component/comment/tcount 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/interactive_comment_count/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestMAComponentCommentCountResponse> ExecuteRestMAComponentCommentCountAsync(this BaiduSmartAppOpenApiClient client, Models.RestMAComponentCommentCountRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ma", "component", "comment", "tcount")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("snid", request.ContentId)
+                .SetQueryParam("snid_type", request.ContentIdType);
+
+            if (request.HostName != null)
+                flurlReq.SetQueryParam("host_name", request.HostName);
+
+            return await client.SendRequestWithJsonAsync<Models.RestMAComponentCommentCountResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/ma/component/comment/open_list 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/interactive_comment_list/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestMAComponentCommentOpenListResponse> ExecuteRestMAComponentCommentOpenListAsync(this BaiduSmartAppOpenApiClient client, Models.RestMAComponentCommentOpenListRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ma", "component", "comment", "open_list")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("snid", request.ContentId)
+                .SetQueryParam("snid_type", request.ContentIdType)
+                .SetQueryParam("start", request.PageOffset)
+                .SetQueryParam("num", request.PageSize);
+
+            if (request.HostName != null)
+                flurlReq.SetQueryParam("host_name", request.HostName);
+
+            return await client.SendRequestWithJsonAsync<Models.RestMAComponentCommentOpenListResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region MessageCustom
         /// <summary>
         /// <para>异步调用 [POST] /rest/2.0/smartapp/message/custom/send 接口。</para>
@@ -713,6 +767,33 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
                 flurlReq.SetQueryParams("hostname", request.HostName);
 
             return await client.SendRequestWithJsonAsync<Models.RestOrderCenterAppUpdateSubStatusResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
+        #region OSS
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/oss/publisher/ugc/like_count 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/interactive_like_count/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestOSSPublisherUGCLikeCountResponse> ExecuteRestOSSPublisherUGCLikeCountAsync(this BaiduSmartAppOpenApiClient client, Models.RestOSSPublisherUGCLikeCountRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "oss", "publisher", "ugc", "like_count")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("snid", request.ContentId)
+                .SetQueryParam("snid_type", request.ContentIdType);
+
+            if (request.HostName != null)
+                flurlReq.SetQueryParam("host_name", request.HostName);
+
+            return await client.SendRequestWithJsonAsync<Models.RestOSSPublisherUGCLikeCountResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
         #endregion
 
