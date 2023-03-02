@@ -16,6 +16,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTests
 
             ThirdPartyInstance = new BaiduSmartAppThirdPartyClient(new BaiduSmartAppThirdPartyClientOptions()
             {
+                AppId = TestConfigs.BaiduSmartAppId,
                 AppKey = TestConfigs.BaiduSmartAppKey,
                 AppSecret = TestConfigs.BaiduSmartAppSecret
             });
