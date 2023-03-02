@@ -95,6 +95,34 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
         }
         #endregion
 
+        #region Risk
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/detectrisk 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/open_risk_power_detectrisk/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestDetectRiskResponse> ExecuteRestDetectRiskAsync(this BaiduSmartAppOpenApiClient client, Models.RestDetectRiskRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            if (request.AppKey == null)
+                request.AppKey = client.Credentials.AppKey;
+
+            if (request.Timestamp == null)
+                request.Timestamp = DateTimeOffset.Now.ToLocalTime().ToUnixTimeSeconds();
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "detectrisk")
+                .SetQueryParam("access_token", request.AccessToken);
+
+            return await client.SendRequestWithFormUrlEncodedAsync<Models.RestDetectRiskResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region RiskDetection
         /// <summary>
         /// <para>异步调用 [POST] /rest/2.0/smartapp/riskDetection/v2/syncCheckText 接口。</para>
@@ -179,7 +207,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
 
             return await client.SendRequestWithFormUrlEncodedAsync<Models.RestRiskDetectionMisjudgeFeedbackResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
-
         #endregion
     }
 }
