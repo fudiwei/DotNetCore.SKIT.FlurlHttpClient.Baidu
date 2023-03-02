@@ -53,6 +53,33 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
             return await client.SendRequestWithFormUrlEncodedAsync<Models.RestGetUnionIdResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
         }
 
+        #region MessageCustom
+        /// <summary>
+        /// <para>异步调用 [POST] /rest/2.0/smartapp/message/custom/send 接口。</para>
+        /// <para>REF: https://smartprogram.baidu.com/docs/develop/serverapi/contact_api_send/ </para>
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public static async Task<Models.RestMessageCustomSendResponse> ExecuteRestMessageCustomSendAsync(this BaiduSmartAppOpenApiClient client, Models.RestMessageCustomSendRequest request, CancellationToken cancellationToken = default)
+        {
+            if (client is null) throw new ArgumentNullException(nameof(client));
+            if (request is null) throw new ArgumentNullException(nameof(request));
+
+            IFlurlRequest flurlReq = client
+                .CreateRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "message", "custom", "send")
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("user_type", request.UserType)
+                .SetQueryParam("open_id", request.OpenId)
+                .SetQueryParam("msg_type", request.MessageType)
+                .SetQueryParam("content", request.Content)
+                .SetQueryParam("pic_url", request.PictureUrl);
+
+            return await client.SendRequestWithJsonAsync<Models.RestMessageCustomSendResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+        }
+        #endregion
+
         #region Qrcode
         /// <summary>
         /// <para>异步调用 [POST] /rest/2.0/smartapp/qrcode/getv2 接口。</para>

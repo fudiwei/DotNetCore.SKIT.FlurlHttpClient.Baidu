@@ -1,0 +1,8 @@
+{
+    "ToUserName": "toUser",
+    "FromUserName": "fromUser",
+    "CreateTime": 1482048670,
+    "MsgType": "image",
+    "PicUrl": "this is a url",
+    "MsgId": 1234567890123456
+}
