@@ -6,31 +6,38 @@ using System.Threading;
 using System.Threading.Tasks;
 using Flurl.Http;
 
-namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
+namespace SKIT.FlurlHttpClient.Baidu.Push
 {
     /// <summary>
-    /// 一个百度智能小程序 API HTTP 客户端。
+    /// 一个百度云推送 API HTTP 客户端。
     /// </summary>
-    public class BaiduSmartAppOpenApiClient : CommonClientBase, ICommonClient
+    public class BaiduPushClient : CommonClientBase, ICommonClient
     {
         /// <summary>
-        /// 获取当前客户端使用的百度智能小程序凭证。
+        /// 获取当前客户端使用的百度云推送凭证。
         /// </summary>
         public Settings.Credentials Credentials { get; }
 
         /// <summary>
-        /// 用指定的配置项初始化 <see cref="BaiduSmartAppOpenApiClient"/> 类的新实例。
+        /// 用指定的配置项初始化 <see cref="BaiduPushClient"/> 类的新实例。
         /// </summary>
         /// <param name="options">配置项。</param>
-        public BaiduSmartAppOpenApiClient(BaiduSmartAppOpenApiClientOptions options)
+        public BaiduPushClient(BaiduPushClientOptions options)
             : base()
         {
             if (options == null) throw new ArgumentNullException(nameof(options));
 
             Credentials = new Settings.Credentials(options);
 
-            FlurlClient.BaseUrl = options.Endpoints ?? BaiduSmartAppOpenApiEndpoints.DEFAULT;
+            FlurlClient.BaseUrl = options.Endpoints ?? BaiduPushEndpoints.DEFAULT;
+            FlurlClient.Headers.Remove(FlurlHttpClient.Constants.HttpHeaders.UserAgent);
+            FlurlClient.WithHeader(FlurlHttpClient.Constants.HttpHeaders.UserAgent, options.UserAgent);
             FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));
+
+            Interceptors.Add(new Interceptors.BaiduPushRequestSignatureInterceptor(
+                apiKey: options.ApiKey,
+                apiSecretKey: options.SecretKey
+            ));
         }
 
         /// <summary>
@@ -40,13 +47,19 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
         /// <param name="method"></param>
         /// <param name="urlSegments"></param>
         /// <returns></returns>
-        public IFlurlRequest CreateRequest(BaiduSmartAppOpenApiRequest request, HttpMethod method, params object[] urlSegments)
+        public IFlurlRequest CreateRequest(BaiduPushRequest request, HttpMethod method, params object[] urlSegments)
         {
             IFlurlRequest flurlRequest = FlurlClient.Request(urlSegments).WithVerb(method);
 
             if (request.Timeout != null)
             {
                 flurlRequest.WithTimeout(TimeSpan.FromMilliseconds(request.Timeout.Value));
+            }
+
+            if (request.DeviceType != null)
+            {
+                if (method == HttpMethod.Get)
+                    flurlRequest.SetQueryParam("device_type", request.DeviceType.Value);
             }
 
             return flurlRequest;
@@ -61,7 +74,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public async Task<T> SendRequestAsync<T>(IFlurlRequest flurlRequest, HttpContent? httpContent = null, CancellationToken cancellationToken = default)
-            where T : BaiduSmartAppOpenApiResponse, new()
+            where T : BaiduPushResponse, new()
         {
             if (flurlRequest == null) throw new ArgumentNullException(nameof(flurlRequest));
 
@@ -72,45 +85,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
             }
             catch (FlurlHttpTimeoutException ex)
             {
-                throw new Exceptions.BaiduSmartAppRequestTimeoutException(ex.Message, ex);
+                throw new Exceptions.BaiduPushRequestTimeoutException(ex.Message, ex);
             }
             catch (FlurlHttpException ex)
             {
-                throw new BaiduSmartAppException(ex.Message, ex);
-            }
-        }
-
-        /// <summary>
-        /// 异步发起请求。
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="flurlRequest"></param>
-        /// <param name="data"></param>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
-        public async Task<T> SendRequestWithJsonAsync<T>(IFlurlRequest flurlRequest, object? data = null, CancellationToken cancellationToken = default)
-            where T : BaiduSmartAppOpenApiResponse, new()
-        {
-            if (flurlRequest == null) throw new ArgumentNullException(nameof(flurlRequest));
-
-            try
-            {
-                bool isSimpleRequest = data == null ||
-                    flurlRequest.Verb == HttpMethod.Get ||
-                    flurlRequest.Verb == HttpMethod.Head ||
-                    flurlRequest.Verb == HttpMethod.Options;
-                using IFlurlResponse flurlResponse = isSimpleRequest ?
-                    await base.SendRequestAsync(flurlRequest, null, cancellationToken) :
-                    await base.SendRequestWithJsonAsync(flurlRequest, data, cancellationToken);
-                return await WrapResponseWithJsonAsync<T>(flurlResponse, cancellationToken);
-            }
-            catch (FlurlHttpTimeoutException ex)
-            {
-                throw new Exceptions.BaiduSmartAppRequestTimeoutException(ex.Message, ex);
-            }
-            catch (FlurlHttpException ex)
-            {
-                throw new BaiduSmartAppException(ex.Message, ex);
+                throw new BaiduPushException(ex.Message, ex);
             }
         }
 
@@ -123,7 +102,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public async Task<T> SendRequestWithFormUrlEncodedAsync<T>(IFlurlRequest flurlRequest, IDictionary<string, IConvertible?>? formdata = null, CancellationToken cancellationToken = default)
-            where T : BaiduSmartAppOpenApiResponse, new()
+            where T : BaiduPushResponse, new()
         {
             if (flurlRequest == null) throw new ArgumentNullException(nameof(flurlRequest));
 
@@ -132,7 +111,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
             {
                 if (!flurlRequest.Headers.Contains(Constants.HttpHeaders.ContentType))
                 {
-                    flurlRequest.WithHeader(Constants.HttpHeaders.ContentType, "application/x-www-form-urlencoded");
+                    flurlRequest.WithHeader(Constants.HttpHeaders.ContentType, "application/x-www-form-urlencoded;charset=utf-8");
                 }
 
                 IDictionary<string, string> tmpDict = formdata
@@ -148,7 +127,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
             }
             catch (FlurlHttpException ex)
             {
-                throw new BaiduSmartAppException(ex.Message, ex);
+                throw new BaiduPushException(ex.Message, ex);
             }
         }
 
@@ -161,7 +140,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public async Task<T> SendRequestWithFormUrlEncodedAsync<T>(IFlurlRequest flurlRequest, object? data = null, CancellationToken cancellationToken = default)
-            where T : BaiduSmartAppOpenApiResponse, new()
+            where T : BaiduPushResponse, new()
         {
             bool isSimpleRequest = data == null ||
                 flurlRequest.Verb == HttpMethod.Get ||

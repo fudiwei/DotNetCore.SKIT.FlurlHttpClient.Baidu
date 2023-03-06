@@ -1,0 +1,10 @@
+{
+    "channel_ids": "[\"唯一对应一台设备\"]",
+    "msg_type": 0,
+    "msg": "{}",
+    "extra_msg_type": 0,
+    "extra_msg": "{}",
+    "topic_id": "消息topic",
+    "msg_expires": 604800,
+    "deploy_status": 0
+}

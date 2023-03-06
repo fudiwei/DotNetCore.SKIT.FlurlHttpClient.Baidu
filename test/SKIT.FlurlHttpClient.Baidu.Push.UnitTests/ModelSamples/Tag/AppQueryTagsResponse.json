@@ -1,0 +1,15 @@
+{
+    "request_id": 123456789,
+    "response_params": {
+        "total_num": 100,
+        "tags": [
+            {
+                "tid": 1000,
+                "tag": "tag1",
+                "info": "tag1",
+                "type": 0,
+                "createtime": 140233424
+            }
+        ]
+    }
+}

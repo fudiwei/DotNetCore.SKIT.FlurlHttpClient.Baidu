@@ -1,0 +1,7 @@
+{
+    "request_id": 123456789,
+    "response_params": {
+        "tag": "tag_name",
+        "result": 0
+    }
+}

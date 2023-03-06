@@ -1,0 +1,15 @@
+{
+    "request_id": 123456789,
+    "response_params": {
+        "total_num": 10,
+        "topics": [
+            {
+                "topic_id": "1000",
+                "ctime": 1421247101,
+                "mtime": 1421247101,
+                "push_cnt": 2000,
+                "ack_cnt": 1000
+            }
+        ]
+    }
+}

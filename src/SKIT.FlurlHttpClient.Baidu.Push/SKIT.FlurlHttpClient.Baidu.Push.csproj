@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net461; netstandard2.0; net6.0</TargetFrameworks>
+        <LangVersion>8.0</LangVersion>
+        <Nullable>enable</Nullable>
+        <NullableReferenceTypes>true</NullableReferenceTypes>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>SKIT.FlurlHttpClient.Baidu.Push</PackageId>
+        <PackageIcon>LOGO.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu</PackageProjectUrl>
+        <PackageTags>Flurl.Http Baidu 百度 百度推送 百度云推送</PackageTags>
+        <Description>基于 Flurl.Http 的百度云推送 API 客户端。</Description>
+        <Authors>Fu Diwei, code-jar</Authors>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu.git</RepositoryUrl>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+        <Deterministic>true</Deterministic>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../../LOGO.png" Pack="true" PackagePath="/" />
+        <None Include="README.md" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="System.Web" Condition="'$(TargetFramework)' == 'net461'" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="SKIT.FlurlHttpClient.Common" Version="2.6.0" />
+    </ItemGroup>
+
+</Project>

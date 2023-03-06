@@ -1,0 +1,15 @@
+{
+    "request_id": 123456789,
+    "response_params": {
+        "total_num": 10,
+        "result": [
+            {
+                "timer_id": 1000,
+                "msg": "message body",
+                "msg_type": 0,
+                "range_type": 2,
+                "send_time": 147456789
+            }
+        ]
+    }
+}

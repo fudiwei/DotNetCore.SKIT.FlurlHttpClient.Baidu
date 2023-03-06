@@ -1,0 +1,14 @@
+{
+    "request_id": 123456789,
+    "response_params": {
+        "total_num": 10,
+        "result": [
+            {
+                "msg_id": "24234532453245",
+                "status": 0,
+                "success": 10000,
+                "send_time": 1472354868
+            }
+        ]
+    }
+}
