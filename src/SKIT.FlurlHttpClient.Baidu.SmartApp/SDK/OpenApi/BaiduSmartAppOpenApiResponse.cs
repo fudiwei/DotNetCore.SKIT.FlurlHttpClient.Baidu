@@ -85,7 +85,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
         public virtual long? RequestTimestamp { get; set; }
 
         /// <summary>
-        /// 获取一个值，该值指示调用百度智能小程序 API 是否成功（即 HTTP 状态码为 200、且 errno 值为 0）。
+        /// 获取一个值，该值指示调用百度智能小程序 API 是否成功（即 HTTP 状态码为 200、且 "errno" 值为 0）。
         /// </summary>
         /// <returns></returns>
         public virtual bool IsSuccessful()

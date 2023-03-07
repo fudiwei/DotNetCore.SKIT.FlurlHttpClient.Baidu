@@ -1,0 +1,15 @@
+{
+    "error_code": "0",
+    "error_msg": "success",
+    "from": "zh",
+    "to": "en",
+    "trans_result": [
+        {
+            "src": "中国",
+            "dst": "China",
+            "src_tts": "https:\/\/fanyiapp.cdn.bcebos.com\/api\/tts\/d943b8e0e31e8d0ea8879dde5d41f016.mp3",
+            "dst_tts": "https:\/\/fanyiapp.cdn.bcebos.com\/api\/tts\/2e2312a1d33e2ff453f92d5d95277e13.mp3",
+            "dict": "{\"lang\":\"0\",\"word_result\":{\"simple_means\":{\"symbols\":[{\"word_symbol\":\"zhōng guó\",\"parts\":[{\"part_name\":\"\",\"means\":[{\"text\":\"China\",\"part\":\"n.\",\"word_mean\":\"China\",\"means\":[\"中国\"]},{\"text\":\"Sino-\",\"part\":\"comb.\",\"word_mean\":\"Sino-\",\"means\":[\"中国的\",\"中国人(的)\"]}]}]}],\"word_name\":\"中国\",\"from\":\"CEDict\",\"word_means\":[\"China\",\"Sino-\"]}}}"
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+    "code": 0,
+    "msg": "Success",
+    "data": {
+        "source": "今天天气不错。",
+        "target": "It's a nice day today.",
+        "target_tts": "W2F1ZGlvIGJ5dGVzXQo="
+    }
+}

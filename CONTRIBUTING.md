@@ -128,6 +128,7 @@
         - _map_：关于 `SKIT.FlurlHttpClient.Baidu.Map` 项目的变化；
         - _yingyan_：关于 `SKIT.FlurlHttpClient.Baidu.Yingyan` 项目的变化；
         - _push_：关于 `SKIT.FlurlHttpClient.Baidu.Push` 项目的变化；
+        - _fanyi_：关于 `SKIT.FlurlHttpClient.Baidu.Translate` 项目的变化；
         - 留空：不属于上述任何情形。
 
     - **建议**：提交记录应遵循最小化原则，避免修改或新增了几十处、却混杂在一起提交，以免为日后搜索查询造成困扰。

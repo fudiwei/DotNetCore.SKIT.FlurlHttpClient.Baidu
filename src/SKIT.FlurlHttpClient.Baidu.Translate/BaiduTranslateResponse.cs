@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 
-namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
+namespace SKIT.FlurlHttpClient.Baidu.Translate
 {
     /// <summary>
-    /// 表示百度智能小程序第三方平台 API 响应的基类。
+    /// 表示百度翻译开放平台 API 响应的基类。
     /// </summary>
-    public abstract class BaiduSmartAppThirdPartyResponse : ICommonResponse
+    public abstract class BaiduTranslateResponse : ICommonResponse
     {
         /// <summary>
         ///
@@ -56,39 +56,27 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         }
 
         /// <summary>
-        /// 获取百度智能小程序第三方平台 API 返回的错误码。
+        /// 获取百度翻译开放平台 API 返回的错误码。
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("errno")]
-        [System.Text.Json.Serialization.JsonPropertyName("errno")]
-        public virtual int ErrorNumber { get; set; }
+        [Newtonsoft.Json.JsonProperty("error_code")]
+        [System.Text.Json.Serialization.JsonPropertyName("error_code")]
+        [System.Text.Json.Serialization.JsonNumberHandling(System.Text.Json.Serialization.JsonNumberHandling.AllowReadingFromString)]
+        public virtual int ErrorCode { get; set; }
 
         /// <summary>
-        /// 获取百度智能小程序第三方平台 API 返回的错误描述。
+        /// 获取百度翻译开放平台 API 返回的错误描述。
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("msg")]
-        [System.Text.Json.Serialization.JsonPropertyName("msg")]
+        [Newtonsoft.Json.JsonProperty("error_msg")]
+        [System.Text.Json.Serialization.JsonPropertyName("error_msg")]
         public virtual string? ErrorMessage { get; set; }
 
         /// <summary>
-        /// 获取一个值，该值指示调用百度智能小程序第三方平台 API 是否成功（即 HTTP 状态码为 200、且 "errno" 值为 0）。
+        /// 获取一个值，该值指示调用百度翻译开放平台 API 是否成功（即 HTTP 状态码为 200、且 "error_code" 值为 0 或 52000）。
         /// </summary>
         /// <returns></returns>
         public virtual bool IsSuccessful()
         {
-            return RawStatus == 200 && ErrorNumber == 0;
+            return RawStatus == 200 && (ErrorCode == 0 || ErrorCode == 52000);
         }
-    }
-
-    /// <summary>
-    /// 表示百度智能小程序第三方平台 API 响应的基类。
-    /// </summary>
-    public abstract class BaiduSmartAppThirdPartyResponse<T> : BaiduSmartAppThirdPartyResponse
-    {
-        /// <summary>
-        /// 获取或设置返回数据。
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("data")]
-        [System.Text.Json.Serialization.JsonPropertyName("data")]
-        public virtual T Data { get; set; } = default!;
     }
 }

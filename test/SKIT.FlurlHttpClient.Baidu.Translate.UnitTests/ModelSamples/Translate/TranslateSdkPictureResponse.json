@@ -1,0 +1,63 @@
+{
+    "error_code": "0",
+    "error_msg": "success",
+    "data": {
+        "from": "zh",
+        "to": "en",
+        "content": [
+            {
+                "src": "这是一个测试 ",
+                "dst": "This is a test.",
+                "rect": "79 23 246 43",
+                "lineCount": 1,
+                "pasteImg": "xxx",
+                "points": [
+                    {
+                        "x": 0,
+                        "y": 0
+                    },
+                    {
+                        "x": 0,
+                        "y": 0
+                    },
+                    {
+                        "x": 20,
+                        "y": 20
+                    },
+                    {
+                        "x": 10,
+                        "y": 10
+                    }
+                ]
+            },
+            {
+                "src": "这是一个例子 ",
+                "dst": "This is an example.",
+                "rect": "79 122 201 37",
+                "lineCount": 1,
+                "pasteImg": "xxx",
+                "points": [
+                    {
+                        "x": 50,
+                        "y": 50
+                    },
+                    {
+                        "x": 50,
+                        "y": 50
+                    },
+                    {
+                        "x": 20,
+                        "y": 20
+                    },
+                    {
+                        "x": 10,
+                        "y": 10
+                    }
+                ]
+            }
+        ],
+        "sumSrc": "这是一个测试 这是一个例子 ",
+        "sumDst": "This is a test. This is an example.",
+        "pasteImg": "xxx"
+    }
+}

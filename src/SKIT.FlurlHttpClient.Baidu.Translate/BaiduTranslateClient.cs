@@ -6,47 +6,40 @@ using System.Threading;
 using System.Threading.Tasks;
 using Flurl.Http;
 
-namespace SKIT.FlurlHttpClient.Baidu.Push
+namespace SKIT.FlurlHttpClient.Baidu.Translate
 {
     /// <summary>
-    /// 一个百度云推送 API HTTP 客户端。
+    /// 一个百度翻译开放平台 API HTTP 客户端。
     /// </summary>
-    public class BaiduPushClient : CommonClientBase, ICommonClient
+    public class BaiduTranslateClient : CommonClientBase, ICommonClient
     {
         /// <summary>
-        /// 获取当前客户端使用的百度云推送凭证。
+        /// 获取当前客户端使用的百度翻译开放平台凭证。
         /// </summary>
         public Settings.Credentials Credentials { get; }
 
         /// <summary>
-        /// 用指定的配置项初始化 <see cref="BaiduPushClient"/> 类的新实例。
+        /// 用指定的配置项初始化 <see cref="BaiduTranslateClient"/> 类的新实例。
         /// </summary>
         /// <param name="options">配置项。</param>
-        public BaiduPushClient(BaiduPushClientOptions options)
+        public BaiduTranslateClient(BaiduTranslateClientOptions options)
             : base()
         {
             if (options == null) throw new ArgumentNullException(nameof(options));
 
             Credentials = new Settings.Credentials(options);
 
-            FlurlClient.BaseUrl = options.Endpoints ?? BaiduPushEndpoints.DEFAULT;
-            FlurlClient.Headers.Remove(FlurlHttpClient.Constants.HttpHeaders.UserAgent);
-            FlurlClient.WithHeader(FlurlHttpClient.Constants.HttpHeaders.UserAgent, options.UserAgent);
+            FlurlClient.BaseUrl = options.Endpoints ?? BaiduTranslateEndpoints.DEFAULT;
             FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));
-
-            Interceptors.Add(new Interceptors.BaiduPushRequestSignatureInterceptor(
-                apiKey: options.ApiKey,
-                apiSecretKey: options.SecretKey
-            ));
         }
 
         /// <summary>
-        /// 用指定的百度云推送 API Key 和 Secret Key 初始化 <see cref="BaiduTranslateClient"/> 类的新实例。
+        /// 用指定的百度翻译 AppId 和 AppSecret 初始化 <see cref="BaiduTranslateClient"/> 类的新实例。
         /// </summary>
-        /// <param name="apiKey">百度云推送 API Key。</param>
-        /// <param name="secretKey">百度云推送 Secret Key。</param>
-        public BaiduPushClient(string apiKey, string secretKey)
-            : this(new BaiduPushClientOptions() { ApiKey = apiKey, SecretKey = secretKey })
+        /// <param name="appId">百度翻译 AppId。</param>
+        /// <param name="appSecret">百度翻译 AppSecret。</param>
+        public BaiduTranslateClient(string appId, string appSecret)
+            : this(new BaiduTranslateClientOptions() { AppId = appId, AppSecret = appSecret })
         {
         }
 
@@ -57,7 +50,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
         /// <param name="method"></param>
         /// <param name="urlSegments"></param>
         /// <returns></returns>
-        public IFlurlRequest CreateRequest(BaiduPushRequest request, HttpMethod method, params object[] urlSegments)
+        public IFlurlRequest CreateRequest(BaiduTranslateRequest request, HttpMethod method, params object[] urlSegments)
         {
             IFlurlRequest flurlRequest = FlurlClient.Request(urlSegments).WithVerb(method);
 
@@ -66,10 +59,24 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
                 flurlRequest.WithTimeout(TimeSpan.FromMilliseconds(request.Timeout.Value));
             }
 
-            if (request.DeviceType != null)
+            if (request.AppId == null)
             {
-                if (method == HttpMethod.Get)
-                    flurlRequest.SetQueryParam("device_type", request.DeviceType.Value);
+                request.AppId = Credentials.AppId;
+            }
+
+            if (request.Salt == null)
+            {
+                request.Salt = Guid.NewGuid().ToString("N");
+            }
+
+            if (request.Timestamp == null)
+            {
+                request.Timestamp = DateTimeOffset.Now.ToLocalTime().ToUnixTimeSeconds();
+            }
+
+            if (request.Signature == null)
+            {
+                request.Signature = request.GenerateSignature(Credentials);
             }
 
             return flurlRequest;
@@ -84,7 +91,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public async Task<T> SendRequestAsync<T>(IFlurlRequest flurlRequest, HttpContent? httpContent = null, CancellationToken cancellationToken = default)
-            where T : BaiduPushResponse, new()
+            where T : BaiduTranslateResponse, new()
         {
             if (flurlRequest == null) throw new ArgumentNullException(nameof(flurlRequest));
 
@@ -95,11 +102,45 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
             }
             catch (FlurlHttpTimeoutException ex)
             {
-                throw new Exceptions.BaiduPushRequestTimeoutException(ex.Message, ex);
+                throw new Exceptions.BaiduTranslateRequestTimeoutException(ex.Message, ex);
             }
             catch (FlurlHttpException ex)
             {
-                throw new BaiduPushException(ex.Message, ex);
+                throw new BaiduTranslateException(ex.Message, ex);
+            }
+        }
+
+        /// <summary>
+        /// 异步发起请求。
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="flurlRequest"></param>
+        /// <param name="data"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
+        public async Task<T> SendRequestWithJsonAsync<T>(IFlurlRequest flurlRequest, object? data = null, CancellationToken cancellationToken = default)
+            where T : BaiduTranslateResponse, new()
+        {
+            if (flurlRequest == null) throw new ArgumentNullException(nameof(flurlRequest));
+
+            try
+            {
+                bool isSimpleRequest = data == null ||
+                    flurlRequest.Verb == HttpMethod.Get ||
+                    flurlRequest.Verb == HttpMethod.Head ||
+                    flurlRequest.Verb == HttpMethod.Options;
+                using IFlurlResponse flurlResponse = isSimpleRequest ?
+                    await base.SendRequestAsync(flurlRequest, null, cancellationToken) :
+                    await base.SendRequestWithJsonAsync(flurlRequest, data, cancellationToken);
+                return await WrapResponseWithJsonAsync<T>(flurlResponse, cancellationToken);
+            }
+            catch (FlurlHttpTimeoutException ex)
+            {
+                throw new Exceptions.BaiduTranslateRequestTimeoutException(ex.Message, ex);
+            }
+            catch (FlurlHttpException ex)
+            {
+                throw new BaiduTranslateException(ex.Message, ex);
             }
         }
 
@@ -112,7 +153,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public async Task<T> SendRequestWithFormUrlEncodedAsync<T>(IFlurlRequest flurlRequest, IDictionary<string, IConvertible?>? formdata = null, CancellationToken cancellationToken = default)
-            where T : BaiduPushResponse, new()
+            where T : BaiduTranslateResponse, new()
         {
             if (flurlRequest == null) throw new ArgumentNullException(nameof(flurlRequest));
 
@@ -137,7 +178,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
             }
             catch (FlurlHttpException ex)
             {
-                throw new BaiduPushException(ex.Message, ex);
+                throw new BaiduTranslateException(ex.Message, ex);
             }
         }
 
@@ -150,7 +191,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
         public async Task<T> SendRequestWithFormUrlEncodedAsync<T>(IFlurlRequest flurlRequest, object? data = null, CancellationToken cancellationToken = default)
-            where T : BaiduPushResponse, new()
+            where T : BaiduTranslateResponse, new()
         {
             bool isSimpleRequest = data == null ||
                 flurlRequest.Verb == HttpMethod.Get ||
