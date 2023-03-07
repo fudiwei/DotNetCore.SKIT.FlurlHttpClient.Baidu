@@ -24,3 +24,17 @@
 -   SDK v2.x.x 将依赖公共组件 v2.x.x；
 -   SDK v3.x.x 将依赖公共组件 v3.x.x。
 -   依此类推。
+
+---
+
+### 模块 `SKIT.FlurlHttpClient.Baidu.Translate` 更新日志
+
+<details>
+
+<summary>[展开查看]</summary>
+
+-   Release 2.0.0
+
+    -   首次发布。
+
+</details>
