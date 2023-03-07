@@ -1,6 +1,6 @@
 ﻿# SKIT.FlurlHttpClient.Baidu.SmartApp
 
-基于 `Flurl.Http` 的[百度智能小程序开放平台](https://smartprogram.baidu.com/) API 客户端。
+基于 `Flurl.Http` 的[百度智能小程序开放平台](https://smartprogram.baidu.com/) HTTP API SDK。
 
 ---
 
@@ -61,7 +61,7 @@ var client = new BaiduSmartAppThirdPartyClient(options);
 
 ```csharp
 using SKIT.FlurlHttpClient.Baidu.SmartApp;
-using SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi;
+using SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi.Models;
 
 /* 以获取小程序二维码短链接口为例 */
 var request = new RestQrcodeGetV2Request()
