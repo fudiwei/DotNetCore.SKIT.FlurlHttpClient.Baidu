@@ -1,6 +1,3 @@
-using System.Reflection;
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.Translate
 {
     /// <summary>
@@ -15,10 +12,10 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
         public int Timeout { get; set; } = 30 * 1000;
 
         /// <summary>
-        /// 获取或设置百度翻译开放平台 API 域名。
+        /// 获取或设置百度翻译开放平台 API 入口点。
         /// <para>默认值：<see cref="BaiduTranslateEndpoints.DEFAULT"/></para>
         /// </summary>
-        public string Endpoints { get; set; } = BaiduTranslateEndpoints.DEFAULT;
+        public string Endpoint { get; set; } = BaiduTranslateEndpoints.DEFAULT;
 
         /// <summary>
         /// 获取或设置百度翻译 AppId。

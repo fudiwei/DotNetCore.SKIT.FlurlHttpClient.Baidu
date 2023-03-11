@@ -29,7 +29,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
 
             Credentials = new Settings.Credentials(options);
 
-            FlurlClient.BaseUrl = options.Endpoints ?? BaiduTranslateEndpoints.DEFAULT;
+            FlurlClient.BaseUrl = options.Endpoint ?? BaiduTranslateEndpoints.DEFAULT;
             FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));
         }
 

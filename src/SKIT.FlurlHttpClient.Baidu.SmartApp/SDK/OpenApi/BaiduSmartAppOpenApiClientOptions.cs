@@ -12,10 +12,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
         public int Timeout { get; set; } = 30 * 1000;
 
         /// <summary>
-        /// 获取或设置百度智能小程序 API 域名。
+        /// 获取或设置百度智能小程序 API 入口点。
         /// <para>默认值：<see cref="BaiduSmartAppOpenApiEndpoints.DEFAULT"/></para>
         /// </summary>
-        public string Endpoints { get; set; } = BaiduSmartAppOpenApiEndpoints.DEFAULT;
+        public string Endpoint { get; set; } = BaiduSmartAppOpenApiEndpoints.DEFAULT;
 
         /// <summary>
         /// 获取或设置百度智能小程序 AppId。

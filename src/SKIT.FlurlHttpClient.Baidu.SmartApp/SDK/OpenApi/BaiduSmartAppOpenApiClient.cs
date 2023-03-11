@@ -29,7 +29,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi
 
             Credentials = new Settings.Credentials(options);
 
-            FlurlClient.BaseUrl = options.Endpoints ?? BaiduSmartAppOpenApiEndpoints.DEFAULT;
+            FlurlClient.BaseUrl = options.Endpoint ?? BaiduSmartAppOpenApiEndpoints.DEFAULT;
             FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));
         }
 

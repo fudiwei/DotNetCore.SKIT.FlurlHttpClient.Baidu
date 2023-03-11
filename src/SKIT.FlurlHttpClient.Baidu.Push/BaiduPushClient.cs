@@ -29,7 +29,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
 
             Credentials = new Settings.Credentials(options);
 
-            FlurlClient.BaseUrl = options.Endpoints ?? BaiduPushEndpoints.DEFAULT;
+            FlurlClient.BaseUrl = options.Endpoint ?? BaiduPushEndpoints.DEFAULT;
             FlurlClient.Headers.Remove(FlurlHttpClient.Constants.HttpHeaders.UserAgent);
             FlurlClient.WithHeader(FlurlHttpClient.Constants.HttpHeaders.UserAgent, options.UserAgent);
             FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));

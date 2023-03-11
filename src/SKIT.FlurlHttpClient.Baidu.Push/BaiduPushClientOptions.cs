@@ -15,10 +15,10 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
         public int Timeout { get; set; } = 30 * 1000;
 
         /// <summary>
-        /// 获取或设置百度云推送 API 域名。
+        /// 获取或设置百度云推送 API 入口点。
         /// <para>默认值：<see cref="BaiduPushEndpoints.DEFAULT"/></para>
         /// </summary>
-        public string Endpoints { get; set; } = BaiduPushEndpoints.DEFAULT;
+        public string Endpoint { get; set; } = BaiduPushEndpoints.DEFAULT;
 
         /// <summary>
         /// 获取或设置客户端用户代理。

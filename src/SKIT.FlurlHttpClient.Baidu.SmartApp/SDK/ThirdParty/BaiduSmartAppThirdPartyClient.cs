@@ -27,7 +27,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
 
             Credentials = new Settings.Credentials(options);
 
-            FlurlClient.BaseUrl = options.Endpoints ?? BaiduSmartAppThirdPartyEndpoints.DEFAULT;
+            FlurlClient.BaseUrl = options.Endpoint ?? BaiduSmartAppThirdPartyEndpoints.DEFAULT;
             FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));
         }
 

@@ -12,10 +12,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty
         public int Timeout { get; set; } = 30 * 1000;
 
         /// <summary>
-        /// 获取或设置百度智能小程序第三方平台 API 域名。
+        /// 获取或设置百度智能小程序第三方平台 API 入口点。
         /// <para>默认值：<see cref="BaiduSmartAppThirdPartyEndpoints.DEFAULT"/></para>
         /// </summary>
-        public string Endpoints { get; set; } = BaiduSmartAppThirdPartyEndpoints.DEFAULT;
+        public string Endpoint { get; set; } = BaiduSmartAppThirdPartyEndpoints.DEFAULT;
 
         /// <summary>
         /// 获取或设置百度智能小程序第三方平台 AppId。
