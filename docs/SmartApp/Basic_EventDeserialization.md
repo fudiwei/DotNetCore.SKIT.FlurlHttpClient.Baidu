@@ -6,15 +6,15 @@
 
 ```csharp
 /* 如果是 JSON 格式的通知内容，以 text 事件为例 */
-string callbackJson = "{ ... }";
-var callbackModel = client.DeserializeEventFromJson<Events.TextMessageEvent>(callbackJson);
+string webhookJson = "{ ... }";
+var webhookModel = client.DeserializeEventFromJson<Events.TextMessageEvent>(webhookJson);
 
 /* 如果是 XML 格式的通知内容，以 text 事件为例 */
-string callbackXml = "<xml> ... </xml>";
-var callbackModel = client.DeserializeEventFromXml<Events.TextMessageEvent>(callbackXml);
+string webhookXml = "<xml> ... </xml>";
+var webhookModel = client.DeserializeEventFromXml<Events.TextMessageEvent>(webhookXml);
 ```
 
-完整的回调通知模型定义可以参考项目目录下的 _src/SKIT.FlurlHttpClient.Baidu.SmartApp/SDK/OpenApi/Events_、_src/SKIT.FlurlHttpClient.Baidu.SmartApp/SDK/ThirdParty/Events_ 目录。
+完整的回调通知模型定义可以参考项目目录下的 _src/SKIT.FlurlHttpClient.Baidu.SmartApp/ExtendedSDK/OpenApi/Events_、_src/SKIT.FlurlHttpClient.Baidu.SmartApp/ExtendedSDK/ThirdParty/Events_ 目录。
 
 ---
 
@@ -27,21 +27,21 @@ var callbackModel = client.DeserializeEventFromXml<Events.TextMessageEvent>(call
 一种是利用 `System.Xml.Linq`：
 
 ```csharp
-XDocument xDoc = XDocument.Parse(callbackXml);
+XDocument xDoc = XDocument.Parse(webhookXml);
 string msgType = xDoc.Root?.Element("MsgType")?.Value?.ToUpper();
 ```
 
 另一种是利用本库的扩展方法：
 
 ```csharp
-BaiduSmartAppOpenApiEvent eventModel = client.DeserializeEventFromXml(callbackXml);
+BaiduSmartAppOpenApiEvent eventModel = client.DeserializeEventFromXml(webhookXml);
 string msgType = eventModel.MessageType?.ToUpper();
 
 switch (msgType)
 {
     case "TEXT":
         {
-            var callbackModel = client.DeserializeEventFromXml<Events.TextMessageEvent>(callbackXml);
+            var webhookModel = client.DeserializeEventFromXml<Events.TextMessageEvent>(webhookXml);
         }
         break;
     // 省略其他情况
@@ -65,5 +65,5 @@ var options = new BaiduSmartAppOpenApiClientOptions()
     PushToken = "Token",
     PushEncodingAESKey = "EncodingAESKey"
 };
-var client = new BaiduSmartAppOpenApiClient(options);
+var client = BaiduSmartAppOpenApiClientBuilder.Create(options).Build();
 ```

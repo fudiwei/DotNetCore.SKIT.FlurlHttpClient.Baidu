@@ -31,7 +31,7 @@
 
 ```csharp
 /* 以服务端 OpenAPI 为例 */
-using SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi;
+using SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi;
 
 var options = new BaiduSmartAppOpenApiClientOptions()
 {
@@ -40,12 +40,12 @@ var options = new BaiduSmartAppOpenApiClientOptions()
     AppSecret = "百度小程序 AppSecret",
     PaymentServiceAppKey = "百度收银台相关服务 AppKey，不用则不填"
 };
-var client = new BaiduSmartAppOpenApiClient(options);
+var client = BaiduSmartAppOpenApiClientBuilder.Create(options).Build();
 
 
 
 /* 以第三方平台 OpenAPI 为例 */
-using SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty;
+using SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty;
 
 var options = new BaiduSmartAppThirdPartyClientOptions()
 {
@@ -54,16 +54,16 @@ var options = new BaiduSmartAppThirdPartyClientOptions()
     AppSecret = "百度小程序 AppSecret",
     PaymentServiceAppKey = "百度收银台相关服务 AppKey，不用则不填"
 };
-var client = new BaiduSmartAppThirdPartyClient(options);
+var client = BaiduSmartAppThirdPartyClientBuilder.Create(options).Build();
 ```
 
 ### 请求 & 响应：
 
 ```csharp
 using SKIT.FlurlHttpClient.Baidu.SmartApp;
-using SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi.Models;
+using SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models;
 
-/* 以获取小程序二维码短链接口为例 */
+/* 以服务端 OpenAPI 获取小程序二维码短链接口为例 */
 var request = new RestQrcodeGetV2Request()
 {
     PagePath = "/pages/index",
@@ -85,7 +85,7 @@ else
 
 ## 基础用法
 
--   [如何快速找到需要调用的 API 模型类名 / 方法名？](./Basic_ModelDefinition.md)
+-   ⭐ [如何快速找到需要调用的 API 模型类名 / 方法名？](./Basic_ModelDefinition.md)
 
 -   [如何解析回调通知事件？](./Basic_EventDeserialization.md)
 
@@ -95,7 +95,7 @@ else
 
 ## 高级技巧
 
--   [如何在 ASP.NET Core 中与 `IHttpClientFactory` 集成？](./Advanced_IHttpClientFactory.md)
+-   [如何与 `IHttpClientFactory` 集成？](./Advanced_IHttpClientFactory.md)
 
 -   [如何指定 JSON 序列化器？](./Advanced_JsonSerializer.md)
 

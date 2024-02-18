@@ -8,7 +8,7 @@
 
 再有，每个对象的命名与官方文档的接口地址大体保持一致。例如刚刚提到的推送模板消息，它的接口地址是 `[POST] /rest/2.0/smartapp/template/send`，将其中的反斜杠去掉、忽略固定段“/2.0/smartapp/”、并以大驼峰命名法的方式调整它，就可以得到前文提到的几个对象了。如果路由中带有版本信息，那么版本号一般都在结尾处，例如接口 `[POST] /rest/2.0/smartapp/riskDetection/v2/syncCheckText` 对应的是 `RestRiskDetectionSyncCheckTextV2`。
 
-完整的模型定义可以参考项目目录下的 _src/SKIT.FlurlHttpClient.Baidu.SmartApp/SDK/OpenApi/Models_、_src/SKIT.FlurlHttpClient.Baidu.SmartApp/SDK/ThirdParty/Models_ 目录。
+完整的模型定义可以参考项目目录下的 _src/SKIT.FlurlHttpClient.Baidu.SmartApp/ExtendedSDK/OpenApi/Models_、_src/SKIT.FlurlHttpClient.Baidu.SmartApp/ExtendedSDK/ThirdParty/Models_ 目录。
 
 ---
 

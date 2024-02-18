@@ -20,18 +20,18 @@ var client = new BaiduSmartAppOpenApiClient(options);
 
 /* 验证百度小程序服务器 */
 bool ret = client.VerifyEventSignatureForEcho(
-    callbackTimestamp: "百度小程序回调通知中的 timestamp 字段",
-    callbackNonce: "百度小程序回调通知中的 nonce 字段",
-    callbackSignature: "百度小程序回调通知中的 signature 字段"
+    webhookTimestamp: "百度小程序回调通知中的 timestamp 字段",
+    webhookNonce: "百度小程序回调通知中的 nonce 字段",
+    webhookSignature: "百度小程序回调通知中的 signature 字段"
 );
 
 /* 验证安全模式下 XML 消息的签名 */
 bool ret = client.VerifyEventSignatureFromXml(
-    callbackXml: "百度小程序发来的通知内容，形如：<xml><Encrypt>...</Encrypt></xml>"
+    webhookXml: "百度小程序发来的通知内容，形如：<xml><Encrypt>...</Encrypt></xml>"
 );
 
 /* 验证安全模式下 JSON 消息的签名 */
 bool ret = client.VerifyEventSignatureFromJson(
-    callbackJson: "百度小程序发来的通知内容，形如：{\"Encrypt\":\"...\"}"
+    webhookJson: "百度小程序发来的通知内容，形如：{\"Encrypt\":\"...\"}"
 );
 ```

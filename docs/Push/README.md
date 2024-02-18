@@ -36,7 +36,7 @@ var options = new BaiduPushClientOptions()
     ApiKey = "百度云推送 API KEY",
     SecretKey = "百度云推送 Secret Key"
 };
-var client = new BaiduPushClient(options);
+var client = BaiduPushClientBuilder.Create(options).Build();
 ```
 
 ### 请求 & 响应：
@@ -75,13 +75,13 @@ else
 
 ## 基础用法
 
--   [如何快速找到需要调用的 API 模型类名 / 方法名？](./Basic_ModelDefinition.md)
+-   ⭐ [如何快速找到需要调用的 API 模型类名 / 方法名？](./Basic_ModelDefinition.md)
 
 ---
 
 ## 高级技巧
 
--   [如何在 ASP.NET Core 中与 `IHttpClientFactory` 集成？](./Advanced_IHttpClientFactory.md)
+-   [如何与 `IHttpClientFactory` 集成？](./Advanced_IHttpClientFactory.md)
 
 -   [如何指定 JSON 序列化器？](./Advanced_JsonSerializer.md)
 
