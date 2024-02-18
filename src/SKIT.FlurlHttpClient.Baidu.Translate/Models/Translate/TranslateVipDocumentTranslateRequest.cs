@@ -4,6 +4,8 @@ using System.Linq;
 
 namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
 {
+    using SKIT.FlurlHttpClient.Primitives;
+
     /// <summary>
     /// <para>表示 [POST] /trans/vip/doctrans 接口的请求。</para>
     /// </summary>
@@ -80,15 +82,15 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
 
             msgText = string.Join("&", tmpParams.Where(e => !string.IsNullOrEmpty(e.Value)).Select(e => $"{e.Key}={e.Value}")) + "&";
 
-            if (FileBytes != null)
+            if (FileBytes is not null)
             {
-                string fileMd5 = BitConverter.ToString(Utilities.MD5Utility.Hash(FileBytes)).Replace("-", "").ToLower();
+                string fileMd5 = EncodedString.ToHexString(Utilities.MD5Utility.Hash(FileBytes)).Value!.ToLower();
                 msgText += fileMd5;
             }
 
             msgText += credentials.AppSecret;
 
-            return Utilities.MD5Utility.Hash(msgText).ToLower();
+            return Utilities.MD5Utility.Hash(msgText).Value!.ToLower();
         }
     }
 }

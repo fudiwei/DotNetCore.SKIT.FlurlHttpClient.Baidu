@@ -3,12 +3,12 @@ using Xunit;
 
 namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
 {
-    public partial class TestCase_RequestSignatureTests
+    public partial class TestCase_RequestSigningTests
     {
         [Fact(DisplayName = "测试用例：生成 [POST] /trans/vip/translate 接口的请求签名")]
         public void TestTranslateVipTranslateRequestSignature()
         {
-            using var client = new BaiduTranslateClient("2015063000000001", "12345678");
+            using var client = new BaiduTranslateClient(new BaiduTranslateClientOptions() { AppId = "2015063000000001", AppSecret = "12345678" });
             var req = new Models.TranslateVipTranslateRequest()
             {
                 QueryString = "apple",
@@ -25,7 +25,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
         [Fact(DisplayName = "测试用例：生成 [POST] /trans/vip/fieldtranslate 接口的请求签名")]
         public void TestTranslateVipFieldTranslateRequestSignature()
         {
-            using var client = new BaiduTranslateClient("2015063000000001", "12345678");
+            using var client = new BaiduTranslateClient(new BaiduTranslateClientOptions() { AppId = "2015063000000001", AppSecret = "12345678" });
             var req = new Models.TranslateVipFieldTranslateRequest()
             {
                 QueryString = "apple",
@@ -43,7 +43,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
         [Fact(DisplayName = "测试用例：生成 [POST] /trans/vip/doccount 接口的请求签名")]
         public void TestTranslateVipDocumentCountRequestSignature()
         {
-            using var client = new BaiduTranslateClient("2015063000000001", "12345678");
+            using var client = new BaiduTranslateClient(new BaiduTranslateClientOptions() { AppId = "2015063000000001", AppSecret = "12345678" });
             var req = new Models.TranslateVipDocumentCountRequest()
             {
                 FileType = "txt",
@@ -61,7 +61,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
         [Fact(DisplayName = "测试用例：生成 [POST] /trans/vip/language 接口的请求签名")]
         public void TestTranslateVipLanguageRequestSignature()
         {
-            using var client = new BaiduTranslateClient("2015063000000001", "12345678");
+            using var client = new BaiduTranslateClient(new BaiduTranslateClientOptions() { AppId = "2015063000000001", AppSecret = "12345678" });
             var req = new Models.TranslateVipLanguageRequest()
             {
                 QueryString = "apple",

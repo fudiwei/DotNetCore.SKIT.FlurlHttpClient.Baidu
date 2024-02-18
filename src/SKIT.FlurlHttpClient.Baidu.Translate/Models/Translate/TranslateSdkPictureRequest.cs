@@ -67,7 +67,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         {
             string fileMd5 = BitConverter.ToString(Utilities.MD5Utility.Hash(ImageFileBytes ?? Array.Empty<byte>())).Replace("-", "").ToLower();
             string msgText = string.Format("{0}{1}{2}{3}{4}{5}", credentials.AppId, fileMd5, Salt, CUID, MAC, credentials.AppSecret);
-            return Utilities.MD5Utility.Hash(msgText).ToLower();
+            return Utilities.MD5Utility.Hash(msgText).Value!.ToLower();
         }
     }
 }

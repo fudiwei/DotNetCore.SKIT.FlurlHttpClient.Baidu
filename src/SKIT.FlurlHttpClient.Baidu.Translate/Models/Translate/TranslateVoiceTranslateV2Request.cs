@@ -66,9 +66,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
 
         protected internal override string? GenerateSignature(Settings.Credentials credentials)
         {
-            byte[] secretBytes = Encoding.UTF8.GetBytes(credentials.AppSecret);
+            byte[] keyBytes = Encoding.UTF8.GetBytes(credentials.AppSecret);
             byte[] msgBytes = Encoding.UTF8.GetBytes(string.Format("{0}{1}{2}", credentials.AppId, Timestamp, EncodingVoiceData));
-            return Convert.ToBase64String(Utilities.HMACUtility.HashWithSHA256(secretBytes: secretBytes, msgBytes: msgBytes));
+            return Convert.ToBase64String(Utilities.HMACUtility.HashWithSHA256(keyBytes, msgBytes));
         }
     }
 }

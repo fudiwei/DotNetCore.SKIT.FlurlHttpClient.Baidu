@@ -1,19 +1,10 @@
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.Translate
 {
     /// <summary>
     /// 表示百度翻译开放平台 API 请求的基类。
     /// </summary>
-    public abstract class BaiduTranslateRequest : ICommonRequest
+    public abstract class BaiduTranslateRequest : CommonRequestBase, ICommonRequest
     {
-        /// <summary>
-        /// 获取或设置请求超时时间（单位：毫秒）。如果不指定将使用构造 <see cref="BaiduTranslateClient"/> 时的 <see cref="BaiduTranslateClientOptions.Timeout"/> 参数，这在需要指定特定耗时请求（比如上传或下载文件）的超时时间时很有用。
-        /// </summary>
-        [Newtonsoft.Json.JsonIgnore]
-        [System.Text.Json.Serialization.JsonIgnore]
-        public virtual int? Timeout { get; set; }
-
         /// <summary>
         /// 获取或设置百度翻译 AppId。如果不指定将使用构造 <see cref="BaiduTranslateClient"/> 时的 <see cref="BaiduTranslateClientOptions.AppId"/> 参数。
         /// </summary>
@@ -42,7 +33,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
         [System.Text.Json.Serialization.JsonPropertyName("sign")]
         public virtual string? Signature { get; set; }
 
-        protected internal virtual string? GenerateSignature(Settings.Credentials credentials)
+        internal protected virtual string? GenerateSignature(Settings.Credentials credentials)
         {
             return null;
         }

@@ -22,7 +22,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         protected internal override string? GenerateSignature(Settings.Credentials credentials)
         {
             string msgText = string.Format("{0}{1}{2}{3}", credentials.AppId, QueryString, Salt, credentials.AppSecret);
-            return Utilities.MD5Utility.Hash(msgText).ToLower();
+            return Utilities.MD5Utility.Hash(msgText).Value!.ToLower();
         }
     }
 }

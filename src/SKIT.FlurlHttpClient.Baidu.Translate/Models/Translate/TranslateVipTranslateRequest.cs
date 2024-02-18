@@ -31,27 +31,27 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// 获取或设置是否显示语音合成资源。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("tts")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.NumericalNullableBooleanConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.NumericalBooleanConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("tts")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.NumericalNullableBooleanConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalBooleanConverter))]
         public bool? IsTTSRequired { get; set; }
 
         /// <summary>
         /// 获取或设置是否显示词典资源。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("dict")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.NumericalNullableBooleanConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.NumericalBooleanConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("dict")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.NumericalNullableBooleanConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalBooleanConverter))]
         public bool? IsDictionaryRequired { get; set; }
 
         /// <summary>
         /// 获取或设置是否使用自定义术语干预。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("action")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.NumericalNullableBooleanConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.NumericalBooleanConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("action")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.NumericalNullableBooleanConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalBooleanConverter))]
         public bool? IsActionRequired { get; set; }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         protected internal override string? GenerateSignature(Settings.Credentials credentials)
         {
             string msgText = string.Format("{0}{1}{2}{3}", credentials.AppId, QueryString, Salt, credentials.AppSecret);
-            return Utilities.MD5Utility.Hash(msgText).ToLower();
+            return Utilities.MD5Utility.Hash(msgText).Value!.ToLower();
         }
     }
 }
