@@ -16,7 +16,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Settings
 
         internal Credentials(BaiduTranslateClientOptions options)
         {
-            if (options == null) throw new ArgumentNullException(nameof(options));
+            if (options is null) throw new ArgumentNullException(nameof(options));
 
             AppId = options.AppId;
             AppSecret = options.AppSecret;

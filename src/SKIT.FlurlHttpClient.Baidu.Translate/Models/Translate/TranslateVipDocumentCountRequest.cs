@@ -85,7 +85,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
 
             msgText = string.Join("&", tmpParams.Where(e => !string.IsNullOrEmpty(e.Value)).Select(e => $"{e.Key}={e.Value}")) + "&";
 
-            if (FileBytes != null)
+            if (FileBytes is not null)
             {
                 string fileMd5 = BitConverter.ToString(Utilities.MD5Utility.Hash(FileBytes)).Replace("-", "").ToLower();
                 msgText += fileMd5;
@@ -93,7 +93,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
 
             msgText += credentials.AppSecret;
 
-            return Utilities.MD5Utility.Hash(msgText).ToLower();
+            return Utilities.MD5Utility.Hash(msgText).Value!.ToLower();
         }
     }
 }

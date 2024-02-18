@@ -17,12 +17,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
                 using var stream = File.OpenRead("appsettings.local.json");
                 using var json = JsonDocument.Parse(stream);
 
-                var config = json.RootElement.GetProperty("TestConfig");
+                var config = json.RootElement.GetProperty("TestConfigs");
                 BaiduTranslateAppId = config.GetProperty("AppId").GetString()!;
                 BaiduTranslateAppSecret = config.GetProperty("AppSecret").GetString()!;
-
-                WorkDirectoryForSdk = json.RootElement.GetProperty("WorkDirectoryForSdk").GetString()!;
-                WorkDirectoryForTest = json.RootElement.GetProperty("WorkDirectoryForTest").GetString()!;
             }
             catch (Exception ex)
             {
@@ -32,8 +29,5 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
 
         public static readonly string BaiduTranslateAppId;
         public static readonly string BaiduTranslateAppSecret;
-
-        public static readonly string WorkDirectoryForSdk;
-        public static readonly string WorkDirectoryForTest;
     }
 }

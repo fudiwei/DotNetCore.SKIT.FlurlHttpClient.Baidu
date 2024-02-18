@@ -16,7 +16,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Settings
 
         internal Credentials(BaiduPushClientOptions options)
         {
-            if (options == null) throw new ArgumentNullException(nameof(options));
+            if (options is null) throw new ArgumentNullException(nameof(options));
 
             ApiKey = options.ApiKey;
             SecretKey = options.SecretKey;

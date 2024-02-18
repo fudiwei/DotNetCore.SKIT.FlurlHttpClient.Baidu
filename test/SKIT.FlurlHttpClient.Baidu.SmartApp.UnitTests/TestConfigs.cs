@@ -17,14 +17,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTests
                 using var stream = File.OpenRead("appsettings.local.json");
                 using var json = JsonDocument.Parse(stream);
 
-                var config = json.RootElement.GetProperty("TestConfig");
+                var config = json.RootElement.GetProperty("TestConfigs");
                 BaiduSmartAppId = config.GetProperty("AppId").GetString()!;
                 BaiduSmartAppKey = config.GetProperty("AppKey").GetString()!;
                 BaiduSmartAppSecret = config.GetProperty("AppSecret").GetString()!;
                 BaiduSmartAppAccessToken = config.GetProperty("AccessToken").GetString()!;
-
-                WorkDirectoryForSdk = json.RootElement.GetProperty("WorkDirectoryForSdk").GetString()!;
-                WorkDirectoryForTest = json.RootElement.GetProperty("WorkDirectoryForTest").GetString()!;
             }
             catch (Exception ex)
             {
@@ -36,8 +33,5 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTests
         public static readonly string BaiduSmartAppKey;
         public static readonly string BaiduSmartAppSecret;
         public static readonly string BaiduSmartAppAccessToken;
-
-        public static readonly string WorkDirectoryForSdk;
-        public static readonly string WorkDirectoryForTest;
     }
 }

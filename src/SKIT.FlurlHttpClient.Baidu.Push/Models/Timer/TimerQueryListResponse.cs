@@ -18,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("timer_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("timer_id")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.NumericalStringReadOnlyConverter))]
+                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
                         public string TimerId { get; set; } = default!;
 
                         /// <summary>

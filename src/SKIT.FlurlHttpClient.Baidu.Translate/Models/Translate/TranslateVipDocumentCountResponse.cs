@@ -28,7 +28,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("fileId")]
                 [System.Text.Json.Serialization.JsonPropertyName("fileId")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.NumericalStringReadOnlyConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
                 public string FileId { get; set; } = default!;
             }
         }

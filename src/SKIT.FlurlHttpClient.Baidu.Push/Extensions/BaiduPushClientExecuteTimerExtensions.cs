@@ -11,7 +11,10 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
     {
         /// <summary>
         /// <para>异步调用 [GET] /timer/query_list 接口。</para>
-        /// <para>REF: https://push.baidu.com/doc/restapi/restapi </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://push.baidu.com/doc/restapi/restapi ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -23,23 +26,26 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Get, "timer", "query_list");
+                .CreateFlurlRequest(request, HttpMethod.Get, "timer", "query_list");
 
-            if (request.TimerId != null)
+            if (request.TimerId is not null)
                 flurlReq.SetQueryParam("timer_id", request.TimerId);
 
-            if (request.Start != null)
+            if (request.Start is not null)
                 flurlReq.SetQueryParam("start", request.Start.Value);
 
-            if (request.Limit != null)
+            if (request.Limit is not null)
                 flurlReq.SetQueryParam("limit", request.Limit.Value);
 
-            return await client.SendRequestWithFormUrlEncodedAsync<Models.TimerQueryListResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendRequestAsFormUrlEncodedAsync<Models.TimerQueryListResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /timer/cancel 接口。</para>
-        /// <para>REF: https://push.baidu.com/doc/restapi/restapi </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://push.baidu.com/doc/restapi/restapi ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -51,9 +57,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "timer", "cancel");
+                .CreateFlurlRequest(request, HttpMethod.Post, "timer", "cancel");
 
-            return await client.SendRequestWithFormUrlEncodedAsync<Models.TimerCancelResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendRequestAsFormUrlEncodedAsync<Models.TimerCancelResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

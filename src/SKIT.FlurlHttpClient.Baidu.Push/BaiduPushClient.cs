@@ -1,7 +1,6 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using Flurl.Http;
@@ -23,52 +22,44 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
         /// </summary>
         /// <param name="options">配置项。</param>
         public BaiduPushClient(BaiduPushClientOptions options)
-            : base()
+            : this(options, null)
         {
-            if (options == null) throw new ArgumentNullException(nameof(options));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="options"></param>
+        /// <param name="httpClient"></param>
+        /// <param name="disposeClient"></param>
+        public BaiduPushClient(BaiduPushClientOptions options, HttpClient? httpClient, bool disposeClient = true)
+            : base(httpClient, disposeClient)
+        {
+            if (options is null) throw new ArgumentNullException(nameof(options));
 
             Credentials = new Settings.Credentials(options);
 
             FlurlClient.BaseUrl = options.Endpoint ?? BaiduPushEndpoints.DEFAULT;
-            FlurlClient.Headers.Remove(FlurlHttpClient.Constants.HttpHeaders.UserAgent);
-            FlurlClient.WithHeader(FlurlHttpClient.Constants.HttpHeaders.UserAgent, options.UserAgent);
-            FlurlClient.WithTimeout(TimeSpan.FromMilliseconds(options.Timeout));
+            FlurlClient.WithHeader(HttpHeaders.UserAgent, $"BCCS_SDK/3.0 ({Environment.OSVersion.Platform}; {Environment.OSVersion.VersionString}) .NET/{Environment.Version} (SKIT.FlurlHttpClient.Baidu.Push v{Assembly.GetExecutingAssembly().GetName().Version}) cli/Unknown");
+            FlurlClient.WithTimeout(options.Timeout <= 0 ? Timeout.InfiniteTimeSpan : TimeSpan.FromMilliseconds(options.Timeout));
 
-            Interceptors.Add(new Interceptors.BaiduPushRequestSignatureInterceptor(
-                apiKey: options.ApiKey,
-                apiSecretKey: options.SecretKey
-            ));
-        }
-
-        /// <summary>
-        /// 用指定的百度云推送 API Key 和 Secret Key 初始化 <see cref="BaiduTranslateClient"/> 类的新实例。
-        /// </summary>
-        /// <param name="apiKey">百度云推送 API Key。</param>
-        /// <param name="secretKey">百度云推送 Secret Key。</param>
-        public BaiduPushClient(string apiKey, string secretKey)
-            : this(new BaiduPushClientOptions() { ApiKey = apiKey, SecretKey = secretKey })
-        {
+            Interceptors.Add(new Interceptors.BaiduPushRequestSigningInterceptor(apiKey: options.ApiKey, apiSecretKey: options.SecretKey));
         }
 
         /// <summary>
         /// 使用当前客户端生成一个新的 <see cref="IFlurlRequest"/> 对象。
         /// </summary>
         /// <param name="request"></param>
-        /// <param name="method"></param>
+        /// <param name="httpMethod"></param>
         /// <param name="urlSegments"></param>
         /// <returns></returns>
-        public IFlurlRequest CreateRequest(BaiduPushRequest request, HttpMethod method, params object[] urlSegments)
+        public IFlurlRequest CreateFlurlRequest(BaiduPushRequest request, HttpMethod httpMethod, params object[] urlSegments)
         {
-            IFlurlRequest flurlRequest = FlurlClient.Request(urlSegments).WithVerb(method);
+            IFlurlRequest flurlRequest = base.CreateFlurlRequest(request, httpMethod, urlSegments);
 
-            if (request.Timeout != null)
+            if (request.DeviceType is not null)
             {
-                flurlRequest.WithTimeout(TimeSpan.FromMilliseconds(request.Timeout.Value));
-            }
-
-            if (request.DeviceType != null)
-            {
-                if (method == HttpMethod.Get)
+                if (httpMethod == HttpMethod.Get)
                     flurlRequest.SetQueryParam("device_type", request.DeviceType.Value);
             }
 
@@ -83,62 +74,13 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
         /// <param name="httpContent"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task<T> SendRequestAsync<T>(IFlurlRequest flurlRequest, HttpContent? httpContent = null, CancellationToken cancellationToken = default)
+        public async Task<T> SendFlurlRequestAsync<T>(IFlurlRequest flurlRequest, HttpContent? httpContent = null, CancellationToken cancellationToken = default)
             where T : BaiduPushResponse, new()
         {
-            if (flurlRequest == null) throw new ArgumentNullException(nameof(flurlRequest));
+            if (flurlRequest is null) throw new ArgumentNullException(nameof(flurlRequest));
 
-            try
-            {
-                using IFlurlResponse flurlResponse = await base.SendRequestAsync(flurlRequest, httpContent, cancellationToken);
-                return await WrapResponseWithJsonAsync<T>(flurlResponse, cancellationToken);
-            }
-            catch (FlurlHttpTimeoutException ex)
-            {
-                throw new Exceptions.BaiduPushRequestTimeoutException(ex.Message, ex);
-            }
-            catch (FlurlHttpException ex)
-            {
-                throw new BaiduPushException(ex.Message, ex);
-            }
-        }
-
-        /// <summary>
-        /// 异步发起请求。
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="flurlRequest"></param>
-        /// <param name="formdata"></param>
-        /// <param name="cancellationToken"></param>
-        /// <returns></returns>
-        public async Task<T> SendRequestWithFormUrlEncodedAsync<T>(IFlurlRequest flurlRequest, IDictionary<string, IConvertible?>? formdata = null, CancellationToken cancellationToken = default)
-            where T : BaiduPushResponse, new()
-        {
-            if (flurlRequest == null) throw new ArgumentNullException(nameof(flurlRequest));
-
-            HttpContent? httpContent = null;
-            if (formdata != null)
-            {
-                if (!flurlRequest.Headers.Contains(Constants.HttpHeaders.ContentType))
-                {
-                    flurlRequest.WithHeader(Constants.HttpHeaders.ContentType, "application/x-www-form-urlencoded;charset=utf-8");
-                }
-
-                IDictionary<string, string> tmpDict = formdata
-                    .Where(e => e.Value != null)
-                    .ToDictionary(k => k.Key, v => v.Value!.ToString()!);
-                httpContent = new FormUrlEncodedContent(tmpDict);
-            }
-
-            try
-            {
-                using IFlurlResponse flurlResponse = await base.SendRequestAsync(flurlRequest, httpContent, cancellationToken).ConfigureAwait(false);
-                return await WrapResponseWithJsonAsync<T>(flurlResponse).ConfigureAwait(false);
-            }
-            catch (FlurlHttpException ex)
-            {
-                throw new BaiduPushException(ex.Message, ex);
-            }
+            using IFlurlResponse flurlResponse = await base.SendFlurlRequestAsync(flurlRequest, httpContent, cancellationToken).ConfigureAwait(false);
+            return await WrapFlurlResponseAsJsonAsync<T>(flurlResponse, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -149,25 +91,19 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
         /// <param name="data"></param>
         /// <param name="cancellationToken"></param>
         /// <returns></returns>
-        public async Task<T> SendRequestWithFormUrlEncodedAsync<T>(IFlurlRequest flurlRequest, object? data = null, CancellationToken cancellationToken = default)
+        public async Task<T> SendRequestAsFormUrlEncodedAsync<T>(IFlurlRequest flurlRequest, object? data = null, CancellationToken cancellationToken = default)
             where T : BaiduPushResponse, new()
         {
-            bool isSimpleRequest = data == null ||
+            if (flurlRequest is null) throw new ArgumentNullException(nameof(flurlRequest));
+
+            bool isSimpleRequest = data is null ||
                 flurlRequest.Verb == HttpMethod.Get ||
                 flurlRequest.Verb == HttpMethod.Head ||
                 flurlRequest.Verb == HttpMethod.Options;
-            if (isSimpleRequest)
-            {
-                return await SendRequestAsync<T>(flurlRequest, null, cancellationToken);
-            }
-            else
-            {
-                string tmpJson = JsonSerializer.Serialize(data);
-                IDictionary<string, IConvertible?> formdata = new FlurlNewtonsoftJsonSerializer()
-                    .Deserialize<IDictionary<string, string?>>(tmpJson)
-                    .ToDictionary(k => k.Key, v => v.Value as IConvertible);
-                return await SendRequestWithFormUrlEncodedAsync<T>(flurlRequest, formdata, cancellationToken);
-            }
+            using IFlurlResponse flurlResponse = isSimpleRequest ?
+                await base.SendFlurlRequestAsync(flurlRequest, null, cancellationToken).ConfigureAwait(false) :
+                await base.SendFlurlRequestAsFormUrlEncodedAsync(flurlRequest, data, cancellationToken).ConfigureAwait(false);
+            return await WrapFlurlResponseAsJsonAsync<T>(flurlResponse, cancellationToken).ConfigureAwait(false);
         }
     }
 }

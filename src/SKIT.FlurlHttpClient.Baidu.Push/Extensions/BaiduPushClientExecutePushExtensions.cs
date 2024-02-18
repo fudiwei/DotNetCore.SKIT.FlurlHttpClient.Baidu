@@ -10,7 +10,10 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
     {
         /// <summary>
         /// <para>异步调用 [POST] /push/single_device 接口。</para>
-        /// <para>REF: https://push.baidu.com/doc/restapi/restapi </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://push.baidu.com/doc/restapi/restapi ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -22,14 +25,17 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "push", "single_device");
+                .CreateFlurlRequest(request, HttpMethod.Post, "push", "single_device");
 
-            return await client.SendRequestWithFormUrlEncodedAsync<Models.PushSingleDeviceResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendRequestAsFormUrlEncodedAsync<Models.PushSingleDeviceResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /push/all 接口。</para>
-        /// <para>REF: https://push.baidu.com/doc/restapi/restapi </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://push.baidu.com/doc/restapi/restapi ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -41,14 +47,17 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "push", "all");
+                .CreateFlurlRequest(request, HttpMethod.Post, "push", "all");
 
-            return await client.SendRequestWithFormUrlEncodedAsync<Models.PushAllResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendRequestAsFormUrlEncodedAsync<Models.PushAllResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /push/tags 接口。</para>
-        /// <para>REF: https://push.baidu.com/doc/restapi/restapi </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://push.baidu.com/doc/restapi/restapi ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -60,14 +69,17 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "push", "tags");
+                .CreateFlurlRequest(request, HttpMethod.Post, "push", "tags");
 
-            return await client.SendRequestWithFormUrlEncodedAsync<Models.PushTagsResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendRequestAsFormUrlEncodedAsync<Models.PushTagsResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /push/batch_device 接口。</para>
-        /// <para>REF: https://push.baidu.com/doc/restapi/restapi </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://push.baidu.com/doc/restapi/restapi ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -79,9 +91,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "push", "batch_device");
+                .CreateFlurlRequest(request, HttpMethod.Post, "push", "batch_device");
 
-            return await client.SendRequestWithFormUrlEncodedAsync<Models.PushBatchDeviceResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendRequestAsFormUrlEncodedAsync<Models.PushBatchDeviceResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

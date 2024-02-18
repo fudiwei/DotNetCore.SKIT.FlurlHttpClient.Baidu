@@ -1,7 +1,7 @@
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTests
 {
-    using SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.OpenApi;
-    using SKIT.FlurlHttpClient.Baidu.SmartApp.SDK.ThirdParty;
+    using SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi;
+    using SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty;
 
     internal class TestClients
     {

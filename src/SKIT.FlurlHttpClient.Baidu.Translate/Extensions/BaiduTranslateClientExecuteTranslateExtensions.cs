@@ -11,7 +11,10 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
     {
         /// <summary>
         /// <para>异步调用 [POST] /trans/vip/translate 接口。</para>
-        /// <para>REF: https://api.fanyi.baidu.com/doc/21 </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.fanyi.baidu.com/doc/21 ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -23,14 +26,17 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "trans", "vip", "translate");
+                .CreateFlurlRequest(request, HttpMethod.Post, "trans", "vip", "translate");
 
-            return await client.SendRequestWithFormUrlEncodedAsync<Models.TranslateVipTranslateResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsFormUrlEncodedAsync<Models.TranslateVipTranslateResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /trans/vip/fieldtranslate 接口。</para>
-        /// <para>REF: https://api.fanyi.baidu.com/doc/22 </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.fanyi.baidu.com/doc/22 ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -42,14 +48,17 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "trans", "vip", "fieldtranslate");
+                .CreateFlurlRequest(request, HttpMethod.Post, "trans", "vip", "fieldtranslate");
 
-            return await client.SendRequestWithFormUrlEncodedAsync<Models.TranslateVipFieldTranslateResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsFormUrlEncodedAsync<Models.TranslateVipFieldTranslateResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /trans/vip/language 接口。</para>
-        /// <para>REF: https://api.fanyi.baidu.com/doc/24 </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.fanyi.baidu.com/doc/24 ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -61,14 +70,17 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "trans", "vip", "language");
+                .CreateFlurlRequest(request, HttpMethod.Post, "trans", "vip", "language");
 
-            return await client.SendRequestWithFormUrlEncodedAsync<Models.TranslateVipLanguageResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsFormUrlEncodedAsync<Models.TranslateVipLanguageResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /trans/vip/doccount 接口。</para>
-        /// <para>REF: https://api.fanyi.baidu.com/doc/27 </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.fanyi.baidu.com/doc/27 ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -161,7 +173,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             }
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "trans", "vip", "doccount");
+                .CreateFlurlRequest(request, HttpMethod.Post, "trans", "vip", "doccount");
 
             using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: request.FileName!, fileBytes: request.FileBytes, fileContentType: fileContentType!, formDataName: "file");
             httpContent.Add(new StringContent(request.AppId!, Encoding.UTF8), "appid");
@@ -170,12 +182,15 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             httpContent.Add(new StringContent(request.To, Encoding.UTF8), "to");
             httpContent.Add(new StringContent(request.FileType!, Encoding.UTF8), "type");
             httpContent.Add(new StringContent(request.Signature!, Encoding.UTF8), "sign");
-            return await client.SendRequestAsync<Models.TranslateVipDocumentCountResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsync<Models.TranslateVipDocumentCountResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /trans/vip/doctrans 接口。</para>
-        /// <para>REF: https://api.fanyi.baidu.com/doc/27 </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.fanyi.baidu.com/doc/27 ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -268,11 +283,11 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             }
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "trans", "vip", "doctrans");
+                .CreateFlurlRequest(request, HttpMethod.Post, "trans", "vip", "doctrans");
 
-            if (request.FileBytes == null)
+            if (request.FileBytes is null)
             {
-                return await client.SendRequestWithFormUrlEncodedAsync<Models.TranslateVipDocumentTranslateResponse>(flurlReq, data: request, cancellationToken: cancellationToken);
+                return await client.SendFlurlRequestAsFormUrlEncodedAsync<Models.TranslateVipDocumentTranslateResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
             }
             else
             {
@@ -285,13 +300,16 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
                 httpContent.Add(new StringContent(request.To, Encoding.UTF8), "to");
                 httpContent.Add(new StringContent(request.FileType!, Encoding.UTF8), "type");
                 httpContent.Add(new StringContent(request.Signature!, Encoding.UTF8), "sign");
-                return await client.SendRequestAsync<Models.TranslateVipDocumentTranslateResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
+                return await client.SendFlurlRequestAsync<Models.TranslateVipDocumentTranslateResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
             }
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /trans/v2/voicetrans 接口。</para>
-        /// <para>REF: https://api.fanyi.baidu.com/doc/25 </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.fanyi.baidu.com/doc/25 ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -303,17 +321,20 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "trans", "v2", "voicetrans")
+                .CreateFlurlRequest(request, HttpMethod.Post, "trans", "v2", "voicetrans")
                 .WithHeader("X-Appid", request.AppId)
                 .WithHeader("X-Timestamp", request.Timestamp)
                 .WithHeader("X-Sign", request.Signature);
 
-            return await client.SendRequestWithJsonAsync<Models.TranslateVoiceTranslateV2Response>(flurlReq, data: request, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsJsonAsync<Models.TranslateVoiceTranslateV2Response>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
         /// <para>异步调用 [POST] /trans/sdk/picture 接口。</para>
-        /// <para>REF: https://api.fanyi.baidu.com/doc/26 </para>
+        /// <para>
+        /// REF: <br/>
+        /// <![CDATA[ https://api.fanyi.baidu.com/doc/26 ]]>
+        /// </para>
         /// </summary>
         /// <param name="client"></param>
         /// <param name="request"></param>
@@ -325,7 +346,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateRequest(request, HttpMethod.Post, "trans", "sdk", "picture");
+                .CreateFlurlRequest(request, HttpMethod.Post, "trans", "sdk", "picture");
 
             using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: "image.jpg", fileBytes: request.ImageFileBytes!, fileContentType: "image/jpeg", formDataName: "image");
             httpContent.Add(new StringContent(request.AppId!, Encoding.UTF8), "appid");
@@ -337,7 +358,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             httpContent.Add(new StringContent(request.To, Encoding.UTF8), "to");
             httpContent.Add(new StringContent(request.Version.ToString(), Encoding.UTF8), "version");
             httpContent.Add(new StringContent(request.Signature!, Encoding.UTF8), "sign");
-            return await client.SendRequestAsync<Models.TranslateSdkPictureResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken);
+            return await client.SendFlurlRequestAsync<Models.TranslateSdkPictureResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

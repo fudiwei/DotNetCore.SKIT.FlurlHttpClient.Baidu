@@ -5,7 +5,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp
     /// <summary>
     /// 当调用百度智能小程序 API 出错时引发的异常。
     /// </summary>
-    public class BaiduSmartAppException : CommonExceptionBase
+    public class BaiduSmartAppException : CommonException
     {
         /// <inheritdoc/>
         public BaiduSmartAppException()

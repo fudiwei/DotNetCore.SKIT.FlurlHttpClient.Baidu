@@ -12,17 +12,6 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
             }
         }
 
-        internal static class Converters
-        {
-            internal class RequestPropertyMessageNewtonsoftJsonConverter : Newtonsoft.Json.Converters.TextualObjectInJsonFormatConverterBase<Types.Message?>
-            {
-            }
-
-            internal class RequestPropertyMessageSystemTextJsonConverter : System.Text.Json.Converters.TextualObjectInJsonFormatConverterBase<Types.Message?>
-            {
-            }
-        }
-
         /// <summary>
         /// 获取或设置标签类型。
         /// <para>默认值：1</para>
@@ -56,9 +45,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         /// 获取或设置消息信息。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("msg")]
-        [Newtonsoft.Json.JsonConverter(typeof(Converters.RequestPropertyMessageNewtonsoftJsonConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedObjectInJsonFormatConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("msg")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(Converters.RequestPropertyMessageSystemTextJsonConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedObjectInJsonFormatConverter))]
         public Types.Message? Message { get; set; }
 
         /// <summary>
@@ -72,9 +61,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         /// 获取或设置消息信息。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("extra_msg")]
-        [Newtonsoft.Json.JsonConverter(typeof(Converters.RequestPropertyMessageNewtonsoftJsonConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedObjectInJsonFormatConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("extra_msg")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(Converters.RequestPropertyMessageSystemTextJsonConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedObjectInJsonFormatConverter))]
         public Types.Message? ExtraMessage { get; set; }
 
         /// <summary>
