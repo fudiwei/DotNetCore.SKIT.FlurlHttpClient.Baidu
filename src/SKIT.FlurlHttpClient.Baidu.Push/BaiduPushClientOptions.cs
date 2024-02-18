@@ -21,12 +21,6 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
         public string Endpoint { get; set; } = BaiduPushEndpoints.DEFAULT;
 
         /// <summary>
-        /// 获取或设置客户端用户代理。
-        /// <para>默认值：<i>根据操作系统自动生成</i></para>
-        /// </summary>
-        public string UserAgent { get; set; } = $"BCCS_SDK/3.0 ({Environment.OSVersion.Platform}; {Environment.OSVersion.VersionString}) .NET/{Environment.Version} (SKIT.FlurlHttpClient.Baidu.Push v{Assembly.GetExecutingAssembly().GetName().Version}) cli/Unknown";
-
-        /// <summary>
         /// 获取或设置百度云推送 API Key。
         /// </summary>
         public string ApiKey { get; set; } = default!;

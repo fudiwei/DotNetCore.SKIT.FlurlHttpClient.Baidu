@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFrameworks>net461; netstandard2.0; net6.0</TargetFrameworks>
-        <LangVersion>8.0</LangVersion>
+        <LangVersion>10.0</LangVersion>
         <Nullable>enable</Nullable>
         <NullableReferenceTypes>true</NullableReferenceTypes>
     </PropertyGroup>
@@ -14,7 +14,7 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu</PackageProjectUrl>
         <PackageTags>Flurl.Http Baidu 百度 百度推送 百度云推送</PackageTags>
-        <Version>2.0.0-beta.1</Version>
+        <Version>3.0.0-preview.1</Version>
         <Description>基于 Flurl.Http 的百度云推送 API 客户端。</Description>
         <Authors>Fu Diwei, code-jar</Authors>
         <RepositoryType>git</RepositoryType>
@@ -40,7 +40,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="SKIT.FlurlHttpClient.Common" Version="2.6.0" />
+        <PackageReference Include="SKIT.FlurlHttpClient.Common" Version="3.0.0" />
     </ItemGroup>
 
 </Project>

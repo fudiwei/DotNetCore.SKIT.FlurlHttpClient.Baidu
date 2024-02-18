@@ -5,12 +5,11 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using Flurl;
-using Flurl.Http.Configuration;
 using Xunit;
 
 namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests
 {
-    public partial class TestCase_RequestSignatureTests
+    public partial class TestCase_RequestSigningTests
     {
         // 此处测试的 API Key/SecretKey 是随机生成的，仅供执行请求签名相关的单元测试，不能用于调用百度云推送 API。
         private const string MOCK_ENDPOINTS = BaiduPushEndpoints.DEFAULT;
@@ -27,15 +26,15 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests
             var req = new Models.AppQueryTagsRequest() { TagName = "TAG" };
             var res = await client.ExecuteAppQueryTagsAsync(req);
 
-            var queryParams = new QueryParamCollection(res.RawHeaders[RESPONSE_HEADER_NAME_QUERY]);
-            string expectedSign = Utilities.MD5Utility.Hash(Utilities.UrlEncoder.Encode(
+            var queryParams = new QueryParamCollection(res.GetRawHeaders().GetFirstValueOrEmpty(RESPONSE_HEADER_NAME_QUERY));
+            string expectedSign = Utilities.MD5Utility.Hash(Utilities.QuirksUrlEncoder.Encode(
                 $"GET{MOCK_ENDPOINTS}/app/query_tags" +
                 $"apikey={(string)queryParams.GetAll("apikey").Single()}" +
                 $"expires={(string)queryParams.GetAll("expires").Single()}" +
                 $"tag={req.TagName}" +
                 $"timestamp={(string)queryParams.GetAll("timestamp").Single()}" +
                 $"{MOCK_API_SECRET_KEY}"
-            ));
+            ))!;
             string actualSign = (string)queryParams.GetAll("sign").Single();
             Assert.Equal(expectedSign, actualSign, ignoreCase: true);
         }
@@ -47,31 +46,27 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests
             var req = new Models.AppCreateTagRequest() { TagName = "TAG" };
             var res = await client.ExecuteAppCreateTagAsync(req);
 
-            var queryParams = new QueryParamCollection(res.RawHeaders[RESPONSE_HEADER_NAME_BODY]);
-            string expectedSign = Utilities.MD5Utility.Hash(Utilities.UrlEncoder.Encode(
+            var queryParams = new QueryParamCollection(res.GetRawHeaders().GetFirstValueOrEmpty(RESPONSE_HEADER_NAME_BODY));
+            string expectedSign = Utilities.MD5Utility.Hash(Utilities.QuirksUrlEncoder.Encode(
                 $"POST{MOCK_ENDPOINTS}/app/create_tag" +
                 $"apikey={(string)queryParams.GetAll("apikey").Single()}" +
                 $"expires={(string)queryParams.GetAll("expires").Single()}" +
                 $"tag={req.TagName}" +
                 $"timestamp={(string)queryParams.GetAll("timestamp").Single()}" +
                 $"{MOCK_API_SECRET_KEY}"
-            ));
+            ))!;
             string actualSign = (string)queryParams.GetAll("sign").Single();
             Assert.Equal(expectedSign, actualSign, ignoreCase: true);
         }
     }
 
-    partial class TestCase_RequestSignatureTests
+    partial class TestCase_RequestSigningTests
     {
-        public class MockHttpClientFactory : DefaultHttpClientFactory
+        public class MockHttpClient : HttpClient
         {
-            public MockHttpClientFactory()
+            public MockHttpClient()
+                : base(new MockHttpMessageHandler(new HttpClientHandler()))
             {
-            }
-
-            public override HttpMessageHandler CreateMessageHandler()
-            {
-                return new MockHttpMessageHandler(base.CreateMessageHandler());
             }
         }
 
@@ -86,12 +81,13 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests
             {
                 var resp = new HttpResponseMessage
                 {
-                    StatusCode = HttpStatusCode.OK,
+                    RequestMessage = request,
+                    StatusCode = HttpStatusCode.NoContent,
                     Content = new ByteArrayContent(Array.Empty<byte>()),
                 };
                 resp.Headers.TryAddWithoutValidation("Content-Length", (0).ToString());
-                resp.Headers.TryAddWithoutValidation(RESPONSE_HEADER_NAME_QUERY, request.RequestUri.Query);
-                resp.Headers.TryAddWithoutValidation(RESPONSE_HEADER_NAME_BODY, request.Content != null ? await request.Content.ReadAsStringAsync()! : string.Empty);
+                resp.Headers.TryAddWithoutValidation(RESPONSE_HEADER_NAME_QUERY, request.RequestUri!.Query);
+                resp.Headers.TryAddWithoutValidation(RESPONSE_HEADER_NAME_BODY, request.Content is not null ? await request.Content.ReadAsStringAsync()! : string.Empty);
                 return resp;
             }
         }
@@ -102,8 +98,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests
             {
                 ApiKey = MOCK_API_KEY,
                 SecretKey = MOCK_API_SECRET_KEY
-            });
-            client.Configure(settings => settings.FlurlHttpClientFactory = new MockHttpClientFactory());
+            }, new MockHttpClient());
             return client;
         }
     }

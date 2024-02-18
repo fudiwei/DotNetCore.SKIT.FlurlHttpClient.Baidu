@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("msg_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("msg_id")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Converters.NumericalStringReadOnlyConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
                 public string MessageId { get; set; } = default!;
 
                 /// <summary>

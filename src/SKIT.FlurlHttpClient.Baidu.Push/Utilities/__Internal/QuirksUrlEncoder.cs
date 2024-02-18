@@ -3,7 +3,7 @@ using System.Web;
 
 namespace SKIT.FlurlHttpClient.Baidu.Push.Utilities
 {
-    internal static class UrlEncoder
+    internal static class QuirksUrlEncoder
     {
         public static string Encode(string value)
         {

@@ -5,7 +5,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
     /// <summary>
     /// 当调用百度云推送 API 出错时引发的异常。
     /// </summary>
-    public class BaiduPushException : CommonExceptionBase
+    public class BaiduPushException : CommonException
     {
         /// <inheritdoc/>
         public BaiduPushException()
