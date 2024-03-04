@@ -46,7 +46,7 @@
 
 如何参与贡献请参阅 [CONTRIBUTING](./CONTRIBUTING.md)。
 
-### 特别鸣谢：
+### 特别鸣谢
 
 -   感谢 [@code-jar](https://github.com/code-jar) 对此项目中智能小程序开放平台模块的突出贡献。
 
