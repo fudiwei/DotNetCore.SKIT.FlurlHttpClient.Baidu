@@ -33,7 +33,7 @@
 
 <summary>[展开查看]</summary>
 
--   Release 3.0.0
+-   Release 3.0.0 (2024-02-18)
 
     -   首次发布。
 
@@ -47,11 +47,11 @@
 
 <summary>[展开查看]</summary>
 
--   Release 3.0.0
+-   Release 3.0.0 (2024-02-18)
 
     -   **变更**：升级公共组件至 v3.0.0。
 
--   Release 2.0.0
+-   Release 2.0.0 (2023-03-07)
 
     -   首次发布。
 
@@ -65,7 +65,7 @@
 
 <summary>[展开查看]</summary>
 
--   Release 3.0.0
+-   Release 3.0.0 (2024-02-18)
 
     -   首次发布。
 
