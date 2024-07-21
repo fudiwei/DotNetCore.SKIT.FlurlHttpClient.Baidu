@@ -175,7 +175,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "trans", "vip", "doccount");
 
-            using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: request.FileName!, fileBytes: request.FileBytes, fileContentType: fileContentType!, formDataName: "file");
+            using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: request.FileName!, fileBytes: request.FileBytes, fileContentType: fileContentType!, formDataName: "file");
             httpContent.Add(new StringContent(request.AppId!, Encoding.UTF8), "appid");
             httpContent.Add(new StringContent(request.From, Encoding.UTF8), "from");
             httpContent.Add(new StringContent(request.Timestamp!.Value.ToString(), Encoding.UTF8), "timestamp");
@@ -291,7 +291,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             }
             else
             {
-                using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: request.FileName!, fileBytes: request.FileBytes, fileContentType: fileContentType!, formDataName: "file");
+                using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: request.FileName!, fileBytes: request.FileBytes, fileContentType: fileContentType!, formDataName: "file");
                 httpContent.Add(new StringContent(request.AppId!, Encoding.UTF8), "appid");
                 httpContent.Add(new StringContent(request.FileId ?? string.Empty, Encoding.UTF8), "fileId");
                 httpContent.Add(new StringContent(request.From, Encoding.UTF8), "from");
@@ -348,7 +348,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "trans", "sdk", "picture");
 
-            using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: "image.jpg", fileBytes: request.ImageFileBytes!, fileContentType: "image/jpeg", formDataName: "image");
+            using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: "image.jpg", fileBytes: request.ImageFileBytes!, fileContentType: "image/jpeg", formDataName: "image");
             httpContent.Add(new StringContent(request.AppId!, Encoding.UTF8), "appid");
             httpContent.Add(new StringContent(request.CUID, Encoding.UTF8), "cuid");
             httpContent.Add(new StringContent(request.From, Encoding.UTF8), "from");

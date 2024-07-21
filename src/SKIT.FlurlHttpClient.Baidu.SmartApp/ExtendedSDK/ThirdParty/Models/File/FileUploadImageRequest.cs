@@ -27,5 +27,12 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public string? ImageFileName { get; set; }
+
+        /// <summary>
+        /// 获取或设置图片文件类型。如果不指定将由系统自动生成。
+        /// </summary>
+        [Newtonsoft.Json.JsonIgnore]
+        [System.Text.Json.Serialization.JsonIgnore]
+        public string? ImageFileContentType { get; set; }
     }
 }

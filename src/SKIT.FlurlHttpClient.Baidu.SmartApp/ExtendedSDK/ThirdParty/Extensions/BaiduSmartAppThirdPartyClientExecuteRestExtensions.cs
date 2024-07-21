@@ -2631,7 +2631,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "robots", "app", "upload")
                 .SetQueryParam("access_token", request.AccessToken);
 
-            using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: "robots.txt", fileBytes: request.RobotsFileBytes, fileContentType: "text/plain", formDataName: "robots");
+            using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: "robots.txt", fileBytes: request.RobotsFileBytes, fileContentType: "text/plain", formDataName: "robots");
             return await client.SendFlurlRequestAsync<Models.RestRobotsAppUploadResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
@@ -2656,7 +2656,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("template_id", request.TemplateId);
 
-            using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: "robots.txt", fileBytes: request.RobotsFileBytes, fileContentType: "text/plain", formDataName: "robots");
+            using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: "robots.txt", fileBytes: request.RobotsFileBytes, fileContentType: "text/plain", formDataName: "robots");
             httpContent.Add(new StringContent(request.TemplateId.ToString(), Encoding.UTF8), "template_id");
             return await client.SendFlurlRequestAsync<Models.RestRobotsTemplateUploadResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

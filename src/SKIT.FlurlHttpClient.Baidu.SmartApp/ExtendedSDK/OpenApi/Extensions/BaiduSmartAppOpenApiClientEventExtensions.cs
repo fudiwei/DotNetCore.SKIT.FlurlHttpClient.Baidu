@@ -4,6 +4,8 @@ using System.Xml.Linq;
 
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
 {
+    using SKIT.FlurlHttpClient;
+    using SKIT.FlurlHttpClient.Internal;
     using SKIT.FlurlHttpClient.Primitives;
 
     public static partial class BaiduSmartAppOpenApiClientEventExtensions
@@ -252,7 +254,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                     webhookXml = Utilities.BaiduMsgCryptor.AESDecrypt(cipherText: msgEncrypt!, encodingAESKey: client.Credentials.PushEncodingAESKey!, out _);
                 }
 
-                return Utilities.XmlHelper.Deserialize<TEvent>(webhookXml);
+                return (TEvent)_XmlSimpleSerializer.Deserialize(webhookXml, typeof(TEvent));
             }
             catch (BaiduSmartAppException)
             {

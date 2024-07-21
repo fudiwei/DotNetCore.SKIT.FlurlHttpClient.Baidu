@@ -238,7 +238,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "v1.0", "coupon", "upload", "image")
                 .SetQueryParam("access_token", request.AccessToken);
 
-            using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: "image.jpg", fileBytes: request.ImageFileBytes, fileContentType: "image/jpeg", formDataName: "file");
+            using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: "image.jpg", fileBytes: request.ImageFileBytes, fileContentType: "image/jpeg", formDataName: "file");
             return await client.SendFlurlRequestAsync<Models.RestCouponUploadImageResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
@@ -1220,7 +1220,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "riskDetection", "v2", "syncCheckImage")
                 .SetQueryParam("access_token", request.AccessToken);
 
-            using var httpContent = Utilities.FileHttpContentBuilder.Build(fileName: "image.jpg", fileBytes: request.ImageFileBytes, fileContentType: "image/jpeg", formDataName: "image");
+            using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: "image.jpg", fileBytes: request.ImageFileBytes, fileContentType: "image/jpeg", formDataName: "image");
             if (request.TypeList is not null)
                 httpContent.Add(new StringContent(string.Join(",", request.TypeList), Encoding.UTF8), "type");
 
