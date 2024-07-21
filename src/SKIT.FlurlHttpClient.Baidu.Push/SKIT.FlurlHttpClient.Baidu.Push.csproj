@@ -14,7 +14,7 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu</PackageProjectUrl>
         <PackageTags>Flurl.Http Baidu 百度 百度推送 百度云推送</PackageTags>
-        <Version>3.0.0</Version>
+        <Version>3.1.0</Version>
         <Description>基于 Flurl.Http 的百度云推送 API 客户端。</Description>
         <Authors>Fu Diwei</Authors>
         <RepositoryType>git</RepositoryType>
