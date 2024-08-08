@@ -377,14 +377,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "v1.0", "coupon", "batchGet")
                 .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("title", request.Title)
+                .SetQueryParam("couponType", request.CouponType)
                 .SetQueryParam("pageNum", request.PageNumber)
                 .SetQueryParam("pageSize", request.PageSize);
-
-            if (request.Title is not null)
-                flurlReq.SetQueryParam("title", request.Title);
-
-            if (request.CouponType is not null)
-                flurlReq.SetQueryParam("couponType", request.CouponType);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestCouponBatchGetResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -579,10 +575,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ma", "component", "comment", "tcount")
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("snid", request.ContentId)
-                .SetQueryParam("snid_type", request.ContentIdType);
-
-            if (request.HostName is not null)
-                flurlReq.SetQueryParam("host_name", request.HostName);
+                .SetQueryParam("snid_type", request.ContentIdType)
+                .SetQueryParam("host_name", request.HostName);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestMAComponentCommentCountResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -608,11 +602,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("snid", request.ContentId)
                 .SetQueryParam("snid_type", request.ContentIdType)
+                .SetQueryParam("host_name", request.HostName)
                 .SetQueryParam("start", request.PageOffset)
                 .SetQueryParam("num", request.PageSize);
-
-            if (request.HostName is not null)
-                flurlReq.SetQueryParam("host_name", request.HostName);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestMAComponentCommentOpenListResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -675,10 +667,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .SetQueryParam("open_id", request.OpenId)
                 .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
-                .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName is not null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
+                .SetQueryParam("scene_type", request.SceneType)
+                .SetQueryParams("hostname", request.HostName);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestOrderCenterAppAddMainInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -709,10 +699,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .SetQueryParam("open_id", request.OpenId)
                 .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
-                .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName is not null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
+                .SetQueryParam("scene_type", request.SceneType)
+                .SetQueryParams("hostname", request.HostName);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestOrderCenterAppUpdateMainInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -743,10 +731,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .SetQueryParam("open_id", request.OpenId)
                 .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
-                .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName is not null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
+                .SetQueryParam("scene_type", request.SceneType)
+                .SetQueryParams("hostname", request.HostName);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestOrderCenterAppUpdateMainStatusResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -777,10 +763,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .SetQueryParam("open_id", request.OpenId)
                 .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
-                .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName is not null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
+                .SetQueryParam("scene_type", request.SceneType)
+                .SetQueryParams("hostname", request.HostName);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestOrderCenterAppUpdateMainLogisticsResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -811,10 +795,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .SetQueryParam("open_id", request.OpenId)
                 .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
-                .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName is not null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
+                .SetQueryParam("scene_type", request.SceneType)
+                .SetQueryParams("hostname", request.HostName);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestOrderCenterAppAppendSubInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -845,10 +827,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .SetQueryParam("open_id", request.OpenId)
                 .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
-                .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName is not null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
+                .SetQueryParam("scene_type", request.SceneType)
+                .SetQueryParams("hostname", request.HostName);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestOrderCenterAppUpdateSubInfoResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -879,10 +859,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .SetQueryParam("open_id", request.OpenId)
                 .SetQueryParam("swan_id", request.SwanId)
                 .SetQueryParam("scene_id", request.SceneId)
-                .SetQueryParam("scene_type", request.SceneType);
-
-            if (request.HostName is not null)
-                flurlReq.SetQueryParams("hostname", request.HostName);
+                .SetQueryParam("scene_type", request.SceneType)
+                .SetQueryParams("hostname", request.HostName);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestOrderCenterAppUpdateSubStatusResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -909,10 +887,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "oss", "publisher", "ugc", "like_count")
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("snid", request.ContentId)
-                .SetQueryParam("snid_type", request.ContentIdType);
-
-            if (request.HostName is not null)
-                flurlReq.SetQueryParam("host_name", request.HostName);
+                .SetQueryParam("snid_type", request.ContentIdType)
+                .SetQueryParam("host_name", request.HostName);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestOSSPublisherUGCLikeCountResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

@@ -155,13 +155,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "sitemap", "submit")
                 .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("app_id", request.AppId)
                 .SetQueryParam("type", request.ActionType)
                 .SetQueryParam("frequency", request.FrequencyType)
                 .SetQueryParam("desc", request.Description)
                 .SetQueryParam("url", request.SitemapUrl);
-
-            if (request.AppId is not null)
-                flurlReq.SetQueryParam("app_id", request.AppId);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestAccessSitemapSubmitResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -185,10 +183,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "sitemap", "delete")
                 .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("app_id", request.AppId)
                 .SetQueryParam("url", request.SitemapUrl);
-
-            if (request.AppId is not null)
-                flurlReq.SetQueryParam("app_id", request.AppId);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestAccessSitemapDeleteResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -212,6 +208,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "resource", "submit")
                 .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("app_id", request.AppId)
                 .SetQueryParam("title", request.Title)
                 .SetQueryParam("body", request.Body)
                 .SetQueryParam("ext", request.ExtraJson)
@@ -222,9 +219,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
                 .SetQueryParam("images", client.JsonSerializer.Serialize(request.ImageUrlList))
                 .SetQueryParam("tags", string.Join(",", request.TagList))
                 .SetQueryParam("path", request.PagePath);
-
-            if (request.AppId is not null)
-                flurlReq.SetQueryParam("app_id", request.AppId);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestAccessResourceSubmitResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -248,10 +242,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "resource", "delete")
                 .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("app_id", request.AppId)
                 .SetQueryParam("path", request.PagePath);
-
-            if (request.AppId is not null)
-                flurlReq.SetQueryParam("app_id", request.AppId);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestAccessResourceDeleteResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -300,10 +292,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "app", "setnicknamewithqual")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("nick_name", request.AppName);
-
-            if (request.QualificationMaterial is not null)
-                flurlReq.SetQueryParam("qual_materials", client.JsonSerializer.Serialize(request.QualificationMaterial));
+                .SetQueryParam("nick_name", request.AppName)
+                .SetQueryParam("qual_materials", request.QualificationMaterial is null ? null : client.JsonSerializer.Serialize(request.QualificationMaterial));
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestAppSetNickNameWithQualificationResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -327,10 +317,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "app", "checknamewithqual")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("app_name", request.AppName);
-
-            if (request.QualificationMaterial is not null)
-                flurlReq.SetQueryParam("qual_materials", client.JsonSerializer.Serialize(request.QualificationMaterial));
+                .SetQueryParam("app_name", request.AppName)
+                .SetQueryParam("qual_materials", request.QualificationMaterial is null ? null : client.JsonSerializer.Serialize(request.QualificationMaterial));
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestAppCheckNameWithQualificationResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -401,10 +389,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "app", "category", "update")
-                .SetQueryParam("access_token", request.AccessToken);
-
-            if (request.CategoryList is not null)
-                flurlReq.SetQueryParam("categorys", client.JsonSerializer.Serialize(request.CategoryList));
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("categorys", request.CategoryList is null ? null : client.JsonSerializer.Serialize(request.CategoryList));
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestAppCategoryUpdateResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -520,16 +506,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "app", "qrcode")
-                .SetQueryParam("access_token", request.AccessToken);
-
-            if (request.PagePath is not null)
-                flurlReq.SetQueryParam("path", request.PagePath);
-
-            if (request.PackageId is not null)
-                flurlReq.SetQueryParam("package_id", request.PackageId.Value);
-
-            if (request.Width is not null)
-                flurlReq.SetQueryParam("width", request.Width.Value);
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("path", request.PagePath)
+                .SetQueryParam("package_id", request.PackageId)
+                .SetQueryParam("width", request.Width);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestAppQrcodeResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -553,19 +533,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "app", "modifydomain")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("action", request.Action);
-
-            if (request.RequestDomainList is not null)
-                flurlReq.SetQueryParam("request_domain", string.Join(",", request.RequestDomainList));
-
-            if (request.UploadDomainList is not null)
-                flurlReq.SetQueryParam("upload_domain", string.Join(",", request.UploadDomainList));
-
-            if (request.DownloadDomainList is not null)
-                flurlReq.SetQueryParam("download_domain", string.Join(",", request.DownloadDomainList));
-
-            if (request.SocketDomainList is not null)
-                flurlReq.SetQueryParam("socket_domain", string.Join(",", request.SocketDomainList));
+                .SetQueryParam("action", request.Action)
+                .SetQueryParam("request_domain", request.RequestDomainList is null ? null : string.Join(",", request.RequestDomainList))
+                .SetQueryParam("upload_domain", request.UploadDomainList is null ? null : string.Join(",", request.UploadDomainList))
+                .SetQueryParam("download_domain", request.DownloadDomainList is null ? null : string.Join(",", request.DownloadDomainList))
+                .SetQueryParam("socket_domain", request.SocketDomainList is null ? null : string.Join(",", request.SocketDomainList));
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestAppModifyDomainResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -589,10 +561,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "app", "modifywebviewdomain")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("action", request.Action);
-
-            if (request.WebViewDomainList is not null)
-                flurlReq.SetQueryParam("web_view_domain", string.Join(",", request.WebViewDomainList));
+                .SetQueryParam("action", request.Action)
+                .SetQueryParam("web_view_domain", request.WebViewDomainList is null ? null : string.Join(",", request.WebViewDomainList));
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestAppModifyWebviewDomainResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -868,10 +838,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisusertrend")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.PageOffset)
+                .SetQueryParam("gran", request.Granularity)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString)
-                .SetQueryParam("gran", request.Granularity);
+                .SetQueryParam("start_index", request.PageOffset);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestDataGetAnalysisUserTrendResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -895,9 +865,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisactivityuser")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
-                .SetQueryParam("end_date", request.EndDateString);
+                .SetQueryParam("end_date", request.EndDateString)
+                .SetQueryParam("start_index", request.PageOffset);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestDataGetAnalysisActivityUserResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -921,11 +891,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisretaineduser")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.PageOffset)
+                .SetQueryParam("gran", request.Granularity)
+                .SetQueryParam("report_type", request.ReportType)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString)
-                .SetQueryParam("gran", request.Granularity)
-                .SetQueryParam("report_type", request.ReportType);
+                .SetQueryParam("start_index", request.PageOffset);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestDataGetAnalysisRetainedUserResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -974,9 +944,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisregion")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
-                .SetQueryParam("end_date", request.EndDateString);
+                .SetQueryParam("end_date", request.EndDateString)
+                .SetQueryParam("start_index", request.PageOffset);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestDataGetAnalysisRegionResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -1000,10 +970,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisterminal")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.PageOffset)
+                .SetQueryParam("terminal_type", request.TerminalDataType)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString)
-                .SetQueryParam("terminal_type", request.TerminalDataType);
+                .SetQueryParam("start_index", request.PageOffset);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestDataGetAnalysisTerminalResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -1027,9 +997,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisvisitpage")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
-                .SetQueryParam("end_date", request.EndDateString);
+                .SetQueryParam("end_date", request.EndDateString)
+                .SetQueryParam("start_index", request.PageOffset);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestDataGetAnalysisVisitPageResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -1053,10 +1023,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysisvisitcharacter")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString)
-                .SetQueryParam("character_type", request.CharacterType);
+                .SetQueryParam("character_type", request.CharacterType)
+                .SetQueryParam("start_index", request.PageOffset);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestDataGetAnalysisVisitCharacterResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -1080,9 +1050,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "getanalysissource")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("start_date", request.StartDateString)
-                .SetQueryParam("end_date", request.EndDateString);
+                .SetQueryParam("end_date", request.EndDateString)
+                .SetQueryParam("start_index", request.PageOffset);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestDataGetAnalysisSourceResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -1106,16 +1076,12 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "data", "gettpdata")
                 .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("scene", request.SceneId)
+                .SetQueryParam("metrics", request.Metrics)
                 .SetQueryParam("start_index", request.PageOffset)
                 .SetQueryParam("max_results", request.PageSize)
                 .SetQueryParam("start_date", request.StartDateString)
                 .SetQueryParam("end_date", request.EndDateString);
-
-            if (request.SceneId is not null)
-                flurlReq.SetQueryParam("scene", request.SceneId);
-
-            if (request.Metrics is not null)
-                flurlReq.SetQueryParam("metrics", request.Metrics);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestDataGetThirdPartyDataResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -1141,19 +1107,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "tp", "modifydomain")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("action", request.Action);
-
-            if (request.RequestDomainList is not null)
-                flurlReq.SetQueryParam("request_domain", string.Join(",", request.RequestDomainList));
-
-            if (request.UploadDomainList is not null)
-                flurlReq.SetQueryParam("upload_domain", string.Join(",", request.UploadDomainList));
-
-            if (request.DownloadDomainList is not null)
-                flurlReq.SetQueryParam("download_domain", string.Join(",", request.DownloadDomainList));
-
-            if (request.SocketDomainList is not null)
-                flurlReq.SetQueryParam("socket_domain", string.Join(",", request.SocketDomainList));
+                .SetQueryParam("action", request.Action)
+                .SetQueryParam("request_domain", request.RequestDomainList is null ? null : string.Join(",", request.RequestDomainList))
+                .SetQueryParam("upload_domain", request.UploadDomainList is null ? null : string.Join(",", request.UploadDomainList))
+                .SetQueryParam("download_domain", request.DownloadDomainList is null ? null : string.Join(",", request.DownloadDomainList))
+                .SetQueryParam("socket_domain", request.SocketDomainList is null ? null : string.Join(",", request.SocketDomainList));
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestThirdPartyModifyDomainResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -1177,10 +1135,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "tp", "modifywebviewdomain")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("action", request.Action);
-
-            if (request.WebViewDomainList is not null)
-                flurlReq.SetQueryParam("web_view_domain", string.Join(",", request.WebViewDomainList));
+                .SetQueryParam("action", request.Action)
+                .SetQueryParam("web_view_domain", request.WebViewDomainList is null ? null :string.Join(",", request.WebViewDomainList));
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestThirdPartyModifyWebviewDomainResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -1380,13 +1336,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("user_type", request.UserType)
                 .SetQueryParam("open_id", request.OpenId)
-                .SetQueryParam("msg_type", request.MessageType);
-
-            if (request.Content is not null)
-                flurlReq.SetQueryParam("content", request.Content);
-
-            if (request.PictureUrl is not null)
-                flurlReq.SetQueryParam("pic_url", request.PictureUrl);
+                .SetQueryParam("msg_type", request.MessageType)
+                .SetQueryParam("content", request.Content)
+                .SetQueryParam("pic_url", request.PictureUrl);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestMessageCustomSendByThirdPartyResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -1750,13 +1702,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "package", "getdetail")
-                .SetQueryParam("access_token", request.AccessToken);
-
-            if (request.Type is not null)
-                flurlReq.SetQueryParam("type", request.Type.Value);
-
-            if (request.PackageId is not null)
-                flurlReq.SetQueryParam("package_id", request.PackageId.Value);
+                .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("type", request.Type)
+                .SetQueryParam("package_id", request.PackageId);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestPackageGetDetailResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -1798,50 +1746,22 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
                 .SetQueryParam("industry_id", request.IndustryId)
                 .SetQueryParam("manage_permit_url", request.PermitQualificationUrl)
                 .SetQueryParam("auth_capital", request.RegisteredCapital)
-                .SetQueryParam("manager_same", request.IsManagerSameWithLegalPerson)
-                .SetQueryParam("benefit_same", request.IsBeneficiarySameWithLegalPerson);
-
-            if (request.ManagerName is not null)
-                flurlReq.SetQueryParam("manager", request.ManagerName);
-
-            if (request.ManagerIdType is not null)
-                flurlReq.SetQueryParam("manager_card_type", request.ManagerIdType.Value);
-
-            if (request.ManagerIdNumber is not null)
-                flurlReq.SetQueryParam("manager_card", request.ManagerIdNumber);
-
-            if (request.ManagerIdCardFrontPictureUrl is not null)
-                flurlReq.SetQueryParam("manager_card_front_url", request.ManagerIdCardFrontPictureUrl);
-
-            if (request.ManagerIdCardBackPictureUrl is not null)
-                flurlReq.SetQueryParam("manager_card_back_url", request.ManagerIdCardBackPictureUrl);
-
-            if (request.ManagerIdCardStartTimeString is not null)
-                flurlReq.SetQueryParam("manager_card_start_time", request.ManagerIdCardStartTimeString);
-
-            if (request.ManagerIdCardEndTimeString is not null)
-                flurlReq.SetQueryParam("manager_card_end_time", request.ManagerIdCardEndTimeString);
-
-            if (request.BeneficiaryName is not null)
-                flurlReq.SetQueryParam("benefit", request.BeneficiaryName);
-
-            if (request.BeneficiaryIdType is not null)
-                flurlReq.SetQueryParam("benefit_card_type", request.BeneficiaryIdType.Value);
-
-            if (request.BeneficiaryIdNumber is not null)
-                flurlReq.SetQueryParam("benefit_card", request.BeneficiaryIdNumber);
-
-            if (request.BeneficiaryIdCardFrontPictureUrl is not null)
-                flurlReq.SetQueryParam("benefit_card_front_url", request.BeneficiaryIdCardFrontPictureUrl);
-
-            if (request.BeneficiaryIdCardBackPictureUrl is not null)
-                flurlReq.SetQueryParam("benefit_card_back_url", request.BeneficiaryIdCardBackPictureUrl);
-
-            if (request.BeneficiaryIdCardStartTimeString is not null)
-                flurlReq.SetQueryParam("benefit_start_time", request.BeneficiaryIdCardStartTimeString);
-
-            if (request.BeneficiaryIdCardEndTimeString is not null)
-                flurlReq.SetQueryParam("benefit_end_time", request.BeneficiaryIdCardEndTimeString);
+                .SetQueryParam("manager_same", request.IsManagerSameWithLegalPerson ? "true" : "false")
+                .SetQueryParam("manager", request.ManagerName)
+                .SetQueryParam("manager_card_type", request.ManagerIdType)
+                .SetQueryParam("manager_card", request.ManagerIdNumber)
+                .SetQueryParam("manager_card_front_url", request.ManagerIdCardFrontPictureUrl)
+                .SetQueryParam("manager_card_back_url", request.ManagerIdCardBackPictureUrl)
+                .SetQueryParam("manager_card_start_time", request.ManagerIdCardStartTimeString)
+                .SetQueryParam("manager_card_end_time", request.ManagerIdCardEndTimeString)
+                .SetQueryParam("benefit_same", request.IsBeneficiarySameWithLegalPerson ? "true" : "false")
+                .SetQueryParam("benefit", request.BeneficiaryName)
+                .SetQueryParam("benefit_card_type", request.BeneficiaryIdType)
+                .SetQueryParam("benefit_card", request.BeneficiaryIdNumber)
+                .SetQueryParam("benefit_card_front_url", request.BeneficiaryIdCardFrontPictureUrl)
+                .SetQueryParam("benefit_card_back_url", request.BeneficiaryIdCardBackPictureUrl)
+                .SetQueryParam("benefit_start_time", request.BeneficiaryIdCardStartTimeString)
+                .SetQueryParam("benefit_end_time", request.BeneficiaryIdCardEndTimeString);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestPayAccountCreateResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -2591,20 +2511,12 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pushmsg", "getmsg")
                 .SetQueryParam("access_token", request.AccessToken)
+                .SetQueryParam("push_type", request.PushType)
+                .SetQueryParam("id_list", request.EventMessageIdList is null ? null : string.Join(",", request.EventMessageIdList))
+                .SetQueryParam("start", request.StartTimestamp)
+                .SetQueryParam("end", request.EndTimestamp)
                 .SetQueryParam("offset", request.PageOffset)
                 .SetQueryParam("count", request.PageSize);
-
-            if (request.StartTimestamp is not null)
-                flurlReq.SetQueryParam("start", request.StartTimestamp.Value);
-
-            if (request.EndTimestamp is not null)
-                flurlReq.SetQueryParam("end", request.EndTimestamp.Value);
-
-            if (request.PushType is not null)
-                flurlReq.SetQueryParam("push_type", request.PushType.Value);
-
-            if (request.EventMessageIdList is not null)
-                flurlReq.SetQueryParam("id_list", string.Join(",", request.EventMessageIdList));
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestPushMessageGetMessageResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -2683,13 +2595,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "subchain", "add")
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("chain_name", request.SubchainName)
-                .SetQueryParam("chain_desc", request.SubchainDescription);
-
-            if (request.PagePath is not null)
-                flurlReq.SetQueryParam("chain_name", request.PagePath);
-
-            if (request.PhoneNumber is not null)
-                flurlReq.SetQueryParam("telephone", request.PhoneNumber);
+                .SetQueryParam("chain_desc", request.SubchainDescription)
+                .SetQueryParam("chain_name", request.PagePath)
+                .SetQueryParam("telephone", request.PhoneNumber);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestSubchainAddResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -2739,13 +2647,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("subchain_id", request.SubchainId)
                 .SetQueryParam("chain_name", request.SubchainName)
-                .SetQueryParam("chain_desc", request.SubchainDescription);
-
-            if (request.PagePath is not null)
-                flurlReq.SetQueryParam("chain_name", request.PagePath);
-
-            if (request.PhoneNumber is not null)
-                flurlReq.SetQueryParam("telephone", request.PhoneNumber);
+                .SetQueryParam("chain_desc", request.SubchainDescription)
+                .SetQueryParam("chain_name", request.PagePath)
+                .SetQueryParam("telephone", request.PhoneNumber);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestSubchainUpdateResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -2792,7 +2696,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "subchain", "rank")
                 .SetQueryParam("access_token", request.AccessToken)
-                .SetQueryParam("subchain_ranklist", string.Join(",", request.SubchainIdList));
+                .SetQueryParam("subchain_ranklist", request.SubchainIdList is null ? null : string.Join(",", request.SubchainIdList));
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestSubchainRankResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -3091,19 +2995,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "template", "sendmessage")
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("template_id", request.TemplateId)
-                .SetQueryParam("touser_openId", request.ToUserOpenId);
-
-            if (request.Data is not null)
-                flurlReq.SetQueryParam("data", client.JsonSerializer.Serialize(request.Data));
-
-            if (request.PagePath is not null)
-                flurlReq.SetQueryParam("page", request.PagePath);
-
-            if (request.SceneId is not null)
-                flurlReq.SetQueryParam("scene_id", request.SceneId);
-
-            if (request.SceneType is not null)
-                flurlReq.SetQueryParam("scene_type", request.SceneType);
+                .SetQueryParam("touser_openId", request.ToUserOpenId)
+                .SetQueryParam("data", request.Data is null ? null : client.JsonSerializer.Serialize(request.Data))
+                .SetQueryParam("page", request.PagePath)
+                .SetQueryParam("scene_id", request.SceneId)
+                .SetQueryParam("scene_type", request.SceneType);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestTemplateSendMessageResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

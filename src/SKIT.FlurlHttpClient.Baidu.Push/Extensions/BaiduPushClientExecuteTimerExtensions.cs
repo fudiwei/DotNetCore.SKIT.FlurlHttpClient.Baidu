@@ -26,16 +26,10 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, "timer", "query_list");
-
-            if (request.TimerId is not null)
-                flurlReq.SetQueryParam("timer_id", request.TimerId);
-
-            if (request.Start is not null)
-                flurlReq.SetQueryParam("start", request.Start.Value);
-
-            if (request.Limit is not null)
-                flurlReq.SetQueryParam("limit", request.Limit.Value);
+                .CreateFlurlRequest(request, HttpMethod.Get, "timer", "query_list")
+                .SetQueryParam("timer_id", request.TimerId)
+                .SetQueryParam("start", request.Start)
+                .SetQueryParam("limit", request.Limit);
 
             return await client.SendRequestAsFormUrlEncodedAsync<Models.TimerQueryListResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

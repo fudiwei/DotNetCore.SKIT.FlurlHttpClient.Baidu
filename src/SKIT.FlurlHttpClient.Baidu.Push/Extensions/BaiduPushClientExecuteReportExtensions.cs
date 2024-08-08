@@ -49,19 +49,11 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "report", "query_timer_records")
-                .SetQueryParam("timer_id", request.TimerId);
-
-            if (request.Start is not null)
-                flurlReq.SetQueryParam("start", request.Start.Value);
-
-            if (request.Limit is not null)
-                flurlReq.SetQueryParam("limit", request.Limit.Value);
-
-            if (request.StartTimestamp is not null)
-                flurlReq.SetQueryParam("range_start", request.StartTimestamp.Value);
-
-            if (request.EndTimestamp is not null)
-                flurlReq.SetQueryParam("range_end", request.EndTimestamp.Value);
+                .SetQueryParam("timer_id", request.TimerId)
+                .SetQueryParam("range_start", request.StartTimestamp)
+                .SetQueryParam("range_end", request.EndTimestamp)
+                .SetQueryParam("start", request.Start)
+                .SetQueryParam("limit", request.Limit);
 
             return await client.SendRequestAsFormUrlEncodedAsync<Models.ReportQueryTimerRecordsResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -84,19 +76,11 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "report", "query_topic_records")
-                .SetQueryParam("topic_id", request.TopicId);
-
-            if (request.Start is not null)
-                flurlReq.SetQueryParam("start", request.Start.Value);
-
-            if (request.Limit is not null)
-                flurlReq.SetQueryParam("limit", request.Limit.Value);
-
-            if (request.StartTimestamp is not null)
-                flurlReq.SetQueryParam("range_start", request.StartTimestamp.Value);
-
-            if (request.EndTimestamp is not null)
-                flurlReq.SetQueryParam("range_end", request.EndTimestamp.Value);
+                .SetQueryParam("topic_id", request.TopicId)
+                .SetQueryParam("range_start", request.StartTimestamp)
+                .SetQueryParam("range_end", request.EndTimestamp)
+                .SetQueryParam("start", request.Start)
+                .SetQueryParam("limit", request.Limit);
 
             return await client.SendRequestAsFormUrlEncodedAsync<Models.ReportQueryTopicRecordsResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

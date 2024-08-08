@@ -25,16 +25,10 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             IFlurlRequest flurlReq = client
-                .CreateFlurlRequest(request, HttpMethod.Get, "app", "query_tags");
-
-            if (request.TagName is not null)
-                flurlReq.SetQueryParam("tag", request.TagName);
-
-            if (request.Start is not null)
-                flurlReq.SetQueryParam("start", request.Start.Value);
-
-            if (request.Limit is not null)
-                flurlReq.SetQueryParam("limit", request.Limit.Value);
+                .CreateFlurlRequest(request, HttpMethod.Get, "app", "query_tags")
+                .SetQueryParam("tag", request.TagName)
+                .SetQueryParam("start", request.Start)
+                .SetQueryParam("limit", request.Limit);
 
             return await client.SendRequestAsFormUrlEncodedAsync<Models.AppQueryTagsResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
