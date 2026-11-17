@@ -2,32 +2,18 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net462; netstandard2.0; net6.0</TargetFrameworks>
-		<LangVersion>10.0</LangVersion>
-		<Nullable>enable</Nullable>
-		<NullableReferenceTypes>true</NullableReferenceTypes>
 	</PropertyGroup>
 
 	<PropertyGroup>
 		<PackageId>SKIT.FlurlHttpClient.Baidu.SmartApp</PackageId>
+		<PackageVersion>3.1.0</PackageVersion>
 		<PackageIcon>LOGO.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu</PackageProjectUrl>
 		<PackageTags>Flurl.Http Baidu 百度 百度智能小程序 百度小程序 SmartApp SmartProgram</PackageTags>
-		<Version>3.1.0</Version>
-		<Description>基于 Flurl.Http 的百度智能小程序开放平台 API 客户端，支持服务端 OpenAPI、第三方平台 OpenAPI 模式。</Description>
 		<Authors>Fu Diwei, code-jar</Authors>
-		<RepositoryType>git</RepositoryType>
-		<RepositoryUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu.git</RepositoryUrl>
-	</PropertyGroup>
-
-	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
-		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
-		<Deterministic>true</Deterministic>
-		<EmbedUntrackedSources>true</EmbedUntrackedSources>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<IncludeSymbols>true</IncludeSymbols>
-		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<Description>基于 Flurl.Http 的百度智能小程序开放平台 API 客户端，支持服务端 OpenAPI、第三方平台 OpenAPI 模式。</Description>
 	</PropertyGroup>
 
 	<ItemGroup>
