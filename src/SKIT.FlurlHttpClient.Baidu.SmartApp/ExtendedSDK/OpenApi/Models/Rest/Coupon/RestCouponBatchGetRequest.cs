@@ -6,14 +6,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
     public class RestCouponBatchGetRequest : BaiduSmartAppOpenApiRequest
     {
         /// <summary>
-        /// 获取或设置卡券名称。</para>
+        /// 获取或设置卡券名称。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public string? Title { get; set; }
 
         /// <summary>
-        /// 获取或设置卡券类型。</para>
+        /// 获取或设置卡券类型。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
