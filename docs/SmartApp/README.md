@@ -1,4 +1,4 @@
-﻿# SKIT.FlurlHttpClient.Baidu.SmartApp
+# SKIT.FlurlHttpClient.Baidu.SmartApp
 
 基于 `Flurl.Http` 的[百度智能小程序开放平台](https://smartprogram.baidu.com/) API 客户端 SDK。
 

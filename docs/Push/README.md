@@ -1,4 +1,4 @@
-﻿# SKIT.FlurlHttpClient.Baidu.Push
+# SKIT.FlurlHttpClient.Baidu.Push
 
 基于 `Flurl.Http` 的[百度云推送](https://push.baidu.com/) API 客户端 SDK。
 

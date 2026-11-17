@@ -1,4 +1,4 @@
-﻿# SKIT.FlurlHttpClient.Baidu.Translate
+# SKIT.FlurlHttpClient.Baidu.Translate
 
 基于 `Flurl.Http` 的[百度翻译开放平台](https://api.fanyi.baidu.com/) API 客户端 SDK。
 

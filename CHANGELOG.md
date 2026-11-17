@@ -1,4 +1,4 @@
-﻿# CHANGELOG
+# CHANGELOG
 
 ### 版本说明
 
