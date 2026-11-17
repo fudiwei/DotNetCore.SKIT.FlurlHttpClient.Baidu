@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 
 namespace SKIT.FlurlHttpClient.Baidu.Push.Models
 {
@@ -115,9 +114,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         /// 获取或设置消息信息。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("msg")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedObjectInJsonFormatConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedObjectInJsonFormatConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("msg")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedObjectInJsonFormatConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedObjectInJsonFormatConverter))]
         public Types.Message? Message { get; set; }
 
         /// <summary>
@@ -131,9 +130,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         /// 获取或设置消息信息。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("extra_msg")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedObjectInJsonFormatConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedObjectInJsonFormatConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("extra_msg")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedObjectInJsonFormatConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedObjectInJsonFormatConverter))]
         public Types.Message? ExtraMessage { get; set; }
 
         /// <summary>

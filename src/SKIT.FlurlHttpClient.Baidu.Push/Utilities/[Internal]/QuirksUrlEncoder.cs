@@ -1,6 +1,3 @@
-using System.Text;
-using System.Web;
-
 namespace SKIT.FlurlHttpClient.Baidu.Push.Utilities
 {
     internal static class QuirksUrlEncoder

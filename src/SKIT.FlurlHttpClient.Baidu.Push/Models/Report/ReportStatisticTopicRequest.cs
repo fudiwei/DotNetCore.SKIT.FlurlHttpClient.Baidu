@@ -12,9 +12,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public string TopicId { get; set; } = string.Empty;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override int? DeviceType { get; set; }

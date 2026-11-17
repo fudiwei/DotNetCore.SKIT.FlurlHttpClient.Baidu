@@ -40,9 +40,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         [System.Text.Json.Serialization.JsonIgnore]
         public int? EndTimestamp { get; set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override int? DeviceType { get; set; }

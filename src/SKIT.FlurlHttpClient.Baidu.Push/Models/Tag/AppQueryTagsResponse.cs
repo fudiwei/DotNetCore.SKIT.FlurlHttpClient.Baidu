@@ -1,5 +1,3 @@
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.Push.Models
 {
     /// <summary>
@@ -20,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("tid")]
                         [System.Text.Json.Serialization.JsonPropertyName("tid")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
+                        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
                         public string TagId { get; set; } = default!;
 
                         /// <summary>

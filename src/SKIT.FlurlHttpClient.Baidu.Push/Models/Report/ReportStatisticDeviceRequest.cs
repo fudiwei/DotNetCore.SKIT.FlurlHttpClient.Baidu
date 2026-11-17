@@ -5,9 +5,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
     /// </summary>
     public class ReportStatisticDeviceRequest : BaiduPushRequest
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override int? DeviceType { get; set; }

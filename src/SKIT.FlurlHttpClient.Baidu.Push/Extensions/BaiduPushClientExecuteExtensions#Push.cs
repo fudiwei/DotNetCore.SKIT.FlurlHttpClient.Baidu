@@ -1,12 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Baidu.Push
 {
-    public static class BaiduPushClientExecutePushExtensions
+    public static partial class BaiduPushClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [POST] /push/single_device 接口。</para>

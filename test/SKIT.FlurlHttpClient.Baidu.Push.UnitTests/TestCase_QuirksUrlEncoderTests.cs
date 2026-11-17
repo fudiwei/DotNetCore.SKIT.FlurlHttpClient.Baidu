@@ -1,5 +1,3 @@
-using Xunit;
-
 namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests
 {
     public partial class TestCase_QuirksUrlEncoderTests

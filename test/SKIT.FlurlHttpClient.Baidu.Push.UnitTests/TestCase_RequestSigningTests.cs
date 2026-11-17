@@ -1,11 +1,6 @@
-using System;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
 using Flurl;
-using Xunit;
 
 namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests
 {

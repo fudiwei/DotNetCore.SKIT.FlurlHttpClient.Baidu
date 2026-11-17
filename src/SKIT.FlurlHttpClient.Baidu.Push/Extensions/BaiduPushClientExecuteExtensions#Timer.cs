@@ -1,13 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Baidu.Push
 {
-    public static class BaiduPushClientExecuteTimerExtensions
+    public static partial class BaiduPushClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [GET] /timer/query_list 接口。</para>

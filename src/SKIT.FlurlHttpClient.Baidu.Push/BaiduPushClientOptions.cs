@@ -1,6 +1,3 @@
-using System.Reflection;
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.Push
 {
     /// <summary>
@@ -23,11 +20,11 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
         /// <summary>
         /// 获取或设置百度云推送 API Key。
         /// </summary>
-        public string ApiKey { get; set; } = default!;
+        public string ApiKey { get; set; } = string.Empty;
 
         /// <summary>
         /// 获取或设置百度云推送 Secret Key。
         /// </summary>
-        public string SecretKey { get; set; } = default!;
+        public string SecretKey { get; set; } = string.Empty;
     }
 }
