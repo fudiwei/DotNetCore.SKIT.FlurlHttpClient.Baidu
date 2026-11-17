@@ -19,7 +19,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                         [Newtonsoft.Json.JsonProperty("msg_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("msg_id")]
                         [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
-                        public string MessageId { get; set; } = default!;
+                        public string? MessageId { get; set; }
 
                         /// <summary>
                         /// 获取或设置推送状态。
@@ -49,7 +49,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("result")]
                 [System.Text.Json.Serialization.JsonPropertyName("result")]
-                public Types.Record[] RecordList { get; set; } = default!;
+                public List<Types.Record>? RecordList { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。

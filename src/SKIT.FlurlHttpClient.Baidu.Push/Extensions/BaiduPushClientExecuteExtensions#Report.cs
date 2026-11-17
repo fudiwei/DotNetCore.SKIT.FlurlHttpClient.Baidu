@@ -20,7 +20,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "report", "query_msg_status")
-                .SetQueryParam("msg_id", client.JsonSerializer.Serialize(request.MessageIdList));
+                .SetQueryParam("msg_id", request.MessageIdList is not null ? client.JsonSerializer.Serialize(request.MessageIdList) : null);
 
             return await client.SendRequestAsFormUrlEncodedAsync<Models.ReportQueryMessageStatusResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

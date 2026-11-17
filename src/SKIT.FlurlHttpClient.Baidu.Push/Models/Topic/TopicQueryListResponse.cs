@@ -19,7 +19,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                         [Newtonsoft.Json.JsonProperty("topic_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("topic_id")]
                         [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
-                        public string TopicId { get; set; } = default!;
+                        public string? TopicId { get; set; }
 
                         /// <summary>
                         /// 获取或设置推送目标数。
@@ -56,7 +56,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("topics")]
                 [System.Text.Json.Serialization.JsonPropertyName("topics")]
-                public Types.Topic[] TopicList { get; set; } = default!;
+                public List<Types.Topic>? TopicList { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。

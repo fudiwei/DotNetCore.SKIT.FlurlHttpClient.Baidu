@@ -11,87 +11,87 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         {
             public class Message : IDictionary<string, object?>
             {
-                private readonly IDictionary<string, object?> _dict = new Dictionary<string, object?>();
+                private readonly IDictionary<string, object?> _innerDict = new Dictionary<string, object?>();
 
                 public object? this[string key]
                 {
-                    get { return _dict[key]; }
-                    set { _dict[key] = value; }
+                    get { return _innerDict[key]; }
+                    set { _innerDict[key] = value; }
                 }
 
                 ICollection<string> IDictionary<string, object?>.Keys
                 {
-                    get { return _dict.Keys; }
+                    get { return _innerDict.Keys; }
                 }
 
                 ICollection<object?> IDictionary<string, object?>.Values
                 {
-                    get { return _dict.Values; }
+                    get { return _innerDict.Values; }
                 }
 
                 int ICollection<KeyValuePair<string, object?>>.Count
                 {
-                    get { return _dict.Count; }
+                    get { return _innerDict.Count; }
                 }
 
                 bool ICollection<KeyValuePair<string, object?>>.IsReadOnly
                 {
-                    get { return _dict.IsReadOnly; }
+                    get { return _innerDict.IsReadOnly; }
                 }
 
                 public void Add(string key, object? value)
                 {
-                    _dict.Add(key, value);
+                    _innerDict.Add(key, value);
                 }
 
                 public void Add(KeyValuePair<string, object?> item)
                 {
-                    _dict.Add(item);
+                    _innerDict.Add(item);
                 }
 
                 public bool ContainsKey(string key)
                 {
-                    return _dict.ContainsKey(key);
+                    return _innerDict.ContainsKey(key);
                 }
 
                 public bool Contains(KeyValuePair<string, object?> item)
                 {
-                    return _dict.Contains(item);
+                    return _innerDict.Contains(item);
                 }
 
                 public bool Remove(string key)
                 {
-                    return _dict.Remove(key);
+                    return _innerDict.Remove(key);
                 }
 
                 public bool Remove(KeyValuePair<string, object?> item)
                 {
-                    return _dict.Remove(item);
+                    return _innerDict.Remove(item);
                 }
 
                 public void Clear()
                 {
-                    _dict.Clear();
+                    _innerDict.Clear();
                 }
 
                 public bool TryGetValue(string key, out object? value)
                 {
-                    return _dict.TryGetValue(key, out value);
+                    return _innerDict.TryGetValue(key, out value);
                 }
 
                 void ICollection<KeyValuePair<string, object?>>.CopyTo(KeyValuePair<string, object?>[] array, int arrayIndex)
                 {
-                    _dict.CopyTo(array, arrayIndex);
+                    _innerDict.CopyTo(array, arrayIndex);
                 }
 
                 IEnumerator<KeyValuePair<string, object?>> IEnumerable<KeyValuePair<string, object?>>.GetEnumerator()
                 {
-                    return _dict.GetEnumerator();
+                    return _innerDict.GetEnumerator();
                 }
 
                 IEnumerator IEnumerable.GetEnumerator()
                 {
-                    return ((IEnumerable)_dict).GetEnumerator();
+                    return ((IEnumerable)_innerDict).GetEnumerator();
                 }
             }
         }
@@ -101,7 +101,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("channel_id")]
         [System.Text.Json.Serialization.JsonPropertyName("channel_id")]
-        public string ChannelId { get; set; } = string.Empty;
+        public string? ChannelId { get; set; }
 
         /// <summary>
         /// 获取或设置消息类型。

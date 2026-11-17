@@ -10,6 +10,6 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("timer_id")]
         [System.Text.Json.Serialization.JsonPropertyName("timer_id")]
-        public string TimerId { get; set; } = string.Empty;
+        public string? TimerId { get; set; }
     }
 }

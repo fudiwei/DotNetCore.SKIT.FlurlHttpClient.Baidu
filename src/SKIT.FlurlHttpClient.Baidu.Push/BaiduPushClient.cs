@@ -22,7 +22,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <param name="options"></param>
         /// <param name="httpClient"></param>
@@ -55,7 +55,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Push
             if (request.DeviceType is not null)
             {
                 if (httpMethod == HttpMethod.Get)
-                    flurlRequest.SetQueryParam("device_type", request.DeviceType.Value);
+                {
+                    flurlRequest.SetQueryParam("device_type", request.DeviceType);
+                }
             }
 
             return flurlRequest;

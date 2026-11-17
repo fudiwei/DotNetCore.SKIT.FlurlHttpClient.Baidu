@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string TimerId { get; set; } = string.Empty;
+        public string? TimerId { get; set; }
 
         /// <summary>
         /// 获取或设置返回记录的起始索引位置。

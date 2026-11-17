@@ -18,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("channel_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("channel_id")]
-                        public string ChannelId { get; set; } = default!;
+                        public string? ChannelId { get; set; }
 
                         /// <summary>
                         /// 获取或设置结果。
@@ -34,7 +34,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("devices")]
                 [System.Text.Json.Serialization.JsonPropertyName("devices")]
-                public Types.Device[] DeviceList { get; set; } = default!;
+                public List<Types.Device>? DeviceList { get; set; }
             }
         }
     }

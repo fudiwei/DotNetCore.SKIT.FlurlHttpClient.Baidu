@@ -19,7 +19,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedObjectInJsonFormatConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("channel_ids")]
         [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedObjectInJsonFormatConverter))]
-        public IList<string> ChannelIdList { get; set; } = new List<string>();
+        public List<string>? ChannelIdList { get; set; }
 
         /// <summary>
         /// 获取或设置消息类型。

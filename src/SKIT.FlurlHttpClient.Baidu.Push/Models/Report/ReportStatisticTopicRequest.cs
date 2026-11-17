@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string TopicId { get; set; } = string.Empty;
+        public string? TopicId { get; set; }
 
         /// <inheritdoc/>
         [Newtonsoft.Json.JsonIgnore]

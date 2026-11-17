@@ -15,7 +15,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                 [Newtonsoft.Json.JsonProperty("msg_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("msg_id")]
                 [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
-                public string MessageId { get; set; } = default!;
+                public string? MessageId { get; set; }
 
                 /// <summary>
                 /// 获取或设置推送时间戳。

@@ -19,14 +19,14 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                         [Newtonsoft.Json.JsonProperty("timer_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("timer_id")]
                         [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
-                        public string TimerId { get; set; } = default!;
+                        public string? TimerId { get; set; }
 
                         /// <summary>
                         /// 获取或设置消息内容。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("msg")]
                         [System.Text.Json.Serialization.JsonPropertyName("msg")]
-                        public string Message { get; set; } = default!;
+                        public string? Message { get; set; }
 
                         /// <summary>
                         /// 获取或设置消息类型。
@@ -56,7 +56,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("result")]
                 [System.Text.Json.Serialization.JsonPropertyName("result")]
-                public Types.Timer[] TimerList { get; set; } = default!;
+                public List<Types.Timer>? TimerList { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。

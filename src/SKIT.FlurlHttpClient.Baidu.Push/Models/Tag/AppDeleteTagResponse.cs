@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("tag")]
                 [System.Text.Json.Serialization.JsonPropertyName("tag")]
-                public string TagName { get; set; } = default!;
+                public string? TagName { get; set; }
 
                 /// <summary>
                 /// 获取或设置结果。

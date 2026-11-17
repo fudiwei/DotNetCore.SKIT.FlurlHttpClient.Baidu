@@ -22,14 +22,14 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                 [Newtonsoft.Json.JsonProperty("topic_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("topic_id")]
                 [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
-                public string TopicId { get; set; } = default!;
+                public string? TopicId { get; set; }
 
                 /// <summary>
                 /// 获取或设置发送记录列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("result")]
                 [System.Text.Json.Serialization.JsonPropertyName("result")]
-                public Types.Record[] RecordList { get; set; } = default!;
+                public List<Types.Record>? RecordList { get; set; }
             }
         }
     }

@@ -27,7 +27,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("result")]
                 [System.Text.Json.Serialization.JsonPropertyName("result")]
-                public IDictionary<long, Types.Statistic> StatisticMap { get; set; } = default!;
+                public Dictionary<long, Types.Statistic>? StatisticMap { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。

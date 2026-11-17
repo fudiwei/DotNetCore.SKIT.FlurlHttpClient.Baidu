@@ -19,21 +19,21 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                         [Newtonsoft.Json.JsonProperty("tid")]
                         [System.Text.Json.Serialization.JsonPropertyName("tid")]
                         [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
-                        public string TagId { get; set; } = default!;
+                        public string? TagId { get; set; }
 
                         /// <summary>
                         /// 获取或设置标签名称。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("tag")]
                         [System.Text.Json.Serialization.JsonPropertyName("tag")]
-                        public string TagName { get; set; } = default!;
+                        public string? TagName { get; set; }
 
                         /// <summary>
                         /// 获取或设置描述标签的附件信息。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("info")]
                         [System.Text.Json.Serialization.JsonPropertyName("info")]
-                        public string Information { get; set; } = default!;
+                        public string? Information { get; set; }
 
                         /// <summary>
                         /// 获取或设置标签类型。
@@ -57,7 +57,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("tags")]
                 [System.Text.Json.Serialization.JsonPropertyName("tags")]
-                public Types.Tag[] TagList { get; set; } = default!;
+                public List<Types.Tag>? TagList { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。
