@@ -38,21 +38,21 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("src")]
                         [System.Text.Json.Serialization.JsonPropertyName("src")]
-                        public string Source { get; set; } = default!;
+                        public string? Source { get; set; }
 
                         /// <summary>
                         /// 获取或设置译文。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("dst")]
                         [System.Text.Json.Serialization.JsonPropertyName("dst")]
-                        public string Destination { get; set; } = default!;
+                        public string? Destination { get; set; }
 
                         /// <summary>
                         /// 获取或设置识别文字的位置。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("rect")]
                         [System.Text.Json.Serialization.JsonPropertyName("rect")]
-                        public string Rectangle { get; set; } = default!;
+                        public string? Rectangle { get; set; }
 
                         /// <summary>
                         /// 获取或设置识别文字的行数。
@@ -73,7 +73,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("points")]
                         [System.Text.Json.Serialization.JsonPropertyName("points")]
-                        public Types.Point[] PointList { get; set; } = default!;
+                        public List<Types.Point>? PointList { get; set; }
                     }
                 }
 
@@ -82,35 +82,35 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("from")]
                 [System.Text.Json.Serialization.JsonPropertyName("from")]
-                public string From { get; set; } = default!;
+                public string? From { get; set; }
 
                 /// <summary>
                 /// 获取或设置翻译目标语种代码。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("to")]
                 [System.Text.Json.Serialization.JsonPropertyName("to")]
-                public string To { get; set; } = default!;
+                public string? To { get; set; }
 
                 /// <summary>
                 /// 获取或设置原文。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("sumSrc")]
                 [System.Text.Json.Serialization.JsonPropertyName("sumSrc")]
-                public string Source { get; set; } = default!;
+                public string? Source { get; set; }
 
                 /// <summary>
                 /// 获取或设置译文。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("sumDst")]
                 [System.Text.Json.Serialization.JsonPropertyName("sumDst")]
-                public string Destination { get; set; } = default!;
+                public string? Destination { get; set; }
 
                 /// <summary>
                 /// 获取或设置翻译结果列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("content")]
                 [System.Text.Json.Serialization.JsonPropertyName("content")]
-                public Types.Result[] ResultList { get; set; } = default!;
+                public List<Types.Result>? ResultList { get; set; }
 
                 /// <summary>
                 /// 获取或设置经 Base64 编码的图片贴合数据。
@@ -126,6 +126,6 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data")]
         [System.Text.Json.Serialization.JsonPropertyName("data")]
-        public Types.Data Data { get; set; } = default!;
+        public Types.Data? Data { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("q")]
         [System.Text.Json.Serialization.JsonPropertyName("q")]
-        public string QueryString { get; set; } = string.Empty;
+        public string? QueryString { get; set; }
 
         /// <inheritdoc/>
         [Newtonsoft.Json.JsonIgnore]

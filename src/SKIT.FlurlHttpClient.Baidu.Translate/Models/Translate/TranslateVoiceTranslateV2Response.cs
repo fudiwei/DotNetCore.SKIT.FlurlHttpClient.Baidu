@@ -14,14 +14,14 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("source")]
                 [System.Text.Json.Serialization.JsonPropertyName("source")]
-                public string Source { get; set; } = default!;
+                public string? Source { get; set; }
 
                 /// <summary>
                 /// 获取或设置译文。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("target")]
                 [System.Text.Json.Serialization.JsonPropertyName("target")]
-                public string Destination { get; set; } = default!;
+                public string? Destination { get; set; }
 
                 /// <summary>
                 /// 获取或设置经 Base64 编码的译文 TTS。
@@ -47,6 +47,6 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data")]
         [System.Text.Json.Serialization.JsonPropertyName("data")]
-        public Types.Data Data { get; set; } = default!;
+        public Types.Data? Data { get; set; }
     }
 }

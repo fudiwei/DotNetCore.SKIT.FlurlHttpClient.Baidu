@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("src")]
                 [System.Text.Json.Serialization.JsonPropertyName("src")]
-                public string Language { get; set; } = default!;
+                public string? Language { get; set; }
             }
         }
 
@@ -23,6 +23,6 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data")]
         [System.Text.Json.Serialization.JsonPropertyName("data")]
-        public Types.Data Data { get; set; } = default!;
+        public Types.Data? Data { get; set; }
     }
 }

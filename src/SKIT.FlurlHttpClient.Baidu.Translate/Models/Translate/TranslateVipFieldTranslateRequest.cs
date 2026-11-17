@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("q")]
         [System.Text.Json.Serialization.JsonPropertyName("q")]
-        public string QueryString { get; set; } = string.Empty;
+        public string? QueryString { get; set; }
 
         /// <summary>
         /// 获取或设置翻译源语种代码。
@@ -18,21 +18,21 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("from")]
         [System.Text.Json.Serialization.JsonPropertyName("from")]
-        public string From { get; set; } = "auto";
+        public string? From { get; set; } = "auto";
 
         /// <summary>
         /// 获取或设置翻译目标语种代码。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("to")]
         [System.Text.Json.Serialization.JsonPropertyName("to")]
-        public string To { get; set; } = string.Empty;
+        public string? To { get; set; }
 
         /// <summary>
         /// 获取或设置翻译领域类型。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("domain")]
         [System.Text.Json.Serialization.JsonPropertyName("domain")]
-        public string Domain { get; set; } = string.Empty;
+        public string? Domain { get; set; }
 
         /// <inheritdoc/>
         [Newtonsoft.Json.JsonIgnore]

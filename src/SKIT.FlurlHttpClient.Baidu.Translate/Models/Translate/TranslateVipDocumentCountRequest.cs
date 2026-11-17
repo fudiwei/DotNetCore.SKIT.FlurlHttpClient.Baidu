@@ -15,7 +15,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string FileType { get; set; } = string.Empty;
+        public string? FileType { get; set; }
 
         /// <summary>
         /// 获取或设置待翻译文件名。如果不指定将由系统自动生成。
@@ -29,21 +29,21 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public byte[] FileBytes { get; set; } = Array.Empty<byte>();
+        public byte[]? FileBytes { get; set; }
 
         /// <summary>
         /// 获取或设置翻译源语种代码。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string From { get; set; } = string.Empty;
+        public string? From { get; set; }
 
         /// <summary>
         /// 获取或设置翻译目标语种代码。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string To { get; set; } = string.Empty;
+        public string? To { get; set; }
 
         /// <inheritdoc/>
         [Newtonsoft.Json.JsonIgnore]
@@ -64,14 +64,14 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         {
             string msgText;
 
-            IDictionary<string, string?> tmpParams = new SortedDictionary<string, string?>(StringComparer.Ordinal);
-            tmpParams["appid"] = credentials.AppId;
-            tmpParams["from"] = From;
-            tmpParams["timestamp"] = Timestamp?.ToString();
-            tmpParams["to"] = To;
-            tmpParams["type"] = FileType;
+            SortedDictionary<string, string?> sortedParams = new(StringComparer.Ordinal);
+            sortedParams["appid"] = credentials.AppId;
+            sortedParams["from"] = From;
+            sortedParams["timestamp"] = Timestamp?.ToString();
+            sortedParams["to"] = To;
+            sortedParams["type"] = FileType;
 
-            msgText = string.Join("&", tmpParams.Where(e => !string.IsNullOrEmpty(e.Value)).Select(e => $"{e.Key}={e.Value}")) + "&";
+            msgText = string.Join("&", sortedParams.Where(e => !string.IsNullOrEmpty(e.Value)).Select(e => $"{e.Key}={e.Value}")) + "&";
 
             if (FileBytes is not null)
             {

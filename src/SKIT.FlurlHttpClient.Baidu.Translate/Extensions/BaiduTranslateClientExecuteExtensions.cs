@@ -170,9 +170,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
 
             using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: request.FileName, fileBytes: request.FileBytes, fileContentType: fileContentType, formDataName: "file");
             httpContent.Add(new StringContent(request.AppId!, Encoding.UTF8), "appid");
-            httpContent.Add(new StringContent(request.From, Encoding.UTF8), "from");
+            httpContent.Add(new StringContent(request.From!, Encoding.UTF8), "from");
             httpContent.Add(new StringContent(request.Timestamp!.Value.ToString(), Encoding.UTF8), "timestamp");
-            httpContent.Add(new StringContent(request.To, Encoding.UTF8), "to");
+            httpContent.Add(new StringContent(request.To!, Encoding.UTF8), "to");
             httpContent.Add(new StringContent(request.FileType!, Encoding.UTF8), "type");
             httpContent.Add(new StringContent(request.Signature!, Encoding.UTF8), "sign");
             return await client.SendFlurlRequestAsync<Models.TranslateVipDocumentCountResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
@@ -282,11 +282,11 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             {
                 using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: request.FileName, fileBytes: request.FileBytes, fileContentType: fileContentType, formDataName: "file");
                 httpContent.Add(new StringContent(request.AppId!, Encoding.UTF8), "appid");
-                httpContent.Add(new StringContent(request.FileId ?? string.Empty, Encoding.UTF8), "fileId");
-                httpContent.Add(new StringContent(request.From, Encoding.UTF8), "from");
-                httpContent.Add(new StringContent(request.OutputType ?? string.Empty, Encoding.UTF8), "outPutType");
+                httpContent.Add(new StringContent(request.FileId!, Encoding.UTF8), "fileId");
+                httpContent.Add(new StringContent(request.From!, Encoding.UTF8), "from");
+                httpContent.Add(new StringContent(request.OutputType!, Encoding.UTF8), "outPutType");
                 httpContent.Add(new StringContent(request.Timestamp!.Value.ToString(), Encoding.UTF8), "timestamp");
-                httpContent.Add(new StringContent(request.To, Encoding.UTF8), "to");
+                httpContent.Add(new StringContent(request.To!, Encoding.UTF8), "to");
                 httpContent.Add(new StringContent(request.FileType!, Encoding.UTF8), "type");
                 httpContent.Add(new StringContent(request.Signature!, Encoding.UTF8), "sign");
                 return await client.SendFlurlRequestAsync<Models.TranslateVipDocumentTranslateResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
@@ -343,12 +343,12 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
 
             using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: "image.jpg", fileBytes: request.ImageFileBytes, fileContentType: "image/jpeg", formDataName: "image");
             httpContent.Add(new StringContent(request.AppId!, Encoding.UTF8), "appid");
-            httpContent.Add(new StringContent(request.CUID, Encoding.UTF8), "cuid");
-            httpContent.Add(new StringContent(request.From, Encoding.UTF8), "from");
-            httpContent.Add(new StringContent(request.MAC, Encoding.UTF8), "mac");
+            httpContent.Add(new StringContent(request.CUID!, Encoding.UTF8), "cuid");
+            httpContent.Add(new StringContent(request.From!, Encoding.UTF8), "from");
+            httpContent.Add(new StringContent(request.MAC!, Encoding.UTF8), "mac");
             httpContent.Add(new StringContent(request.PasteType.GetValueOrDefault().ToString(), Encoding.UTF8), "paste");
             httpContent.Add(new StringContent(request.Salt!, Encoding.UTF8), "salt");
-            httpContent.Add(new StringContent(request.To, Encoding.UTF8), "to");
+            httpContent.Add(new StringContent(request.To!, Encoding.UTF8), "to");
             httpContent.Add(new StringContent(request.Version.ToString(), Encoding.UTF8), "version");
             httpContent.Add(new StringContent(request.Signature!, Encoding.UTF8), "sign");
             return await client.SendFlurlRequestAsync<Models.TranslateSdkPictureResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);

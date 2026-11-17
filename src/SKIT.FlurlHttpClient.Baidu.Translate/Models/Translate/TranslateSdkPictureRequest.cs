@@ -10,21 +10,21 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public byte[] ImageFileBytes { get; set; } = Array.Empty<byte>();
+        public byte[]? ImageFileBytes { get; set; }
 
         /// <summary>
         /// 获取或设置翻译源语种代码。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("from")]
         [System.Text.Json.Serialization.JsonPropertyName("from")]
-        public string From { get; set; } = string.Empty;
+        public string? From { get; set; }
 
         /// <summary>
         /// 获取或设置翻译目标语种代码。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("to")]
         [System.Text.Json.Serialization.JsonPropertyName("to")]
-        public string To { get; set; } = string.Empty;
+        public string? To { get; set; }
 
         /// <summary>
         /// 获取或设置图片贴合类型。
@@ -40,7 +40,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cuid")]
         [System.Text.Json.Serialization.JsonPropertyName("cuid")]
-        public string CUID { get; set; } = "APICUID";
+        public string? CUID { get; set; } = "APICUID";
 
         /// <summary>
         /// 获取或设置请求 MAC。
@@ -49,7 +49,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mac")]
         [System.Text.Json.Serialization.JsonPropertyName("mac")]
-        public string MAC { get; set; } = "mac";
+        public string? MAC { get; set; } = "mac";
 
         /// <summary>
         /// 获取或设置请求版本。
