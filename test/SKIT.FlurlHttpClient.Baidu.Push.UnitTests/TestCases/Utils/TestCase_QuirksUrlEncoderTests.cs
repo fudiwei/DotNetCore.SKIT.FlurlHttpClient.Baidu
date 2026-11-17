@@ -1,9 +1,9 @@
-namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests
+namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests.TestCases.Utils
 {
     public partial class TestCase_QuirksUrlEncoderTests
     {
-        [Fact(DisplayName = "测试用例：URL 编码")]
-        public void TestQuirksUrlEncoderEncoding()
+        [Fact(DisplayName = "测试用例：工具类 `QuirksUrlEncoder.Encode`")]
+        public void TestEncode()
         {
             Assert.Equal("https%3A%2F%2Fapi.tuisong.baidu.com%2Frest%2F3.0", Utilities.QuirksUrlEncoder.Encode("https://api.tuisong.baidu.com/rest/3.0"));
             Assert.Equal("%27%21%27+is+an+exclamation+character", Utilities.QuirksUrlEncoder.Encode("\'!\' is an exclamation character"));

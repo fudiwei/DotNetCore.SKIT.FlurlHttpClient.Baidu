@@ -1,4 +1,4 @@
-namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
+namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests.TestCases
 {
     public partial class TestCase_RequestSigningTests
     {
@@ -6,7 +6,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
         public void TestTranslateVipTranslateRequestSignature()
         {
             using var client = new BaiduTranslateClient(new BaiduTranslateClientOptions() { AppId = "2015063000000001", AppSecret = "12345678" });
-            var req = new Models.TranslateVipTranslateRequest()
+            var request = new Models.TranslateVipTranslateRequest()
             {
                 QueryString = "apple",
                 From = "en",
@@ -15,7 +15,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
             };
 
             string expectedSign = "f89f9594663708c1605f3d736d01d2d4";
-            string actualSign = req.GenerateSignature(client.Credentials)!;
+            string actualSign = request.GenerateSignature(client.Credentials)!;
             Assert.Equal(expectedSign, actualSign, ignoreCase: false);
         }
 
@@ -23,7 +23,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
         public void TestTranslateVipFieldTranslateRequestSignature()
         {
             using var client = new BaiduTranslateClient(new BaiduTranslateClientOptions() { AppId = "2015063000000001", AppSecret = "12345678" });
-            var req = new Models.TranslateVipFieldTranslateRequest()
+            var request = new Models.TranslateVipFieldTranslateRequest()
             {
                 QueryString = "apple",
                 From = "en",
@@ -33,7 +33,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
             };
 
             string expectedSign = "f89f9594663708c1605f3d736d01d2d4";
-            string actualSign = req.GenerateSignature(client.Credentials)!;
+            string actualSign = request.GenerateSignature(client.Credentials)!;
             Assert.Equal(expectedSign, actualSign, ignoreCase: false);
         }
 
@@ -41,7 +41,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
         public void TestTranslateVipDocumentCountRequestSignature()
         {
             using var client = new BaiduTranslateClient(new BaiduTranslateClientOptions() { AppId = "2015063000000001", AppSecret = "12345678" });
-            var req = new Models.TranslateVipDocumentCountRequest()
+            var request = new Models.TranslateVipDocumentCountRequest()
             {
                 FileType = "txt",
                 FileBytes = Convert.FromBase64String("ZG9jY291bnQ="),
@@ -51,7 +51,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
             };
 
             string expectedSign = "e961ce98f11d55bf60e7adb7724d4566";
-            string actualSign = req.GenerateSignature(client.Credentials)!;
+            string actualSign = request.GenerateSignature(client.Credentials)!;
             Assert.Equal(expectedSign, actualSign, ignoreCase: false);
         }
 
@@ -59,14 +59,14 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
         public void TestTranslateVipLanguageRequestSignature()
         {
             using var client = new BaiduTranslateClient(new BaiduTranslateClientOptions() { AppId = "2015063000000001", AppSecret = "12345678" });
-            var req = new Models.TranslateVipLanguageRequest()
+            var request = new Models.TranslateVipLanguageRequest()
             {
                 QueryString = "apple",
                 Salt = "1435660288"
             };
 
             string expectedSign = "f89f9594663708c1605f3d736d01d2d4";
-            string actualSign = req.GenerateSignature(client.Credentials)!;
+            string actualSign = request.GenerateSignature(client.Credentials)!;
             Assert.Equal(expectedSign, actualSign, ignoreCase: false);
         }
     }

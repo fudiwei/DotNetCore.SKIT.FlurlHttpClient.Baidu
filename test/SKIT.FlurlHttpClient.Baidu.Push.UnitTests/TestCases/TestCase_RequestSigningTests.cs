@@ -2,31 +2,27 @@ using System.Net;
 using System.Net.Http;
 using Flurl;
 
-namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests
+namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests.TestCases
 {
     public partial class TestCase_RequestSigningTests
     {
-        // 此处测试的 API Key/SecretKey 是随机生成的，仅供执行请求签名相关的单元测试，不能用于调用百度云推送 API。
         private const string MOCK_ENDPOINTS = BaiduPushEndpoints.DEFAULT;
         private const string MOCK_API_KEY = "123456789";
         private const string MOCK_API_SECRET_KEY = "abcdefghi";
 
-        private const string RESPONSE_HEADER_NAME_QUERY = "X-Request-Query";
-        private const string RESPONSE_HEADER_NAME_BODY = "X-Request-Body";
-
         [Fact(DisplayName = "测试用例：生成 GET 请求签名")]
         public async Task TestGetRequestSignature()
         {
-            using var client = CreateMockClient();
-            var req = new Models.AppQueryTagsRequest() { TagName = "TAG" };
-            var res = await client.ExecuteAppQueryTagsAsync(req);
+            using var mockClient = CreateMockClient();
+            var request = new Models.AppQueryTagsRequest() { TagName = "TAG" };
+            var response = await mockClient.ExecuteAppQueryTagsAsync(request, TestContext.Current.CancellationToken);
 
-            var queryParams = new QueryParamCollection(res.GetRawHeaders().GetFirstValueOrEmpty(RESPONSE_HEADER_NAME_QUERY));
+            var queryParams = new QueryParamCollection(response.GetRawHeaders().GetFirstValueOrEmpty(RESPONSE_HEADER_NAME_QUERY));
             string expectedSign = Utilities.MD5Utility.Hash(Utilities.QuirksUrlEncoder.Encode(
                 $"GET{MOCK_ENDPOINTS}/app/query_tags" +
                 $"apikey={(string)queryParams.GetAll("apikey").Single()}" +
                 $"expires={(string)queryParams.GetAll("expires").Single()}" +
-                $"tag={req.TagName}" +
+                $"tag={request.TagName}" +
                 $"timestamp={(string)queryParams.GetAll("timestamp").Single()}" +
                 $"{MOCK_API_SECRET_KEY}"
             ))!;
@@ -37,16 +33,16 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests
         [Fact(DisplayName = "测试用例：生成 POST 请求签名")]
         public async Task TestPostRequestSignature()
         {
-            using var client = CreateMockClient();
-            var req = new Models.AppCreateTagRequest() { TagName = "TAG" };
-            var res = await client.ExecuteAppCreateTagAsync(req);
+            using var mockClient = CreateMockClient();
+            var request = new Models.AppCreateTagRequest() { TagName = "TAG" };
+            var response = await mockClient.ExecuteAppCreateTagAsync(request, TestContext.Current.CancellationToken);
 
-            var queryParams = new QueryParamCollection(res.GetRawHeaders().GetFirstValueOrEmpty(RESPONSE_HEADER_NAME_BODY));
+            var queryParams = new QueryParamCollection(response.GetRawHeaders().GetFirstValueOrEmpty(RESPONSE_HEADER_NAME_BODY));
             string expectedSign = Utilities.MD5Utility.Hash(Utilities.QuirksUrlEncoder.Encode(
                 $"POST{MOCK_ENDPOINTS}/app/create_tag" +
                 $"apikey={(string)queryParams.GetAll("apikey").Single()}" +
                 $"expires={(string)queryParams.GetAll("expires").Single()}" +
-                $"tag={req.TagName}" +
+                $"tag={request.TagName}" +
                 $"timestamp={(string)queryParams.GetAll("timestamp").Single()}" +
                 $"{MOCK_API_SECRET_KEY}"
             ))!;
@@ -57,6 +53,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.UnitTests
 
     partial class TestCase_RequestSigningTests
     {
+        private const string RESPONSE_HEADER_NAME_QUERY = "X-Request-Query";
+        private const string RESPONSE_HEADER_NAME_BODY = "X-Request-Body";
+
         public class MockHttpClient : HttpClient
         {
             public MockHttpClient()
