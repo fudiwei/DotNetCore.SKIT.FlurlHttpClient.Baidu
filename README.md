@@ -7,7 +7,7 @@
 [![Vistors](https://visitor-badge.laobi.icu/badge?page_id=fudiwei.DotNetCore.SKIT.FlurlHttpClient.Baidu&title=Visitors)](https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu)
 [![License](https://img.shields.io/github/license/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu?label=License)](https://mit-license.org/)
 
-基于 `Flurl.Http` 的百度 HTTP API SDK，目前已包含百度智能小程序平台、百度地图开放平台、百度翻译开放平台、百度云推送等模块。
+基于 `Flurl.Http` 的百度 API 客户端 SDK，目前已包含百度智能小程序平台、百度地图开放平台、百度翻译开放平台、百度云推送等模块。
 
 > 更多 SKIT.FlurlHttpClient 系列开发工具包请[点此查看](https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient)。
 
@@ -15,14 +15,14 @@
 
 ## 特性
 
--   基于 `Flurl.Http`。
--   支持 .NET Framework 4.6.2+、.NET Standard 2.0+、.NET Core 2.0+、.NET 5.0+ 多目标框架。
--   支持 Windows / Linux / macOS 多平台部署。
--   支持 `System.Text.Json`（默认）和 `Newtonsoft.Json` 两种序列化方式。
--   强类型接口模型。
--   全异步式编程。
--   提供 SourceLink 调试符号文件。
--   完整、完善、完全的百度 HTTP API 封装。
+- 基于 `Flurl.Http`。
+- 支持 .NET Framework 4.6.2+、.NET Core 3.1+、.NET 5.0+ 多目标框架。
+- 支持 Windows / Linux / macOS 多平台部署。
+- 支持 `System.Text.Json`（默认）和 `Newtonsoft.Json` 两种序列化方式。
+- 强类型接口模型。
+- 全异步式编程。
+- 提供 SourceLink 调试符号文件。
+- 完整、完善、完全的百度 HTTP API 封装。
 
 ---
 
@@ -39,8 +39,8 @@
 
 ## 参与贡献
 
--   GitHub Repo：https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu.git
--   Gitee Repo：https://gitee.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu.git
+- GitHub Repo：https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu.git
+- Gitee Repo：https://gitee.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu.git
 
 以上仓库地址同步更新，均可接受 Issue 或 Pull Request。
 
@@ -48,7 +48,7 @@
 
 ### 特别鸣谢
 
--   感谢 [@code-jar](https://github.com/code-jar) 对此项目中智能小程序开放平台模块的突出贡献。
+- 感谢 [@code-jar](https://github.com/code-jar) 对此项目中智能小程序开放平台模块的突出贡献。
 
 ---
 

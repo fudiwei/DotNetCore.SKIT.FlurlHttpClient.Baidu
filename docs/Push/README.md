@@ -1,14 +1,14 @@
 ﻿# SKIT.FlurlHttpClient.Baidu.Push
 
-基于 `Flurl.Http` 的[百度云推送](https://push.baidu.com/) HTTP API SDK。
+基于 `Flurl.Http` 的[百度云推送](https://push.baidu.com/) API 客户端 SDK。
 
 ---
 
 ## 功能
 
--   基于百度云推送 API 封装。
--   请求时自动生成签名，无需开发者手动干预。
--   提供了百度云推送 API 所需的 MD5 等算法工具类。
+- 封装百度云推送 API。
+- 请求时自动生成签名，无需开发者手动干预。
+- 提供了 MD5 等算法工具类。
 
 ---
 
@@ -75,18 +75,18 @@ else
 
 ## 基础用法
 
--   ⭐ [如何快速找到需要调用的 API 模型类名 / 方法名？](./Basic_ModelDefinition.md)
+- ⭐ [如何快速找到需要调用的 API 模型类名 / 方法名？](./Basic_ModelDefinition.md)
 
 ---
 
 ## 高级技巧
 
--   [配置 JSON 序列化器](./Advanced_JsonSerializer.md)
+- [配置 JSON 序列化器](./Advanced_JsonSerializer.md)
 
--   [配置 HttpClient](./Advanced_HttpClient.md)
+- [配置 HttpClient](./Advanced_HttpClient.md)
 
--   [使用拦截器](./Advanced_Interceptor.md)
+- [使用拦截器](./Advanced_Interceptor.md)
 
--   [避免内存泄漏](./Advanced_Dispose.md)
+- [避免内存泄漏](./Advanced_Dispose.md)
 
--   [与 `IHttpClientFactory` 集成](./Advanced_HttpClientFactory.md)
+- [与 `IHttpClientFactory` 集成](./Advanced_HttpClientFactory.md)

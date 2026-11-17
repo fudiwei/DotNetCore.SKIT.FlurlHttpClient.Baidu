@@ -1,15 +1,15 @@
 ﻿# SKIT.FlurlHttpClient.Baidu.SmartApp
 
-基于 `Flurl.Http` 的[百度智能小程序开放平台](https://smartprogram.baidu.com/) HTTP API SDK。
+基于 `Flurl.Http` 的[百度智能小程序开放平台](https://smartprogram.baidu.com/) API 客户端 SDK。
 
 ---
 
 ## 功能
 
--   基于百度智能小程序开放平台 API 封装。
--   支持全部服务端 OpenAPI、第三方平台 OpenAPI。
--   提供了百度智能小程序开放平台 API 所需的 SHA-1 等算法工具类。
--   提供了解析消息推送事件等扩展方法。
+- 封装百度智能小程序开放平台 API。
+- 支付服务端、第三方平台等接入模式。
+- 提供了 SHA-1 等算法工具类。
+- 提供了消息推送事件解析等扩展方法。
 
 ---
 
@@ -85,22 +85,22 @@ else
 
 ## 基础用法
 
--   ⭐ [如何快速找到需要调用的 API 模型类名 / 方法名？](./Basic_ModelDefinition.md)
+- ⭐ [如何快速找到需要调用的 API 模型类名 / 方法名？](./Basic_ModelDefinition.md)
 
--   [如何解析回调通知事件？](./Basic_EventDeserialization.md)
+- [如何解析回调通知事件？](./Basic_EventDeserialization.md)
 
--   [如何验证回调通知事件签名？](./Basic_EventSignatureVerification.md)
+- [如何验证回调通知事件签名？](./Basic_EventSignatureVerification.md)
 
 ---
 
 ## 高级技巧
 
--   [配置 JSON 序列化器](./Advanced_JsonSerializer.md)
+- [配置 JSON 序列化器](./Advanced_JsonSerializer.md)
 
--   [配置 HttpClient](./Advanced_HttpClient.md)
+- [配置 HttpClient](./Advanced_HttpClient.md)
 
--   [使用拦截器](./Advanced_Interceptor.md)
+- [使用拦截器](./Advanced_Interceptor.md)
 
--   [避免内存泄漏](./Advanced_Dispose.md)
+- [避免内存泄漏](./Advanced_Dispose.md)
 
--   [与 `IHttpClientFactory` 集成](./Advanced_HttpClientFactory.md)
+- [与 `IHttpClientFactory` 集成](./Advanced_HttpClientFactory.md)

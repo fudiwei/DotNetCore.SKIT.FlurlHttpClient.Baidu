@@ -11,9 +11,9 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu</PackageProjectUrl>
-        <PackageTags>Flurl.Http Baidu 百度 百度翻译 百度翻译开放平台</PackageTags>
+        <PackageTags>Flurl.Http; Baidu; 百度; 百度翻译; 百度翻译开放平台</PackageTags>
         <Authors>Fu Diwei</Authors>
-        <Description>基于 Flurl.Http 的百度翻译开放平台 API 客户端。</Description>
+        <Description>基于 Flurl.Http 的百度翻译开放平台 API 客户端 SDK。</Description>
     </PropertyGroup>
 
     <ItemGroup>

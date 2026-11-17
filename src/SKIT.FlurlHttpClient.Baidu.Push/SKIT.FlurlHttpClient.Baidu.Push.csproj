@@ -11,9 +11,9 @@
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/fudiwei/DotNetCore.SKIT.FlurlHttpClient.Baidu</PackageProjectUrl>
-        <PackageTags>Flurl.Http Baidu 百度 百度推送 百度云推送</PackageTags>
+        <PackageTags>Flurl.Http; Baidu; 百度; 百度推送; 百度云推送</PackageTags>
         <Authors>Fu Diwei</Authors>
-        <Description>基于 Flurl.Http 的百度云推送 API 客户端。</Description>
+        <Description>基于 Flurl.Http 的百度云推送 API 客户端 SDK。</Description>
     </PropertyGroup>
 
     <ItemGroup>
