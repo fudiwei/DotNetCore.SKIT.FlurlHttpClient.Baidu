@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -19,7 +17,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string AppName { get; set; } = string.Empty;
+        public string? AppName { get; set; }
 
         /// <summary>
         /// 获取或设置资质证明材料信息。

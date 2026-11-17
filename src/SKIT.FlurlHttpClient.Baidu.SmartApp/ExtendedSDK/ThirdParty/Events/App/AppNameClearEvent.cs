@@ -14,20 +14,20 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Events
         /// </summary>
         [Newtonsoft.Json.JsonProperty("beforeAppName")]
         [System.Text.Json.Serialization.JsonPropertyName("beforeAppName")]
-        public string BeforeAppName { get; set; } = default!;
+        public string? BeforeAppName { get; set; }
 
         /// <summary>
         /// 获取或设置小程序当前名称。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("appName")]
         [System.Text.Json.Serialization.JsonPropertyName("appName")]
-        public string AppName { get; set; } = default!;
+        public string? AppName { get; set; }
 
         /// <summary>
         /// 获取或设置名称释放原因。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("reason")]
         [System.Text.Json.Serialization.JsonPropertyName("reason")]
-        public string Reason { get; set; } = default!;
+        public string? Reason { get; set; }
     }
 }

@@ -32,23 +32,23 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("problemDesc")]
                         [System.Text.Json.Serialization.JsonPropertyName("problemDesc")]
-                        public string ProblemDescription { get; set; } = default!;
+                        public string? ProblemDescription { get; set; }
 
                         /// <summary>
                         /// 获取或设置问题路径。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("problemPath")]
                         [System.Text.Json.Serialization.JsonPropertyName("problemPath")]
-                        public string ProblemPath { get; set; } = default!;
+                        public string? ProblemPath { get; set; }
 
                         /// <summary>
                         /// 获取或设置截图 URL 列表。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("screenShot")]
-                        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedObjectInJsonFormatConverter))]
+                        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedObjectInJsonFormatConverter))]
                         [System.Text.Json.Serialization.JsonPropertyName("screenShot")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedObjectInJsonFormatConverter))]
-                        public string[] ScreenshotUrlList { get; set; } = default!;
+                        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedObjectInJsonFormatConverter))]
+                        public List<string>? ScreenshotUrlList { get; set; }
 
                         /// <summary>
                         /// 获取或设置审核原因。
@@ -61,10 +61,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// 获取或设置审核截图 URL 列表。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("auditShot")]
-                        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedObjectInJsonFormatConverter))]
+                        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedObjectInJsonFormatConverter))]
                         [System.Text.Json.Serialization.JsonPropertyName("auditShot")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedObjectInJsonFormatConverter))]
-                        public string[]? AuditScreenshotUrlList { get; set; }
+                        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedObjectInJsonFormatConverter))]
+                        public List<string>? AuditScreenshotUrlList { get; set; }
                     }
                 }
 
@@ -73,15 +73,15 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("appId")]
                 [System.Text.Json.Serialization.JsonPropertyName("appId")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
-                public string AppId { get; set; } = default!;
+                [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
+                public string? AppId { get; set; }
 
                 /// <summary>
                 /// 获取或设置问题列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("problemDetails")]
                 [System.Text.Json.Serialization.JsonPropertyName("problemDetails")]
-                public Types.ProblemDetail[] ProblemDetailList { get; set; } = default!;
+                public List<Types.ProblemDetail>? ProblemDetailList { get; set; }
             }
         }
     }

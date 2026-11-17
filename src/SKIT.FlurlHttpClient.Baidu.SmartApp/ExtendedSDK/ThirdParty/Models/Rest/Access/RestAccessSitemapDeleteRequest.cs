@@ -17,6 +17,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("url")]
         [System.Text.Json.Serialization.JsonPropertyName("url")]
-        public string SitemapUrl { get; set; } = string.Empty;
+        public string? SitemapUrl { get; set; }
     }
 }

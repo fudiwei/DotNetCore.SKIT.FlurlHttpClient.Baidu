@@ -3,18 +3,18 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
     /// <summary>
     /// <para>表示 [POST] /rest/2.0/smartapp/ordercenter/app/add/main/info 接口的响应。</para>
     /// </summary>
-    public class RestOrderCenterAppAddMainInfoResponse : BaiduSmartAppOpenApiResponse<RestOrderCenterAppAddMainInfoResponse.Types.Result[]>
+    public class RestOrderCenterAppAddMainInfoResponse : BaiduSmartAppOpenApiResponse<List<RestOrderCenterAppAddMainInfoResponse.Types.Result>?>
     {
         public static class Types
         {
             public class Result
             {
                 /// <summary>
-                /// 获取或设置小程序 AppKey。
+                /// 获取或设置小程序 AppKey。如果不指定将使用构造 <see cref="BaiduSmartAppOpenApiClient"/> 时的 <see cref="BaiduSmartAppOpenApiClientOptions.AppKey"/> 参数。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("biz_app_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("biz_app_id")]
-                public string AppKey { get; set; } = default!;
+                public string? AppKey { get; set; }
 
                 /// <summary>
                 /// 获取或设置订单种类。
@@ -29,7 +29,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("resource_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("resource_id")]
-                public string OutOrderId { get; set; } = default!;
+                public string? OutOrderId { get; set; }
 
                 /// <summary>
                 /// 获取或设置受影响行数。

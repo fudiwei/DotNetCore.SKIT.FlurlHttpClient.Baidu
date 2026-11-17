@@ -22,7 +22,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Events
         /// </summary>
         [Newtonsoft.Json.JsonProperty("packageVersion")]
         [System.Text.Json.Serialization.JsonPropertyName("packageVersion")]
-        public string PackageVersion { get; set; } = default!;
+        public string? PackageVersion { get; set; }
 
         /// <summary>
         /// 获取或设置审核失败原因。

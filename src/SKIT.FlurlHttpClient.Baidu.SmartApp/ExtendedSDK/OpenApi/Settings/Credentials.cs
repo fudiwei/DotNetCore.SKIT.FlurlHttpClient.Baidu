@@ -1,5 +1,3 @@
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Settings
 {
     public class Credentials

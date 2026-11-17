@@ -18,14 +18,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("path")]
                         [System.Text.Json.Serialization.JsonPropertyName("path")]
-                        public string PagePath { get; set; } = default!;
+                        public string? PagePath { get; set; }
 
                         /// <summary>
                         /// 获取或设置 Web 化 URL。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("web_url")]
                         [System.Text.Json.Serialization.JsonPropertyName("web_url")]
-                        public string WebUrl { get; set; } = default!;
+                        public string? WebUrl { get; set; }
 
                         /// <summary>
                         /// 获取或设置点击量。
@@ -46,7 +46,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("rate")]
                         [System.Text.Json.Serialization.JsonPropertyName("rate")]
-                        public string CTRString { get; set; } = default!;
+                        public string? CTRString { get; set; }
                     }
                 }
 
@@ -69,14 +69,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("rate")]
                 [System.Text.Json.Serialization.JsonPropertyName("rate")]
-                public string CTRString { get; set; } = default!;
+                public string? CTRString { get; set; }
 
                 /// <summary>
                 /// 获取或设置日期纬度的点击与展示列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("detail")]
                 [System.Text.Json.Serialization.JsonPropertyName("detail")]
-                public Types.Record[] RecordList { get; set; } = default!;
+                public List<Types.Record>? RecordList { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。

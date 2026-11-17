@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("union_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("union_id")]
-                public string UnionId { get; set; } = default!;
+                public string? UnionId { get; set; }
             }
         }
     }

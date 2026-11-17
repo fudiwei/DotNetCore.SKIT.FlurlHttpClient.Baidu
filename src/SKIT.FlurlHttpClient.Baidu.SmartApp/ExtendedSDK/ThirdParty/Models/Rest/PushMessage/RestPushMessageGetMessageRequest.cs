@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -33,7 +31,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public IList<long>? EventMessageIdList { get; set; }
+        public List<long>? EventMessageIdList { get; set; }
 
         /// <summary>
         /// 获取或设置分页起始位置。

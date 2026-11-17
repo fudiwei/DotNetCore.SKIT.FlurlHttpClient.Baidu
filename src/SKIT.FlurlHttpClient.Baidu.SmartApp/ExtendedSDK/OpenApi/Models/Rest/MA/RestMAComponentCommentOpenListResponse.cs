@@ -18,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("content")]
                         [System.Text.Json.Serialization.JsonPropertyName("content")]
-                        public string Content { get; set; } = default!;
+                        public string? Content { get; set; }
 
                         /// <summary>
                         /// 获取或设置创建时间戳。
@@ -39,9 +39,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                         /// 获取或设置是否已点赞。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("is_uped")]
-                        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.NumericalBooleanConverter))]
+                        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.NumericBooleanConverter))]
                         [System.Text.Json.Serialization.JsonPropertyName("is_uped")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalBooleanConverter))]
+                        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericBooleanConverter))]
                         public bool IsLiked { get; set; }
                     }
 
@@ -52,21 +52,21 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("thread_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("thread_id")]
-                        public string ThreadId { get; set; } = default!;
+                        public string? ThreadId { get; set; }
 
                         /// <summary>
                         /// 获取或设置评论 ID。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("srid")]
                         [System.Text.Json.Serialization.JsonPropertyName("srid")]
-                        public string CommentId { get; set; } = default!;
+                        public string? CommentId { get; set; }
 
                         /// <summary>
                         /// 获取或设置回复列表。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("reply_list")]
                         [System.Text.Json.Serialization.JsonPropertyName("reply_list")]
-                        public Types.Reply[]? ReplyList { get; set; }
+                        public List<Types.Reply>? ReplyList { get; set; }
                     }
                 }
 
@@ -75,13 +75,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("list")]
                 [System.Text.Json.Serialization.JsonPropertyName("list")]
-                public Types.Comment[] CommentList { get; set; } = default!;
+                public List<Types.Comment>? CommentList { get; set; }
             }
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("msg")]
         [System.Text.Json.Serialization.JsonPropertyName("msg")]
         public override string? ErrorMessage { get; set; }

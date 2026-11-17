@@ -5,9 +5,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
     /// </summary>
     public class RestOAuthGetSessionKeyByCodeResponse : BaiduSmartAppThirdPartyResponse
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override string? ErrorMessage
@@ -35,13 +33,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("openid")]
         [System.Text.Json.Serialization.JsonPropertyName("openid")]
-        public string OpenId { get; set; } = default!;
+        public string? OpenId { get; set; }
 
         /// <summary>
         /// 获取或设置用户登录态密钥。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("session_key")]
         [System.Text.Json.Serialization.JsonPropertyName("session_key")]
-        public string SessionKey { get; set; } = default!;
+        public string? SessionKey { get; set; }
     }
 }

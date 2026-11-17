@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
 {
     /// <summary>
@@ -9,22 +7,22 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
     {
         public static class Types
         {
-            public class Order : RestOrderCenterAppAppendSubInfoRequest.Types.Order
+            public class Order
             {
-                public static new class Types
+                public static class Types
                 {
-                    public class ExtendedInfo : RestOrderCenterAppAppendSubInfoRequest.Types.Order.Types.ExtendedInfo
+                    public class ExtendedInfo
                     {
-                        public static new class Types
+                        public static class Types
                         {
-                            public class AftersaleOrderList : RestOrderCenterAppAppendSubInfoRequest.Types.Order.Types.ExtendedInfo.Types.AftersaleOrderList
+                            public class AftersaleOrderList : RestOrderCenterAppAddMainInfoRequest.Types.Order.Types.ExtendedInfo.Types.__zz__AftersaleOrderList
                             {
                                 /// <summary>
                                 /// 获取或设置售后单列表。
                                 /// </summary>
                                 [Newtonsoft.Json.JsonProperty("Items")]
                                 [System.Text.Json.Serialization.JsonPropertyName("Items")]
-                                public new IList<Types.AftersaleOrderItem> Items { get; set; } = new List<Types.AftersaleOrderItem>();
+                                public List<AftersaleOrderItem>? Items { get; set; }
                             }
 
                             public class AftersaleOrderItem
@@ -34,7 +32,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                                 /// </summary>
                                 [Newtonsoft.Json.JsonProperty("SubOrderID")]
                                 [System.Text.Json.Serialization.JsonPropertyName("SubOrderID")]
-                                public string OutAftersaleOrderId { get; set; } = string.Empty;
+                                public string? OutAftersaleOrderId { get; set; }
 
                                 /// <summary>
                                 /// 获取或设置售后单状态。
@@ -50,20 +48,37 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("SubsOrder")]
                         [System.Text.Json.Serialization.JsonPropertyName("SubsOrder")]
-                        public new Types.AftersaleOrderList? AftersaleOrderList { get; set; }
-                    }
-
-                    public class DetailedPageInfo : RestOrderCenterAppAppendSubInfoRequest.Types.Order.Types.DetailedPageInfo
-                    {
+                        public Types.AftersaleOrderList? AftersaleOrderList { get; set; }
                     }
                 }
+
+                /// <summary>
+                /// 获取或设置小程序 AppKey。如果不指定将使用构造 <see cref="BaiduSmartAppOpenApiClient"/> 时的 <see cref="BaiduSmartAppOpenApiClientOptions.AppKey"/> 参数。
+                /// </summary>
+                [Newtonsoft.Json.JsonProperty("BizAPPID")]
+                [System.Text.Json.Serialization.JsonPropertyName("BizAPPID")]
+                public string? AppKey { get; set; }
+
+                /// <summary>
+                /// 获取或设置订单种类。
+                /// </summary>
+                [Newtonsoft.Json.JsonProperty("CateID")]
+                [System.Text.Json.Serialization.JsonPropertyName("CateID")]
+                public int OrderCategory { get; set; }
+
+                /// <summary>
+                /// 获取或设置开发者自定义订单 ID。
+                /// </summary>
+                [Newtonsoft.Json.JsonProperty("ResourceID")]
+                [System.Text.Json.Serialization.JsonPropertyName("ResourceID")]
+                public string? OutOrderId { get; set; }
 
                 /// <summary>
                 /// 获取或设置拓展信息。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("EXT")]
                 [System.Text.Json.Serialization.JsonPropertyName("EXT")]
-                public new Types.ExtendedInfo ExtendedInfo { get; set; } = new Types.ExtendedInfo();
+                public Types.ExtendedInfo? ExtendedInfo { get; set; }
             }
         }
 
@@ -93,7 +108,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string SceneId { get; set; } = string.Empty;
+        public string? SceneId { get; set; }
 
         /// <summary>
         /// 获取或设置场景类型。
@@ -115,6 +130,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("Data")]
         [System.Text.Json.Serialization.JsonPropertyName("Data")]
-        public IList<Types.Order> OrderList { get; set; } = new List<Types.Order>();
+        public List<Types.Order>? OrderList { get; set; }
     }
 }

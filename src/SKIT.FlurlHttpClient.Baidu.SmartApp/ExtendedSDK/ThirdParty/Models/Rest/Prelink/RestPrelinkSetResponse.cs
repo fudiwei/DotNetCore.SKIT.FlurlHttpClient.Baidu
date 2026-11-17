@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -27,7 +25,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("failReason")]
                         [System.Text.Json.Serialization.JsonPropertyName("failReason")]
-                        public string[]? FailReasonList { get; set; }
+                        public List<string>? FailReasonList { get; set; }
                     }
                 }
 
@@ -43,7 +41,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("checkResult")]
                 [System.Text.Json.Serialization.JsonPropertyName("checkResult")]
-                public IDictionary<string, Types.CheckResult> CheckResultMap { get; set; } = default!;
+                public Dictionary<string, Types.CheckResult>? CheckResultMap { get; set; }
             }
         }
     }

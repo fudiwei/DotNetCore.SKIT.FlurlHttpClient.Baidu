@@ -70,21 +70,21 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("name")]
                         [System.Text.Json.Serialization.JsonPropertyName("name")]
-                        public string Name { get; set; } = default!;
+                        public string? Name { get; set; }
 
                         /// <summary>
                         /// 获取或设置场景 ID。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("sceneId")]
                         [System.Text.Json.Serialization.JsonPropertyName("sceneId")]
-                        public string SceneId { get; set; } = default!;
+                        public string? SceneId { get; set; }
 
                         /// <summary>
                         /// 获取或设置来源。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("source")]
                         [System.Text.Json.Serialization.JsonPropertyName("source")]
-                        public string Source { get; set; } = default!;
+                        public string? Source { get; set; }
                     }
                 }
 
@@ -93,21 +93,21 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("time_span")]
                 [System.Text.Json.Serialization.JsonPropertyName("time_span")]
-                public string TimeRange { get; set; } = default!;
+                public string? TimeRange { get; set; }
 
                 /// <summary>
                 /// 获取或设置数据综合指标信息。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("sum")]
                 [System.Text.Json.Serialization.JsonPropertyName("sum")]
-                public Types.Summary Summary { get; set; } = default!;
+                public Types.Summary? Summary { get; set; }
 
                 /// <summary>
                 /// 获取或设置数据指标列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("data_list")]
                 [System.Text.Json.Serialization.JsonPropertyName("data_list")]
-                public Types.Statistic[] StatisticList { get; set; } = default!;
+                public List<Types.Statistic>? StatisticList { get; set; }
 
                 /// <summary>
                 /// 获取或设置当前偏移位置。

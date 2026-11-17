@@ -5,9 +5,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
     /// </summary>
     public class RestCouponReturnResponse : BaiduSmartAppOpenApiResponse
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("msg")]
         [System.Text.Json.Serialization.JsonPropertyName("msg")]
         public override string? ErrorMessage { get; set; }

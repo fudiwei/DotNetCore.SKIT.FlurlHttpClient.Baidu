@@ -18,22 +18,22 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("app_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("app_id")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
-                        public string AppId { get; set; } = default!;
+                        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
+                        public string? AppId { get; set; }
 
                         /// <summary>
                         /// 获取或设置小程序 AppKey。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("app_key")]
                         [System.Text.Json.Serialization.JsonPropertyName("app_key")]
-                        public string AppKey { get; set; } = default!;
+                        public string? AppKey { get; set; }
 
                         /// <summary>
                         /// 获取或设置小程序等级。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("grade")]
                         [System.Text.Json.Serialization.JsonPropertyName("grade")]
-                        public string Grade { get; set; } = default!;
+                        public string? Grade { get; set; }
                     }
                 }
 
@@ -56,7 +56,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("dataList")]
                 [System.Text.Json.Serialization.JsonPropertyName("dataList")]
-                public Types.AppGrade[] AppGradeList { get; set; } = default!;
+                public List<Types.AppGrade>? AppGradeList { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。

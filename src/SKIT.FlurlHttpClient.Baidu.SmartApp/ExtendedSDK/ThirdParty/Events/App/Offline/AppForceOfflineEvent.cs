@@ -21,15 +21,15 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Events
         /// </summary>
         [Newtonsoft.Json.JsonProperty("reason")]
         [System.Text.Json.Serialization.JsonPropertyName("reason")]
-        public string OfflineReason { get; set; } = default!;
+        public string? OfflineReason { get; set; }
 
         /// <summary>
         /// 获取或设置非法字段列表。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("illegalFields")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedStringArrayWithCommaSplitConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedStringListWithCommaSplitConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("illegalFields")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedStringArrayWithCommaSplitConverter))]
-        public string[]? IllegalFieldList { get; set; }
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedStringListWithCommaSplitConverter))]
+        public List<string>? IllegalFieldList { get; set; }
     }
 }

@@ -1,15 +1,8 @@
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
 {
     using SKIT.FlurlHttpClient;
 
-    public static class BaiduSmartAppThirdPartyClientExecuteFileExtensions
+    public static partial class BaiduSmartAppThirdPartyClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [POST] /file/2.0/smartapp/upload/image 接口。</para>
@@ -33,10 +26,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
                 .SetQueryParam("type", request.ImageType);
 
             if (request.ImageFileName is null)
+            {
                 request.ImageFileName = Guid.NewGuid().ToString("N").ToLower() + ".jpg";
+            }
 
             if (request.ImageFileContentType is null)
+            {
                 request.ImageFileContentType = MimeTypes.GetMimeMapping(request.ImageFileName);
+            }
 
             using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: request.ImageFileName, fileBytes: request.ImageFileBytes, fileContentType: request.ImageFileContentType, formDataName: "multipartFile");
             httpContent.Add(new StringContent(request.ImageType.ToString(), Encoding.UTF8), "type");

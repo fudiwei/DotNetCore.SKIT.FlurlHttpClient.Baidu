@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Events
         /// </summary>
         [Newtonsoft.Json.JsonProperty("AppName")]
         [System.Text.Json.Serialization.JsonPropertyName("AppName")]
-        public string AppName { get; set; } = default!;
+        public string? AppName { get; set; }
 
         /// <summary>
         /// 获取或设置审核失败原因。

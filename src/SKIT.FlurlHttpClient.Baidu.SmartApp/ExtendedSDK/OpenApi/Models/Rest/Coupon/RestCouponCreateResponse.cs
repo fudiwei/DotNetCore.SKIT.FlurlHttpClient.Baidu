@@ -14,13 +14,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("couponId")]
                 [System.Text.Json.Serialization.JsonPropertyName("couponId")]
-                public string CouponId { get; set; } = default!;
+                public string? CouponId { get; set; }
             }
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("msg")]
         [System.Text.Json.Serialization.JsonPropertyName("msg")]
         public override string? ErrorMessage { get; set; }

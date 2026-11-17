@@ -3,7 +3,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
     /// <summary>
     /// <para>表示 [GET] /rest/2.0/smartapp/package/get 接口的响应。</para>
     /// </summary>
-    public class RestPackageGetResponse : BaiduSmartAppThirdPartyResponse<RestPackageGetResponse.Types.Package[]>
+    public class RestPackageGetResponse : BaiduSmartAppThirdPartyResponse<List<RestPackageGetResponse.Types.Package>?>
     {
         public static class Types
         {

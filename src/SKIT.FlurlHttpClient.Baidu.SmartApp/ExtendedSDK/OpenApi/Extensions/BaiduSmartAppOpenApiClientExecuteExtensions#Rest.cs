@@ -1,14 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
 {
-    public static class BaiduSmartAppOpenApiClientExecuteRestExtensions
+    public static partial class BaiduSmartAppOpenApiClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [GET] /rest/2.0/smartapp/getsessionkey 接口。</para>
@@ -77,7 +69,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.AppId is null)
+            {
                 request.AppId = client.Credentials.AppId;
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "submitresource")
@@ -103,7 +97,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.AppId is null)
+            {
                 request.AppId = client.Credentials.AppId;
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "deleteresource")
@@ -131,7 +127,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.AppId is null)
+            {
                 request.AppId = client.Credentials.AppId;
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "submitsitemap")
@@ -157,7 +155,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.AppId is null)
+            {
                 request.AppId = client.Credentials.AppId;
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "deletesitemap")
@@ -188,7 +188,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "access", "submitsitemap", "api")
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("type", request.UploadType)
-                .SetQueryParam("url_list", string.Join(",", request.UrlList));
+                .SetQueryParam("url_list", request.UrlList is not null ? string.Join(",", request.UrlList) : null);
 
             return await client.SendFlurlRequestAsFormUrlEncodedAsync<Models.RestAccessSubmitSitemapApiResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -522,7 +522,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .CreateFlurlRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "v1.0", "coupon", "banner", "get")
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("couponId", request.CouponId)
-                .SetQueryParam("bannerIds", string.Join(",", request.BannerIdList));
+                .SetQueryParam("bannerIds", request.BannerIdList is not null ? string.Join(",", request.BannerIdList) : null);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestCouponBannerGetResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
@@ -658,7 +658,20 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
+
+            if (request.OrderList is not null)
+            {
+                foreach (var order in request.OrderList)
+                {
+                    if (order.AppKey is null)
+                    {
+                        order.AppKey = client.Credentials.AppKey;
+                    }
+                }
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "app", "add", "main", "info")
@@ -690,7 +703,20 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
+
+            if (request.OrderList is not null)
+            {
+                foreach (var order in request.OrderList)
+                {
+                    if (order.AppKey is null)
+                    {
+                        order.AppKey = client.Credentials.AppKey;
+                    }
+                }
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "app", "update", "main", "info")
@@ -722,7 +748,20 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
+
+            if (request.OrderList is not null)
+            {
+                foreach (var order in request.OrderList)
+                {
+                    if (order.AppKey is null)
+                    {
+                        order.AppKey = client.Credentials.AppKey;
+                    }
+                }
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "app", "update", "main", "status")
@@ -754,7 +793,20 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
+
+            if (request.OrderList is not null)
+            {
+                foreach (var order in request.OrderList)
+                {
+                    if (order.AppKey is null)
+                    {
+                        order.AppKey = client.Credentials.AppKey;
+                    }
+                }
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "app", "update", "main", "logistics")
@@ -786,7 +838,20 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
+
+            if (request.OrderList is not null)
+            {
+                foreach (var order in request.OrderList)
+                {
+                    if (order.AppKey is null)
+                    {
+                        order.AppKey = client.Credentials.AppKey;
+                    }
+                }
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "app", "append", "sub", "info")
@@ -818,7 +883,20 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
+
+            if (request.OrderList is not null)
+            {
+                foreach (var order in request.OrderList)
+                {
+                    if (order.AppKey is null)
+                    {
+                        order.AppKey = client.Credentials.AppKey;
+                    }
+                }
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "app", "update", "sub", "info")
@@ -850,7 +928,20 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
+
+            if (request.OrderList is not null)
+            {
+                foreach (var order in request.OrderList)
+                {
+                    if (order.AppKey is null)
+                    {
+                        order.AppKey = client.Credentials.AppKey;
+                    }
+                }
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "ordercenter", "app", "update", "sub", "status")
@@ -912,7 +1003,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "findByTpOrderId")
@@ -940,7 +1033,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "cancelOrder")
@@ -968,7 +1063,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "pay", "paymentservice", "applyOrderRefund")
@@ -1004,7 +1101,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "findOrderRefund")
@@ -1033,7 +1132,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "orderBill")
@@ -1061,7 +1162,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.PaymentServiceAppKey is null)
+            {
                 request.PaymentServiceAppKey = client.Credentials.PaymentServiceAppKey;
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Get, "rest", "2.0", "smartapp", "pay", "paymentservice", "capitaBill")
@@ -1139,10 +1242,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
             if (request is null) throw new ArgumentNullException(nameof(request));
 
             if (request.AppKey is null)
+            {
                 request.AppKey = client.Credentials.AppKey;
+            }
 
             if (request.Timestamp is null)
+            {
                 request.Timestamp = DateTimeOffset.Now.ToLocalTime().ToUnixTimeSeconds();
+            }
 
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "detectrisk")
@@ -1345,7 +1452,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
                 .CreateFlurlRequest(request, HttpMethod.Post, "rest", "2.0", "smartapp", "template", "templateadd")
                 .SetQueryParam("access_token", request.AccessToken)
                 .SetQueryParam("id", request.Id)
-                .SetQueryParam("keyword_id_list", client.JsonSerializer.Serialize(request.KeywordIdList));
+                .SetQueryParam("keyword_id_list", request.KeywordIdList is not null ? client.JsonSerializer.Serialize(request.KeywordIdList) : null);
 
             return await client.SendFlurlRequestAsJsonAsync<Models.RestTemplateAddResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
         }

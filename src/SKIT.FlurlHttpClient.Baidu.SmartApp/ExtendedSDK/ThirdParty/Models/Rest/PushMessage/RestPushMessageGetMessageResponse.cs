@@ -26,7 +26,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("content")]
                         [System.Text.Json.Serialization.JsonPropertyName("content")]
-                        public string EncrtpyedContent { get; set; } = default!;
+                        public string? EncrtpyedContent { get; set; }
 
                         /// <summary>
                         /// 获取或设置推送状态。
@@ -42,7 +42,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("list")]
                 [System.Text.Json.Serialization.JsonPropertyName("list")]
-                public Types.EventMessage[] EventMessageList { get; set; } = default!;
+                public List<Types.EventMessage>? EventMessageList { get; set; }
 
                 /// <summary>
                 /// 获取或设置当前页数。

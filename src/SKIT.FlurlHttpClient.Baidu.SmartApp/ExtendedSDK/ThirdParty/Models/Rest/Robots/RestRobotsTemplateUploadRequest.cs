@@ -1,5 +1,3 @@
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -19,6 +17,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public byte[] RobotsFileBytes { get; set; } = Array.Empty<byte>();
+        public byte[]? RobotsFileBytes { get; set; }
     }
 }

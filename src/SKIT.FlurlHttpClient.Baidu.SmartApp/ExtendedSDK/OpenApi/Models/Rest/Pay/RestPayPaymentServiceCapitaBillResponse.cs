@@ -21,7 +21,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("data")]
                 [System.Text.Json.Serialization.JsonPropertyName("data")]
-                public Types.Bill[] BillList { get; set; } = default!;
+                public List<Types.Bill>? BillList { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。
@@ -32,9 +32,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
             }
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("msg")]
         [System.Text.Json.Serialization.JsonPropertyName("msg")]
         public override string? ErrorMessage { get; set; }

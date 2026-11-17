@@ -18,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("type")]
                         [System.Text.Json.Serialization.JsonPropertyName("type")]
-                        public string Type { get; set; } = default!;
+                        public string? Type { get; set; }
 
                         /// <summary>
                         /// 获取或设置错误代码。
@@ -41,20 +41,18 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("retrieveId")]
                 [System.Text.Json.Serialization.JsonPropertyName("retrieveId")]
-                public string RetrieveId { get; set; } = default!;
+                public string? RetrieveId { get; set; }
 
                 /// <summary>
                 /// 获取或设置检测结果列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("res")]
                 [System.Text.Json.Serialization.JsonPropertyName("res")]
-                public Types.Result[] ResultList { get; set; } = default!;
+                public List<Types.Result>? ResultList { get; set; }
             }
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("msg")]
         [System.Text.Json.Serialization.JsonPropertyName("msg")]
         public override string? ErrorMessage { get; set; }

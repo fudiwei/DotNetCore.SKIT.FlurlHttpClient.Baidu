@@ -6,18 +6,20 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
     public class OAuthTokenRequest : BaiduSmartAppOpenApiRequest
     {
         /// <summary>
-        /// <i>（使用默认值即可，无需修改）</i>
+        /// 获取或设置授权类型。
+        /// <para>默认值："client_credential"</para>
+        /// <remarks><i>（使用默认值即可，无需修改）</i></remarks>
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string GrantType { get; set; } = "client_credential";
+        public string? GrantType { get; set; } = "client_credential";
 
         /// <summary>
         /// 获取或设置权限。
-        /// <para>默认值：smartapp_snsapi_base</para>
+        /// <para>默认值："smartapp_snsapi_base"</para>
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string Scope { get; set; } = "smartapp_snsapi_base";
+        public string? Scope { get; set; } = "smartapp_snsapi_base";
     }
 }

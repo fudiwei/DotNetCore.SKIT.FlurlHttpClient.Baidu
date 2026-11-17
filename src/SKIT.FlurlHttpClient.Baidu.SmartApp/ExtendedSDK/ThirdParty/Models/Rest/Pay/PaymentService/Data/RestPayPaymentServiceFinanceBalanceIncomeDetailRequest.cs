@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string StartDateString { get; set; } = string.Empty;
+        public string? StartDateString { get; set; }
 
         /// <summary>
         /// 获取或设置分页页数。

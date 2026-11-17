@@ -3,7 +3,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
     /// <summary>
     /// <para>表示 [POST] /rest/2.0/smartapp/flow/geturlmappingdetail 接口的响应。</para>
     /// </summary>
-    public class RestFlowGetUrlMappingDetailResponse : BaiduSmartAppThirdPartyResponse<RestFlowGetUrlMappingDetailResponse.Types.Rule[]>
+    public class RestFlowGetUrlMappingDetailResponse : BaiduSmartAppThirdPartyResponse<List<RestFlowGetUrlMappingDetailResponse.Types.Rule>?>
     {
         public static class Types
         {
@@ -50,14 +50,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("msg")]
                 [System.Text.Json.Serialization.JsonPropertyName("msg")]
-                public string StatusMessage { get; set; } = default!;
+                public string? StatusMessage { get; set; }
 
                 /// <summary>
                 /// 获取或设置提交时间字符串（格式：yyyy-MM-dd）。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("submitTime")]
                 [System.Text.Json.Serialization.JsonPropertyName("submitTime")]
-                public string SubmitTimeString { get; set; } = default!;
+                public string? SubmitTimeString { get; set; }
 
                 /// <summary>
                 /// 获取或设置是否匹配。

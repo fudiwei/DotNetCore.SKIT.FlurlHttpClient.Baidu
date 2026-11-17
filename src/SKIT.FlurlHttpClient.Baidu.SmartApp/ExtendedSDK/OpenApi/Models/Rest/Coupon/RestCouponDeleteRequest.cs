@@ -10,6 +10,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("couponId")]
         [System.Text.Json.Serialization.JsonPropertyName("couponId")]
-        public string CouponId { get; set; } = string.Empty;
+        public string? CouponId { get; set; }
     }
 }

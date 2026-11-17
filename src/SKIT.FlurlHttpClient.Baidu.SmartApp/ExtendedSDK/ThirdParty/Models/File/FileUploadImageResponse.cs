@@ -10,6 +10,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data")]
         [System.Text.Json.Serialization.JsonPropertyName("data")]
-        public string FileUrl { get; set; } = default!;
+        public string? FileUrl { get; set; }
     }
 }

@@ -14,14 +14,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Events
         /// </summary>
         [Newtonsoft.Json.JsonProperty("FromUserName")]
         [System.Text.Json.Serialization.JsonPropertyName("FromUserName")]
-        public string FromUserName { get; set; } = default!;
+        public string? FromUserName { get; set; }
 
         /// <summary>
         /// 获取或设置授权方 AppId。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("MsgType")]
         [System.Text.Json.Serialization.JsonPropertyName("MsgType")]
-        public string MessageType { get; set; } = default!;
+        public string? MessageType { get; set; }
 
         /// <summary>
         /// 获取或设置消息创建时间戳。
@@ -36,6 +36,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Events
         /// </summary>
         [Newtonsoft.Json.JsonProperty("Ticket")]
         [System.Text.Json.Serialization.JsonPropertyName("Ticket")]
-        public string Ticket { get; set; } = default!;
+        public string? Ticket { get; set; }
     }
 }

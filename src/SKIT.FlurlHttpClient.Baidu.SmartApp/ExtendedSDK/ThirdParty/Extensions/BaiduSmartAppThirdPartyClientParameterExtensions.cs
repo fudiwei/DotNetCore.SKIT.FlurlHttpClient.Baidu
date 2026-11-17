@@ -1,6 +1,3 @@
-using System;
-using Flurl;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
 {
     public static class BaiduSmartAppThirdPartyClientParameterExtensions

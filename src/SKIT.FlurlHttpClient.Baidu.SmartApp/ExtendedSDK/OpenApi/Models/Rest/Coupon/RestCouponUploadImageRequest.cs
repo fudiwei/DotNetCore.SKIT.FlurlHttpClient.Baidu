@@ -1,5 +1,3 @@
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
 {
     /// <summary>
@@ -12,6 +10,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public byte[] ImageFileBytes { get; set; } = Array.Empty<byte>();
+        public byte[]? ImageFileBytes { get; set; }
     }
 }

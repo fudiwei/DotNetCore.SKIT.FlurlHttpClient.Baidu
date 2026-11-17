@@ -1,30 +1,26 @@
-using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Web;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.Utilities
 {
     internal static class HttpContentBuilder
     {
-        public static MultipartFormDataContent BuildWithFile(string fileName, byte[] fileBytes, string? fileContentType, string formDataName, Action<HttpContent>? configureFileHttpContent = null)
+        public static MultipartFormDataContent BuildWithFile(string? fileName, byte[]? fileBytes, string? fileContentType, string formDataName, Action<HttpContent>? configureFileHttpContent = null)
         {
-            if (fileName == null) throw new ArgumentNullException(nameof(fileName));
-            if (formDataName == null) throw new ArgumentNullException(nameof(formDataName));
+            if (formDataName is null) throw new ArgumentNullException(nameof(formDataName));
 
-            fileName = fileName.Replace("\"", "");
+            fileName = fileName?.Replace("\"", string.Empty);
             fileBytes = fileBytes ?? Array.Empty<byte>();
             fileContentType = string.IsNullOrEmpty(fileContentType) ? MimeTypes.Binary : fileContentType;
             formDataName = formDataName.Replace("\"", "");
 
             ByteArrayContent fileContent = new ByteArrayContent(fileBytes);
+            fileContent.Headers.ContentDisposition = ContentDispositionHeaderValue.Parse(fileName is null ? $"form-data; name=\"{formDataName}\"" : $"form-data; name=\"{formDataName}\"; filename=\"{fileName}\"");
             fileContent.Headers.ContentType = MediaTypeHeaderValue.Parse(fileContentType);
+            fileContent.Headers.ContentLength = fileBytes.Length;
             configureFileHttpContent?.Invoke(fileContent);
 
             string boundary = "--BOUNDARY--" + DateTimeOffset.Now.Ticks.ToString("x");
             MultipartFormDataContent httpContent = new MultipartFormDataContent(boundary);
             httpContent.Headers.ContentType = MediaTypeHeaderValue.Parse($"{MimeTypes.FormData}; boundary={boundary}");
-            httpContent.Add(fileContent, $"\"{formDataName}\"", $"\"{HttpUtility.UrlEncode(fileName)}\"");
+            httpContent.Add(fileContent);
             return httpContent;
         }
     }

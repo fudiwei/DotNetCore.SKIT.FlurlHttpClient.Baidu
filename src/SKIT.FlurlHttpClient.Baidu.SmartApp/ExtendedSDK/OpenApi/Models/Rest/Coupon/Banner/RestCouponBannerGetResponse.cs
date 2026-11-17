@@ -3,7 +3,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
     /// <summary>
     /// <para>表示 [GET] /rest/2.0/smartapp/v1.0/coupon/banner/get 接口的响应。</para>
     /// </summary>
-    public class RestCouponBannerGetResponse : BaiduSmartAppOpenApiResponse<RestCouponBannerGetResponse.Types.Banner[]>
+    public class RestCouponBannerGetResponse : BaiduSmartAppOpenApiResponse<List<RestCouponBannerGetResponse.Types.Banner>?>
     {
         public static class Types
         {
@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("couponId")]
                 [System.Text.Json.Serialization.JsonPropertyName("couponId")]
-                public string CouponId { get; set; } = default!;
+                public string? CouponId { get; set; }
 
                 /// <summary>
                 /// 获取或设置 Banner ID。
@@ -29,14 +29,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("picUrl")]
                 [System.Text.Json.Serialization.JsonPropertyName("picUrl")]
-                public string PictureUrl { get; set; } = default!;
+                public string? PictureUrl { get; set; }
 
                 /// <summary>
                 /// 获取或设置标题。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("title")]
                 [System.Text.Json.Serialization.JsonPropertyName("title")]
-                public string Title { get; set; } = default!;
+                public string? Title { get; set; }
 
                 /// <summary>
                 /// 获取或设置跳转页面路径。
@@ -61,9 +61,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
             }
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("msg")]
         [System.Text.Json.Serialization.JsonPropertyName("msg")]
         public override string? ErrorMessage { get; set; }

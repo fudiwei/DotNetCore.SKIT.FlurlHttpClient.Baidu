@@ -10,14 +10,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("chain_name")]
         [System.Text.Json.Serialization.JsonPropertyName("chain_name")]
-        public string SubchainName { get; set; } = string.Empty;
+        public string? SubchainName { get; set; }
 
         /// <summary>
         /// 获取或设置子链描述。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("chain_desc")]
         [System.Text.Json.Serialization.JsonPropertyName("chain_desc")]
-        public string SubchainDescription { get; set; } = string.Empty;
+        public string? SubchainDescription { get; set; }
 
         /// <summary>
         /// 获取或设置页面路径。

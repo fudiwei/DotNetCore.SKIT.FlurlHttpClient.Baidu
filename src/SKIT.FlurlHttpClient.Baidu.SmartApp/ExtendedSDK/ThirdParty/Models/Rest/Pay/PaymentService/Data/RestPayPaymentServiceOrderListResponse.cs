@@ -1,5 +1,3 @@
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -20,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("tp_order_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("tp_order_id")]
-                        public string OutOrderId { get; set; } = default!;
+                        public string? OutOrderId { get; set; }
 
                         /// <summary>
                         /// 获取或设置订单 ID。
@@ -35,7 +33,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("deal_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("deal_id")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
+                        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
                         public string? DealId { get; set; }
 
                         /// <summary>
@@ -91,18 +89,18 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// 获取或设置创建时间。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("create_time")]
-                        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.BasicDateTimeOffsetConverter))]
+                        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.ISO8601DateTimeOffsetConverter))]
                         [System.Text.Json.Serialization.JsonPropertyName("create_time")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.BasicDateTimeOffsetConverter))]
+                        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.ISO8601DateTimeOffsetConverter))]
                         public DateTimeOffset CreateTime { get; set; }
 
                         /// <summary>
                         /// 获取或设置更新时间。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("update_time")]
-                        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.BasicDateTimeOffsetConverter))]
+                        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.ISO8601DateTimeOffsetConverter))]
                         [System.Text.Json.Serialization.JsonPropertyName("update_time")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.BasicDateTimeOffsetConverter))]
+                        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.ISO8601DateTimeOffsetConverter))]
                         public DateTimeOffset UpdateTime { get; set; }
                     }
                 }
@@ -112,7 +110,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("data")]
                 [System.Text.Json.Serialization.JsonPropertyName("data")]
-                public Types.Order[] OrderList { get; set; } = default!;
+                public List<Types.Order>? OrderList { get; set; }
 
                 /// <summary>
                 /// 获取或设置当前页数。

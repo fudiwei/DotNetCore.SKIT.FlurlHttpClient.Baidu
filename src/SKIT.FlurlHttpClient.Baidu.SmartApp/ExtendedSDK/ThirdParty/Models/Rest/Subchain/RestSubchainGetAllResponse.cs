@@ -18,15 +18,15 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("app_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("app_id")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
-                        public string AppId { get; set; } = default!;
+                        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
+                        public string? AppId { get; set; }
 
                         /// <summary>
                         /// 获取或设置小程序名称。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("app_name")]
                         [System.Text.Json.Serialization.JsonPropertyName("app_name")]
-                        public string AppName { get; set; } = default!;
+                        public string? AppName { get; set; }
 
                         /// <summary>
                         /// 获取或设置主体 ID。
@@ -41,7 +41,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("customer_name")]
                         [System.Text.Json.Serialization.JsonPropertyName("customer_name")]
-                        public string CusomterName { get; set; } = default!;
+                        public string? CusomterName { get; set; }
 
                         /// <summary>
                         /// 获取或设置子链 ID。
@@ -63,14 +63,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("chain_name")]
                         [System.Text.Json.Serialization.JsonPropertyName("chain_name")]
-                        public string SubchainName { get; set; } = default!;
+                        public string? SubchainName { get; set; }
 
                         /// <summary>
                         /// 获取或设置子链描述。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("chain_desc")]
                         [System.Text.Json.Serialization.JsonPropertyName("chain_desc")]
-                        public string SubchainDescription { get; set; } = default!;
+                        public string? SubchainDescription { get; set; }
 
                         /// <summary>
                         /// 获取或设置页面路径。
@@ -163,7 +163,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("sub_chain_info_list")]
                 [System.Text.Json.Serialization.JsonPropertyName("sub_chain_info_list")]
-                public Types.Subchain[] SubchainList { get; set; } = default!;
+                public List<Types.Subchain>? SubchainList { get; set; }
             }
         }
     }

@@ -3,7 +3,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
     /// <summary>
     /// <para>表示 [POST] /rest/2.0/smartapp/ordercenter/add/main/info 接口的响应。</para>
     /// </summary>
-    public class RestOrderCenterAddMainInfoResponse : BaiduSmartAppThirdPartyResponse<RestOrderCenterAddMainInfoResponse.Types.Result[]>
+    public class RestOrderCenterAddMainInfoResponse : BaiduSmartAppThirdPartyResponse<List<RestOrderCenterAddMainInfoResponse.Types.Result>?>
     {
         public static class Types
         {
@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("biz_app_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("biz_app_id")]
-                public string AppKey { get; set; } = default!;
+                public string? AppKey { get; set; }
 
                 /// <summary>
                 /// 获取或设置订单种类。
@@ -29,7 +29,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("resource_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("resource_id")]
-                public string OutOrderId { get; set; } = default!;
+                public string? OutOrderId { get; set; }
 
                 /// <summary>
                 /// 获取或设置受影响行数。

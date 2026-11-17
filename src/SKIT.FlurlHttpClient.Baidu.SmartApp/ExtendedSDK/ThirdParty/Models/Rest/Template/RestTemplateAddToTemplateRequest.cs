@@ -17,6 +17,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("user_desc")]
         [System.Text.Json.Serialization.JsonPropertyName("user_desc")]
-        public string UserDescription { get; set; } = string.Empty;
+        public string? UserDescription { get; set; }
     }
 }

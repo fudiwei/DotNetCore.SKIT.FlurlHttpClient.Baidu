@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
 {
     /// <summary>
@@ -12,15 +10,15 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("couponId")]
         [System.Text.Json.Serialization.JsonPropertyName("couponId")]
-        public string CouponId { get; set; } = string.Empty;
+        public string? CouponId { get; set; }
 
         /// <summary>
         /// 获取或设置券码列表。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("couponCodes")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedStringListWithCommaSplitConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedStringListWithCommaSplitConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("couponCodes")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedStringListWithCommaSplitConverter))]
-        public IList<string> CouponCodeList { get; set; } = new List<string>();
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedStringListWithCommaSplitConverter))]
+        public List<string>? CouponCodeList { get; set; }
     }
 }

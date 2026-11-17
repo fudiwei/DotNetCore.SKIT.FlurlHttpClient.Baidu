@@ -17,14 +17,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("content")]
         [System.Text.Json.Serialization.JsonPropertyName("content")]
-        public string Content { get; set; } = string.Empty;
+        public string? Content { get; set; }
 
         /// <summary>
         /// 获取或设置备注。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("remark")]
         [System.Text.Json.Serialization.JsonPropertyName("remark")]
-        public string Remark { get; set; } = string.Empty;
+        public string? Remark { get; set; }
 
         /// <summary>
         /// 获取或设置测试帐号。

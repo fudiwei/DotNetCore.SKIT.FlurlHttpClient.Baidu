@@ -17,7 +17,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string OutOrderId { get; set; } = string.Empty;
+        public string? OutOrderId { get; set; }
 
         /// <summary>
         /// 获取或设置百度收银台用户 ID。

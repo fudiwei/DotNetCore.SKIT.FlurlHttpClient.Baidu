@@ -15,7 +15,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Events
         [Newtonsoft.Json.JsonProperty("CouponId")]
         [System.Text.Json.Serialization.JsonPropertyName("CouponId")]
         [System.Xml.Serialization.XmlElement("CouponId")]
-        public string CouponId { get; set; } = default!;
+        public string? CouponId { get; set; }
 
         /// <summary>
         /// 获取或设置卡券券码。
@@ -23,14 +23,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Events
         [Newtonsoft.Json.JsonProperty("UserCouponCode")]
         [System.Text.Json.Serialization.JsonPropertyName("UserCouponCode")]
         [System.Xml.Serialization.XmlElement("UserCouponCode")]
-        public string CouponCode { get; set; } = default!;
+        public string? CouponCode { get; set; }
 
         /// <summary>
         /// 获取或设置卡券领取唯一标识。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("CouponTakeId")]
         [System.Text.Json.Serialization.JsonPropertyName("CouponTakeId")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
         [System.Xml.Serialization.XmlElement("CouponTakeId", IsNullable = true)]
         public string? UniqueTakingId { get; set; }
     }

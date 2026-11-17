@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -50,7 +48,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("urlPairs")]
                 [System.Text.Json.Serialization.JsonPropertyName("urlPairs")]
-                public IList<Types.UrlPair>? UrlPairList { get; set; }
+                public List<Types.UrlPair>? UrlPairList { get; set; }
             }
         }
 
@@ -58,11 +56,11 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// 获取或设置适配替换规则信息。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("content")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedObjectInJsonFormatConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedObjectInJsonFormatConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("content")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedObjectInJsonFormatConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedObjectInJsonFormatConverter))]
 
-        public IList<Types.Rule> RuleList { get; set; } = new List<Types.Rule>();
+        public List<Types.Rule>? RuleList { get; set; }
 
         /// <summary>
         /// 获取或设置提交方式。

@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ext_json")]
         [System.Text.Json.Serialization.JsonPropertyName("ext_json")]
-        public string ExtJson { get; set; } = string.Empty;
+        public string? ExtJson { get; set; }
 
         /// <summary>
         /// 获取或设置代码模板 ID。
@@ -24,14 +24,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("user_version")]
         [System.Text.Json.Serialization.JsonPropertyName("user_version")]
-        public string UserVersion { get; set; } = string.Empty;
+        public string? UserVersion { get; set; }
 
         /// <summary>
         /// 获取或设置代码描述。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("user_desc")]
         [System.Text.Json.Serialization.JsonPropertyName("user_desc")]
-        public string UserDescription { get; set; } = string.Empty;
+        public string? UserDescription { get; set; }
 
         /// <summary>
         /// 获取或设置测试帐号。

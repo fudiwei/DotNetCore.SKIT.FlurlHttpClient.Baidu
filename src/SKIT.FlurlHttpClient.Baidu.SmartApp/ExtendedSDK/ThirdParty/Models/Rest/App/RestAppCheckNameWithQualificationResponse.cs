@@ -21,21 +21,21 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("checkWords")]
                 [System.Text.Json.Serialization.JsonPropertyName("checkWords")]
-                public string[]? CheckWordList { get; set; }
+                public List<string>? CheckWordList { get; set; }
 
                 /// <summary>
                 /// 获取或设置当前名称必须要上传的资质字段列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("requiredFields")]
                 [System.Text.Json.Serialization.JsonPropertyName("requiredFields")]
-                public int[]? RequiredFieldList { get; set; }
+                public List<int>? RequiredFieldList { get; set; }
 
                 /// <summary>
                 /// 获取或设置当前名称可上传的资质字段列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("optionalFields")]
                 [System.Text.Json.Serialization.JsonPropertyName("optionalFields")]
-                public int[]? OptionalFieldList { get; set; }
+                public List<int>? OptionalFieldList { get; set; }
             }
         }
     }

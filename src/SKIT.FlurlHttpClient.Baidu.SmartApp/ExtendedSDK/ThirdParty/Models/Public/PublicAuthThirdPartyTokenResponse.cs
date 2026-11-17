@@ -14,10 +14,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("access_token")]
                 [System.Text.Json.Serialization.JsonPropertyName("access_token")]
-                public string AccessToken { get; set; } = default!;
+                public string? AccessToken { get; set; }
 
                 /// <summary>
-                /// 获取或设置接口调用凭证有效期（单位：秒）。
+                /// 获取或设置凭证有效期（单位：秒）。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("expires_in")]
                 [System.Text.Json.Serialization.JsonPropertyName("expires_in")]
@@ -28,7 +28,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("scope")]
                 [System.Text.Json.Serialization.JsonPropertyName("scope")]
-                public string Scope { get; set; } = default!;
+                public string? Scope { get; set; }
             }
         }
     }

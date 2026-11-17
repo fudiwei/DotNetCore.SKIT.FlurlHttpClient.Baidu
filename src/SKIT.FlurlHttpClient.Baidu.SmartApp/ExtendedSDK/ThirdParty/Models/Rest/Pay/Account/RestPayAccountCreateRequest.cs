@@ -10,84 +10,84 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("business_scope")]
         [System.Text.Json.Serialization.JsonPropertyName("business_scope")]
-        public string BusinessScope { get; set; } = string.Empty;
+        public string? BusinessScope { get; set; }
 
         /// <summary>
         /// 获取或设置经营范围所在省份。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("business_province")]
         [System.Text.Json.Serialization.JsonPropertyName("business_province")]
-        public string BusinessProvince { get; set; } = string.Empty;
+        public string? BusinessProvince { get; set; }
 
         /// <summary>
         /// 获取或设置经营范围所在城市。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("business_city")]
         [System.Text.Json.Serialization.JsonPropertyName("business_city")]
-        public string BusinessCity { get; set; } = string.Empty;
+        public string? BusinessCity { get; set; }
 
         /// <summary>
         /// 获取或设置经营范围详细地址。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("business_detail_address")]
         [System.Text.Json.Serialization.JsonPropertyName("business_detail_address")]
-        public string BusinessAddress { get; set; } = string.Empty;
+        public string? BusinessAddress { get; set; }
 
         /// <summary>
         /// 获取或设置法人姓名。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("legal_person")]
         [System.Text.Json.Serialization.JsonPropertyName("legal_person")]
-        public string LegalPersonName { get; set; } = string.Empty;
+        public string? LegalPersonName { get; set; }
 
         /// <summary>
         /// 获取或设置法人身份证号。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("legal_id")]
         [System.Text.Json.Serialization.JsonPropertyName("legal_id")]
-        public string LegalPersonIdNumber { get; set; } = string.Empty;
+        public string? LegalPersonIdNumber { get; set; }
 
         /// <summary>
         /// 获取或设置法人身份证正面照片 URL。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id_card_front_url")]
         [System.Text.Json.Serialization.JsonPropertyName("id_card_front_url")]
-        public string LegalPersonIdCardFrontPictureUrl { get; set; } = string.Empty;
+        public string? LegalPersonIdCardFrontPictureUrl { get; set; }
 
         /// <summary>
         /// 获取或设置法人身份证背面照片 URL。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("id_card_back_url")]
         [System.Text.Json.Serialization.JsonPropertyName("id_card_back_url")]
-        public string LegalPersonIdCardBackPictureUrl { get; set; } = string.Empty;
+        public string? LegalPersonIdCardBackPictureUrl { get; set; }
 
         /// <summary>
         /// 获取或设置法人身份证开始时间字符串（格式：yyyy-MM-dd）。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("legal_card_start_time")]
         [System.Text.Json.Serialization.JsonPropertyName("legal_card_start_time")]
-        public string LegalPersonIdCardStartTimeString { get; set; } = string.Empty;
+        public string? LegalPersonIdCardStartTimeString { get; set; }
 
         /// <summary>
         /// 获取或设置法人身份证结束时间字符串（格式：yyyy-MM-dd）。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("legal_card_end_time")]
         [System.Text.Json.Serialization.JsonPropertyName("legal_card_end_time")]
-        public string LegalPersonIdCardEndTimeString { get; set; } = string.Empty;
+        public string? LegalPersonIdCardEndTimeString { get; set; }
 
         /// <summary>
         /// 获取或设置营业执照开始时间字符串（格式：yyyy-MM-dd）。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("license_start_time")]
         [System.Text.Json.Serialization.JsonPropertyName("license_start_time")]
-        public string LicenseStartTimeString { get; set; } = string.Empty;
+        public string? LicenseStartTimeString { get; set; }
 
         /// <summary>
         /// 获取或设置营业执照结束时间字符串（格式：yyyy-MM-dd）。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("license_end_time")]
         [System.Text.Json.Serialization.JsonPropertyName("license_end_time")]
-        public string LicenseEndTimeString { get; set; } = string.Empty;
+        public string? LicenseEndTimeString { get; set; }
 
         /// <summary>
         /// 获取或设置行业 ID。
@@ -101,7 +101,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("manage_permit_url")]
         [System.Text.Json.Serialization.JsonPropertyName("manage_permit_url")]
-        public string PermitQualificationUrl { get; set; } = string.Empty;
+        public string? PermitQualificationUrl { get; set; }
 
         /// <summary>
         /// 获取或设置注册资本（单位：元）。
@@ -114,9 +114,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// 获取或设置经营控股人是否与法人一致。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("manager_same")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.NumericalBooleanConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.NumericBooleanConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("manager_same")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalBooleanConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericBooleanConverter))]
         public bool IsManagerSameWithLegalPerson { get; set; }
 
         /// <summary>
@@ -172,9 +172,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// 获取或设置受益人是否与法人一致。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("benefit_same")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.NumericalBooleanConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.NumericBooleanConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("benefit_same")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalBooleanConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericBooleanConverter))]
         public bool IsBeneficiarySameWithLegalPerson { get; set; }
 
         /// <summary>

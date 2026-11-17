@@ -5,9 +5,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
     /// </summary>
     public class RestOAuthTokenResponse : BaiduSmartAppThirdPartyResponse
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override string? ErrorMessage
@@ -35,17 +33,17 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("access_token")]
         [System.Text.Json.Serialization.JsonPropertyName("access_token")]
-        public string AccessToken { get; set; } = default!;
+        public string? AccessToken { get; set; }
 
         /// <summary>
-        /// 获取或设置接口调用凭证刷新令牌。
+        /// 获取或设置刷新令牌。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("refresh_token")]
         [System.Text.Json.Serialization.JsonPropertyName("refresh_token")]
-        public string RefreshToken { get; set; } = default!;
+        public string? RefreshToken { get; set; }
 
         /// <summary>
-        /// 获取或设置接口调用凭证有效期（单位：秒）。
+        /// 获取或设置凭证有效期（单位：秒）。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("expires_in")]
         [System.Text.Json.Serialization.JsonPropertyName("expires_in")]

@@ -15,13 +15,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Events
         [Newtonsoft.Json.JsonProperty("packageId")]
         [System.Text.Json.Serialization.JsonPropertyName("packageId")]
         [System.Text.Json.Serialization.JsonNumberHandling(System.Text.Json.Serialization.JsonNumberHandling.AllowReadingFromString)]
-        public long PackageId { get; set; } = default!;
+        public long PackageId { get; set; }
 
         /// <summary>
         /// 获取或设置代码包版本号。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("packageVersion")]
         [System.Text.Json.Serialization.JsonPropertyName("packageVersion")]
-        public string PackageVersion { get; set; } = default!;
+        public string? PackageVersion { get; set; }
     }
 }

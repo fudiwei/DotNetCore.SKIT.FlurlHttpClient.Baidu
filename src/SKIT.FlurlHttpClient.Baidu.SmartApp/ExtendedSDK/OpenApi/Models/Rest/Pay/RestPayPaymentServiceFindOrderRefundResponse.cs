@@ -3,7 +3,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
     /// <summary>
     /// <para>表示 [GET] /rest/2.0/smartapp/pay/paymentservice/findOrderRefund 接口的响应。</para>
     /// </summary>
-    public class RestPayPaymentServiceFindOrderRefundResponse : BaiduSmartAppOpenApiResponse<RestPayPaymentServiceFindOrderRefundResponse.Types.Refund[]>
+    public class RestPayPaymentServiceFindOrderRefundResponse : BaiduSmartAppOpenApiResponse<List<RestPayPaymentServiceFindOrderRefundResponse.Types.Refund>?>
     {
         public static class Types
         {
@@ -22,7 +22,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("bizRefundBatchId")]
                 [System.Text.Json.Serialization.JsonPropertyName("bizRefundBatchId")]
-                public string OutRefundBatchId { get; set; } = default!;
+                public string? OutRefundBatchId { get; set; }
 
                 /// <summary>
                 /// 获取或设置订单 ID。
@@ -48,9 +48,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
             }
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("msg")]
         [System.Text.Json.Serialization.JsonPropertyName("msg")]
         public override string? ErrorMessage { get; set; }

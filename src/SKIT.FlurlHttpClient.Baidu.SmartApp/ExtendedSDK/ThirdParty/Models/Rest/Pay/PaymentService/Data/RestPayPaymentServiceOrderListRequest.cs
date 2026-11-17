@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string Status { get; set; } = string.Empty;
+        public string? Status { get; set; }
 
         /// <summary>
         /// 获取或设置起始时间时间戳。

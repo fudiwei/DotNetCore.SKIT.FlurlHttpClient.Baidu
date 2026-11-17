@@ -18,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("query")]
                         [System.Text.Json.Serialization.JsonPropertyName("query")]
-                        public string QueryKeyword { get; set; } = default!;
+                        public string? QueryKeyword { get; set; }
 
                         /// <summary>
                         /// 获取或设置点击量。
@@ -39,7 +39,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("rate")]
                         [System.Text.Json.Serialization.JsonPropertyName("rate")]
-                        public string CTRString { get; set; } = default!;
+                        public string? CTRString { get; set; }
                     }
                 }
 
@@ -48,7 +48,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("detail")]
                 [System.Text.Json.Serialization.JsonPropertyName("detail")]
-                public Types.Record[] RecordList { get; set; } = default!;
+                public List<Types.Record>? RecordList { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。

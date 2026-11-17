@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -16,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("BizAPPID")]
                 [System.Text.Json.Serialization.JsonPropertyName("BizAPPID")]
-                public string AppKey { get; set; } = string.Empty;
+                public string? AppKey { get; set; }
 
                 /// <summary>
                 /// 获取或设置订单种类。
@@ -30,8 +28,8 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("ResourceID")]
                 [System.Text.Json.Serialization.JsonPropertyName("ResourceID")]
-                public string OutOrderId { get; set; } = string.Empty;
-                
+                public string? OutOrderId { get; set; }
+
                 /// <summary>
                 /// 获取或设置订单状态。
                 /// </summary>
@@ -60,7 +58,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string SceneId { get; set; } = string.Empty;
+        public string? SceneId { get; set; }
 
         /// <summary>
         /// 获取或设置场景类型。
@@ -75,6 +73,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("Data")]
         [System.Text.Json.Serialization.JsonPropertyName("Data")]
-        public IList<Types.Order> OrderList { get; set; } = new List<Types.Order>();
+        public List<Types.Order>? OrderList { get; set; }
     }
 }

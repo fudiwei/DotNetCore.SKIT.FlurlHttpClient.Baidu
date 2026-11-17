@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -28,14 +26,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("provinceName")]
                         [System.Text.Json.Serialization.JsonPropertyName("provinceName")]
-                        public string ProvinceName { get; set; } = default!;
+                        public string? ProvinceName { get; set; }
 
                         /// <summary>
                         /// 获取或设置城市列表。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("cities")]
                         [System.Text.Json.Serialization.JsonPropertyName("cities")]
-                        public City[] CityList { get; set; } = default!;
+                        public List<City>? CityList { get; set; }
                     }
 
                     public class City
@@ -53,7 +51,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("cityName")]
                         [System.Text.Json.Serialization.JsonPropertyName("cityName")]
-                        public string CityName { get; set; } = default!;
+                        public string? CityName { get; set; }
                     }
 
                     public class Bank
@@ -75,7 +73,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                                 /// </summary>
                                 [Newtonsoft.Json.JsonProperty("bankName")]
                                 [System.Text.Json.Serialization.JsonPropertyName("bankName")]
-                                public string BankName { get; set; } = default!;
+                                public string? BankName { get; set; }
 
                                 /// <summary>
                                 /// 获取或设置 Logo URL。
@@ -91,14 +89,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("character")]
                         [System.Text.Json.Serialization.JsonPropertyName("character")]
-                        public string InitialCharacter { get; set; } = default!;
+                        public string? InitialCharacter { get; set; }
 
                         /// <summary>
                         /// 获取或设置银行列表。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("banks")]
                         [System.Text.Json.Serialization.JsonPropertyName("banks")]
-                        public Types.Bank[] BankList { get; set; } = default!;
+                        public List<Types.Bank>? BankList { get; set; }
                     }
                 }
 
@@ -107,28 +105,28 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("province_list")]
                 [System.Text.Json.Serialization.JsonPropertyName("province_list")]
-                public Types.Province[] ProvinceList { get; set; } = default!;
+                public List<Types.Province>? ProvinceList { get; set; }
 
                 /// <summary>
                 /// 获取或设置银行列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("bank_list")]
                 [System.Text.Json.Serialization.JsonPropertyName("bank_list")]
-                public Types.Bank[] BankList { get; set; } = default!;
+                public List<Types.Bank>? BankList { get; set; }
 
                 /// <summary>
                 /// 获取或设置佣金比例字典。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("commissionRate")]
                 [System.Text.Json.Serialization.JsonPropertyName("commissionRate")]
-                public IDictionary<int, string> CommissionRateMap { get; set; } = default!;
+                public Dictionary<int, string>? CommissionRateMap { get; set; }
 
                 /// <summary>
                 /// 获取或设置结算周期字典。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("paymentDays")]
                 [System.Text.Json.Serialization.JsonPropertyName("paymentDays")]
-                public IDictionary<int, string> PaymentDaysMap { get; set; } = default!;
+                public Dictionary<int, string>? PaymentDaysMap { get; set; }
             }
         }
     }

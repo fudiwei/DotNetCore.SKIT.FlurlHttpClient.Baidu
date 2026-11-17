@@ -21,7 +21,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("data")]
                 [System.Text.Json.Serialization.JsonPropertyName("data")]
-                public Types.Bill[] BillList { get; set; } = default!;
+                public List<Types.Bill>? BillList { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。

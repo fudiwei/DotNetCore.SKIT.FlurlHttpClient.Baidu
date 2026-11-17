@@ -10,28 +10,28 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("app_name")]
         [System.Text.Json.Serialization.JsonPropertyName("app_name")]
-        public string ServiceAppName { get; set; } = string.Empty;
+        public string? ServiceAppName { get; set; }
 
         /// <summary>
         /// 获取或设置服务电话。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("service_phone")]
         [System.Text.Json.Serialization.JsonPropertyName("service_phone")]
-        public string ServicePhoneNumber { get; set; } = string.Empty;
+        public string? ServicePhoneNumber { get; set; }
 
         /// <summary>
         /// 获取或设置银行开户名。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bank_account")]
         [System.Text.Json.Serialization.JsonPropertyName("bank_account")]
-        public string BankAccountName { get; set; } = string.Empty;
+        public string? BankAccountName { get; set; }
 
         /// <summary>
         /// 获取或设置银行卡号。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bank_card")]
         [System.Text.Json.Serialization.JsonPropertyName("bank_card")]
-        public string BankAccountNumber { get; set; } = string.Empty;
+        public string? BankAccountNumber { get; set; }
 
         /// <summary>
         /// 获取或设置银行卡预留手机号。
@@ -45,7 +45,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bank_name")]
         [System.Text.Json.Serialization.JsonPropertyName("bank_name")]
-        public string BankName { get; set; } = string.Empty;
+        public string? BankName { get; set; }
 
         /// <summary>
         /// 获取或设置银行支行名称。

@@ -3,15 +3,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
     /// <summary>
     /// <para>表示 [POST] /rest/2.0/smartapp/app/modifywebviewdomain 接口的响应。</para>
     /// </summary>
-    public class RestAppModifyWebviewDomainResponse : BaiduSmartAppThirdPartyResponse<string[]?>
+    public class RestAppModifyWebviewDomainResponse : BaiduSmartAppThirdPartyResponse<List<string>?>
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("data")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedStringArrayWithCommaSplitConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedStringListWithCommaSplitConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("data")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedStringArrayWithCommaSplitConverter))]
-        public override string[]? Data { get; set; }
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedStringListWithCommaSplitConverter))]
+        public override List<string>? Data { get; set; }
     }
 }

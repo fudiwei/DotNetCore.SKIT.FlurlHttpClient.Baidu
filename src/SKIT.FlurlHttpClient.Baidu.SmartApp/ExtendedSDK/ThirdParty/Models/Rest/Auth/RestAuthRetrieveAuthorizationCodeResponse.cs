@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("authorization_code")]
                 [System.Text.Json.Serialization.JsonPropertyName("authorization_code")]
-                public string AuthorizationCode { get; set; } = default!;
+                public string? AuthorizationCode { get; set; }
 
                 /// <summary>
                 /// 获取或设置授权码有效期（单位：秒）

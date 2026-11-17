@@ -1,5 +1,3 @@
-using System.Linq;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -9,7 +7,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
     {
         public override bool IsSuccessful()
         {
-            return base.IsSuccessful() && GetRawBytes().Any();
+            return base.IsSuccessful() && GetRawHeaders().ContainsKey(HttpHeaders.ContentDisposition);
         }
     }
 }

@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
 {
     /// <summary>
@@ -13,13 +10,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public byte[] ImageFileBytes { get; set; } = Array.Empty<byte>();
+        public byte[]? ImageFileBytes { get; set; }
 
         /// <summary>
         /// 获取或设置检测类型列表。
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public IList<string>? TypeList { get; set; }
+        public List<string>? TypeList { get; set; }
     }
 }

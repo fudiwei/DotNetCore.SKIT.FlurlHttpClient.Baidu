@@ -10,20 +10,20 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("couponId")]
         [System.Text.Json.Serialization.JsonPropertyName("couponId")]
-        public string CouponId { get; set; } = string.Empty;
+        public string? CouponId { get; set; }
 
         /// <summary>
         /// 获取或设置用户的 OpenId。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("openId")]
         [System.Text.Json.Serialization.JsonPropertyName("openId")]
-        public string OpenId { get; set; } = string.Empty;
+        public string? OpenId { get; set; }
 
         /// <summary>
         /// 获取或设置卡券下发唯一标识。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("uniqueSendingIdentity")]
         [System.Text.Json.Serialization.JsonPropertyName("uniqueSendingIdentity")]
-        public string UniqueSendingId { get; set; } = string.Empty;
+        public string? UniqueSendingId { get; set; }
     }
 }

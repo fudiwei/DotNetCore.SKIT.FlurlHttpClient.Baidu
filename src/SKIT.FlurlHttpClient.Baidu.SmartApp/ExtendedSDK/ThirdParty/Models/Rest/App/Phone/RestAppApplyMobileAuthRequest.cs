@@ -24,13 +24,13 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("scene_desc")]
         [System.Text.Json.Serialization.JsonPropertyName("scene_desc")]
-        public string SceneDescription { get; set; } = string.Empty;
+        public string? SceneDescription { get; set; }
 
         /// <summary>
         /// 获取或设置场景实例图片 URL。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("scene_demo")]
         [System.Text.Json.Serialization.JsonPropertyName("scene_demo")]
-        public string SceneDemoUrl { get; set; } = string.Empty;
+        public string? SceneDemoUrl { get; set; }
     }
 }

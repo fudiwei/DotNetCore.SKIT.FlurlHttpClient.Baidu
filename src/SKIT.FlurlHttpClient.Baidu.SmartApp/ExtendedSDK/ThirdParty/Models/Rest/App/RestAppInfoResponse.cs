@@ -18,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("name")]
                         [System.Text.Json.Serialization.JsonPropertyName("name")]
-                        public string Name { get; set; } = default!;
+                        public string? Name { get; set; }
 
                         /// <summary>
                         /// 获取或设置主体类型。
@@ -63,7 +63,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("category_name")]
                         [System.Text.Json.Serialization.JsonPropertyName("category_name")]
-                        public string CategoryName { get; set; } = default!;
+                        public string? CategoryName { get; set; }
 
                         /// <summary>
                         /// 获取或设置类目描述。
@@ -101,7 +101,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("audit_app_name")]
                         [System.Text.Json.Serialization.JsonPropertyName("audit_app_name")]
-                        public string AppName { get; set; } = default!;
+                        public string? AppName { get; set; }
 
                         /// <summary>
                         /// 获取或设置小程序名称审核状态。
@@ -122,7 +122,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("audit_app_desc")]
                         [System.Text.Json.Serialization.JsonPropertyName("audit_app_desc")]
-                        public string AppDescription { get; set; } = default!;
+                        public string? AppDescription { get; set; }
 
                         /// <summary>
                         /// 获取或设置小程序介绍审核状态。
@@ -233,7 +233,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("scope_name")]
                         [System.Text.Json.Serialization.JsonPropertyName("scope_name")]
-                        public string ScopeName { get; set; } = default!;
+                        public string? ScopeName { get; set; }
                     }
 
                     public class AnnualReviewInfo
@@ -277,50 +277,50 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("app_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("app_id")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
-                public string AppId { get; set; } = default!;
+                [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
+                public string? AppId { get; set; }
 
                 /// <summary>
                 /// 获取或设置小程序名称。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("app_name")]
                 [System.Text.Json.Serialization.JsonPropertyName("app_name")]
-                public string AppName { get; set; } = default!;
+                public string? AppName { get; set; }
 
                 /// <summary>
                 /// 获取或设置小程序 AppKey。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("app_key")]
                 [System.Text.Json.Serialization.JsonPropertyName("app_key")]
-                public string AppKey { get; set; } = default!;
+                public string? AppKey { get; set; }
 
                 /// <summary>
                 /// 获取或设置小程序介绍。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("app_desc")]
                 [System.Text.Json.Serialization.JsonPropertyName("app_desc")]
-                public string AppDescription { get; set; } = default!;
+                public string? AppDescription { get; set; }
 
                 /// <summary>
                 /// 获取或设置小程序头像 URL。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("photo_addr")]
                 [System.Text.Json.Serialization.JsonPropertyName("photo_addr")]
-                public string HeadImageUrl { get; set; } = default!;
+                public string? HeadImageUrl { get; set; }
 
                 /// <summary>
                 /// 获取或设置主体信息。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("qualification")]
                 [System.Text.Json.Serialization.JsonPropertyName("qualification")]
-                public Types.Qualification Qualification { get; set; } = default!;
+                public Types.Qualification? Qualification { get; set; }
 
                 /// <summary>
                 /// 获取或设置类目列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("category")]
                 [System.Text.Json.Serialization.JsonPropertyName("category")]
-                public Types.Category[] CategoryList { get; set; } = default!;
+                public List<Types.Category>? CategoryList { get; set; }
 
                 /// <summary>
                 /// 获取或设置基本信息审核信息。
@@ -341,7 +341,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("auth_info")]
                 [System.Text.Json.Serialization.JsonPropertyName("auth_info")]
-                public Types.AuthInfo[]? AuthInfoList { get; set; }
+                public List<Types.AuthInfo>? AuthInfoList { get; set; }
 
                 /// <summary>
                 /// 获取或设置小程序年审相关信息。
@@ -355,7 +355,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("app_offline_info")]
                 [System.Text.Json.Serialization.JsonPropertyName("app_offline_info")]
-                public Types.AppOfflineInfo[]? AppOfflineInfoList { get; set; }
+                public List<Types.AppOfflineInfo>? AppOfflineInfoList { get; set; }
 
                 /// <summary>
                 /// 获取或设置小程序状态。
@@ -376,7 +376,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("min_swan_version")]
                 [System.Text.Json.Serialization.JsonPropertyName("min_swan_version")]
-                public string MinSwanVersion { get; set; } = default!;
+                public string? MinSwanVersion { get; set; }
             }
         }
     }

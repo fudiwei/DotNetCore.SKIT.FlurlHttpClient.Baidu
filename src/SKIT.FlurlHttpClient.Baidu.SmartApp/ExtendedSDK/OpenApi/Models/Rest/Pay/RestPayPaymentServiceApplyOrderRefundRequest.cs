@@ -24,14 +24,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("tpOrderId")]
         [System.Text.Json.Serialization.JsonPropertyName("tpOrderId")]
-        public string OutOrderId { get; set; } = string.Empty;
+        public string? OutOrderId { get; set; }
 
         /// <summary>
         /// 获取或设置开发者自定义退款批次 ID。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("bizRefundBatchId")]
         [System.Text.Json.Serialization.JsonPropertyName("bizRefundBatchId")]
-        public string OutRefundBatchId { get; set; } = string.Empty;
+        public string? OutRefundBatchId { get; set; }
 
         /// <summary>
         /// 获取或设置退款金额（单位：分）。
@@ -44,9 +44,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// 获取或设置退款金额（单位：分）。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("isSkipAudit")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.NumericalBooleanConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.NumericBooleanConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("isSkipAudit")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalBooleanConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericBooleanConverter))]
         public bool IsSkipAudit { get; set; }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("refundReason")]
         [System.Text.Json.Serialization.JsonPropertyName("refundReason")]
-        public string RefundReason { get; set; } = string.Empty;
+        public string? RefundReason { get; set; }
 
         /// <summary>
         /// 获取或设置百度收银台用户 ID。

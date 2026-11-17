@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -27,7 +25,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("addr")]
                         [System.Text.Json.Serialization.JsonPropertyName("addr")]
-                        public string Url { get; set; } = string.Empty;
+                        public string? Url { get; set; }
                     }
                 }
 
@@ -43,7 +41,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("qualis")]
                 [System.Text.Json.Serialization.JsonPropertyName("qualis")]
-                public IList<Types.Qualification>? QualificationList { get; set; }
+                public List<Types.Qualification>? QualificationList { get; set; }
             }
         }
 
@@ -51,9 +49,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// 获取或设置类目列表。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("categorys")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedObjectInJsonFormatConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedObjectInJsonFormatConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("categorys")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedObjectInJsonFormatConverter))]
-        public IList<Types.Category> CategoryList { get; set; } = new List<Types.Category>();
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedObjectInJsonFormatConverter))]
+        public List<Types.Category>? CategoryList { get; set; }
     }
 }

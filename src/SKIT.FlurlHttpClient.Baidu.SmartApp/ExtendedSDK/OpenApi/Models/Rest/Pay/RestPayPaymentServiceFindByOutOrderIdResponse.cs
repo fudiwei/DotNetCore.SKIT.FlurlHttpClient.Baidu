@@ -14,30 +14,30 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("appId")]
                 [System.Text.Json.Serialization.JsonPropertyName("appId")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
-                public string AppId { get; set; } = default!;
+                [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
+                public string? AppId { get; set; }
 
                 /// <summary>
                 /// 获取或设置小程序 AppKey。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("appKey")]
                 [System.Text.Json.Serialization.JsonPropertyName("appKey")]
-                public string AppKey { get; set; } = default!;
+                public string? AppKey { get; set; }
 
                 /// <summary>
                 /// 获取或设置第三方平台 AppId。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("tpId")]
                 [System.Text.Json.Serialization.JsonPropertyName("tpId")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
-                public string ThirdPartyAppId { get; set; } = default!;
+                [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
+                public string? ThirdPartyAppId { get; set; }
 
                 /// <summary>
                 /// 获取或设置开发者自定义订单 ID。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("tpOrderId")]
                 [System.Text.Json.Serialization.JsonPropertyName("tpOrderId")]
-                public string OutOrderId { get; set; } = default!;
+                public string? OutOrderId { get; set; }
 
                 /// <summary>
                 /// 获取或设置订单 ID。
@@ -81,7 +81,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("dealId")]
                 [System.Text.Json.Serialization.JsonPropertyName("dealId")]
-                [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
+                [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
                 public string? DealId { get; set; }
 
                 /// <summary>
@@ -96,7 +96,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("openId")]
                 [System.Text.Json.Serialization.JsonPropertyName("openId")]
-                public string OpenId { get; set; } = default!;
+                public string? OpenId { get; set; }
 
                 /// <summary>
                 /// 获取或设置百度收银台用户 ID。
@@ -164,9 +164,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
             }
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("msg")]
         [System.Text.Json.Serialization.JsonPropertyName("msg")]
         public override string? ErrorMessage { get; set; }

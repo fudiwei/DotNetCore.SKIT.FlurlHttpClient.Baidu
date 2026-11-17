@@ -18,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("date")]
                         [System.Text.Json.Serialization.JsonPropertyName("date")]
-                        public string DateString { get; set; } = default!;
+                        public string? DateString { get; set; }
 
                         /// <summary>
                         /// 获取或设置点击量。
@@ -39,7 +39,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("click_view_ratio")]
                         [System.Text.Json.Serialization.JsonPropertyName("click_view_ratio")]
-                        public string CTRString { get; set; } = default!;
+                        public string? CTRString { get; set; }
                     }
                 }
 
@@ -62,14 +62,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("click_display_ratio")]
                 [System.Text.Json.Serialization.JsonPropertyName("click_display_ratio")]
-                public string CTRString { get; set; } = default!;
+                public string? CTRString { get; set; }
 
                 /// <summary>
                 /// 获取或设置日期纬度的点击与展示列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("traffic_data")]
                 [System.Text.Json.Serialization.JsonPropertyName("traffic_data")]
-                public Types.Record[] RecordList { get; set; } = default!;
+                public List<Types.Record>? RecordList { get; set; }
             }
         }
     }

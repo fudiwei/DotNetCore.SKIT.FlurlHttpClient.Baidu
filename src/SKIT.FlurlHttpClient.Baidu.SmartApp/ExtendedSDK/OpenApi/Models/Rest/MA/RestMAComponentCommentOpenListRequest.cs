@@ -25,14 +25,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("snid")]
         [System.Text.Json.Serialization.JsonPropertyName("snid")]
-        public string ContentId { get; set; } = string.Empty;
+        public string? ContentId { get; set; }
 
         /// <summary>
         /// 获取或设置文章 ID 类型。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("snid_type")]
         [System.Text.Json.Serialization.JsonPropertyName("snid_type")]
-        public string ContentIdType { get; set; } = string.Empty;
+        public string? ContentIdType { get; set; }
 
         /// <summary>
         /// 获取或设置宿主标识。

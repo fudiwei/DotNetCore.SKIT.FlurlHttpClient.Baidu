@@ -1,5 +1,3 @@
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -20,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("opt_type")]
                         [System.Text.Json.Serialization.JsonPropertyName("opt_type")]
-                        public string OperateType { get; set; } = default!;
+                        public string? OperateType { get; set; }
 
                         /// <summary>
                         /// 获取或设置金额（单位：元）。
@@ -43,15 +41,15 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("third_order_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("third_order_id")]
-                        public string OutOrderId { get; set; } = default!;
+                        public string? OutOrderId { get; set; }
 
                         /// <summary>
                         /// 获取或设置操作时间。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("operate_time")]
-                        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.BasicDateTimeOffsetConverter))]
+                        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.ISO8601DateTimeOffsetConverter))]
                         [System.Text.Json.Serialization.JsonPropertyName("operate_time")]
-                        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.BasicDateTimeOffsetConverter))]
+                        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.ISO8601DateTimeOffsetConverter))]
                         public DateTimeOffset OperateTime { get; set; }
                     }
                 }
@@ -84,21 +82,21 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("settlement_start_time")]
                 [System.Text.Json.Serialization.JsonPropertyName("settlement_start_time")]
-                public string SettlementStartDateString { get; set; } = default!;
+                public string? SettlementStartDateString { get; set; }
 
                 /// <summary>
                 /// 获取或设置账单周期结束日期字符串（格式：yyyy-MM-dd）。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("settlement_end_time")]
                 [System.Text.Json.Serialization.JsonPropertyName("settlement_end_time")]
-                public string SettlementEndDateString { get; set; } = default!;
+                public string? SettlementEndDateString { get; set; }
 
                 /// <summary>
                 /// 获取或设置支付收入其他款项明细列表。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("data")]
                 [System.Text.Json.Serialization.JsonPropertyName("data")]
-                public Types.Record[] RecordList { get; set; } = default!;
+                public List<Types.Record>? RecordList { get; set; }
             }
         }
     }

@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -21,41 +19,21 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                             {
                                 public static class Types
                                 {
-                                    public class Product
+                                    public abstract class __zz__Product
                                     {
-                                        public static class Types
-                                        {
-                                            public class SKUAttribute
-                                            {
-                                                /// <summary>
-                                                /// 获取或设置属性名称。
-                                                /// </summary>
-                                                [Newtonsoft.Json.JsonProperty("Name")]
-                                                [System.Text.Json.Serialization.JsonPropertyName("Name")]
-                                                public string Name { get; set; } = string.Empty;
-
-                                                /// <summary>
-                                                /// 获取或设置属性值。
-                                                /// </summary>
-                                                [Newtonsoft.Json.JsonProperty("Value")]
-                                                [System.Text.Json.Serialization.JsonPropertyName("Value")]
-                                                public string Value { get; set; } = string.Empty;
-                                            }
-                                        }
-
                                         /// <summary>
                                         /// 获取或设置开发者自定义商品 ID。
                                         /// </summary>
                                         [Newtonsoft.Json.JsonProperty("ID")]
                                         [System.Text.Json.Serialization.JsonPropertyName("ID")]
-                                        public string OutProductId { get; set; } = string.Empty;
+                                        public string? OutProductId { get; set; }
 
                                         /// <summary>
                                         /// 获取或设置商品名称。
                                         /// </summary>
                                         [Newtonsoft.Json.JsonProperty("Name")]
                                         [System.Text.Json.Serialization.JsonPropertyName("Name")]
-                                        public string Name { get; set; } = string.Empty;
+                                        public string? Name { get; set; }
 
                                         /// <summary>
                                         /// 获取或设置商品描述。
@@ -90,14 +68,37 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                                         /// </summary>
                                         [Newtonsoft.Json.JsonProperty("ImgList")]
                                         [System.Text.Json.Serialization.JsonPropertyName("ImgList")]
-                                        public IList<string>? ImageUrlList { get; set; }
+                                        public List<string>? ImageUrlList { get; set; }
+                                    }
+
+                                    public class Product : __zz__Product
+                                    {
+                                        public static class Types
+                                        {
+                                            public class SKUAttribute
+                                            {
+                                                /// <summary>
+                                                /// 获取或设置属性名称。
+                                                /// </summary>
+                                                [Newtonsoft.Json.JsonProperty("Name")]
+                                                [System.Text.Json.Serialization.JsonPropertyName("Name")]
+                                                public string? Name { get; set; }
+
+                                                /// <summary>
+                                                /// 获取或设置属性值。
+                                                /// </summary>
+                                                [Newtonsoft.Json.JsonProperty("Value")]
+                                                [System.Text.Json.Serialization.JsonPropertyName("Value")]
+                                                public string? Value { get; set; }
+                                            }
+                                        }
 
                                         /// <summary>
                                         /// 获取或设置商品 SKU 属性列表。
                                         /// </summary>
                                         [Newtonsoft.Json.JsonProperty("SkuAttr")]
                                         [System.Text.Json.Serialization.JsonPropertyName("SkuAttr")]
-                                        public IList<Types.SKUAttribute>? SKUAttributeList { get; set; }
+                                        public List<Types.SKUAttribute>? SKUAttributeList { get; set; }
 
                                         /// <summary>
                                         /// 获取或设置商品详情页配置信息。
@@ -107,7 +108,38 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                                         public DetailedPageInfo? ProductDetailPageInfo { get; set; }
                                     }
 
-                                    public class Payment
+                                    public abstract class __zz__Payment
+                                    {
+                                        /// <summary>
+                                        /// 获取或设置付款方式。
+                                        /// </summary>
+                                        [Newtonsoft.Json.JsonProperty("Method")]
+                                        [System.Text.Json.Serialization.JsonPropertyName("Method")]
+                                        public int PayMethod { get; set; }
+
+                                        /// <summary>
+                                        /// 获取或设置付款金额（单位：分）。
+                                        /// </summary>
+                                        [Newtonsoft.Json.JsonProperty("Amount")]
+                                        [System.Text.Json.Serialization.JsonPropertyName("Amount")]
+                                        public int PayAmount { get; set; }
+
+                                        /// <summary>
+                                        /// 获取或设置是否付款。
+                                        /// </summary>
+                                        [Newtonsoft.Json.JsonProperty("IsPayment")]
+                                        [System.Text.Json.Serialization.JsonPropertyName("IsPayment")]
+                                        public bool IsPaid { get; set; }
+
+                                        /// <summary>
+                                        /// 获取或设置付款时间戳。
+                                        /// </summary>
+                                        [Newtonsoft.Json.JsonProperty("Time")]
+                                        [System.Text.Json.Serialization.JsonPropertyName("Time")]
+                                        public long? PayTimestamp { get; set; }
+                                    }
+
+                                    public class Payment : __zz__Payment
                                     {
                                         public static class Types
                                         {
@@ -137,46 +169,18 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                                         }
 
                                         /// <summary>
-                                        /// 获取或设置付款方式。
-                                        /// </summary>
-                                        [Newtonsoft.Json.JsonProperty("Method")]
-                                        [System.Text.Json.Serialization.JsonPropertyName("Method")]
-                                        public int PayMethod { get; set; }
-
-                                        /// <summary>
-                                        /// 获取或设置付款金额（单位：分）。
-                                        /// </summary>
-                                        [Newtonsoft.Json.JsonProperty("Amount")]
-                                        [System.Text.Json.Serialization.JsonPropertyName("Amount")]
-                                        public int PayAmount { get; set; }
-
-                                        /// <summary>
-                                        /// 获取或设置是否付款。
-                                        /// </summary>
-                                        [Newtonsoft.Json.JsonProperty("IsPayment")]
-                                        [System.Text.Json.Serialization.JsonPropertyName("IsPayment")]
-                                        public bool IsPaid { get; set; }
-
-                                        /// <summary>
-                                        /// 获取或设置付款时间戳。
-                                        /// </summary>
-                                        [Newtonsoft.Json.JsonProperty("Time")]
-                                        [System.Text.Json.Serialization.JsonPropertyName("Time")]
-                                        public long? PayTimestamp { get; set; }
-
-                                        /// <summary>
                                         /// 获取或设置优惠信息列表。
                                         /// </summary>
                                         [Newtonsoft.Json.JsonProperty("PreferentialInfo")]
                                         [System.Text.Json.Serialization.JsonPropertyName("PreferentialInfo")]
-                                        public IList<Types.Item>? PreferentialList { get; set; }
+                                        public List<Types.Item>? PreferentialList { get; set; }
 
                                         /// <summary>
                                         /// 获取或设置付款信息列表。
                                         /// </summary>
                                         [Newtonsoft.Json.JsonProperty("PaymentInfo")]
                                         [System.Text.Json.Serialization.JsonPropertyName("PaymentInfo")]
-                                        public IList<Types.Item>? PaymentList { get; set; }
+                                        public List<Types.Item>? PaymentList { get; set; }
                                     }
                                 }
 
@@ -185,14 +189,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                                 /// </summary>
                                 [Newtonsoft.Json.JsonProperty("Products")]
                                 [System.Text.Json.Serialization.JsonPropertyName("Products")]
-                                public IList<Types.Product> ProductList { get; set; } = new List<Types.Product>();
+                                public List<Types.Product>? ProductList { get; set; }
 
                                 /// <summary>
                                 /// 获取或设置支付信息。
                                 /// </summary>
                                 [Newtonsoft.Json.JsonProperty("Payment")]
                                 [System.Text.Json.Serialization.JsonPropertyName("Payment")]
-                                public Types.Payment Payment { get; set; } = new Types.Payment();
+                                public Types.Payment? Payment { get; set; }
 
                                 /// <summary>
                                 /// 获取或设置订单评价页配置信息。
@@ -209,7 +213,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                                 public DetailedPageInfo? OrderDetailPageInfo { get; set; }
                             }
 
-                            public class AftersaleOrderList
+                            public abstract class __zz__AftersaleOrderList
                             {
                                 /// <summary>
                                 /// 获取或设置售后单状态。
@@ -217,70 +221,26 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                                 [Newtonsoft.Json.JsonProperty("Status")]
                                 [System.Text.Json.Serialization.JsonPropertyName("Status")]
                                 public int Status { get; set; }
+                            }
 
+                            public class AftersaleOrderList : __zz__AftersaleOrderList
+                            {
                                 /// <summary>
                                 /// 获取或设置售后单列表。
                                 /// </summary>
                                 [Newtonsoft.Json.JsonProperty("Items")]
                                 [System.Text.Json.Serialization.JsonPropertyName("Items")]
-                                public IList<Types.AftersaleOrderItem> Items { get; set; } = new List<Types.AftersaleOrderItem>();
+                                public List<AftersaleOrderItem>? Items { get; set; }
                             }
 
-                            public class AftersaleOrderItem
+                            public abstract class __zz__AftersaleOrderItem
                             {
-                                public static class Types
-                                {
-                                    public class Refund
-                                    {
-                                        public static class Types
-                                        {
-                                            public class Product
-                                            {
-                                                /// <summary>
-                                                /// 获取或设置开发者自定义商品 ID。
-                                                /// </summary>
-                                                [Newtonsoft.Json.JsonProperty("ID")]
-                                                [System.Text.Json.Serialization.JsonPropertyName("ID")]
-                                                public string OutProductId { get; set; } = string.Empty;
-
-                                                /// <summary>
-                                                /// 获取或设置退款或退货数量（单位：分）。
-                                                /// </summary>
-                                                [Newtonsoft.Json.JsonProperty("Quantity")]
-                                                [System.Text.Json.Serialization.JsonPropertyName("Quantity")]
-                                                public int Quantity { get; set; }
-
-                                                /// <summary>
-                                                /// 获取或设置退款或退货金额（单位：分）。
-                                                /// </summary>
-                                                [Newtonsoft.Json.JsonProperty("Amount")]
-                                                [System.Text.Json.Serialization.JsonPropertyName("Amount")]
-                                                public int Amount { get; set; }
-                                            }
-                                        }
-
-                                        /// <summary>
-                                        /// 获取或设置退款金额（单位：分）。
-                                        /// </summary>
-                                        [Newtonsoft.Json.JsonProperty("Amount")]
-                                        [System.Text.Json.Serialization.JsonPropertyName("Amount")]
-                                        public int Amount { get; set; }
-
-                                        /// <summary>
-                                        /// 获取或设置退款或退货商品列表。
-                                        /// </summary>
-                                        [Newtonsoft.Json.JsonProperty("Product")]
-                                        [System.Text.Json.Serialization.JsonPropertyName("Product")]
-                                        public IList<Types.Product>? ProductList { get; set; }
-                                    }
-                                }
-
                                 /// <summary>
                                 /// 获取或设置开发者自定义售后单 ID。
                                 /// </summary>
                                 [Newtonsoft.Json.JsonProperty("SubOrderID")]
                                 [System.Text.Json.Serialization.JsonPropertyName("SubOrderID")]
-                                public string OutAftersaleOrderId { get; set; } = string.Empty;
+                                public string? OutAftersaleOrderId { get; set; }
 
                                 /// <summary>
                                 /// 获取或设置类型。
@@ -309,13 +269,66 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                                 [Newtonsoft.Json.JsonProperty("Mtime")]
                                 [System.Text.Json.Serialization.JsonPropertyName("Mtime")]
                                 public long ModifyTimestamp { get; set; }
+                            }
+
+                            public class AftersaleOrderItem : __zz__AftersaleOrderItem
+                            {
+                                public static class Types
+                                {
+                                    public abstract class __zz__Refund
+                                    {
+                                        /// <summary>
+                                        /// 获取或设置退款金额（单位：分）。
+                                        /// </summary>
+                                        [Newtonsoft.Json.JsonProperty("Amount")]
+                                        [System.Text.Json.Serialization.JsonPropertyName("Amount")]
+                                        public int Amount { get; set; }
+                                    }
+
+                                    public class Refund : __zz__Refund
+                                    {
+                                        public static class Types
+                                        {
+                                            public class Product
+                                            {
+                                                /// <summary>
+                                                /// 获取或设置开发者自定义商品 ID。
+                                                /// </summary>
+                                                [Newtonsoft.Json.JsonProperty("ID")]
+                                                [System.Text.Json.Serialization.JsonPropertyName("ID")]
+                                                public string? OutProductId { get; set; }
+
+                                                /// <summary>
+                                                /// 获取或设置退款或退货数量（单位：分）。
+                                                /// </summary>
+                                                [Newtonsoft.Json.JsonProperty("Quantity")]
+                                                [System.Text.Json.Serialization.JsonPropertyName("Quantity")]
+                                                public int Quantity { get; set; }
+
+                                                /// <summary>
+                                                /// 获取或设置退款或退货金额（单位：分）。
+                                                /// </summary>
+                                                [Newtonsoft.Json.JsonProperty("Amount")]
+                                                [System.Text.Json.Serialization.JsonPropertyName("Amount")]
+                                                public int Amount { get; set; }
+                                            }
+                                        }
+
+                                        /// <summary>
+                                        /// 获取或设置退款或退货商品列表。
+                                        /// </summary>
+                                        [Newtonsoft.Json.JsonProperty("Product")]
+                                        [System.Text.Json.Serialization.JsonPropertyName("Product")]
+                                        public List<Types.Product>? ProductList { get; set; }
+                                    }
+                                }
 
                                 /// <summary>
                                 /// 获取或设置退款信息。
                                 /// </summary>
                                 [Newtonsoft.Json.JsonProperty("Refund")]
                                 [System.Text.Json.Serialization.JsonPropertyName("Refund")]
-                                public Types.Refund Refund { get; set; } = new Types.Refund();
+                                public Types.Refund? Refund { get; set; }
 
                                 /// <summary>
                                 /// 获取或设置售后单详情页配置信息。
@@ -331,7 +344,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("MainOrder")]
                         [System.Text.Json.Serialization.JsonPropertyName("MainOrder")]
-                        public Types.Order Order { get; set; } = new Types.Order();
+                        public Types.Order? Order { get; set; }
 
                         /// <summary>
                         /// 获取或设置售后单列表。
@@ -385,7 +398,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("BizAPPID")]
                 [System.Text.Json.Serialization.JsonPropertyName("BizAPPID")]
-                public string AppKey { get; set; } = string.Empty;
+                public string? AppKey { get; set; }
 
                 /// <summary>
                 /// 获取或设置订单种类。
@@ -399,14 +412,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("ResourceID")]
                 [System.Text.Json.Serialization.JsonPropertyName("ResourceID")]
-                public string OutOrderId { get; set; } = string.Empty;
-                
+                public string? OutOrderId { get; set; }
+
                 /// <summary>
                 /// 获取或设置订单标题。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("Title")]
                 [System.Text.Json.Serialization.JsonPropertyName("Title")]
-                public string Title { get; set; } = string.Empty;
+                public string? Title { get; set; }
 
                 /// <summary>
                 /// 获取或设置创建时间戳。
@@ -434,7 +447,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("EXT")]
                 [System.Text.Json.Serialization.JsonPropertyName("EXT")]
-                public Types.ExtendedInfo ExtendedInfo { get; set; } = new Types.ExtendedInfo();
+                public Types.ExtendedInfo? ExtendedInfo { get; set; }
             }
         }
 
@@ -457,7 +470,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public string SceneId { get; set; } = string.Empty;
+        public string? SceneId { get; set; }
 
         /// <summary>
         /// 获取或设置场景类型。
@@ -472,6 +485,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("Data")]
         [System.Text.Json.Serialization.JsonPropertyName("Data")]
-        public IList<Types.Order> OrderList { get; set; } = new List<Types.Order>();
+        public List<Types.Order>? OrderList { get; set; }
     }
 }

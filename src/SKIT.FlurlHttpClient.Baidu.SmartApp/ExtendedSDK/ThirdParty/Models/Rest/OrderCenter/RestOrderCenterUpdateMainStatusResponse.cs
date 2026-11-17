@@ -3,7 +3,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
     /// <summary>
     /// <para>表示 [POST] /rest/2.0/smartapp/ordercenter/update/main/status 接口的响应。</para>
     /// </summary>
-    public class RestOrderCenterUpdateMainStatusResponse : BaiduSmartAppThirdPartyResponse<RestOrderCenterUpdateMainStatusResponse.Types.Result[]>
+    public class RestOrderCenterUpdateMainStatusResponse : BaiduSmartAppThirdPartyResponse<List<RestOrderCenterUpdateMainStatusResponse.Types.Result>?>
     {
         public static class Types
         {

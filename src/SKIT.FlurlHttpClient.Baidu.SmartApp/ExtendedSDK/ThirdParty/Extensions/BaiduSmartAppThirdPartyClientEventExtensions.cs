@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
 {
     using SKIT.FlurlHttpClient.Primitives;
@@ -39,9 +36,9 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
         /// </para>
         /// </summary>
         /// <param name="client"></param>
-        /// <param name="webhookTimestamp">百度消息推送中的 "timestamp" 查询参数。</param>
-        /// <param name="webhookNonce">百度消息推送中的 "nonce" 查询参数。</param>
-        /// <param name="webhookSignature">百度消息推送中的 "signature" 查询参数。</param>
+        /// <param name="webhookTimestamp">回调通知中的 "timestamp" 查询参数。</param>
+        /// <param name="webhookNonce">回调通知中的 "nonce" 查询参数。</param>
+        /// <param name="webhookSignature">回调通知中的 "signature" 查询参数。</param>
         /// <returns></returns>
         public static ErroredResult VerifyEventSignatureForEcho(this BaiduSmartAppThirdPartyClient client, string webhookTimestamp, string webhookNonce, string webhookSignature)
         {
@@ -78,7 +75,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
         /// </para>
         /// </summary>
         /// <param name="client"></param>
-        /// <param name="webhookJson">百度消息推送中请求正文（JSON 格式）。</param>
+        /// <param name="webhookJson">回调通知中的请求正文（JSON 格式）。</param>
         /// <returns></returns>
         public static ErroredResult VerifyEventSignature(this BaiduSmartAppThirdPartyClient client, string webhookJson)
         {
@@ -91,10 +88,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
                 InnerEncryptedEvent encryptedEvent = client.JsonSerializer.Deserialize<InnerEncryptedEvent>(webhookJson);
                 bool valid = Utilities.BaiduMsgCryptor.VerifySignature(
                     sToken: client.Credentials.PushToken!,
-                    sTimestamp: encryptedEvent.TimestampString,
-                    sNonce: encryptedEvent.Nonce,
-                    sMsgEncrypt: encryptedEvent.EncryptedData,
-                    sMsgSign: encryptedEvent.Signature
+                    sTimestamp: encryptedEvent.TimestampString!,
+                    sNonce: encryptedEvent.Nonce!,
+                    sMsgEncrypt: encryptedEvent.EncryptedData!,
+                    sMsgSign: encryptedEvent.Signature!
                 );
 
                 if (valid)
@@ -117,20 +114,20 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
         {
             [Newtonsoft.Json.JsonProperty("Encrypt")]
             [System.Text.Json.Serialization.JsonPropertyName("Encrypt")]
-            public string EncryptedData { get; set; } = default!;
+            public string? EncryptedData { get; set; }
 
             [Newtonsoft.Json.JsonProperty("TimeStamp")]
             [System.Text.Json.Serialization.JsonPropertyName("TimeStamp")]
-            [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringConverter))]
-            public string TimestampString { get; set; } = default!;
+            [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringConverter))]
+            public string? TimestampString { get; set; }
 
             [Newtonsoft.Json.JsonProperty("Nonce")]
             [System.Text.Json.Serialization.JsonPropertyName("Nonce")]
-            public string Nonce { get; set; } = default!;
+            public string? Nonce { get; set; }
 
             [Newtonsoft.Json.JsonProperty("MsgSignature")]
             [System.Text.Json.Serialization.JsonPropertyName("MsgSignature")]
-            public string Signature { get; set; } = default!;
+            public string? Signature { get; set; }
         }
 
         private static TEvent InnerDeserializeEventFromJson<TEvent>(BaiduSmartAppThirdPartyClient client, string webhookJson)
@@ -146,7 +143,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
                         throw new BaiduSmartAppException("Failed to decrypt event data, because the push encoding AES key is empty.");
 
                     InnerEncryptedEvent encryptedEvent = client.JsonSerializer.Deserialize<InnerEncryptedEvent>(webhookJson);
-                    webhookJson = Utilities.BaiduMsgCryptor.AESDecrypt(cipherText: encryptedEvent.EncryptedData, encodingAESKey: client.Credentials.PushEncodingAESKey!, out _);
+                    webhookJson = Utilities.BaiduMsgCryptor.AESDecrypt(cipherText: encryptedEvent.EncryptedData!, encodingAESKey: client.Credentials.PushEncodingAESKey!, out _);
                 }
 
                 return client.JsonSerializer.Deserialize<TEvent>(webhookJson);

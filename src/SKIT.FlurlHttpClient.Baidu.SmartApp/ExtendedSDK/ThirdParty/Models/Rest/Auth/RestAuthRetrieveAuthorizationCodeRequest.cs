@@ -10,6 +10,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("app_id")]
         [System.Text.Json.Serialization.JsonPropertyName("app_id")]
-        public string AuthorizerAppId { get; set; } = string.Empty;
+        public string? AuthorizerAppId { get; set; }
     }
 }

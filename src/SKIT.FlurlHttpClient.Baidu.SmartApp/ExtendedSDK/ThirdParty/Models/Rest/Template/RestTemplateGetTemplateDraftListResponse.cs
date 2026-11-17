@@ -26,14 +26,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("user_version")]
                         [System.Text.Json.Serialization.JsonPropertyName("user_version")]
-                        public string UserVersion { get; set; } = default!;
+                        public string? UserVersion { get; set; }
 
                         /// <summary>
                         /// 获取或设置自定义描述。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("user_desc")]
                         [System.Text.Json.Serialization.JsonPropertyName("user_desc")]
-                        public string UserDescription { get; set; } = default!;
+                        public string? UserDescription { get; set; }
 
                         /// <summary>
                         /// 获取或设置是否支持 Web 化。
@@ -56,7 +56,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("list")]
                 [System.Text.Json.Serialization.JsonPropertyName("list")]
-                public Types.TemplateDraft[] TemplateDraftList { get; set; } = default!;
+                public List<Types.TemplateDraft>? TemplateDraftList { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。

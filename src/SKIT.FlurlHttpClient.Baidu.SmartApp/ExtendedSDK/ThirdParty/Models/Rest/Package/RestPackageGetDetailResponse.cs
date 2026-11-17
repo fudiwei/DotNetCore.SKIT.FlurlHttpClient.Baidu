@@ -22,7 +22,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("version")]
                 [System.Text.Json.Serialization.JsonPropertyName("version")]
-                public string Version { get; set; } = default!;
+                public string? Version { get; set; }
 
                 /// <summary>
                 /// 获取或设置版本描述。
@@ -36,7 +36,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("remark")]
                 [System.Text.Json.Serialization.JsonPropertyName("remark")]
-                public string Remark { get; set; } = default!;
+                public string? Remark { get; set; }
 
                 /// <summary>
                 /// 获取或设置状态。

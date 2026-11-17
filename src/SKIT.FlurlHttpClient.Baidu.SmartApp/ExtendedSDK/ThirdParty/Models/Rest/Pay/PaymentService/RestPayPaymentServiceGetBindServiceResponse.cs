@@ -22,35 +22,35 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("pm_app_key")]
                 [System.Text.Json.Serialization.JsonPropertyName("pm_app_key")]
-                public string ServiceAppKey { get; set; } = default!;
+                public string? ServiceAppKey { get; set; }
 
                 /// <summary>
                 /// 获取或设置服务名称。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("app_name")]
                 [System.Text.Json.Serialization.JsonPropertyName("app_name")]
-                public string ServiceAppName { get; set; } = default!;
+                public string? ServiceAppName { get; set; }
 
                 /// <summary>
                 /// 获取或设置服务电话。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("service_phone")]
                 [System.Text.Json.Serialization.JsonPropertyName("service_phone")]
-                public string ServicePhoneNumber { get; set; } = default!;
+                public string? ServicePhoneNumber { get; set; }
 
                 /// <summary>
                 /// 获取或设置银行开户名。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("bank_account")]
                 [System.Text.Json.Serialization.JsonPropertyName("bank_account")]
-                public string BankAccountName { get; set; } = default!;
+                public string? BankAccountName { get; set; }
 
                 /// <summary>
                 /// 获取或设置银行卡号。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("bank_card")]
                 [System.Text.Json.Serialization.JsonPropertyName("bank_card")]
-                public string BankAccountNumber { get; set; } = default!;
+                public string? BankAccountNumber { get; set; }
 
                 /// <summary>
                 /// 获取或设置银行卡预留手机号。
@@ -64,7 +64,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("bank_name")]
                 [System.Text.Json.Serialization.JsonPropertyName("bank_name")]
-                public string BankName { get; set; } = default!;
+                public string? BankName { get; set; }
 
                 /// <summary>
                 /// 获取或设置银行支行名称。
@@ -120,14 +120,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("platform_public_key")]
                 [System.Text.Json.Serialization.JsonPropertyName("platform_public_key")]
-                public string PlatformPublicKey { get; set; } = default!;
+                public string? PlatformPublicKey { get; set; }
 
                 /// <summary>
                 /// 获取或设置百度收银台的财务结算凭证。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("deal_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("deal_id")]
-                public string DealId { get; set; } = default!;
+                public string? DealId { get; set; }
 
                 /// <summary>
                 /// 获取或设置开通状态。

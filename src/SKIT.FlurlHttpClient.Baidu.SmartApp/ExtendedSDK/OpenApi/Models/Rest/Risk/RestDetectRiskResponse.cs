@@ -22,7 +22,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("tag")]
                 [System.Text.Json.Serialization.JsonPropertyName("tag")]
-                public string[]? TagList { get; set; }
+                public List<string>? TagList { get; set; }
             }
         }
     }

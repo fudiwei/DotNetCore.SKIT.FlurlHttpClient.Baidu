@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
 {
     /// <summary>
@@ -19,7 +17,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("xtoken")]
         [System.Text.Json.Serialization.JsonPropertyName("xtoken")]
-        public string XToken { get; set; } = string.Empty;
+        public string? XToken { get; set; }
 
         /// <summary>
         /// 获取或设置经营活动类型。
@@ -27,21 +25,21 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("type")]
         [System.Text.Json.Serialization.JsonPropertyName("type")]
-        public string Type { get; set; } = "marketing";
+        public string? Type { get; set; } = "marketing";
 
         /// <summary>
         /// 获取或设置事件类型。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("ev")]
         [System.Text.Json.Serialization.JsonPropertyName("ev")]
-        public string Event { get; set; } = string.Empty;
+        public string? Event { get; set; }
 
         /// <summary>
         /// 获取或设置客户端的 IP。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("clientip")]
         [System.Text.Json.Serialization.JsonPropertyName("clientip")]
-        public string ClientIP { get; set; } = string.Empty;
+        public string? ClientIP { get; set; }
 
         /// <summary>
         /// 获取或设置客户端的 User-Agent。

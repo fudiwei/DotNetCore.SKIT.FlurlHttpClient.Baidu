@@ -10,6 +10,6 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("signature")]
         [System.Text.Json.Serialization.JsonPropertyName("signature")]
-        public string AppDescription { get; set; } = string.Empty;
+        public string? AppDescription { get; set; }
     }
 }

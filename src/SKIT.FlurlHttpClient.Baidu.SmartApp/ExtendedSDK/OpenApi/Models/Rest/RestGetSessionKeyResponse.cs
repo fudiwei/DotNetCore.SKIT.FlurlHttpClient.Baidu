@@ -14,14 +14,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("open_id")]
                 [System.Text.Json.Serialization.JsonPropertyName("open_id")]
-                public string OpenId { get; set; } = default!;
+                public string? OpenId { get; set; }
 
                 /// <summary>
                 /// 获取或设置用户登录态密钥。
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("session_key")]
                 [System.Text.Json.Serialization.JsonPropertyName("session_key")]
-                public string SessionKey { get; set; } = default!;
+                public string? SessionKey { get; set; }
             }
         }
     }

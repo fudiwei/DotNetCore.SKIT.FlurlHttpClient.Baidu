@@ -18,21 +18,21 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("template_id")]
                         [System.Text.Json.Serialization.JsonPropertyName("template_id")]
-                        public string TemplateId { get; set; } = default!;
+                        public string? TemplateId { get; set; }
 
                         /// <summary>
                         /// 获取或设置模板标题。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("title")]
                         [System.Text.Json.Serialization.JsonPropertyName("title")]
-                        public string Title { get; set; } = default!;
+                        public string? Title { get; set; }
 
                         /// <summary>
                         /// 获取或设置模板内容。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("content")]
                         [System.Text.Json.Serialization.JsonPropertyName("content")]
-                        public string Content { get; set; } = default!;
+                        public string? Content { get; set; }
 
                         /// <summary>
                         /// 获取或设置模板内容示例。
@@ -48,7 +48,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("list")]
                 [System.Text.Json.Serialization.JsonPropertyName("list")]
-                public Types.Template[] TemplateList { get; set; } = default!;
+                public List<Types.Template>? TemplateList { get; set; }
 
                 /// <summary>
                 /// 获取或设置总数量。

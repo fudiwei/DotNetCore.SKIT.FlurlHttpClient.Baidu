@@ -54,14 +54,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("msg")]
                         [System.Text.Json.Serialization.JsonPropertyName("msg")]
-                        public string StatusMessage { get; set; } = default!;
+                        public string? StatusMessage { get; set; }
 
                         /// <summary>
                         /// 获取或设置提交时间字符串（格式：yyyy-MM-dd）。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("submitTime")]
                         [System.Text.Json.Serialization.JsonPropertyName("submitTime")]
-                        public string SubmitTimeString { get; set; } = default!;
+                        public string? SubmitTimeString { get; set; }
                     }
                 }
 
@@ -71,7 +71,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 [Newtonsoft.Json.JsonProperty("ruleDetailList")]
                 [System.Text.Json.Serialization.JsonPropertyName("ruleDetailList")]
 
-                public Types.Rule[] RuleList { get; set; } = default!;
+                public List<Types.Rule>? RuleList { get; set; }
 
                 /// <summary>
                 /// 获取或设置适配规则总数量。

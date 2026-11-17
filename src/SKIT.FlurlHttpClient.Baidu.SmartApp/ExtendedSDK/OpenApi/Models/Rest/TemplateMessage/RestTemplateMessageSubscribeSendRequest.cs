@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
 {
     /// <summary>
@@ -19,30 +17,30 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("template_id")]
         [System.Text.Json.Serialization.JsonPropertyName("template_id")]
-        public string TemplateId { get; set; } = string.Empty;
+        public string? TemplateId { get; set; }
 
         /// <summary>
         /// 获取或设置接收者用户 OpenId。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("touser_openId")]
         [System.Text.Json.Serialization.JsonPropertyName("touser_openId")]
-        public string ToUserOpenId { get; set; } = string.Empty;
+        public string? ToUserOpenId { get; set; }
 
         /// <summary>
         /// 获取或设置订阅 ID。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("subscribe_id")]
         [System.Text.Json.Serialization.JsonPropertyName("subscribe_id")]
-        public string SubscribeId { get; set; } = string.Empty;
+        public string? SubscribeId { get; set; }
 
         /// <summary>
         /// 获取或设置消息关键词字典。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("data")]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.Common.StringifiedObjectInJsonFormatConverter))]
+        [Newtonsoft.Json.JsonConverter(typeof(SKIT.JsonConv.NewtonsoftJson.Converters.StringifiedObjectInJsonFormatConverter))]
         [System.Text.Json.Serialization.JsonPropertyName("data")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.StringifiedObjectInJsonFormatConverter))]
-        public IDictionary<string, Types.DataItem> Data { get; set; } = new Dictionary<string, Types.DataItem>();
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.StringifiedObjectInJsonFormatConverter))]
+        public Dictionary<string, Types.DataItem>? Data { get; set; }
 
         /// <summary>
         /// 获取或设置小程序页面路径。

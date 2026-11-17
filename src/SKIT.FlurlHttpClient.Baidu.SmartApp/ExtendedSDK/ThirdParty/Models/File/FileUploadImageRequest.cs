@@ -1,5 +1,3 @@
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -19,7 +17,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
-        public byte[] ImageFileBytes { get; set; } = Array.Empty<byte>();
+        public byte[]? ImageFileBytes { get; set; }
 
         /// <summary>
         /// 获取或设置图片文件文件名。如果不指定将由系统自动生成。

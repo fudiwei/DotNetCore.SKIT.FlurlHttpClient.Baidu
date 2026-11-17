@@ -10,14 +10,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("app_name")]
         [System.Text.Json.Serialization.JsonPropertyName("app_name")]
-        public string ServiceAppName { get; set; } = string.Empty;
+        public string? ServiceAppName { get; set; }
 
         /// <summary>
         /// 获取或设置服务电话。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("service_phone")]
         [System.Text.Json.Serialization.JsonPropertyName("service_phone")]
-        public string ServicePhoneNumber { get; set; } = string.Empty;
+        public string? ServicePhoneNumber { get; set; }
 
         /// <summary>
         /// 获取或设置提现后的保留金额（单位：元）。

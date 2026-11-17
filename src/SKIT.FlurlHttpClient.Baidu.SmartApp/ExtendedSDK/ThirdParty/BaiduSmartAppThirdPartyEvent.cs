@@ -10,7 +10,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
         /// </summary>
         [Newtonsoft.Json.JsonProperty("tpAppId")]
         [System.Text.Json.Serialization.JsonPropertyName("tpAppId")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
         public virtual string? ThirdPartyAppId { get; set; }
 
         /// <summary>
@@ -18,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
         /// </summary>
         [Newtonsoft.Json.JsonProperty("appId")]
         [System.Text.Json.Serialization.JsonPropertyName("appId")]
-        [System.Text.Json.Serialization.JsonConverter(typeof(System.Text.Json.Serialization.Common.NumericalStringReadOnlyConverter))]
+        [System.Text.Json.Serialization.JsonConverter(typeof(SKIT.JsonConv.SystemTextJson.Converters.NumericStringReadOnlyConverter))]
         public virtual string? AppId { get; set; }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
         /// </summary>
         [Newtonsoft.Json.JsonProperty("event")]
         [System.Text.Json.Serialization.JsonPropertyName("event")]
-        public virtual string Event { get; set; } = default!;
+        public virtual string? Event { get; set; }
 
         /// <summary>
         /// 获取或设置事件产生时间字符串（格式：yyyy-MM-dd HH:mm:ss）。

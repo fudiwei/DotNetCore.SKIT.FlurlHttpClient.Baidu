@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("qrcode")]
                 [System.Text.Json.Serialization.JsonPropertyName("qrcode")]
-                public string EncodingQrcodeData { get; set; } = default!;
+                public string? EncodingQrcodeData { get; set; }
 
                 /// <summary>
                 /// 获取或设置二维码过期时间戳。

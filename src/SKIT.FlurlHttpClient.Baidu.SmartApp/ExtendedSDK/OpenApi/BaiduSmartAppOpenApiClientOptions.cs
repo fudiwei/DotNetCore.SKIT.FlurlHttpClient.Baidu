@@ -20,17 +20,17 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi
         /// <summary>
         /// 获取或设置百度智能小程序 AppId。
         /// </summary>
-        public string AppId { get; set; } = default!;
+        public string AppId { get; set; } = string.Empty;
 
         /// <summary>
         /// 获取或设置百度智能小程序 AppKey。
         /// </summary>
-        public string AppKey { get; set; } = default!;
+        public string AppKey { get; set; } = string.Empty;
 
         /// <summary>
         /// 获取或设置百度智能小程序 AppSecret。
         /// </summary>
-        public string AppSecret { get; set; } = default!;
+        public string AppSecret { get; set; } = string.Empty;
 
         /// <summary>
         /// 获取或设置百度智能小程序消息验证令牌。

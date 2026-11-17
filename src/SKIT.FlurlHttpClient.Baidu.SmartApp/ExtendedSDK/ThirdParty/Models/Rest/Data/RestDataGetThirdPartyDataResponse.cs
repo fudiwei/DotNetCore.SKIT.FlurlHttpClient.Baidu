@@ -18,7 +18,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("data")]
                         [System.Text.Json.Serialization.JsonPropertyName("data")]
-                        public string DateString { get; set; } = default!;
+                        public string? DateString { get; set; }
 
                         /// <summary>
                         /// 获取或设置当日小程序数量。
@@ -153,7 +153,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("result")]
                 [System.Text.Json.Serialization.JsonPropertyName("result")]
-                public Types.Statistic[] StatisticList { get; set; } = default!;
+                public List<Types.Statistic>? StatisticList { get; set; }
 
                 /// <summary>
                 /// 获取或设置当前偏移位置。

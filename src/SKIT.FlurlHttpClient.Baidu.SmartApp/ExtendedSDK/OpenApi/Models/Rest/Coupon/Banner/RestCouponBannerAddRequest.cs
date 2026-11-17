@@ -10,21 +10,21 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("couponId")]
         [System.Text.Json.Serialization.JsonPropertyName("couponId")]
-        public string CouponId { get; set; } = string.Empty;
+        public string? CouponId { get; set; }
 
         /// <summary>
         /// 获取或设置图片 URL。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("picUrl")]
         [System.Text.Json.Serialization.JsonPropertyName("picUrl")]
-        public string PictureUrl { get; set; } = string.Empty;
+        public string? PictureUrl { get; set; }
 
         /// <summary>
         /// 获取或设置标题。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("title")]
         [System.Text.Json.Serialization.JsonPropertyName("title")]
-        public string Title { get; set; } = string.Empty;
+        public string? Title { get; set; }
 
         /// <summary>
         /// 获取或设置跳转页面路径。

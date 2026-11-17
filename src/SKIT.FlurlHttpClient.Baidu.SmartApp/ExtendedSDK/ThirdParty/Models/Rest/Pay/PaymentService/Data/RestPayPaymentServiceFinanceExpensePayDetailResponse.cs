@@ -1,5 +1,3 @@
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
 {
     /// <summary>
@@ -28,14 +26,14 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("paid_account")]
                         [System.Text.Json.Serialization.JsonPropertyName("paid_account")]
-                        public string AccountNumber { get; set; } = default!;
+                        public string? AccountNumber { get; set; }
 
                         /// <summary>
                         /// 获取或设置收款人姓名。
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("receive_user")]
                         [System.Text.Json.Serialization.JsonPropertyName("receive_user")]
-                        public string AccountName { get; set; } = default!;
+                        public string? AccountName { get; set; }
 
                         /// <summary>
                         /// 获取或设置备注信息。
@@ -49,7 +47,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                         /// </summary>
                         [Newtonsoft.Json.JsonProperty("payment_status")]
                         [System.Text.Json.Serialization.JsonPropertyName("payment_status")]
-                        public string PayStatus { get; set; } = default!;
+                        public string? PayStatus { get; set; }
                     }
                 }
 
@@ -58,7 +56,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty.Models
                 /// </summary>
                 [Newtonsoft.Json.JsonProperty("data")]
                 [System.Text.Json.Serialization.JsonPropertyName("data")]
-                public Types.Record[] RecordList { get; set; } = default!;
+                public List<Types.Record>? RecordList { get; set; }
             }
         }
     }

@@ -5,9 +5,7 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
     /// </summary>
     public class OAuthTokenResponse : BaiduSmartAppOpenApiResponse
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override string? ErrorMessage
@@ -35,10 +33,10 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
         /// </summary>
         [Newtonsoft.Json.JsonProperty("access_token")]
         [System.Text.Json.Serialization.JsonPropertyName("access_token")]
-        public string AccessToken { get; set; } = default!;
+        public string? AccessToken { get; set; }
 
         /// <summary>
-        /// 获取或设置接口调用凭证有效期（单位：秒）。
+        /// 获取或设置凭证有效期（单位：秒）。
         /// </summary>
         [Newtonsoft.Json.JsonProperty("expires_in")]
         [System.Text.Json.Serialization.JsonPropertyName("expires_in")]

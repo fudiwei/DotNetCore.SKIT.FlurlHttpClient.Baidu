@@ -3,18 +3,16 @@ namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Models
     /// <summary>
     /// <para>表示 [POST] /rest/2.0/smartapp/ordercenter/app/update/sub/info 接口的响应。</para>
     /// </summary>
-    public class RestOrderCenterAppUpdateSubInfoResponse : BaiduSmartAppOpenApiResponse<RestOrderCenterAppUpdateSubInfoResponse.Types.Result[]>
+    public class RestOrderCenterAppUpdateSubInfoResponse : BaiduSmartAppOpenApiResponse<List<RestOrderCenterAppUpdateSubInfoResponse.Types.Result>?>
     {
         public static class Types
         {
-            public class Result : RestOrderCenterAppAppendSubInfoResponse.Types.Result
+            public class Result : RestOrderCenterAppAddMainInfoResponse.Types.Result
             {
             }
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonProperty("msg")]
         [System.Text.Json.Serialization.JsonPropertyName("msg")]
         public override string? ErrorMessage { get; set; }

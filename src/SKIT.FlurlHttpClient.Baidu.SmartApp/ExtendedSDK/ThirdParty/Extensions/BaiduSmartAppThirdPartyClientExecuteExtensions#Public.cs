@@ -1,13 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.ThirdParty
 {
-    public static class BaiduSmartAppThirdPartyClientExecutePublicExtensions
+    public static partial class BaiduSmartAppThirdPartyClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [GET] /public/2.0/smartapp/auth/tp/token 接口。</para>
