@@ -14,7 +14,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
 
         /// <summary>
         /// 获取或设置翻译源语种代码。
-        /// <para>默认值：auto</para>
+        /// <para>默认值："auto"</para>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("from")]
         [System.Text.Json.Serialization.JsonPropertyName("from")]
@@ -34,9 +34,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         [System.Text.Json.Serialization.JsonPropertyName("domain")]
         public string Domain { get; set; } = string.Empty;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override long? Timestamp { get; set; }

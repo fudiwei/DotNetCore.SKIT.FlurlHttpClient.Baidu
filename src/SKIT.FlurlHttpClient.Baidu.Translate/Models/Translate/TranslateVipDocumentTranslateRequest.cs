@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
 namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
 {
     using SKIT.FlurlHttpClient.Primitives;
@@ -60,9 +56,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         [System.Text.Json.Serialization.JsonPropertyName("outPutType")]
         public string? OutputType { get; set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override string? Salt { get; set; }

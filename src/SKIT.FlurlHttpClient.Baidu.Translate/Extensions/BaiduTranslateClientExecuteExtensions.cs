@@ -1,13 +1,6 @@
-using System;
-using System.Net.Http;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Flurl.Http;
-
 namespace SKIT.FlurlHttpClient.Baidu.Translate
 {
-    public static class BaiduTranslateClientExecuteTranslateExtensions
+    public static partial class BaiduTranslateClientExecuteExtensions
     {
         /// <summary>
         /// <para>异步调用 [POST] /trans/vip/translate 接口。</para>
@@ -175,7 +168,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "trans", "vip", "doccount");
 
-            using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: request.FileName!, fileBytes: request.FileBytes, fileContentType: fileContentType!, formDataName: "file");
+            using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: request.FileName, fileBytes: request.FileBytes, fileContentType: fileContentType, formDataName: "file");
             httpContent.Add(new StringContent(request.AppId!, Encoding.UTF8), "appid");
             httpContent.Add(new StringContent(request.From, Encoding.UTF8), "from");
             httpContent.Add(new StringContent(request.Timestamp!.Value.ToString(), Encoding.UTF8), "timestamp");
@@ -285,13 +278,9 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "trans", "vip", "doctrans");
 
-            if (request.FileBytes is null)
+            if (request.FileBytes is not null)
             {
-                return await client.SendFlurlRequestAsFormUrlEncodedAsync<Models.TranslateVipDocumentTranslateResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
-            }
-            else
-            {
-                using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: request.FileName!, fileBytes: request.FileBytes, fileContentType: fileContentType!, formDataName: "file");
+                using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: request.FileName, fileBytes: request.FileBytes, fileContentType: fileContentType, formDataName: "file");
                 httpContent.Add(new StringContent(request.AppId!, Encoding.UTF8), "appid");
                 httpContent.Add(new StringContent(request.FileId ?? string.Empty, Encoding.UTF8), "fileId");
                 httpContent.Add(new StringContent(request.From, Encoding.UTF8), "from");
@@ -301,6 +290,10 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
                 httpContent.Add(new StringContent(request.FileType!, Encoding.UTF8), "type");
                 httpContent.Add(new StringContent(request.Signature!, Encoding.UTF8), "sign");
                 return await client.SendFlurlRequestAsync<Models.TranslateVipDocumentTranslateResponse>(flurlReq, httpContent: httpContent, cancellationToken: cancellationToken).ConfigureAwait(false);
+            }
+            else
+            {
+                return await client.SendFlurlRequestAsFormUrlEncodedAsync<Models.TranslateVipDocumentTranslateResponse>(flurlReq, data: request, cancellationToken: cancellationToken).ConfigureAwait(false);
             }
         }
 
@@ -348,7 +341,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
             IFlurlRequest flurlReq = client
                 .CreateFlurlRequest(request, HttpMethod.Post, "trans", "sdk", "picture");
 
-            using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: "image.jpg", fileBytes: request.ImageFileBytes!, fileContentType: "image/jpeg", formDataName: "image");
+            using var httpContent = Utilities.HttpContentBuilder.BuildWithFile(fileName: "image.jpg", fileBytes: request.ImageFileBytes, fileContentType: "image/jpeg", formDataName: "image");
             httpContent.Add(new StringContent(request.AppId!, Encoding.UTF8), "appid");
             httpContent.Add(new StringContent(request.CUID, Encoding.UTF8), "cuid");
             httpContent.Add(new StringContent(request.From, Encoding.UTF8), "from");

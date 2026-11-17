@@ -1,6 +1,3 @@
-using System.Threading.Tasks;
-using Xunit;
-
 namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
 {
     public class TestCase_ApiExecuteTranslateTests

@@ -1,6 +1,3 @@
-using System;
-using System.Text;
-
 namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
 {
     /// <summary>
@@ -8,9 +5,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
     /// </summary>
     public class TranslateVoiceTranslateV2Request : BaiduTranslateRequest
     {
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override string? AppId { get; set; }
@@ -43,23 +38,17 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         [System.Text.Json.Serialization.JsonPropertyName("to")]
         public string To { get; set; } = string.Empty;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override string? Salt { get; set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override long? Timestamp { get; set; }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override string? Signature { get; set; }

@@ -1,6 +1,3 @@
-using System;
-using Xunit;
-
 namespace SKIT.FlurlHttpClient.Baidu.Translate.UnitTests
 {
     public partial class TestCase_RequestSigningTests

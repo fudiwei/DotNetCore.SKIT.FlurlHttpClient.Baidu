@@ -20,11 +20,11 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate
         /// <summary>
         /// 获取或设置百度翻译 AppId。
         /// </summary>
-        public string AppId { get; set; } = default!;
+        public string AppId { get; set; } = string.Empty;
 
         /// <summary>
         /// 获取或设置百度翻译 AppSecret。
         /// </summary>
-        public string AppSecret { get; set; } = default!;
+        public string AppSecret { get; set; } = string.Empty;
     }
 }

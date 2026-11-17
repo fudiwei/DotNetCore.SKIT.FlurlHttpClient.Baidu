@@ -1,5 +1,3 @@
-using System;
-
 namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
 {
     /// <summary>
@@ -36,29 +34,33 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         public int? PasteType { get; set; }
 
         /// <summary>
-        /// <i>（使用默认值即可，无需修改）</i>
+        /// 获取或设置请求 CUID。
+        /// <para>默认值："APICUID"</para>
+        /// <remarks><i>（使用默认值即可，无需修改）</i></remarks>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("cuid")]
         [System.Text.Json.Serialization.JsonPropertyName("cuid")]
         public string CUID { get; set; } = "APICUID";
 
         /// <summary>
-        /// <i>（使用默认值即可，无需修改）</i>
+        /// 获取或设置请求 MAC。
+        /// <para>默认值："mac"</para>
+        /// <remarks><i>（使用默认值即可，无需修改）</i></remarks>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("mac")]
         [System.Text.Json.Serialization.JsonPropertyName("mac")]
         public string MAC { get; set; } = "mac";
 
         /// <summary>
-        /// <i>（使用默认值即可，无需修改）</i>
+        /// 获取或设置请求版本。
+        /// <para>默认值：3</para>
+        /// <remarks><i>（使用默认值即可，无需修改）</i></remarks>
         /// </summary>
         [Newtonsoft.Json.JsonProperty("version")]
         [System.Text.Json.Serialization.JsonPropertyName("version")]
         public int Version { get; set; } = 3;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override long? Timestamp { get; set; }

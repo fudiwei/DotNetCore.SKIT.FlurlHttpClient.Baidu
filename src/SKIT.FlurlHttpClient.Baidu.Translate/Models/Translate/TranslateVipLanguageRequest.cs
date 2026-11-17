@@ -12,9 +12,7 @@ namespace SKIT.FlurlHttpClient.Baidu.Translate.Models
         [System.Text.Json.Serialization.JsonPropertyName("q")]
         public string QueryString { get; set; } = string.Empty;
 
-        /// <summary>
         /// <inheritdoc/>
-        /// </summary>
         [Newtonsoft.Json.JsonIgnore]
         [System.Text.Json.Serialization.JsonIgnore]
         public override long? Timestamp { get; set; }
