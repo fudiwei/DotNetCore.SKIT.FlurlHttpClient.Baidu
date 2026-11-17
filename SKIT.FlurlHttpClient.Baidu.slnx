@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SKIT.FlurlHttpClient.Baidu.Push/SKIT.FlurlHttpClient.Baidu.Push.csproj" />
+    <Project Path="src/SKIT.FlurlHttpClient.Baidu.SmartApp/SKIT.FlurlHttpClient.Baidu.SmartApp.csproj" />
+    <Project Path="src/SKIT.FlurlHttpClient.Baidu.Translate/SKIT.FlurlHttpClient.Baidu.Translate.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <Project Path="test/SKIT.FlurlHttpClient.Baidu.Push.UnitTests/SKIT.FlurlHttpClient.Baidu.Push.UnitTests.csproj" />
+    <Project Path="test/SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTests/SKIT.FlurlHttpClient.Baidu.SmartApp.UnitTests.csproj" />
+    <Project Path="test/SKIT.FlurlHttpClient.Baidu.Translate.UnitTests/SKIT.FlurlHttpClient.Baidu.Translate.UnitTests.csproj" />
+  </Folder>
+</Solution>
