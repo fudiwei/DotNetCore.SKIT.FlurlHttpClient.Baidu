@@ -2,6 +2,13 @@ namespace SKIT.FlurlHttpClient.Baidu.Push.Interceptors
 {
     using SKIT.FlurlHttpClient.Internal;
 
+    /// <summary>
+    /// 
+    /// <para>
+    /// REF: <br/>
+    /// <![CDATA[ https://push.baidu.com/doc/restapi/sdk_developer ]]>
+    /// </para>
+    /// </summary>
     internal class BaiduPushRequestSigningInterceptor : HttpInterceptor
     {
         private const string QUERY_NAME_APIKEY = "apikey";
