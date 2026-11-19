@@ -1,7 +1,7 @@
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Events
 {
     /// <summary>
-    /// <para>表示 IMAGE 事件的数据。</para>
+    /// <para>表示 "IMAGE" 回调通知事件的数据。</para>
     /// <para>
     /// REF: <br/>
     /// <![CDATA[ https://smartprogram.baidu.com/docs/develop/serverapi/contact_api_background/ ]]>

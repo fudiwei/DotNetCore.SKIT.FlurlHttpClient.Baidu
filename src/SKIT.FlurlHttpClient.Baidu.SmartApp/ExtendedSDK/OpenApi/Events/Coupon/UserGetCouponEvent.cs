@@ -1,7 +1,7 @@
 namespace SKIT.FlurlHttpClient.Baidu.SmartApp.ExtendedSDK.OpenApi.Events
 {
     /// <summary>
-    /// <para>表示 EVENT.user_get_coupon 事件的数据。</para>
+    /// <para>表示 "EVENT.user_get_coupon" 回调通知事件的数据。</para>
     /// <para>
     /// REF: <br/>
     /// <![CDATA[ https://smartprogram.baidu.com/docs/develop/api/open/coupons_collect/ ]]>
